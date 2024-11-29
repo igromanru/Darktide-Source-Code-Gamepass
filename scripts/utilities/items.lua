@@ -118,7 +118,7 @@ Items.mark_item_id_as_new = function (item, skip_notification)
 	local show_notification = skip_notification and skip_notification ~= true or not skip_notification
 
 	new_item_notifications[gear_id] = {
-		show_notification = show_notification
+		show_notification = show_notification,
 	}
 
 	Managers.save:queue_save()
@@ -333,7 +333,7 @@ Items.sub_display_name = function (item, required_level, include_item_type)
 		local no_cache = true
 
 		text = text .. " · {#color(120,120,120)}" .. Localize("loc_requires_level", no_cache, {
-			level = required_level
+			level = required_level,
 		})
 	end
 
@@ -467,7 +467,7 @@ end
 
 local trinket_slot_order = {
 	"slot_trinket_1",
-	"slot_trinket_2"
+	"slot_trinket_2",
 }
 
 Items.get_current_equipped_trinket = function (item)
@@ -620,7 +620,7 @@ end
 Items.level_display_name = function (item)
 	local item_level = Items.expertise_level(item)
 	local item_level_display_name_localized = Localize("loc_item_display_level_format_key", true, {
-		level = item_level
+		level = item_level,
 	})
 
 	return item_level_display_name_localized
@@ -643,24 +643,24 @@ end
 
 local _item_property_definitions = {
 	{
-		loc_key = "loc_item_property_change_voice",
 		icon = "",
+		loc_key = "loc_item_property_change_voice",
 		condition = function (item)
 			local item_voice_modulator = item.voice_fx_preset
 
 			return item_voice_modulator and item_voice_modulator ~= "voice_fx_rtpc_none"
-		end
+		end,
 	},
 	{
-		loc_key = "loc_item_property_change_walk",
 		icon = "",
+		loc_key = "loc_item_property_change_walk",
 		condition = function (item)
 			local left_value = table.nested_get(item, "profile_properties", "footstep_type_left")
 			local right_value = table.nested_get(item, "profile_properties", "footstep_type_right")
 
 			return left_value and left_value ~= "default" or right_value and right_value ~= "default"
-		end
-	}
+		end,
+	},
 }
 
 local function _item_property_list(item)
@@ -736,7 +736,7 @@ Items.obtained_display_name = function (item)
 						local sub_penances_count = table.size(achievement.achievements)
 
 						optional_description = Localize("loc_inventory_cosmetic_item_acquisition_penance_description_multiple_requirement", true, {
-							penance_amount = sub_penances_count
+							penance_amount = sub_penances_count,
 						})
 					else
 						optional_description = AchievementUIHelper.localized_description(achievement)
@@ -749,11 +749,11 @@ Items.obtained_display_name = function (item)
 					value = achievement_label,
 					r = key_value_color[2],
 					g = key_value_color[3],
-					b = key_value_color[4]
+					b = key_value_color[4],
 				})
 
 				display_name = Localize(display_name_localization_key, true, {
-					achievement_label = achievement_label_colored
+					achievement_label = achievement_label_colored,
 				})
 			end
 		end
@@ -946,7 +946,7 @@ Items.retrieve_items_for_archetype = function (archetype, filtered_slots, workfl
 	local WORKFLOW_STATES = {
 		"SHIPPABLE",
 		"RELEASABLE",
-		"FUNCTIONAL"
+		"FUNCTIONAL",
 	}
 
 	workflow_states = workflow_states and workflow_states or WORKFLOW_STATES
@@ -1010,7 +1010,7 @@ Items.perk_item_by_id = function (perk_id)
 end
 
 local temp_item_rank_localization_context = {
-	rank = 0
+	rank = 0,
 }
 
 Items.rank_display_text = function (item)
@@ -1766,7 +1766,7 @@ Items.preview_stats_change = function (item, expertise_increase, stats, max_stat
 		filled_stats[#filled_stats + 1] = {
 			display_name = stat.display_name,
 			name = stat.name,
-			value = fraction and fraction * 100 or 0
+			value = fraction and fraction * 100 or 0,
 		}
 	end
 
@@ -1782,7 +1782,7 @@ Items.preview_stats_change = function (item, expertise_increase, stats, max_stat
 
 			result[filled_stat.display_name] = {
 				fraction = math.min(value / 100, 1),
-				value = math.min(value, 100)
+				value = math.min(value, 100),
 			}
 		end
 
@@ -1898,7 +1898,7 @@ Items.preview_stats_change = function (item, expertise_increase, stats, max_stat
 
 		result[filled_stat.display_name] = {
 			fraction = math.min(value / 100, 1),
-			value = math.min(value, 100)
+			value = math.min(value, 100),
 		}
 	end
 
@@ -1962,7 +1962,7 @@ Items.create_mannequin_profile_by_item = function (item, prefered_gender, prefer
 		loadout = loadout,
 		archetype = archetype,
 		breed = breed,
-		gender = gender
+		gender = gender,
 	}
 end
 

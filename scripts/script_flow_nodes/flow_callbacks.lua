@@ -1017,7 +1017,7 @@ FlowCallbacks.trigger_cinematic_video = function (params)
 	if template_name and template_name ~= "" then
 		Managers.ui:open_view("video_view", nil, true, true, nil, {
 			allow_skip_input = true,
-			template = template_name
+			template = template_name,
 		})
 
 		flow_return_table.triggered = true
@@ -1400,7 +1400,7 @@ end
 FlowCallbacks.load_mission = function (params)
 	local new_mission_name = params.mission_name
 	local mechanism_context = {
-		mission_name = new_mission_name
+		mission_name = new_mission_name,
 	}
 	local Missions = require("scripts/settings/mission/mission_templates")
 	local mission_settings = Missions[new_mission_name]
@@ -1838,13 +1838,13 @@ FlowCallbacks.debug_print_world_text = function (params)
 	local text_position = Vector3(res_x / 2, res_y / 2, 1)
 	local background = params.background
 	local options = {
-		text_vertical_alignment = "center",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_size = size,
 		text_color = color,
 		time = time,
 		position = text_position,
-		background = background
+		background = background,
 	}
 end
 

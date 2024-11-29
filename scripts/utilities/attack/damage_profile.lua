@@ -13,7 +13,7 @@ local MIN_CRIT_MOD = DamageProfileSettings.min_crit_mod
 local _distribute_power_level_to_power_type, _max_hit_mass
 local armor_penetrating_conversion = {
 	armored = "unarmored",
-	super_armor = "armored"
+	super_armor = "armored",
 }
 local DamageProfile = {}
 
@@ -301,7 +301,7 @@ end
 
 local TARGET_SETTINGS_NO_LERP_VALUES = {}
 local DAMAGE_PROFILE_NO_LERP_VALUES = {
-	current_target_settings_lerp_values = TARGET_SETTINGS_NO_LERP_VALUES
+	current_target_settings_lerp_values = TARGET_SETTINGS_NO_LERP_VALUES,
 }
 
 DamageProfile.lerp_values = function (damage_profile, attacking_unit_or_nil, target_index_or_nil)
@@ -325,7 +325,7 @@ DamageProfile.lerp_values = function (damage_profile, attacking_unit_or_nil, tar
 end
 
 local EMPTY_PATH = {
-	[DEFAULT_LERP_VALUE] = 0
+	[DEFAULT_LERP_VALUE] = 0,
 }
 
 DamageProfile.lerp_value_from_path = function (lerp_values, ...)

@@ -33,49 +33,49 @@ HudElementSmartTagging.init = function (self, parent, draw_layer, start_scale)
 
 	local wheel_options = {
 		{
-			icon = "content/ui/materials/hud/communication_wheel/icons/for_the_emperor",
 			display_name = "loc_communication_wheel_display_name_cheer",
+			icon = "content/ui/materials/hud/communication_wheel/icons/for_the_emperor",
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_for_the_emperor
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_for_the_emperor,
 			},
-			start_angle = -(math.pi / 8) * 3
+			start_angle = -(math.pi / 8) * 3,
 		},
 		{
 			display_name = "loc_communication_wheel_display_name_need_health",
 			icon = "content/ui/materials/hud/communication_wheel/icons/health",
 			chat_message_data = {
 				text = "loc_communication_wheel_need_health",
-				channel = ChannelTags.MISSION
+				channel = ChannelTags.MISSION,
 			},
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_need_health
-			}
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_need_health,
+			},
 		},
 		{
 			display_name = "loc_communication_wheel_display_name_thanks",
 			icon = "content/ui/materials/hud/communication_wheel/icons/thanks",
 			chat_message_data = {
 				text = "loc_communication_wheel_thanks",
-				channel = ChannelTags.MISSION
+				channel = ChannelTags.MISSION,
 			},
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_thank_you
-			}
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_thank_you,
+			},
 		},
 		{
 			display_name = "loc_communication_wheel_display_name_need_ammo",
 			icon = "content/ui/materials/hud/communication_wheel/icons/ammo",
 			chat_message_data = {
 				text = "loc_communication_wheel_need_ammo",
-				channel = ChannelTags.MISSION
+				channel = ChannelTags.MISSION,
 			},
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_need_ammo
-			}
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_need_ammo,
+			},
 		},
 		{
 			display_name = "loc_communication_wheel_display_name_enemy",
@@ -83,28 +83,28 @@ HudElementSmartTagging.init = function (self, parent, draw_layer, start_scale)
 			tag_type = "location_threat",
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_enemy_over_here
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_enemy_over_here,
 			},
-			start_angle = -(math.pi / 8) * 2
+			start_angle = -(math.pi / 8) * 2,
 		},
 		{
-			icon = "content/ui/materials/hud/communication_wheel/icons/location",
 			display_name = "loc_communication_wheel_display_name_location",
+			icon = "content/ui/materials/hud/communication_wheel/icons/location",
 			tag_type = "location_ping",
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_lets_go_this_way
-			}
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_lets_go_this_way,
+			},
 		},
 		{
-			icon = "content/ui/materials/hud/communication_wheel/icons/attention",
 			display_name = "loc_communication_wheel_display_name_attention",
+			icon = "content/ui/materials/hud/communication_wheel/icons/attention",
 			tag_type = "location_attention",
 			voice_event_data = {
 				voice_tag_concept = VoQueryConstants.concepts.on_demand_com_wheel,
-				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_over_here
-			}
-		}
+				voice_tag_id = VoQueryConstants.trigger_ids.com_wheel_vo_over_here,
+			},
+		},
 	}
 
 	self:_populate_wheel(wheel_options)
@@ -157,7 +157,7 @@ HudElementSmartTagging._setup_entries = function (self, num_entries)
 		local widget = self:_create_widget(name, definition)
 
 		entries[i] = {
-			widget = widget
+			widget = widget,
 		}
 	end
 
@@ -356,7 +356,7 @@ HudElementSmartTagging._on_com_wheel_stop_callback = function (self, t, ui_rende
 				wheel_context.single_tap_location_tag = {
 					tag_type = com_wheel_single_tap,
 					spawn_time = t + (DOUBLE_TAP_DELAY - (t - wheel_context.input_start_time)),
-					position = Vector3Box(target_position)
+					position = Vector3Box(target_position),
 				}
 			end
 		end
@@ -869,15 +869,15 @@ HudElementSmartTagging._handle_interaction_draw = function (self, dt, t, input_s
 				end
 
 				self._active_interaction_data = {
-					intro_anim_time = 0,
-					intro_anim_progress = 0,
 					intro_anim_duration = 0.2,
+					intro_anim_progress = 0,
+					intro_anim_time = 0,
 					unit = best_unit or best_marker.unit,
 					marker_id = best_marker.id,
 					marker = best_marker,
 					tag_id = tag_id,
 					tag_template = tag_template,
-					display_name = display_name
+					display_name = display_name,
 				}
 			end
 		else
@@ -1065,7 +1065,7 @@ HudElementSmartTagging._add_smart_tag_presentation = function (self, tag_instanc
 		tag_id = tag_id,
 		player = player,
 		tagger_player = tagger_player,
-		is_my_tag = is_my_tag
+		is_my_tag = is_my_tag,
 	}
 
 	presented_smart_tags_by_tag_id[tag_id] = data
@@ -1179,7 +1179,7 @@ end
 
 local input_action_localization_params = {
 	action = "input_display_text",
-	input = "input_text"
+	input = "input_text",
 }
 
 local function _get_input_text(alias_name, input_text_key, hold_required)
@@ -1197,8 +1197,8 @@ local function _get_input_text(alias_name, input_text_key, hold_required)
 end
 
 local description_format_localization_params = {
+	description = "description",
 	distance = "distance",
-	description = "description"
 }
 
 HudElementSmartTagging._update_tag_interaction_information = function (self, active_interaction_data)

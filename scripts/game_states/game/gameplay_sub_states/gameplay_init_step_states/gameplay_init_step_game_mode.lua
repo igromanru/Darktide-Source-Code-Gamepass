@@ -32,7 +32,7 @@ GameplayInitStepGameMode.update = function (self, main_dt, main_t)
 	self._shared_state.initialized_steps.GameplayInitStepGameMode = true
 
 	local next_step_params = {
-		shared_state = self._shared_state
+		shared_state = self._shared_state,
 	}
 
 	return GameplayInitStepMission, next_step_params
@@ -45,7 +45,7 @@ GameplayInitStepGameMode._init_game_mode = function (self, mission_name, world, 
 	local game_mode_context = {
 		world = world,
 		physics_world = physics_world,
-		is_server = is_server
+		is_server = is_server,
 	}
 	local game_mode_manager = GameModeManager:new(game_mode_context, game_mode_name, gameplay_modifiers, network_event_delegate)
 

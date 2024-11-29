@@ -132,17 +132,17 @@ end
 
 MissionObjectiveTarget.component_data = {
 	ui_target_type = {
-		value = "default",
-		ui_type = "combo_box",
 		category = "UI",
 		ui_name = "UI Icon Type",
+		ui_type = "combo_box",
+		value = "default",
 		options_keys = {
 			"default",
 			"demolition",
 			"decode",
 			"escort",
 			"kill",
-			"scanning"
+			"scanning",
 		},
 		options_values = {
 			"default",
@@ -150,89 +150,89 @@ MissionObjectiveTarget.component_data = {
 			"decode",
 			"escort",
 			"kill",
-			"scanning"
-		}
+			"scanning",
+		},
 	},
 	objective_name = {
+		ui_name = "Objective Name",
 		ui_type = "text_box",
 		value = "default",
-		ui_name = "Objective Name"
 	},
 	register_self = {
+		ui_name = "Register Self",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Register Self"
 	},
 	add_marker_on_registration = {
+		ui_name = "Add Marker on Registration",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Add Marker on Registration"
 	},
 	add_marker_on_objective_start = {
+		ui_name = "Add Marker on Objective Start",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Add Marker on Objective Start"
 	},
 	objective_stage = {
-		value = 1,
-		min = 1,
-		ui_type = "number",
 		decimals = 0,
-		ui_name = "Objective Stage"
+		min = 1,
+		ui_name = "Objective Stage",
+		ui_type = "number",
+		value = 1,
 	},
 	unit_enabled = {
-		value = "enabled",
-		ui_type = "combo_box",
 		ui_name = "Enabled Options",
+		ui_type = "combo_box",
+		value = "enabled",
 		options_keys = {
 			"Unit Enabled",
-			"Unit Enabled only during Mission Event"
+			"Unit Enabled only during Mission Event",
 		},
 		options_values = {
 			"enabled",
-			"only_mission"
-		}
+			"only_mission",
+		},
 	},
 	start_visible = {
+		ui_name = "Starts visible",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Starts visible"
 	},
 	is_side_mission = {
+		category = "Side Mission",
+		ui_name = "Is Side Mission",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Is Side Mission",
-		category = "Side Mission"
 	},
 	side_objective_type = {
-		value = "none",
-		ui_type = "combo_box",
 		category = "Side Mission",
 		ui_name = "Side Objective Type",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"none",
 			"luggable",
-			"collect"
+			"collect",
 		},
 		options_values = {
 			"none",
 			"luggable",
-			"collect"
-		}
+			"collect",
+		},
 	},
 	inputs = {
 		objective_marker_enable = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		objective_marker_disable = {
 			accessibility = "public",
-			type = "event"
-		}
+			type = "event",
+		},
 	},
 	extensions = {
-		"MissionObjectiveTargetExtension"
-	}
+		"MissionObjectiveTargetExtension",
+	},
 }
 
 return MissionObjectiveTarget

@@ -93,9 +93,9 @@ PlayerCharacterStateHubJog.fixed_update = function (self, unit, dt, t, next_stat
 end
 
 local move_state_anim_events = {
-	sprint = "to_sprint",
 	jog = "to_jog",
-	walk = "to_walk"
+	sprint = "to_sprint",
+	walk = "to_walk",
 }
 
 PlayerCharacterStateHubJog._update_move_state = function (self, hub_jog_character_state, input_extension, anim_extension, move_speed, wants_to_stop, dt, t)

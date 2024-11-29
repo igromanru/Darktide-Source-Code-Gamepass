@@ -11,7 +11,7 @@ SweepEditor.LOG_TAG = "SweepEditor"
 
 local POINT_MODIFICATION_TYPES = {
 	"up",
-	"depth"
+	"depth",
 }
 
 for i = 1, #POINT_MODIFICATION_TYPES do
@@ -23,7 +23,7 @@ end
 SweepEditor.init = function (self)
 	self._drawer = Debug:drawer({
 		mode = "immediate",
-		name = "SweepEditor"
+		name = "SweepEditor",
 	})
 	self._input_service = nil
 end

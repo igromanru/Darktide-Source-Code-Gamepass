@@ -25,7 +25,7 @@ local CLIENT_RPCS = {
 	"rpc_trigger_2d_wwise_event",
 	"rpc_trigger_wwise_event",
 	"rpc_trigger_flow_event",
-	"rpc_projectile_trigger_fx"
+	"rpc_projectile_trigger_fx",
 }
 
 FxSystem.init = function (self, extension_system_creation_context, ...)
@@ -44,7 +44,7 @@ FxSystem.init = function (self, extension_system_creation_context, ...)
 			is_running = false,
 			buffer_index = i,
 			template_data = {},
-			optional_position = Vector3Box(Vector3.invalid_vector())
+			optional_position = Vector3Box(Vector3.invalid_vector()),
 		}
 	end
 
@@ -57,7 +57,7 @@ FxSystem.init = function (self, extension_system_creation_context, ...)
 		is_server = is_server,
 		world = self._world,
 		wwise_world = self._wwise_world,
-		game_session = game_session
+		game_session = game_session,
 	}
 	self._latest_player_particle_group_id = 0
 	self.unit_to_particle_group_lookup = Script.new_map(256)

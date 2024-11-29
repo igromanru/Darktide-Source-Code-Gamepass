@@ -183,7 +183,7 @@ RemotePlayer.set_profile = function (self, profile)
 	self._profile = profile
 	self._telemetry_subject = {
 		account_id = self._account_id,
-		character_id = profile.character_id
+		character_id = profile.character_id,
 	}
 end
 

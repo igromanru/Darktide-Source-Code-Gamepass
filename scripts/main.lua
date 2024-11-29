@@ -38,35 +38,35 @@ Main.init = function (self)
 	local package_manager = LEVEL_EDITOR_TEST and PackageManagerEditor:new() or PackageManager:new()
 	local localization_manager = LocalizationManager:new()
 	local params = {
-		next_state = "StateGame",
 		index_offset = 1,
+		next_state = "StateGame",
 		states = {
 			{
 				StateLoadBootAssets,
 				{
 					package_manager = package_manager,
-					localization_manager = localization_manager
-				}
+					localization_manager = localization_manager,
+				},
 			},
 			{
 				StateRequireScripts,
 				{
-					package_manager = package_manager
-				}
+					package_manager = package_manager,
+				},
 			},
 			{
 				StateLoadAudioSettings,
-				{}
-			}
+				{},
+			},
 		},
 		package_manager = package_manager,
-		localization_manager = localization_manager
+		localization_manager = localization_manager,
 	}
 
 	if PLATFORM == "win32" and not LEVEL_EDITOR_TEST then
 		table.insert(params.states, 1, {
 			StateLoadRenderSettings,
-			{}
+			{},
 		})
 	end
 

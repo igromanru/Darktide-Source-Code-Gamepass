@@ -64,7 +64,7 @@ local interactions = {
 	setup_breach_charge = SetupBreachChargeInteraction,
 	setup_decoding = SetupDecodingInteraction,
 	training_ground = ViewInteraction,
-	vendor = ViewInteraction
+	vendor = ViewInteraction,
 }
 
 return settings("Interactions", interactions)

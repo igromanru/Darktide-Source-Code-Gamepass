@@ -11,7 +11,7 @@ damage_settings.permanent_heal_types = {
 	[heal_types.blessing] = true,
 	[heal_types.blessing_health_station] = true,
 	[heal_types.blessing_grim] = true,
-	[heal_types.blessing_syringe] = true
+	[heal_types.blessing_syringe] = true,
 }
 damage_settings.ranged_close = 12.5
 damage_settings.ranged_far = 30
@@ -30,7 +30,7 @@ damage_settings.warp_damage_types = {
 	[damage_types.warp] = true,
 	[damage_types.warpfire] = true,
 	[damage_types.force_sword_cleave] = true,
-	[damage_types.throwing_knife] = true
+	[damage_types.throwing_knife] = true,
 }
 
 return settings("DamageSettings", damage_settings)

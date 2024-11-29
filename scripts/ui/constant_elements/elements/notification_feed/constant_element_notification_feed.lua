@@ -31,7 +31,7 @@ local function _apply_package_item_icon_cb_func(widget, item)
 	else
 		material_values.icon_size = {
 			icon_style.size[1],
-			icon_style.size[2]
+			icon_style.size[2],
 		}
 		material_values.texture_icon = icon
 	end
@@ -147,107 +147,107 @@ ConstantElementNotificationFeed.init = function (self, parent, draw_layer, start
 	self._notification_id_counter = 0
 	self._notification_templates = {
 		default = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 2,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		alert = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		mission = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			widget_definition = Definitions.notification_message,
 		},
 		item_granted = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		currency = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		player_assist = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		contract = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		achievement = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		custom = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
 		},
 		matchmaking = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			widget_definition = Definitions.notification_message,
 		},
 		voting = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			widget_definition = Definitions.notification_message,
 		},
 		collectible = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 8,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 8,
+			widget_definition = Definitions.notification_message,
 		},
 		helped_collect_collectible = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 8,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
+			total_time = 8,
+			widget_definition = Definitions.notification_message,
 		},
 		destructible = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 4,
+			animation_exit = "popup_leave",
 			priority_order = 2,
-			widget_definition = Definitions.notification_message
+			total_time = 4,
+			widget_definition = Definitions.notification_message,
 		},
 		penance_item_can_be_claimed = {
-			animation_exit = "popup_leave",
 			animation_enter = "popup_enter",
-			total_time = 5,
+			animation_exit = "popup_leave",
 			priority_order = 1,
-			widget_definition = Definitions.notification_message
-		}
+			total_time = 5,
+			widget_definition = Definitions.notification_message,
+		},
 	}
 	self._assist_notifications_enabled = true
 	self._crafting_pickup_notifications_enabled = true
@@ -321,7 +321,7 @@ ConstantElementNotificationFeed.event_add_notification_message = function (self,
 			callback = callback,
 			sound_event = sound_event,
 			done_callback = done_callback,
-			delay = delay
+			delay = delay,
 		}
 	else
 		self:_add_notification_message(message_type, data, callback, sound_event, done_callback)
@@ -394,20 +394,20 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 		notification_data = {
 			texts = {
 				{
-					display_name = data
-				}
-			}
+					display_name = data,
+				},
+			},
 		}
 	elseif message_type == MESSAGE_TYPES.mission then
 		notification_data = {
 			texts = {
 				{
-					display_name = data
-				}
-			}
+					display_name = data,
+				},
+			},
 		}
 	elseif message_type == MESSAGE_TYPES.alert then
-		local var_24_0 = {
+		local var_1_0 = {
 			texts = {
 				{
 					display_name = data.text,
@@ -415,36 +415,36 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						255,
 						101,
-						101
-					}
-				}
+						101,
+					},
+				},
 			},
 			color = {
 				255 * ConstantElementNotificationFeedSettings.default_alpha_value,
 				85,
 				26,
-				26
+				26,
 			},
 			line_color = {
 				255,
 				255,
 				101,
-				101
-			}
+				101,
+			},
 		}
 
 		if data.type == "server" then
 			-- Nothing
 		end
 
-		var_24_0.icon_color = {
+		var_1_0.icon_color = {
 			255,
 			255,
 			208,
-			208
+			208,
 		}
-		var_24_0.enter_sound_event = UISoundEvents.notification_warning
-		notification_data = var_24_0
+		var_1_0.enter_sound_event = UISoundEvents.notification_warning
+		notification_data = var_1_0
 	elseif message_type == MESSAGE_TYPES.item_granted then
 		local item, reason = data
 
@@ -469,15 +469,15 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			texts = {
 				{
 					display_name = (item_type == "WEAPON_MELEE" or item_type == "WEAPON_RANGED") and string.format("%s • %s", ItemUtils.weapon_card_display_name(visual_item), ItemUtils.weapon_card_sub_display_name(visual_item)) or ItemUtils.display_name(visual_item),
-					color = rarity_color
+					color = rarity_color,
 				},
 				{
 					display_name = ItemUtils.rarity_display_name(item),
-					color = rarity_color
+					color = rarity_color,
 				},
 				{
-					display_name = Localize("loc_notification_desc_added_to_inventory")
-				}
+					display_name = Localize("loc_notification_desc_added_to_inventory"),
+				},
 			}
 		else
 			if item_type == "WEAPON_SKIN" then
@@ -488,15 +488,15 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 			texts = {
 				{
-					display_name = ItemUtils.display_name(visual_item)
+					display_name = ItemUtils.display_name(visual_item),
 				},
 				{
 					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type]),
-					color = Color.terminal_frame(255, true)
+					color = Color.terminal_frame(255, true),
 				},
 				{
-					display_name = Localize("loc_notification_desc_added_to_inventory")
-				}
+					display_name = Localize("loc_notification_desc_added_to_inventory"),
+				},
 			}
 		end
 
@@ -526,7 +526,7 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 			icon_material_values = {
 				icon = texture_icon,
-				frame = texture_frame
+				frame = texture_frame,
 			}
 
 			local trait_sound_events_by_rarity = ConstantElementNotificationFeedSettings.trait_sound_events_by_rarity
@@ -537,14 +537,14 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			icon_size = nil
 			texts = {
 				{
-					display_name = string.format("'%s'", ItemUtils.display_name(visual_item))
+					display_name = string.format("'%s'", ItemUtils.display_name(visual_item)),
 				},
 				{
-					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type])
+					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type]),
 				},
 				{
-					display_name = Localize("loc_notification_desc_added_to_inventory")
-				}
+					display_name = Localize("loc_notification_desc_added_to_inventory"),
+				},
 			}
 		else
 			icon = "content/ui/materials/icons/items/containers/item_container_landscape"
@@ -561,9 +561,9 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 		end
 
 		notification_data = {
-			show_shine = true,
 			glow_opacity = 0.35,
 			scale_icon = true,
+			show_shine = true,
 			texts = texts,
 			icon = icon,
 			item = visual_item,
@@ -571,7 +571,7 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			icon_material_values = icon_material_values,
 			color = background_rarity_color,
 			line_color = rarity_color,
-			enter_sound_event = enter_sound_event
+			enter_sound_event = enter_sound_event,
 		}
 	elseif message_type == MESSAGE_TYPES.currency and self:_can_show_currency_of_type(data.currency) then
 		local currency_type = data.currency
@@ -599,23 +599,23 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 			local text = Localize(optional_localization_key or "loc_notification_feed_currency_acquired", true, {
 				amount = amount,
-				player_name = player_name
+				player_name = player_name,
 			})
 			local enter_sound_event = wallet_settings.notification_sound_event
 			local texts = {}
 
 			texts[#texts + 1] = reason and {
-				display_name = reason
+				display_name = reason,
 			}
 			texts[#texts + 1] = {
-				display_name = text
+				display_name = text,
 			}
 			notification_data = {
 				icon_size = "currency",
 				texts = texts,
 				icon = icon_texture_large,
 				color = Color.terminal_grid_background(100, true),
-				enter_sound_event = enter_sound_event
+				enter_sound_event = enter_sound_event,
 			}
 		end
 	elseif message_type == MESSAGE_TYPES.collectible then
@@ -625,19 +625,19 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 		notification_data = {
 			icon = "content/ui/materials/base/ui_portrait_frame_base",
-			use_player_portrait = true,
 			icon_size = "large",
+			use_player_portrait = true,
 			texts = {
 				{
 					display_name = Localize("loc_notification_collectible_picked_up", true, {
-						player_name = player_name
+						player_name = player_name,
 					}),
 					color = {
 						255,
 						224,
 						224,
-						224
-					}
+						224,
+					},
 				},
 				{
 					display_name = string.format("+%d %s", num_plasteel, Localize("loc_currency_name_plasteel")),
@@ -645,24 +645,24 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						224,
 						224,
-						224
-					}
-				}
+						224,
+					},
+				},
 			},
 			player = player,
 			line_color = {
 				255,
 				255,
 				179,
-				37
+				37,
 			},
 			color = {
 				255 * ConstantElementNotificationFeedSettings.default_alpha_value,
 				255,
 				215,
-				0
+				0,
 			},
-			enter_sound_event = UISoundEvents.notification_collectible_pickup
+			enter_sound_event = UISoundEvents.notification_collectible_pickup,
 		}
 	elseif message_type == MESSAGE_TYPES.helped_collect_collectible then
 		local helped_string = data.helped_string
@@ -671,19 +671,19 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 		notification_data = {
 			icon = "content/ui/materials/base/ui_portrait_frame_base",
-			use_player_portrait = true,
 			icon_size = "large",
+			use_player_portrait = true,
 			texts = {
 				{
 					display_name = Localize("loc_notification_helped_collectible_picked_up", true, {
-						player_names = helped_string
+						player_names = helped_string,
 					}),
 					color = {
 						255,
 						224,
 						224,
-						224
-					}
+						224,
+					},
 				},
 				{
 					display_name = string.format("+%d %s", num_plasteel, Localize("loc_currency_name_plasteel")),
@@ -691,24 +691,24 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						224,
 						224,
-						224
-					}
-				}
+						224,
+					},
+				},
 			},
 			player = player,
 			line_color = {
 				255,
 				255,
 				179,
-				37
+				37,
 			},
 			color = {
 				255 * ConstantElementNotificationFeedSettings.default_alpha_value,
 				255,
 				215,
-				0
+				0,
 			},
-			enter_sound_event = UISoundEvents.notification_collectible_pickup_helped
+			enter_sound_event = UISoundEvents.notification_collectible_pickup_helped,
 		}
 	elseif message_type == MESSAGE_TYPES.destructible then
 		local player_name = data.player_name
@@ -716,14 +716,14 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 		local num_collected = data.num_collected
 		local num_total = data.num_total
 		local header_text = Localize("loc_notification_destructible_destroyed", true, {
-			player_name = player_name
+			player_name = player_name,
 		})
 		local num_plasteel = Managers.state.difficulty:get_challenge()
 
 		notification_data = {
 			icon = "content/ui/materials/base/ui_portrait_frame_base",
-			use_player_portrait = true,
 			icon_size = "large",
+			use_player_portrait = true,
 			texts = {
 				{
 					display_name = header_text,
@@ -731,8 +731,8 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						248,
 						240,
-						222
-					}
+						222,
+					},
 				},
 				{
 					display_name = string.format("%d/%d \n+%d %s", num_collected, num_total, 10 * num_plasteel, Localize("loc_currency_name_plasteel")),
@@ -740,24 +740,24 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						200,
 						182,
-						149
-					}
-				}
+						149,
+					},
+				},
 			},
 			player = player,
 			line_color = {
 				255,
 				200,
 				182,
-				149
+				149,
 			},
 			color = {
 				255 * ConstantElementNotificationFeedSettings.default_alpha_value,
 				82,
 				73,
-				45
+				45,
 			},
-			enter_sound_event = UISoundEvents.notification_destroyed_destructible
+			enter_sound_event = UISoundEvents.notification_destroyed_destructible,
 		}
 	elseif message_type == MESSAGE_TYPES.player_assist and self:_can_show_assist_notification() then
 		local assist_type = data.assist_type
@@ -783,23 +783,23 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 		notification_data = {
 			icon = "content/ui/materials/base/ui_portrait_frame_base",
-			use_player_portrait = true,
 			icon_size = "large",
+			use_player_portrait = true,
 			texts = {
 				{
-					display_name = text
-				}
+					display_name = text,
+				},
 			},
 			color = Color.citadel_elysian_green(100, true),
 			player = player,
-			enter_sound_event = enter_sound_event
+			enter_sound_event = enter_sound_event,
 		}
 	elseif message_type == MESSAGE_TYPES.achievement then
 		local achievement_title = AchievementUIHelper.localized_title(data)
 
 		notification_data = {
-			icon_size = "medium",
 			icon = "content/ui/materials/icons/achievements/achievement_icon_container_v2",
+			icon_size = "medium",
 			texts = {
 				{
 					display_name = string.format("\"%s\"", achievement_title),
@@ -807,8 +807,8 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						248,
 						240,
-						222
-					}
+						222,
+					},
 				},
 				{
 					display_name = Localize("loc_notification_desc_achievement_completed"),
@@ -816,26 +816,26 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						200,
 						182,
-						149
-					}
-				}
+						149,
+					},
+				},
 			},
 			icon_material_values = {
-				icon = data.icon
+				icon = data.icon,
 			},
 			line_color = {
 				255,
 				200,
 				182,
-				149
+				149,
 			},
 			color = {
 				255 * ConstantElementNotificationFeedSettings.default_alpha_value,
 				82,
 				73,
-				45
+				45,
 			},
-			enter_sound_event = UISoundEvents.notification_achievement
+			enter_sound_event = UISoundEvents.notification_achievement,
 		}
 	elseif message_type == MESSAGE_TYPES.contract then
 		local criteria = data.criteria
@@ -848,33 +848,33 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			texts = {
 				{
 					display_name = title,
-					color = Color.terminal_corner_selected(255, true)
+					color = Color.terminal_corner_selected(255, true),
 				},
 				{
-					display_name = Localize("loc_notification_desc_contract_task_completed")
-				}
+					display_name = Localize("loc_notification_desc_contract_task_completed"),
+				},
 			},
 			icon_material_values = {
 				checkbox = 1,
-				contract_type = type and UISettings.contracts_icons_by_type[type] or UISettings.contracts_icons_by_type.default
+				contract_type = type and UISettings.contracts_icons_by_type[type] or UISettings.contracts_icons_by_type.default,
 			},
-			icon_color = Color.terminal_text_header(255, true)
+			icon_color = Color.terminal_text_header(255, true),
 		}
 	elseif message_type == MESSAGE_TYPES.custom then
 		notification_data = {
 			texts = {
 				{
 					display_name = data.line_1,
-					color = data.line_1_color
+					color = data.line_1_color,
 				},
 				{
 					display_name = data.line_2,
-					color = data.line_2_color
+					color = data.line_2_color,
 				},
 				{
 					display_name = data.line_3,
-					color = data.line_3_color
-				}
+					color = data.line_3_color,
+				},
 			},
 			icon = data.icon,
 			icon_size = data.icon_size,
@@ -883,7 +883,7 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			icon_color = data.icon_color,
 			glow_opacity = data.glow_opacity or 0,
 			show_shine = data.show_shine or false,
-			scale_icon = data.scale_icon or false
+			scale_icon = data.scale_icon or false,
 		}
 	elseif message_type == MESSAGE_TYPES.matchmaking then
 		notification_data = {
@@ -894,8 +894,8 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						200,
 						200,
-						200
-					}
+						200,
+					},
 				},
 				{
 					font_size = 18,
@@ -904,8 +904,8 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						140,
 						140,
-						140
-					}
+						140,
+					},
 				},
 				{
 					display_name = data.texts[3],
@@ -913,10 +913,10 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						200,
 						182,
-						149
-					}
-				}
-			}
+						149,
+					},
+				},
+			},
 		}
 	elseif message_type == MESSAGE_TYPES.voting then
 		notification_data = {
@@ -928,20 +928,20 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 						255,
 						232,
 						238,
-						219
-					}
+						219,
+					},
 				},
 				{
 					font_size = 20,
 					display_name = data.texts[2],
-					color = Color.text_default(255, true)
+					color = Color.text_default(255, true),
 				},
 				{
 					font_size = 20,
 					display_name = data.texts[3],
-					color = Color.text_default(255, true)
-				}
-			}
+					color = Color.text_default(255, true),
+				},
+			},
 		}
 	elseif message_type == MESSAGE_TYPES.penance_item_can_be_claimed then
 		local item = data
@@ -961,15 +961,15 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			texts = {
 				{
 					display_name = (item_type == "WEAPON_MELEE" or item_type == "WEAPON_RANGED") and string.format("%s • %s", ItemUtils.weapon_card_display_name(visual_item), ItemUtils.weapon_card_sub_display_name(visual_item)) or ItemUtils.display_name(visual_item),
-					color = rarity_color
+					color = rarity_color,
 				},
 				{
 					display_name = ItemUtils.rarity_display_name(data),
-					color = rarity_color
+					color = rarity_color,
 				},
 				{
-					display_name = Localize("loc_notification_desc_penance_item_can_be_claimed")
-				}
+					display_name = Localize("loc_notification_desc_penance_item_can_be_claimed"),
+				},
 			}
 		else
 			if item_type == "WEAPON_SKIN" then
@@ -980,15 +980,15 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 			texts = {
 				{
-					display_name = ItemUtils.display_name(visual_item)
+					display_name = ItemUtils.display_name(visual_item),
 				},
 				{
 					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type]),
-					color = Color.terminal_frame(255, true)
+					color = Color.terminal_frame(255, true),
 				},
 				{
-					display_name = Localize("loc_notification_desc_penance_item_can_be_claimed")
-				}
+					display_name = Localize("loc_notification_desc_penance_item_can_be_claimed"),
+				},
 			}
 		end
 
@@ -1018,7 +1018,7 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 
 			icon_material_values = {
 				icon = texture_icon,
-				frame = texture_frame
+				frame = texture_frame,
 			}
 
 			local trait_sound_events_by_rarity = ConstantElementNotificationFeedSettings.trait_sound_events_by_rarity
@@ -1029,14 +1029,14 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			icon_size = nil
 			texts = {
 				{
-					display_name = string.format("'%s'", ItemUtils.display_name(visual_item))
+					display_name = string.format("'%s'", ItemUtils.display_name(visual_item)),
 				},
 				{
-					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type])
+					display_name = Localize(UISettings.item_type_localization_lookup[visual_item.item_type]),
 				},
 				{
-					display_name = Localize("loc_notification_desc_added_to_inventory")
-				}
+					display_name = Localize("loc_notification_desc_added_to_inventory"),
+				},
 			}
 		else
 			icon = "content/ui/materials/icons/items/containers/item_container_landscape"
@@ -1049,9 +1049,9 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 		end
 
 		notification_data = {
-			show_shine = true,
 			glow_opacity = 0.35,
 			scale_icon = true,
+			show_shine = true,
 			texts = texts,
 			icon = icon,
 			item = visual_item,
@@ -1059,7 +1059,7 @@ ConstantElementNotificationFeed._generate_notification_data = function (self, me
 			icon_material_values = icon_material_values,
 			color = background_rarity_color,
 			line_color = rarity_color,
-			enter_sound_event = enter_sound_event
+			enter_sound_event = enter_sound_event,
 		}
 	end
 
@@ -1096,7 +1096,7 @@ ConstantElementNotificationFeed._add_notification_message = function (self, mess
 			data = data,
 			callback = callback,
 			done_callback = done_callback,
-			sound_event = sound_event
+			sound_event = sound_event,
 		}
 
 		self:_update_notification_queue_counter()
@@ -1247,13 +1247,13 @@ ConstantElementNotificationFeed._create_notification_entry = function (self, not
 			local context = {
 				camera_focus_slot_name = slot_name,
 				state_machine = item_state_machine,
-				animation_event = item_animation_event
+				animation_event = item_animation_event,
 			}
 			local on_load_callback = callback(self, "_on_item_icon_loaded", notification, item)
 			local icon_load_id = Managers.ui:load_item_icon(item, on_load_callback, context)
 
 			notification.item_loaded_info = {
-				icon_load_id = icon_load_id
+				icon_load_id = icon_load_id,
 			}
 		end
 	end
@@ -1268,7 +1268,7 @@ ConstantElementNotificationFeed._create_notification_entry = function (self, not
 
 		notification.portrait_loaded_info = {
 			icon_load_id = player_portrait_icon_load_id,
-			character_id = profile.character_id
+			character_id = profile.character_id,
 		}
 
 		local loadout = profile.loadout
@@ -1282,7 +1282,7 @@ ConstantElementNotificationFeed._create_notification_entry = function (self, not
 				local player_frame_icon_load_id = Managers.ui:load_item_icon(frame_item, on_player_frame_loaded_callback)
 
 				notification.frame_loaded_info = {
-					icon_load_id = player_frame_icon_load_id
+					icon_load_id = player_frame_icon_load_id,
 				}
 			end
 		end
@@ -1468,7 +1468,7 @@ end
 ConstantElementNotificationFeed._update_notification_queue_counter = function (self)
 	self._widgets_by_name.queue_notification_counter.content.visible = #self._queue_notifications > 0
 	self._widgets_by_name.queue_notification_counter.content.queue_counter = Localize("loc_notification_queue_more", true, {
-		queue = #self._queue_notifications
+		queue = #self._queue_notifications,
 	})
 end
 

@@ -23,7 +23,7 @@ NodeBuilderViewBase.init = function (self, definitions, settings, context)
 	self._saved_scenegraph_settings = {}
 	self._global_node_offset = {
 		0,
-		0
+		0,
 	}
 	self._nodes_render_order_list = {}
 	self._current_zoom = 1
@@ -303,7 +303,7 @@ NodeBuilderViewBase._is_node_dependent_on_parent = function (self, node, parent_
 
 	if spent_in_parents_counter > 1 then
 		local ignore_list = {
-			[parent_node.widget_name] = true
+			[parent_node.widget_name] = true,
 		}
 		local can_node_traverse_to_start = self:_can_node_traverse_to_start(node, ignore_list)
 
@@ -484,20 +484,20 @@ NodeBuilderViewBase._add_node = function (self, x, y)
 
 	local nodes = active_layout.nodes
 	local node = {
-		y_normalized = 0,
-		type = "default",
 		max_points = 1,
+		type = "default",
 		x_normalized = 0,
+		y_normalized = 0,
 		widget_name = "node_" .. math.uuid(),
 		x = x or 0,
 		y = y or 0,
 		parents = {},
 		children = {},
 		requirements = {
-			children_unlock_points = 1,
 			all_parents_chosen = false,
-			min_points_spent = 0
-		}
+			children_unlock_points = 1,
+			min_points_spent = 0,
+		},
 	}
 
 	nodes[#nodes + 1] = node
@@ -1242,7 +1242,7 @@ NodeBuilderViewBase._handle_scenegraph_coordinates = function (self, widget_name
 			self._cursor_start_coordinates = Vector3.to_array(cursor_position)
 			self._cursor_box_offset = {
 				cursor_position[1] - world_position[1],
-				cursor_position[2] - world_position[2]
+				cursor_position[2] - world_position[2],
 			}
 		end
 	end
@@ -1259,7 +1259,7 @@ NodeBuilderViewBase._handle_scenegraph_coordinates = function (self, widget_name
 			scenegraph_settings = {
 				x = scenegraph_position_x,
 				y = scenegraph_position_y,
-				scenegraph_id = scenegraph_id
+				scenegraph_id = scenegraph_id,
 			}
 			saved_scenegraph_settings[scenegraph_id] = scenegraph_settings
 		end
@@ -1448,20 +1448,20 @@ local line_colors = {
 		255,
 		50,
 		50,
-		50
+		50,
 	},
 	unlocked = {
 		255,
 		255,
 		255,
-		255
+		255,
 	},
 	chosen = {
 		255,
 		0,
 		255,
-		0
-	}
+		0,
+	},
 }
 
 NodeBuilderViewBase._draw_layout_node_connections = function (self, dt, t, input_service, ui_renderer, render_settings, layout)

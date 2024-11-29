@@ -67,21 +67,21 @@ end
 
 PropOnHitPhysics.component_data = {
 	actor_name = {
+		ui_name = "Actor Name",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Actor Name"
 	},
 	mass = {
+		ui_name = "Mass",
 		ui_type = "number",
 		value = 1,
-		ui_name = "Mass"
 	},
 	speed_on_hit = {
-		ui_type = "number",
 		min = 0,
 		ui_name = "Impulse Speed on Hit",
-		value = 5
-	}
+		ui_type = "number",
+		value = 5,
+	},
 }
 
 return PropOnHitPhysics

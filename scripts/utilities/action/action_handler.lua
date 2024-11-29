@@ -51,7 +51,7 @@ ActionHandler.add_component = function (self, component_name)
 	component.combo_count = 0
 	self._registered_components[component_name] = {
 		id = component_name,
-		component = component
+		component = component,
 	}
 end
 
@@ -330,11 +330,11 @@ ActionHandler._create_action = function (self, action_context, action_params, ac
 end
 
 local wield_actions = {
-	wield = true,
-	unwield = true,
 	ranged_wield = true,
+	unwield = true,
+	unwield_to_previous = true,
 	unwield_to_specific = true,
-	unwield_to_previous = true
+	wield = true,
 }
 
 ActionHandler._calculate_time_scale = function (self, action_settings)

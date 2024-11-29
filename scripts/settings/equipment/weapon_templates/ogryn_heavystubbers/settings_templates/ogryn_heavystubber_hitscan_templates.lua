@@ -11,28 +11,28 @@ hitscan_templates.default_ogryn_heavystubber_full_auto = {
 	range = 100,
 	damage = {
 		impact = {
-			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp
-		}
-	}
+			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp,
+		},
+	},
 }
 hitscan_templates.default_ogryn_heavystubber_full_auto_m2 = {
 	range = 100,
 	damage = {
 		impact = {
-			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp_m2
-		}
-	}
+			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp_m2,
+		},
+	},
 }
 hitscan_templates.default_ogryn_heavystubber_full_auto_m3 = {
 	range = 100,
 	damage = {
 		impact = {
-			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp_m3
-		}
-	}
+			damage_profile = DamageProfileTemplates.default_ogryn_heavystubber_assault_snp_m3,
+		},
+	},
 }
 
 return {
 	base_templates = hitscan_templates,
-	overrides = overrides
+	overrides = overrides,
 }

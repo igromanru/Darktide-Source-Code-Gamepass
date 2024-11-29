@@ -6,24 +6,24 @@ local combat_ranges = {
 	config = {
 		far = {
 			{
+				activate_slot_system = true,
 				distance = 10,
+				distance_operator = "lesser",
 				require_line_of_sight = true,
 				sticky_time = 2,
-				activate_slot_system = true,
-				distance_operator = "lesser",
-				switch_combat_range = "close"
-			}
+				switch_combat_range = "close",
+			},
 		},
 		close = {
 			{
-				distance = 12,
 				activate_slot_system = true,
-				sticky_time = 0,
+				distance = 12,
 				distance_operator = "greater",
-				switch_combat_range = "far"
-			}
-		}
-	}
+				sticky_time = 0,
+				switch_combat_range = "far",
+			},
+		},
+	},
 }
 
 return combat_ranges

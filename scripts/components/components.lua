@@ -9,13 +9,13 @@ destroyed_mt.__index = function (t, k)
 end
 
 local special_functions = {
-	__index = true,
-	name = true,
-	super = true,
 	__component_name = true,
-	new = true,
+	__index = true,
 	__interfaces = true,
-	delete = true
+	delete = true,
+	name = true,
+	new = true,
+	super = true,
 }
 
 local function _component_data_default_value(component_data, unit, guid, ...)
@@ -221,7 +221,7 @@ local function _component_data_get_color(self, unit, guid, ...)
 		255,
 		255,
 		255,
-		255
+		255,
 	}
 	local default_boxed_color = _component_data_default_value(self.component_data, unit, guid, ...)
 
@@ -232,7 +232,7 @@ local function _component_data_get_color(self, unit, guid, ...)
 			255,
 			r * 255,
 			g * 255,
-			b * 255
+			b * 255,
 		}
 	end
 
@@ -292,7 +292,7 @@ local function _component_data_get_struct_array(self, definition, unit, guid, ..
 					255,
 					255,
 					255,
-					255
+					255,
 				}
 				local default_boxed_color = member_data.value
 
@@ -303,7 +303,7 @@ local function _component_data_get_struct_array(self, definition, unit, guid, ..
 						x * 255,
 						y * 255,
 						z * 255,
-						255
+						255,
 					}
 				end
 
@@ -347,7 +347,7 @@ function component(component_name, super_name, ...)
 	if not component_table then
 		component_table = {
 			super = super,
-			__component_name = component_name
+			__component_name = component_name,
 		}
 		component_table.__index = component_table
 		component_table.__interfaces = {}

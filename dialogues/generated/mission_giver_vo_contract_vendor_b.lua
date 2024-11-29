@@ -14,7 +14,7 @@ local mission_giver_vo_contract_vendor_b = {
 			"loc_contract_vendor_b__info_extraction_a_07",
 			"loc_contract_vendor_b__info_extraction_a_08",
 			"loc_contract_vendor_b__info_extraction_a_09",
-			"loc_contract_vendor_b__info_extraction_a_10"
+			"loc_contract_vendor_b__info_extraction_a_10",
 		},
 		sound_events_duration = {
 			3.45678,
@@ -26,10 +26,10 @@ local mission_giver_vo_contract_vendor_b = {
 			3.45678,
 			3.45678,
 			3.45678,
-			3.45678
+			3.45678,
 		},
-		randomize_indexes = {}
-	}
+		randomize_indexes = {},
+	},
 }
 
 return settings("mission_giver_vo_contract_vendor_b", mission_giver_vo_contract_vendor_b)

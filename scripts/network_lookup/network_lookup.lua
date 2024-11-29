@@ -104,7 +104,7 @@ NetworkLookup.attack_results = _create_lookup({}, AttackSettings.attack_results)
 NetworkLookup.attack_types = _create_lookup({}, AttackSettings.attack_types)
 NetworkLookup.bot_orders = {
 	"drop",
-	"pickup"
+	"pickup",
 }
 
 local no_item_definitions = {}
@@ -119,7 +119,7 @@ NetworkLookup.camera_shake_events = _create_lookup({}, CameraEffectSettings.shak
 NetworkLookup.chest_states = {
 	"closed",
 	"locked",
-	"opened"
+	"opened",
 }
 NetworkLookup.cinematic_scene_names = _create_lookup({}, CinematicSceneSettings.CINEMATIC_NAMES)
 NetworkLookup.circumstance_templates = _create_lookup({}, CircumstanceTemplates)
@@ -127,7 +127,7 @@ NetworkLookup.corruptor_arm_animation_speed_types = _create_lookup({}, Corruptor
 NetworkLookup.damage_efficiencies = _create_lookup({}, AttackSettings.damage_efficiencies)
 NetworkLookup.damage_profile_templates = _create_lookup({}, DamageProfileTemplates)
 NetworkLookup.damage_types = _create_lookup({
-	"nil"
+	"nil",
 }, DamageSettings.damage_types)
 NetworkLookup.dialogue_names = DialogueLookup
 NetworkLookup.dialogues_all_concepts = table.clone(DialogueLookupConcepts.all_concepts)
@@ -135,14 +135,14 @@ NetworkLookup.dynamic_smart_tags = _create_lookup({}, DialogueSettings.dynamic_s
 NetworkLookup.manual_subtitles = _create_lookup({}, DialogueSettings.manual_subtitles)
 NetworkLookup.door_control_panel_states = {
 	"active",
-	"inactive"
+	"inactive",
 }
 NetworkLookup.door_states = {
 	"none",
 	"open",
 	"open_fwd",
 	"open_bwd",
-	"closed"
+	"closed",
 }
 NetworkLookup.effect_templates = _create_lookup({}, EffectTemplates)
 NetworkLookup.emote_slots = {
@@ -150,13 +150,13 @@ NetworkLookup.emote_slots = {
 	"slot_animation_emote_2",
 	"slot_animation_emote_3",
 	"slot_animation_emote_4",
-	"slot_animation_emote_5"
+	"slot_animation_emote_5",
 }
 NetworkLookup.flow_events = FlowEvents
 NetworkLookup.game_mode_outcomes = {
 	"n/a",
 	"won",
-	"lost"
+	"lost",
 }
 NetworkLookup.game_object_types = {
 	"unit_template",
@@ -166,7 +166,7 @@ NetworkLookup.game_object_types = {
 	"scanning_device",
 	"server_unit_data_state",
 	"server_husk_data_state",
-	"server_husk_hud_data_state"
+	"server_husk_hud_data_state",
 }
 NetworkLookup.hazard_prop_content = _create_lookup({}, HazardPropSettings.hazard_content)
 NetworkLookup.hazard_prop_states = _create_lookup({}, HazardPropSettings.hazard_state)
@@ -177,7 +177,7 @@ NetworkLookup.impact_fx_names = _create_lookup({}, ImpactEffectSettings.impact_f
 NetworkLookup.interaction_result = {
 	"success",
 	"stopped_holding",
-	"interaction_cancelled"
+	"interaction_cancelled",
 }
 NetworkLookup.interaction_type_strings = InteractionTypeStrings
 NetworkLookup.level_props_names = _create_lookup({}, LevelProps)
@@ -186,20 +186,20 @@ NetworkLookup.line_effects = _create_lookup({}, LineEffects)
 NetworkLookup.liquid_area_template_names = _create_lookup({}, LiquidAreaTemplates)
 NetworkLookup.material_type_lookup = {
 	"diamantine",
-	"plasteel"
+	"plasteel",
 }
 NetworkLookup.material_size_lookup = {
 	"large",
-	"small"
+	"small",
 }
 NetworkLookup.collectible_type_lookup = {
 	"collectible",
-	"destructible"
+	"destructible",
 }
 NetworkLookup.moveable_platform_direction = {
 	"none",
 	"forward",
-	"backward"
+	"backward",
 }
 NetworkLookup.outline_types = _create_lookup({}, OutlineSettings.outline_types)
 NetworkLookup.assist_type_lookup = {
@@ -209,7 +209,7 @@ NetworkLookup.assist_type_lookup = {
 	"rescued",
 	"cleansed",
 	"gifted",
-	"stimmed"
+	"stimmed",
 }
 NetworkLookup.minigame_states = _create_lookup({}, MinigameSettings.states)
 NetworkLookup.minigame_game_states = _create_lookup({}, MinigameSettings.game_states)
@@ -218,7 +218,7 @@ local minion_attack_selection_template_names = {}
 
 NetworkLookup.minion_attack_selection_template_names = _create_lookup(minion_attack_selection_template_names, MinionAttackSelectionTemplates)
 NetworkLookup.minion_fx_source_names = {
-	"muzzle"
+	"muzzle",
 }
 
 local minion_inventory_slot_names = {}
@@ -253,7 +253,7 @@ NetworkLookup.mission_objective_ui_strings = MissionsObjectiveUiStrings
 NetworkLookup.mission_objective_target_ui_types = MissionsObjectiveTargetUiTypeStrings
 NetworkLookup.mission_objective_ui_states = {
 	"default",
-	"alert"
+	"alert",
 }
 NetworkLookup.mission_giver_vo_overrides = _create_lookup({}, MissionGiverVoSettings.overrides)
 NetworkLookup.missions = _create_lookup({}, Missions)
@@ -265,59 +265,59 @@ NetworkLookup.pickup_names = _create_lookup({}, Pickups.by_name)
 NetworkLookup.player_character_genders = {
 	"female",
 	"male",
-	"ogryn"
+	"ogryn",
 }
 NetworkLookup.player_character_fx_sources = _create_lookup({
-	"n/a"
+	"n/a",
 }, PlayerCharacterFxSourceNames)
 NetworkLookup.player_character_looping_particle_aliases = _create_lookup({}, PlayerCharacterLoopingParticleAliases)
 NetworkLookup.player_character_looping_sound_aliases = _create_lookup({}, PlayerCharacterLoopingSoundAliases)
 NetworkLookup.player_character_particle_variable_names = {
 	"radius",
 	"size",
-	"intensity"
+	"intensity",
 }
 NetworkLookup.player_character_particles = table.clone(PlayerCharacterParticleNames)
 
 local player_character_sounds = {
-	["wwise/events/player/play_backstab_indicator_melee"] = true,
-	["wwise/events/ui/play_hud_heal_2d"] = true,
-	["wwise/events/player/play_backstab_indicator_melee_elite"] = true,
-	["wwise/events/player/play_player_get_hit_light_2d"] = true,
-	["wwise/events/player/play_syringe_healed_by_ally"] = true,
-	["wwise/events/player/play_foley_fall_wind_2D"] = true,
-	["wwise/events/weapon/play_indicator_weakspot"] = true,
-	["wwise/events/player/play_player_experience_fall_damage_2d"] = true,
-	["wwise/events/player/play_player_vomit_enter"] = true,
+	["wwise/events/minions/play_enemy_daemonhost_execute_player_impact"] = true,
+	["wwise/events/minions/play_enemy_daemonhost_execute_player_impact_husk"] = true,
 	["wwise/events/minions/play_minion_twins_disappear_explosion"] = true,
-	["wwise/events/player/play_player_get_hit_fire"] = true,
-	["wwise/events/weapon/play_indicator_crit"] = true,
-	["wwise/events/player/play_player_get_hit_corruption_2d_tick"] = true,
-	["wwise/events/weapon/play_bullet_hits_gen_unarmored_death"] = true,
+	["wwise/events/player/play_backstab_indicator_melee"] = true,
+	["wwise/events/player/play_backstab_indicator_melee_elite"] = true,
+	["wwise/events/player/play_backstab_indicator_ranged"] = true,
+	["wwise/events/player/play_foley_fall_wind_2D"] = true,
+	["wwise/events/player/play_pick_up_ammo_01"] = true,
+	["wwise/events/player/play_player_dodge_melee_success"] = true,
+	["wwise/events/player/play_player_dodge_ranged_success"] = true,
+	["wwise/events/player/play_player_experience_fall_damage_2d"] = true,
 	["wwise/events/player/play_player_get_hit_2d_corruption_tick_toughness"] = true,
+	["wwise/events/player/play_player_get_hit_corruption_2d"] = true,
+	["wwise/events/player/play_player_get_hit_corruption_2d_tick"] = true,
+	["wwise/events/player/play_player_get_hit_fire"] = true,
+	["wwise/events/player/play_player_get_hit_fire_toughness"] = true,
+	["wwise/events/player/play_player_get_hit_heavy_2d"] = true,
+	["wwise/events/player/play_player_get_hit_light_2d"] = true,
 	["wwise/events/player/play_player_get_hit_sharp"] = true,
+	["wwise/events/player/play_player_vomit_enter"] = true,
+	["wwise/events/player/play_psyker_ability_shout"] = true,
+	["wwise/events/player/play_syringe_healed_by_ally"] = true,
+	["wwise/events/player/play_toughness_break"] = true,
+	["wwise/events/player/play_toughness_hits"] = true,
+	["wwise/events/player/play_vault"] = true,
 	["wwise/events/player/stop_foley_fall_wind_2D"] = true,
+	["wwise/events/ui/play_hud_coherency_off"] = true,
+	["wwise/events/ui/play_hud_coherency_on"] = true,
+	["wwise/events/ui/play_hud_heal_2d"] = true,
+	["wwise/events/ui/play_hud_health_station_2d"] = true,
+	["wwise/events/weapon/play_bullet_hits_gen_unarmored_death"] = true,
+	["wwise/events/weapon/play_enemy_netgunner_net_trapped"] = true,
+	["wwise/events/weapon/play_explosion_flamer_tank"] = true,
+	["wwise/events/weapon/play_explosion_force_med"] = true,
+	["wwise/events/weapon/play_indicator_crit"] = true,
+	["wwise/events/weapon/play_indicator_weakspot"] = true,
 	["wwise/events/weapon/play_shared_combat_weapon_bolter_bullet_flyby"] = true,
 	["wwise/events/weapon/play_weapon_lasgun_crack_beam_nearby"] = true,
-	["wwise/events/player/play_toughness_break"] = true,
-	["wwise/events/player/play_backstab_indicator_ranged"] = true,
-	["wwise/events/weapon/play_enemy_netgunner_net_trapped"] = true,
-	["wwise/events/player/play_vault"] = true,
-	["wwise/events/ui/play_hud_coherency_off"] = true,
-	["wwise/events/minions/play_enemy_daemonhost_execute_player_impact"] = true,
-	["wwise/events/ui/play_hud_health_station_2d"] = true,
-	["wwise/events/player/play_pick_up_ammo_01"] = true,
-	["wwise/events/ui/play_hud_coherency_on"] = true,
-	["wwise/events/weapon/play_explosion_force_med"] = true,
-	["wwise/events/player/play_psyker_ability_shout"] = true,
-	["wwise/events/player/play_player_get_hit_corruption_2d"] = true,
-	["wwise/events/player/play_toughness_hits"] = true,
-	["wwise/events/player/play_player_dodge_ranged_success"] = true,
-	["wwise/events/weapon/play_explosion_flamer_tank"] = true,
-	["wwise/events/player/play_player_get_hit_heavy_2d"] = true,
-	["wwise/events/player/play_player_dodge_melee_success"] = true,
-	["wwise/events/minions/play_enemy_daemonhost_execute_player_impact_husk"] = true,
-	["wwise/events/player/play_player_get_hit_fire_toughness"] = true
 }
 
 for event_name, _ in pairs(PlayerCharacterSounds.resource_events) do
@@ -325,10 +325,10 @@ for event_name, _ in pairs(PlayerCharacterSounds.resource_events) do
 end
 
 NetworkLookup.player_character_sounds = _create_lookup({
-	"n/a"
+	"n/a",
 }, player_character_sounds)
 NetworkLookup.player_abilities = _create_lookup({
-	"not_equipped"
+	"not_equipped",
 }, PlayerAbilities)
 NetworkLookup.player_inventory_slot_names = _create_lookup({}, PlayerCharacterConstants.slot_configuration)
 NetworkLookup.presence_names = _create_lookup({}, PresenceSettings.settings)
@@ -353,15 +353,15 @@ NetworkLookup.projectile_template_effects = _create_lookup({}, projectile_templa
 NetworkLookup.respawn_beacon_states = {
 	"none",
 	"activating",
-	"spawning"
+	"spawning",
 }
 NetworkLookup.force_field_unit_names = {
 	"content/characters/player/human/attachments_combat/psyker_shield/psyker_shield_flat_functional",
-	"content/characters/player/human/attachments_combat/psyker_shield/shield_sphere_functional"
+	"content/characters/player/human/attachments_combat/psyker_shield/shield_sphere_functional",
 }
 NetworkLookup.smoke_fog_unit = {
 	"content/characters/player/human/attachments_combat/smoke_fog/smoke_fog_volume",
-	"content/smoke_fog/empty_unit/empty_unit"
+	"content/smoke_fog/empty_unit/empty_unit",
 }
 NetworkLookup.smart_tag_replies = _create_lookup({}, SmartTagSettings.replies)
 NetworkLookup.smart_tag_templates = _create_lookup({}, SmartTagSettings.templates)
@@ -379,13 +379,13 @@ NetworkLookup.sound_parameters = {
 	"wpn_fire_interval",
 	"charge_level",
 	"psyker_overload_global",
-	"auspex_scanner_speed"
+	"auspex_scanner_speed",
 }
 NetworkLookup.sound_switches = {
-	"surface_material"
+	"surface_material",
 }
 NetworkLookup.sound_switch_values = table.append({
-	"default"
+	"default",
 }, MaterialQuerySettings.surface_materials)
 NetworkLookup.surface_materials = table.append({}, MaterialQuerySettings.surface_materials)
 NetworkLookup.surface_hit_types = _create_lookup({}, SurfaceMaterialSettings.hit_types)
@@ -407,7 +407,7 @@ for _, voting_template in pairs(VotingTemplates.network) do
 end
 
 NetworkLookup.voting_options = _create_lookup({
-	"nil"
+	"nil",
 }, voting_options)
 NetworkLookup.voting_results = _create_lookup({}, voting_results)
 NetworkLookup.voting_templates = _create_lookup({}, VotingTemplates.network)
@@ -436,15 +436,15 @@ end
 
 NetworkLookup.weapon_modifiers = _create_lookup({}, weapon_modifiers)
 NetworkLookup.weapon_modifier_override_type = _create_lookup({}, {
-	traits = true,
 	base_stats = true,
-	perks = true
+	perks = true,
+	traits = true,
 })
 NetworkLookup.weapon_modifier_override_keys = _create_lookup({}, {
 	id = true,
 	name = true,
+	rarity = true,
 	value = true,
-	rarity = true
 })
 NetworkLookup.weapon_templates = _create_lookup({}, WeaponTemplates)
 NetworkLookup.wounds_templates = _create_lookup({}, WoundsTemplates)
@@ -460,7 +460,7 @@ local function _init(name, lookup_table)
 		__index = function (_, key)
 			table.dump(lookup_table)
 			error(index_error_print .. tostring(key))
-		end
+		end,
 	}
 
 	setmetatable(lookup_table, meta)
@@ -471,12 +471,12 @@ for name, lookup_table in pairs(NetworkLookup) do
 end
 
 local DynamicLookup = {
-	player_item_names = "player_item_names"
+	player_item_names = "player_item_names",
 }
 
 NetworkLookup._create_dynamic_lookup = function (name, hashtable)
 	local lookup = {
-		"not_equipped"
+		"not_equipped",
 	}
 
 	_create_lookup(lookup, hashtable)

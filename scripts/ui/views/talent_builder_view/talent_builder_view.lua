@@ -20,22 +20,22 @@ local TalentBuilderViewSummaryBlueprints = require("scripts/ui/views/talent_buil
 local loadout_ability_widget_name_list = {
 	"loadout_slot_ability",
 	"loadout_slot_tactical",
-	"loadout_slot_aura"
+	"loadout_slot_aura",
 }
 local base_loadout_presentation_order = {
 	"ability",
 	"blitz",
-	"aura"
+	"aura",
 }
 local class_loadout = {
 	ability = {},
 	blitz = {},
-	aura = {}
+	aura = {},
 }
 local base_loadout_to_type = {
 	ability = "ability",
+	aura = "aura",
 	blitz = "tactical",
-	aura = "aura"
 }
 local TalentBuilderView = class("TalentBuilderView", "NodeBuilderViewBase")
 
@@ -378,9 +378,9 @@ end
 
 TalentBuilderView.cb_on_clear_all_talents_pressed = function (self)
 	local context = {
-		title_text = "loc_talent_menu_popup_clear_all_points_title",
 		description_text = "loc_talent_menu_popup_clear_all_points_description",
 		no_exit_sound = true,
+		title_text = "loc_talent_menu_popup_clear_all_points_title",
 		options = {
 			{
 				close_on_pressed = true,
@@ -388,18 +388,18 @@ TalentBuilderView.cb_on_clear_all_talents_pressed = function (self)
 				callback = callback(function ()
 					self:clear_node_points()
 					self:_play_sound(UISoundEvents.talent_node_clear_all)
-				end)
+				end),
 			},
 			{
-				text = "loc_popup_button_cancel",
-				template_type = "terminal_button_small",
 				close_on_pressed = true,
 				hotkey = "back",
+				template_type = "terminal_button_small",
+				text = "loc_popup_button_cancel",
 				callback = callback(function ()
 					self:_play_sound(UISoundEvents.system_popup_exit)
-				end)
-			}
-		}
+				end),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context)
@@ -445,7 +445,7 @@ TalentBuilderView.on_archetype_name_changed = function (self, archetype_name)
 
 	self._global_node_offset = TalentBuilderViewSettings.starting_talent_nodes_offset_by_name[archetype_name] or {
 		0,
-		0
+		0,
 	}
 
 	local node_connection_style = self._node_connection_widget.style
@@ -673,7 +673,7 @@ TalentBuilderView._draw_connection_between_widgets = function (self, ui_renderer
 		parent_line_anim_data[parent_node_name] = {
 			progress_complete = false,
 			progress_fraction = draw_instant_lines and 1 or 0,
-			alpha_fraction = draw_instant_lines and 1 or 0
+			alpha_fraction = draw_instant_lines and 1 or 0,
 		}
 	end
 
@@ -1455,7 +1455,7 @@ end
 
 local dummy_tooltip_text_size = {
 	400,
-	20
+	20,
 }
 
 TalentBuilderView._setup_tooltip_info = function (self, node, instant_tooltip, is_base_talent_tooltip)
@@ -1598,7 +1598,7 @@ TalentBuilderView._setup_tooltip_info = function (self, node, instant_tooltip, i
 
 						requirement_description = requirement_description .. Localize("loc_talent_mechanic_group_unlock", true, {
 							total_points = TextUtilities.apply_color_to_text(tostring(requirements.min_points_spent), Color.terminal_text_header(255, true)),
-							group_talents_amount = TextUtilities.apply_color_to_text(tostring(self:_points_spent_in_group(requirements.min_points_spent_in_group)), Color.terminal_text_header(255, true))
+							group_talents_amount = TextUtilities.apply_color_to_text(tostring(self:_points_spent_in_group(requirements.min_points_spent_in_group)), Color.terminal_text_header(255, true)),
 						})
 						requirement_added = true
 					else
@@ -1608,7 +1608,7 @@ TalentBuilderView._setup_tooltip_info = function (self, node, instant_tooltip, i
 
 						requirement_description = requirement_description .. Localize("loc_talent_mechanic_min_unlock_child", true, {
 							total_points = TextUtilities.apply_color_to_text(tostring(requirements.min_points_spent), Color.terminal_text_header(255, true)),
-							points_left = TextUtilities.apply_color_to_text(tostring(requirements.min_points_spent - node_points_spent), Color.terminal_text_header(255, true))
+							points_left = TextUtilities.apply_color_to_text(tostring(requirements.min_points_spent - node_points_spent), Color.terminal_text_header(255, true)),
 						})
 						requirement_added = true
 					end
@@ -1804,22 +1804,22 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 		local grid_size = grid_scenegraph.size
 		local mask_padding_size = 0
 		local grid_settings = {
-			scrollbar_width = 7,
-			hide_dividers = true,
-			widget_icon_load_margin = 0,
 			enable_gamepad_scrolling = true,
-			title_height = 0,
-			scrollbar_horizontal_offset = 18,
 			hide_background = true,
+			hide_dividers = true,
+			scrollbar_horizontal_offset = 18,
+			scrollbar_width = 7,
+			title_height = 0,
+			widget_icon_load_margin = 0,
 			grid_spacing = {
 				0,
-				0
+				0,
 			},
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1] + 20,
-				grid_size[2] + mask_padding_size
-			}
+				grid_size[2] + mask_padding_size,
+			},
 		}
 		local layer = (self._draw_layer or 0) + 10
 
@@ -1840,8 +1840,8 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 			widget_type = "dynamic_spacing",
 			size = {
 				500,
-				25
-			}
+				25,
+			},
 		}
 
 		local points_spent_on_node_widgets = self._points_spent_on_node_widgets
@@ -1863,7 +1863,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 							widget_name = node.widget_name,
 							type = node_type,
 							talent = talent,
-							icon = node.icon
+							icon = node.icon,
 						}
 
 						if node_type == "ability" then
@@ -1881,7 +1881,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 		local base_class_loadout = {
 			ability = {},
 			blitz = {},
-			aura = {}
+			aura = {},
 		}
 		local player = self._preview_player
 		local profile = player and player:profile()
@@ -1895,7 +1895,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 				points_spent = 1,
 				type = "ability",
 				talent = talent,
-				icon = base_class_loadout.ability.icon
+				icon = base_class_loadout.ability.icon,
 			}
 		end
 
@@ -1906,7 +1906,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 				points_spent = 1,
 				type = "tactical",
 				talent = talent,
-				icon = base_class_loadout.blitz.icon
+				icon = base_class_loadout.blitz.icon,
 			}
 		end
 
@@ -1917,7 +1917,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 				points_spent = 1,
 				type = "aura",
 				talent = talent,
-				icon = base_class_loadout.aura.icon
+				icon = base_class_loadout.aura.icon,
 			}
 		end
 
@@ -1985,14 +1985,14 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 				if not presented_node_type_headers[node_type] then
 					layout[#layout + 1] = {
 						widget_type = "header",
-						text = Localize(settings_by_node_type.display_name)
+						text = Localize(settings_by_node_type.display_name),
 					}
 					layout[#layout + 1] = {
 						widget_type = "dynamic_spacing",
 						size = {
 							500,
-							10
-						}
+							10,
+						},
 					}
 					presented_node_type_headers[node_type] = true
 				end
@@ -2006,7 +2006,7 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 					icon = icon,
 					frame = frame,
 					icon_mask = icon_mask,
-					node_type = node_type
+					node_type = node_type,
 				}
 
 				if node_type ~= "stat" then
@@ -2014,8 +2014,8 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 						widget_type = "dynamic_spacing",
 						size = {
 							500,
-							25
-						}
+							25,
+						},
 					}
 				end
 			end
@@ -2025,8 +2025,8 @@ TalentBuilderView._setup_talents_summary_grid = function (self)
 			widget_type = "dynamic_spacing",
 			size = {
 				500,
-				25
-			}
+				25,
+			},
 		}
 	end
 
@@ -2045,22 +2045,22 @@ TalentBuilderView._setup_tutorial_grid = function (self)
 		local grid_size = grid_scenegraph.size
 		local mask_padding_size = 0
 		local grid_settings = {
-			scrollbar_width = 7,
-			hide_dividers = true,
-			widget_icon_load_margin = 0,
 			enable_gamepad_scrolling = true,
-			title_height = 0,
-			scrollbar_horizontal_offset = 18,
 			hide_background = true,
+			hide_dividers = true,
+			scrollbar_horizontal_offset = 18,
+			scrollbar_width = 7,
+			title_height = 0,
+			widget_icon_load_margin = 0,
 			grid_spacing = {
 				0,
-				0
+				0,
 			},
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1] + 20,
-				grid_size[2] + mask_padding_size
-			}
+				grid_size[2] + mask_padding_size,
+			},
 		}
 		local layer = (self._draw_layer or 0) + 10
 
@@ -2092,19 +2092,19 @@ TalentBuilderView._present_tutorial_popup_page = function (self, page_index)
 		widget_type = "dynamic_spacing",
 		size = {
 			500,
-			10
-		}
+			10,
+		},
 	}
 	layout[#layout + 1] = {
 		widget_type = "text",
-		text = Localize(page_content.text)
+		text = Localize(page_content.text),
 	}
 	layout[#layout + 1] = {
 		widget_type = "dynamic_spacing",
 		size = {
 			500,
-			25
-		}
+			25,
+		},
 	}
 
 	local grid = self._tutorial_grid

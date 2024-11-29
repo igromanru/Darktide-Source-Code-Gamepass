@@ -5,20 +5,20 @@ local PlayerUnitHologramExtension = class("PlayerUnitHologramExtension")
 local UPDATE_WAITING_PERIOD = 0.5
 local UNITS = {
 	human = {
+		consumed = "content/characters/player/human/attachments_base/shared/see_through_skeleton/see_through_skeleton_bon",
 		default = "content/characters/player/human/attachments_base/shared/see_through_skeleton/see_through_skeleton",
-		consumed = "content/characters/player/human/attachments_base/shared/see_through_skeleton/see_through_skeleton_bon"
 	},
 	ogryn = {
+		consumed = "content/characters/player/ogryn/attachments_base/shared/see_through_skeleton/see_through_skeleton_bon",
 		default = "content/characters/player/ogryn/attachments_base/shared/see_through_skeleton/see_through_skeleton",
-		consumed = "content/characters/player/ogryn/attachments_base/shared/see_through_skeleton/see_through_skeleton_bon"
-	}
+	},
 }
 local SWITCH_STATES = {
-	consumed = true
+	consumed = true,
 }
 local IGNORED_DISABLED_OUTLINE_STATES = {
+	catapulted = true,
 	grabbed = true,
-	catapulted = true
 }
 local _spawn_hologram_unit, _despawn_hologram_unit
 

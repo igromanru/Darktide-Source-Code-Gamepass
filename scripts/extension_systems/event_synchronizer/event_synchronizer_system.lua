@@ -20,7 +20,7 @@ local RPCS = {
 	"rpc_event_synchronizer_mission_objective_zone_at_end_of_spline",
 	"rpc_event_synchronizer_distribute_seeds",
 	"rpc_event_synchronizer_luggable_hide_luggable",
-	"rpc_event_synchronizer_demolition_target_override"
+	"rpc_event_synchronizer_demolition_target_override",
 }
 
 EventSynchronizerSystem.init = function (self, context, system_init_data, ...)

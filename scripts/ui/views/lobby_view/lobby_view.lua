@@ -32,22 +32,22 @@ local SOCIAL_VIEW_NAME = "social_menu_view"
 local talents_presentation_style_id_list = {
 	"talent_1",
 	"talent_2",
-	"talent_3"
+	"talent_3",
 }
 local loadout_presentation_order = {
 	"ability",
 	"blitz",
-	"aura"
+	"aura",
 }
 local class_loadout = {
 	ability = {},
 	blitz = {},
-	aura = {}
+	aura = {},
 }
 local loadout_to_type = {
 	ability = "ability",
+	aura = "aura",
 	blitz = "tactical",
-	aura = "aura"
 }
 local LobbyView = class("LobbyView", "BaseView")
 
@@ -263,7 +263,7 @@ LobbyView._setup_menu_list = function (self)
 			end
 
 			parent:_set_own_player_ready_status(not current_ready_status)
-		end
+		end,
 	}
 
 	self:_setup_menu_list_entries(menu_list_config)
@@ -461,7 +461,7 @@ LobbyView._setup_menu_list_entries = function (self, config)
 			display_name = display_name,
 			widget_type = entry_config.widget_type,
 			pressed_function = entry_config.pressed_function,
-			update_function = entry_config.update_function
+			update_function = entry_config.update_function,
 		}
 
 		entries[#entries + 1] = entry
@@ -518,7 +518,7 @@ LobbyView._setup_list_content_widgets = function (self, content, scenegraph_id, 
 		end
 
 		alignment_list[#alignment_list + 1] = widget or {
-			size = size
+			size = size,
 		}
 	end
 
@@ -579,7 +579,7 @@ LobbyView._setup_spawn_slots = function (self)
 			panel_widget = self:_create_widget(panel_widget_name, panel_definition),
 			loading_widget = self:_create_widget(loading_widget_name, loading_definition),
 			weapon_widgets = {},
-			talent_widgets = {}
+			talent_widgets = {},
 		}
 
 		spawn_slots[i] = spawn_slot
@@ -920,7 +920,7 @@ LobbyView._assign_player_to_slot = function (self, player, slot)
 
 	local weapon_slots = {
 		"slot_primary",
-		"slot_secondary"
+		"slot_secondary",
 	}
 	local seed = _generate_seed(unique_id, self._mission_data.backend_mission_id)
 	local _, random_slot = math.next_random(seed, 1, #weapon_slots)
@@ -1210,7 +1210,7 @@ LobbyView._draw_widgets = function (self, dt, t, input_service, ui_renderer)
 							hovered_talent = {
 								talent = loadout.talent,
 								loadout_id = loadout_id,
-								slot = i
+								slot = i,
 							}
 							self._hovered_tooltip_panel_widget = panel_widget
 						end
@@ -1422,7 +1422,7 @@ LobbyView._open_inventory_by_slot = function (self, slot)
 	local context = {
 		parent = self,
 		player = player,
-		is_readonly = slot.ready
+		is_readonly = slot.ready,
 	}
 
 	Managers.ui:open_view(INVENTORY_VIEW_NAME, nil, nil, nil, nil, context)
@@ -1454,7 +1454,7 @@ LobbyView._check_loadout_changes = function (self)
 			local changed_cosmetics = false
 			local weapon_slots = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 
 			for f = 1, #weapon_slots do
@@ -1470,7 +1470,7 @@ LobbyView._check_loadout_changes = function (self)
 			local cosmetic_slots = {
 				"slot_insignia",
 				"slot_gear_head",
-				"slot_portrait_frame"
+				"slot_portrait_frame",
 			}
 
 			for f = 1, #cosmetic_slots do
@@ -1530,20 +1530,20 @@ LobbyView._setup_talents_widgets = function (self, spawn_slot)
 			id = "talent_1",
 			offset_height = 0,
 			size = ContentBlueprints.talent.size,
-			offset_width = start_margin
+			offset_width = start_margin,
 		},
 		{
 			id = "talent_2",
 			offset_height = 0,
 			size = ContentBlueprints.talent.size,
-			offset_width = start_margin + ContentBlueprints.talent.size[1] + margin
+			offset_width = start_margin + ContentBlueprints.talent.size[1] + margin,
 		},
 		{
 			id = "talent_3",
 			offset_height = 0,
 			size = ContentBlueprints.talent.size,
-			offset_width = start_margin + (ContentBlueprints.talent.size[1] + margin) * 2
-		}
+			offset_width = start_margin + (ContentBlueprints.talent.size[1] + margin) * 2,
+		},
 	}
 	local ui_renderer = self._ui_renderer
 	local scenegraph_id = "loadout"
@@ -1569,7 +1569,7 @@ LobbyView._setup_talents_widgets = function (self, spawn_slot)
 		local config = {
 			loadout = loadout,
 			node_type_settings = node_type_settings,
-			loadout_id = loadout_id
+			loadout_id = loadout_id,
 		}
 		local size = template.size or data.size
 		local pass_template_function = template.pass_template_function
@@ -1592,12 +1592,12 @@ LobbyView._setup_talents_widgets = function (self, spawn_slot)
 			talent_widget.original_offset = {
 				offset_width,
 				offset_height,
-				0
+				0,
 			}
 			talent_widget.offset = {
 				offset_width,
 				offset_height,
-				0
+				0,
 			}
 			spawn_slot.talent_widgets[i] = talent_widget
 		end
@@ -1608,7 +1608,7 @@ LobbyView._setup_weapon_widgets = function (self, spawn_slot)
 	local profile = spawn_slot.player:profile()
 	local size = {
 		370,
-		0
+		0,
 	}
 	local margin = 10
 	local margin_large = (UISettings.weapon_icon_size[1] * 2 + margin - 450) * 0.5
@@ -1616,16 +1616,16 @@ LobbyView._setup_weapon_widgets = function (self, spawn_slot)
 	local search_slot = {
 		{
 			id = "slot_primary",
-			offset_width = 0,
 			offset_height = 0,
-			size = ContentBlueprints.item_icon.size
+			offset_width = 0,
+			size = ContentBlueprints.item_icon.size,
 		},
 		{
 			id = "slot_secondary",
 			offset_height = 0,
 			size = ContentBlueprints.item_icon.size,
-			offset_width = ContentBlueprints.item_icon.size[1] + margin
-		}
+			offset_width = ContentBlueprints.item_icon.size[1] + margin,
+		},
 	}
 	local ui_renderer = self._ui_renderer
 	local scenegraph_id = "loadout"
@@ -1645,7 +1645,7 @@ LobbyView._setup_weapon_widgets = function (self, spawn_slot)
 		local template = ContentBlueprints.item_icon
 		local config = {
 			item = loadout,
-			slot = slot
+			slot = slot,
 		}
 		local size = data.size
 		local pass_template_function = template.pass_template_function
@@ -1668,12 +1668,12 @@ LobbyView._setup_weapon_widgets = function (self, spawn_slot)
 			weapon_widget.original_offset = {
 				offset_width,
 				offset_height,
-				0
+				0,
 			}
 			weapon_widget.offset = {
 				offset_width,
 				offset_height,
-				0
+				0,
 			}
 			spawn_slot.weapon_widgets[#spawn_slot.weapon_widgets + 1] = weapon_widget
 			spawn_slot[slot] = loadout
@@ -1819,7 +1819,7 @@ local FALLBACK_DESCRIPTION = "loc_talent_description_fallback"
 local FALLBACK_ICON = "content/ui/textures/icons/talents/fallback"
 local dummy_tooltip_text_size = {
 	400,
-	20
+	20,
 }
 
 LobbyView._setup_tooltip_info = function (self, talent_hover_data)

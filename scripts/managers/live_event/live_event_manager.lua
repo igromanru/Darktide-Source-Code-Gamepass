@@ -30,7 +30,7 @@ LiveEventManager.add_player = function (self, id, account_id, is_local)
 		id = id,
 		account_id = account_id,
 		is_local = is_local,
-		progress = {}
+		progress = {},
 	}
 end
 
@@ -104,7 +104,7 @@ LiveEventManager._on_tier_claimed_success = function (self, id, event_id, comple
 			Managers.event:trigger("event_add_notification_message", "currency", {
 				reason = reason,
 				currency = reward.currency,
-				amount = reward.amount
+				amount = reward.amount,
 			})
 		end
 
@@ -119,7 +119,7 @@ LiveEventManager._on_tier_claimed_success = function (self, id, event_id, comple
 
 				Managers.event:trigger("event_add_notification_message", "item_granted", {
 					reason = Localize("loc_item_rewarded_from_live_event"),
-					item = rewarded_master_item
+					item = rewarded_master_item,
 				}, nil, sound_event)
 			else
 				Log.warning("LiveEventsManager", "Received invalid item %s as reward from backend.", master_item_id)
@@ -174,9 +174,9 @@ LiveEventManager._on_track_state_success = function (self, id, event_id, backend
 	if backend_data == nil then
 		backend_data = {
 			state = {
+				rewarded = -1,
 				xpTracked = 0,
-				rewarded = -1
-			}
+			},
 		}
 	end
 
@@ -360,14 +360,14 @@ LiveEventManager._add_event = function (self, backend_data)
 				id = reward.id,
 				type = reward.type,
 				amount = reward.amount,
-				currency = reward.currency
+				currency = reward.currency,
 			}
 		end
 
 		tiers[i] = {
 			backend_index = i - 1,
 			target = tier.xpLimit,
-			rewards = rewards
+			rewards = rewards,
 		}
 	end
 
@@ -381,7 +381,7 @@ LiveEventManager._add_event = function (self, backend_data)
 		template_name = template_name,
 		starts_at = starts_at,
 		ends_at = ends_at,
-		tiers = tiers
+		tiers = tiers,
 	}
 end
 

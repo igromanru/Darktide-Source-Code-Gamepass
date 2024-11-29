@@ -57,7 +57,7 @@ Buff.init = function (self, context, template, start_time, instance_id, ...)
 		is_player = context.player and true or false,
 		is_server = context.is_server,
 		breed = context.breed,
-		template = template
+		template = template,
 	}
 	local additional_arguments = {}
 

@@ -48,7 +48,7 @@ InputManager.init = function (self)
 	if not DEDICATED_SERVER and (IS_WINDOWS or IS_XBS) then
 		self._cursor_stack_data = {
 			stack_depth = 0,
-			stack_references = {}
+			stack_references = {},
 		}
 
 		local allow_cursor_rendering = true
@@ -312,7 +312,7 @@ InputManager.add_setting = function (self, service_type, aliases, raw_key_table,
 		raw = raw_key_table,
 		aliases = aliases,
 		filters = filter_table,
-		default_devices = default_devices
+		default_devices = default_devices,
 	}
 
 	if aliases then
@@ -432,7 +432,7 @@ InputManager._update_key_watch = function (self)
 			self._key_watch_result = {
 				enablers = held,
 				main = released[1],
-				disablers = {}
+				disablers = {},
 			}
 
 			local bound = "[" .. released[1] .. "]"
@@ -527,7 +527,7 @@ InputManager.set_cursor_position = function (self, reference, position)
 
 		self._new_cursor_position_array = {
 			position[1],
-			position[2]
+			position[2],
 		}
 	end
 end
@@ -608,11 +608,11 @@ end
 InputManager.load_input_layout = function (self, layout_name)
 	local devices = {
 		{
-			"ps4_controller"
+			"ps4_controller",
 		},
 		{
-			"xbox_controller"
-		}
+			"xbox_controller",
+		},
 	}
 	local input_manager = Managers.input
 	local gamepad_input_layout = GamepadInputLayouts[layout_name]

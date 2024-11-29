@@ -14,10 +14,10 @@ local item_definitions = MasterItems.get_cached()
 local REQUIRED_NODES = {
 	"enemy_aim_target_01",
 	"enemy_aim_target_02",
-	"enemy_aim_target_03"
+	"enemy_aim_target_03",
 }
 local REQUIRED_MINION_RANGED_NODES = {
-	"fx_muzzle_01"
+	"fx_muzzle_01",
 }
 local FX_SOURCE_NAME = "muzzle"
 
@@ -28,7 +28,7 @@ local function _init_and_run_tests()
 		from_script_component = true,
 		is_minion = true,
 		world = world,
-		item_definitions = item_definitions
+		item_definitions = item_definitions,
 	}
 	local missing_ranged_nodes_text = ""
 	local missing_minion_ranged_nodes = false
@@ -79,7 +79,7 @@ local function _init_and_run_tests()
 					local test_data = {
 						unit = item_unit,
 						item_data = item,
-						attachments = attachment_units
+						attachments = attachment_units,
 					}
 					local attachment_unit, node_index = MinionVisualLoadout.attachment_unit_and_node_from_node_name(test_data, FX_SOURCE_NAME)
 
@@ -145,5 +145,5 @@ end
 
 return {
 	resource_dependencies = _resource_dependencies,
-	test_function = _init_and_run_tests
+	test_function = _init_and_run_tests,
 }

@@ -8,5 +8,5 @@ table.make_unique(overrides)
 
 return {
 	base_templates = hitscan_templates,
-	overrides = overrides
+	overrides = overrides,
 }

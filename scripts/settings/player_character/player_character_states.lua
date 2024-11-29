@@ -60,7 +60,7 @@ local class_list = {
 	sprinting = PlayerCharacterStateSprinting,
 	stunned = PlayerCharacterStateStunned,
 	walking = PlayerCharacterStateWalking,
-	warp_grabbed = PlayerCharacterStateWarpGrabbed
+	warp_grabbed = PlayerCharacterStateWarpGrabbed,
 }
 
 return settings("PlayerCharacterStates", class_list)

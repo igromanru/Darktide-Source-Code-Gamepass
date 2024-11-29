@@ -31,7 +31,7 @@ CoherencySystem.on_add_extension = function (self, world, unit, extension_name, 
 	local coherency_data = {
 		units_in_direct_coherence = {},
 		units_in_direct_coherence_temp = {},
-		units_left_coherence_stickiness_time = {}
+		units_left_coherence_stickiness_time = {},
 	}
 
 	extension._coherency_data = coherency_data

@@ -131,8 +131,8 @@ PlayerCharacterOptionsView._generate_player_icon = function (self)
 		animation_event = animation_event,
 		size = {
 			image_size[1] * size_multiplier,
-			image_size[2] * size_multiplier
-		}
+			image_size[2] * size_multiplier,
+		},
 	}
 
 	self._player_icon_load_id = Managers.ui:load_profile_portrait(profile, load_cb, render_context)
@@ -158,7 +158,7 @@ PlayerCharacterOptionsView._cb_set_player_icon = function (self, grid_index, row
 			grid_index = grid_index,
 			rows = rows,
 			columns = columns,
-			render_target = render_target
+			render_target = render_target,
 		}
 	end
 end
@@ -248,14 +248,14 @@ PlayerCharacterOptionsView._setup_buttons_interactions = function (self)
 	self._button_gamepad_navigation_list = {
 		widgets_by_name.inspect_button,
 		widgets_by_name.invite_button,
-		widgets_by_name.close_button
+		widgets_by_name.close_button,
 	}
 end
 
 PlayerCharacterOptionsView._on_inspect_pressed = function (self)
 	Managers.ui:open_view("inventory_background_view", nil, nil, nil, nil, {
 		is_readonly = true,
-		player = self._inspected_player
+		player = self._inspected_player,
 	})
 end
 
@@ -267,7 +267,7 @@ end
 PlayerCharacterOptionsView._get_animation_widgets = function (self)
 	local window_image_widget = self._widgets_by_name.window_image
 	local widgets = {
-		[window_image_widget.name] = window_image_widget
+		[window_image_widget.name] = window_image_widget,
 	}
 	local slide_page_circles = self._slide_page_circles
 

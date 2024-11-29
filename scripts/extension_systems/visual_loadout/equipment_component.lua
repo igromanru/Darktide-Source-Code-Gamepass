@@ -656,7 +656,7 @@ end
 EquipmentComponent.resolve_profile_properties = function (equipment, wielded_slot, archetype_property, selected_voice_property)
 	local properties = {
 		archetype = archetype_property,
-		selected_voice = selected_voice_property
+		selected_voice = selected_voice_property,
 	}
 
 	for slot_name, slot in pairs(equipment) do

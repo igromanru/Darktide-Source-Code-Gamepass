@@ -4,7 +4,7 @@ local AchievementCategoriesInterface = {
 	"name",
 	"display_name",
 	"parent_name",
-	"sort_index"
+	"sort_index",
 }
 local AchievementCategories = {}
 local sort_index = 0
@@ -15,7 +15,7 @@ local function _add_category(name, loc_key, optional_parent_name)
 		name = name,
 		display_name = loc_key,
 		parent_name = optional_parent_name,
-		sort_index = sort_index
+		sort_index = sort_index,
 	}
 
 	table.make_strict_with_interface(AchievementCategories[name], "AchievementCategories[" .. name .. "]", AchievementCategoriesInterface)

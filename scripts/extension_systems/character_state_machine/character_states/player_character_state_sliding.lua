@@ -27,7 +27,7 @@ local HIT_WEAKSPOT = false
 local slide_knock_down_damage_settings = {
 	radius = 2,
 	damage_profile = DamageProfileTemplates.slide_knockdown,
-	damage_type = damage_types.physical
+	damage_type = damage_types.physical,
 }
 local PlayerCharacterStateSliding = class("PlayerCharacterStateSliding", "PlayerCharacterStateBase")
 local _max_hit_mass

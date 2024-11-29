@@ -9,7 +9,7 @@ DefaultGameParameters.time_step_policy = {
 	1000,
 	"system_step_range",
 	0,
-	1000
+	1000,
 }
 DefaultGameParameters.mission = false
 DefaultGameParameters.debug_mission = false

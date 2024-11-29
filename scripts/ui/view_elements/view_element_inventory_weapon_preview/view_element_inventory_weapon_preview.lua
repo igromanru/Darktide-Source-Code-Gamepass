@@ -162,7 +162,7 @@ ViewElementInventoryWeaponPreview.center_align = function (self, duration, addit
 	self._default_camera_position_offset = {
 		target_world_position.x - camera_world_position.x + extra_position_x,
 		target_world_position.y - camera_world_position.y + extra_position_y,
-		target_world_position.z - camera_world_position.z + extra_position_z
+		target_world_position.z - camera_world_position.z + extra_position_z,
 	}
 
 	local camera_world_rotation_x, camera_world_rotation_y, camera_world_rotation_z = Quaternion.to_euler_angles_xyz(camera_world_rotation)

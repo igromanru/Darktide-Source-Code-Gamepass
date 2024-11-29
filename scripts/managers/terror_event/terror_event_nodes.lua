@@ -22,7 +22,7 @@ TerrorEventNodes.debug_print = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return not is_completed and string.format("(%.1f sec)", is_running and scratchpad.ends_at - t or node.duration)
-	end
+	end,
 }
 TerrorEventNodes.delay = {
 	init = function (node, event, t)
@@ -43,7 +43,7 @@ TerrorEventNodes.delay = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return not is_completed and string.format("(%.1f sec)", is_running and scratchpad.ends_at - t or node.duration)
-	end
+	end,
 }
 TerrorEventNodes.continue_when = {
 	init = function (node, event, t)
@@ -64,7 +64,7 @@ TerrorEventNodes.continue_when = {
 		if node.duration then
 			return not is_completed and string.format("(%.1f sec)", is_running and scratchpad.ends_at - t or node.duration)
 		end
-	end
+	end,
 }
 TerrorEventNodes.start_terror_event = {
 	init = function (node, event, t)
@@ -79,7 +79,7 @@ TerrorEventNodes.start_terror_event = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("%q", node.start_event_name)
-	end
+	end,
 }
 TerrorEventNodes.start_random_terror_event = {
 	init = function (node, event, t)
@@ -93,7 +93,7 @@ TerrorEventNodes.start_random_terror_event = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("random event: %q", node.start_event_name)
-	end
+	end,
 }
 TerrorEventNodes.stop_terror_event = {
 	init = function (node, event, t)
@@ -107,7 +107,7 @@ TerrorEventNodes.stop_terror_event = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("%q", node.stop_event_name)
-	end
+	end,
 }
 TerrorEventNodes.flow_event = {
 	init = function (node, event, t)
@@ -120,7 +120,7 @@ TerrorEventNodes.flow_event = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("%q", node.flow_event_name)
-	end
+	end,
 }
 TerrorEventNodes.play_2d_sound = {
 	init = function (node, event, t)
@@ -134,7 +134,7 @@ TerrorEventNodes.play_2d_sound = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("%q", node.sound_event_name)
-	end
+	end,
 }
 TerrorEventNodes.play_3d_sound_from_spawners = {
 	init = function (node, event, t)
@@ -151,7 +151,7 @@ TerrorEventNodes.play_3d_sound_from_spawners = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("%q from spawners %q", node.sound_event_name, node.spawner_group)
-	end
+	end,
 }
 TerrorEventNodes.set_specials_pacing_spawner_groups = {
 	init = function (node, event, t)
@@ -164,7 +164,7 @@ TerrorEventNodes.set_specials_pacing_spawner_groups = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("set_specials_pacing_spawner_groups %q", node.spawner_group)
-	end
+	end,
 }
 TerrorEventNodes.reset_specials_pacing_spawner_groups = {
 	init = function (node, event, t)
@@ -177,7 +177,7 @@ TerrorEventNodes.reset_specials_pacing_spawner_groups = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("reset_specials_pacing_spawner_groups")
-	end
+	end,
 }
 TerrorEventNodes.control_pacing_spawns = {
 	init = function (node, event, t)
@@ -206,7 +206,7 @@ TerrorEventNodes.control_pacing_spawns = {
 		end
 
 		return string.format("Controlling pacing spawn: %s => %s", names, enabled and "true" or "false")
-	end
+	end,
 }
 TerrorEventNodes.freeze_specials_pacing = {
 	init = function (node, event, t)
@@ -222,7 +222,7 @@ TerrorEventNodes.freeze_specials_pacing = {
 		local enabled = node.enabled
 
 		return string.format("Freezing specials pacing => %s", enabled and "true" or "false")
-	end
+	end,
 }
 TerrorEventNodes.set_pacing_enabled = {
 	init = function (node, event, t)
@@ -236,27 +236,27 @@ TerrorEventNodes.set_pacing_enabled = {
 	end,
 	debug_text = function (node, is_completed, is_running, scratchpad, t, dt)
 		return string.format("Set pacing enabled: %s", node.enabled and "true" or "false")
-	end
+	end,
 }
 
 local TEMP_SPAWN_SIDE_NAME = "villains"
 local GROUP_SOUNDS_BY_BREED_NAME = {
 	chaos_newly_infected = {
+		start = "wwise/events/minions/play_minion_terror_event_group_sfx_newly_infected",
 		stop = "wwise/events/minions/stop_minion_terror_event_group_sfx_newly_infected",
-		start = "wwise/events/minions/play_minion_terror_event_group_sfx_newly_infected"
 	},
 	chaos_poxwalker = {
+		start = "wwise/events/minions/play_minion_terror_event_group_sfx_poxwalkers",
 		stop = "wwise/events/minions/stop_minion_terror_event_group_sfx_poxwalkers",
-		start = "wwise/events/minions/play_minion_terror_event_group_sfx_poxwalkers"
 	},
 	cultist_melee = {
+		start = "wwise/events/minions/play_minion_terror_event_group_sfx_cultists",
 		stop = "wwise/events/minions/stop_minion_terror_event_group_sfx_cultists",
-		start = "wwise/events/minions/play_minion_terror_event_group_sfx_cultists"
 	},
 	renegade_melee = {
+		start = "wwise/events/minions/play_minion_terror_event_group_sfx_traitor_guards",
 		stop = "wwise/events/minions/stop_minion_terror_event_group_sfx_traitor_guards",
-		start = "wwise/events/minions/play_minion_terror_event_group_sfx_traitor_guards"
-	}
+	},
 }
 local MAX_TERROR_EVENT_THRESHOLD = 100
 local MAX_POINTS = 60
@@ -461,7 +461,7 @@ TerrorEventNodes.spawn_by_points = {
 		end
 
 		return true
-	end
+	end,
 }
 TerrorEventNodes.spawn_by_breed_name = {
 	init = function (node, event, t)
@@ -547,7 +547,7 @@ TerrorEventNodes.spawn_by_breed_name = {
 		end
 
 		return true
-	end
+	end,
 }
 TerrorEventNodes.try_inject_special_minion = {
 	init = function (node, event, t)
@@ -571,7 +571,7 @@ TerrorEventNodes.try_inject_special_minion = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 TerrorEventNodes.start_terror_trickle = {
 	init = function (node, event, t)
@@ -586,7 +586,7 @@ TerrorEventNodes.start_terror_trickle = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 TerrorEventNodes.stop_terror_trickle = {
 	init = function (node, event, t)
@@ -594,7 +594,7 @@ TerrorEventNodes.stop_terror_trickle = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 TerrorEventNodes.spawn_bot_character = {
 	init = function (node, event, t)
@@ -604,7 +604,7 @@ TerrorEventNodes.spawn_bot_character = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 TerrorEventNodes.start_twin_fight = {
 	init = function (node, event, t)
@@ -614,7 +614,7 @@ TerrorEventNodes.start_twin_fight = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 TerrorEventNodes.activate_hard_mode = {
 	init = function (node, event, t)
@@ -624,7 +624,7 @@ TerrorEventNodes.activate_hard_mode = {
 	end,
 	update = function (node, scratchpad, t, dt)
 		return true
-	end
+	end,
 }
 
 return TerrorEventNodes

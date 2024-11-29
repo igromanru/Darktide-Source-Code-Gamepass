@@ -25,7 +25,7 @@ local mission_objectives = {
 	demolition = MissionObjectiveDemolition,
 	luggable = MissionObjectiveLuggable,
 	scanning = MissionObjectiveZone,
-	side = MissionObjectiveSide
+	side = MissionObjectiveSide,
 }
 local MissionObjectiveSystem = class("MissionObjectiveSystem", "ExtensionSystemBase")
 local RPCS = {
@@ -43,7 +43,7 @@ local RPCS = {
 	"rpc_mission_objective_show_bar",
 	"rpc_mission_objective_show_timer",
 	"rpc_mission_objective_override_ui_string",
-	"rpc_mission_sound_event"
+	"rpc_mission_sound_event",
 }
 
 MissionObjectiveSystem.init = function (self, context, system_init_data, ...)

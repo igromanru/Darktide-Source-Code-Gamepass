@@ -23,14 +23,14 @@ UIWorldSpawner.init = function (self, world_name, world_layer, timer_name, optio
 	self._story_speed = 1
 	self._default_animation_data = {
 		x = {
-			value = 0
+			value = 0,
 		},
 		y = {
-			value = 0
+			value = 0,
 		},
 		z = {
-			value = 0
-		}
+			value = 0,
+		},
 	}
 	self._camera_rotation_animation_data = table.clone(self._default_animation_data)
 	self._camera_position_animation_data = table.clone(self._default_animation_data)
@@ -207,8 +207,8 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			true,
 			false,
 			{
-				"ComponentExtension"
-			}
+				"ComponentExtension",
+			},
 		},
 		{
 			"dialogue_system",
@@ -219,8 +219,8 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			true,
 			false,
 			{
-				"DialogueExtension"
-			}
+				"DialogueExtension",
+			},
 		},
 		{
 			"dialogue_context_system",
@@ -229,7 +229,7 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			false,
 			false,
 			true,
-			false
+			false,
 		},
 		{
 			"cutscene_character_system",
@@ -240,8 +240,8 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			false,
 			false,
 			{
-				"CutsceneCharacterExtension"
-			}
+				"CutsceneCharacterExtension",
+			},
 		},
 		{
 			"cinematic_scene_system",
@@ -252,8 +252,8 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			true,
 			false,
 			{
-				"CinematicSceneExtension"
-			}
+				"CinematicSceneExtension",
+			},
 		},
 		{
 			"light_controller_system",
@@ -264,29 +264,29 @@ UIWorldSpawner._setup_extension_manager = function (self)
 			true,
 			false,
 			{
-				"LightControllerExtension"
-			}
-		}
+				"LightControllerExtension",
+			},
+		},
 	}
 	local vo_sources_cache = VOSourcesCache:new()
 	local system_init_data = {
 		dialogue_context_system = {},
 		dialogue_system = {
 			is_rule_db_enabled = false,
-			vo_sources_cache = vo_sources_cache
+			vo_sources_cache = vo_sources_cache,
 		},
 		cinematic_scene_system = {
-			mission = {}
+			mission = {},
 		},
 		light_controller_system = {
-			mission = {}
+			mission = {},
 		},
-		component_system = {}
+		component_system = {},
 	}
 	local unit_categories = {
 		"flow_spawned",
 		"level_spawned",
-		"cinematic"
+		"cinematic",
 	}
 	local circumstance_name = "default"
 	local use_time_slice = false
@@ -299,7 +299,7 @@ end
 UIWorldSpawner._create_world = function (self, world_name, layer, timer_name, optional_view_name, optional_flags)
 	local flags = optional_flags or {
 		Application.ENABLE_VOLUMETRICS,
-		Application.ENABLE_RAY_TRACING
+		Application.ENABLE_RAY_TRACING,
 	}
 	local ui_manager = Managers.ui
 	local world = ui_manager:create_world(world_name, layer, timer_name, optional_view_name, flags)
@@ -533,7 +533,7 @@ UIWorldSpawner.set_camera_blur = function (self, blur_amount, duration, anim_fun
 		end_value = blur_amount,
 		value_difference = blur_difference,
 		anim_func = anim_func,
-		duration = math.abs(blur_difference) * (duration or 1)
+		duration = math.abs(blur_difference) * (duration or 1),
 	}
 end
 

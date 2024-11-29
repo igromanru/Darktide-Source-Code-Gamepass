@@ -6,7 +6,7 @@ local DEFAULT_MAX_DISTANCE = 0.7
 local DEFAULT_MAX_HEIGHT_DIFFERENCE = 1
 
 FadeSystem.system_extensions = {
-	"FadeExtension"
+	"FadeExtension",
 }
 
 FadeSystem.init = function (self, context, system_init_data, system_name, _, ...)

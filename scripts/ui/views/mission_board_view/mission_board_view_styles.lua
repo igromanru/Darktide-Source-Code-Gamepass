@@ -120,48 +120,48 @@ MissionBoardViewStyles.screen_decorations_widget_style = {
 			75,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			-1
-		}
+			-1,
+		},
 	},
 	overlay_top = {
 		color = {
 			0,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			500
-		}
+			500,
+		},
 	},
 	corner_right = {
 		uvs = {
 			{
 				1,
-				0
+				0,
 			},
 			{
 				0,
-				1
-			}
-		}
-	}
+				1,
+			},
+		},
+	},
 }
 MissionBoardViewStyles.planet_widget_style = {
 	title = {
-		font_type = "machine_medium",
-		font_size = 55,
 		drop_shadow = true,
+		font_size = 55,
+		font_type = "machine_medium",
 		material = "content/ui/materials/font_gradients/slug_font_gradient_header",
-		text_color = MissionBoardViewSettings.color_text_title
-	}
+		text_color = MissionBoardViewSettings.color_text_title,
+	},
 }
 MissionBoardViewStyles.happening_widget_style = {
 	background = {
@@ -169,21 +169,21 @@ MissionBoardViewStyles.happening_widget_style = {
 			0,
 			0,
 			0,
-			0
-		}
+			0,
+		},
 	},
 	gradient = {
 		color = {
 			0,
 			54,
 			78,
-			40
+			40,
 		},
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	frame = {
 		scale_to_material = true,
@@ -191,13 +191,13 @@ MissionBoardViewStyles.happening_widget_style = {
 			0,
 			221,
 			172,
-			38
+			38,
 		},
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	icon = {
 		drop_shadow = true,
@@ -205,35 +205,35 @@ MissionBoardViewStyles.happening_widget_style = {
 		offset = {
 			10,
 			8,
-			3
+			3,
 		},
 		size = {
 			36,
-			36
-		}
+			36,
+		},
 	},
 	title = {
-		font_type = "proxima_nova_bold",
-		font_size = 20,
 		drop_shadow = true,
+		font_size = 20,
+		font_type = "proxima_nova_bold",
 		text_color = MissionBoardViewSettings.color_accent,
 		offset = {
 			60,
 			4,
-			4
-		}
+			4,
+		},
 	},
 	subtitle = {
-		font_type = "proxima_nova_bold",
-		font_size = 18,
 		drop_shadow = true,
+		font_size = 18,
+		font_type = "proxima_nova_bold",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			60,
 			25,
-			5
-		}
-	}
+			5,
+		},
+	},
 }
 MissionBoardViewStyles.detail_widget_style = {
 	background = {
@@ -241,8 +241,8 @@ MissionBoardViewStyles.detail_widget_style = {
 			200,
 			0,
 			0,
-			0
-		}
+			0,
+		},
 	},
 	timer_frame = {
 		scale_to_material = true,
@@ -250,53 +250,53 @@ MissionBoardViewStyles.detail_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	timer_bar = {
-		vertical_alignment = "center",
 		horizontal_alignment = "right",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_accent,
 		offset = {
 			-12,
 			0,
-			2
+			2,
 		},
 		size = {
 			nil,
-			10
+			10,
 		},
 		size_addition = {
 			-115,
-			0
+			0,
 		},
 		material_values = {
-			progress = 0.75
-		}
+			progress = 0.75,
+		},
 	},
 	timer_hourglass = {
 		color = MissionBoardViewSettings.color_gray,
 		size = {
 			24,
-			24
+			24,
 		},
 		offset = {
 			7,
 			8,
-			2
-		}
+			2,
+		},
 	},
 	timer_text = {
-		font_type = "proxima_nova_bold",
 		font_size = 20,
+		font_type = "proxima_nova_bold",
 		horizontal_alignment = "left",
 		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_gray,
 		offset = {
 			35,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	header_frame = {
 		scale_to_material = true,
@@ -304,151 +304,151 @@ MissionBoardViewStyles.detail_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	header_title = {
-		font_type = "proxima_nova_bold",
-		font_size = 28,
 		drop_shadow = true,
+		font_size = 28,
+		font_type = "proxima_nova_bold",
 		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_title,
 		offset = {
 			20,
 			-10,
-			2
-		}
+			2,
+		},
 	},
 	header_subtitle = {
-		font_type = "proxima_nova_bold",
-		font_size = 18,
 		drop_shadow = true,
+		font_size = 18,
+		font_type = "proxima_nova_bold",
 		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			20,
 			16,
-			3
-		}
+			3,
+		},
 	},
 	bonus_title = {
-		font_type = "proxima_nova_bold",
 		font_size = 18,
-		text_vertical_alignment = "top",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "left",
+		text_vertical_alignment = "top",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			20,
 			10,
-			2
-		}
+			2,
+		},
 	},
 	bonus_text = {
-		line_spacing = 1.5,
 		font_size = 22,
-		text_vertical_alignment = "top",
 		font_type = "proxima_nova_bold",
+		line_spacing = 1.5,
 		text_horizontal_alignment = "left",
+		text_vertical_alignment = "top",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			85,
 			50,
-			2
-		}
+			2,
+		},
 	},
 	difficulty_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_main,
 		size = _apply_difficulty_scale({
 			23,
-			23
+			23,
 		}),
 		offset = _apply_difficulty_scale({
 			-20,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	difficulty_bar_1 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		default_color = DangerSettings.by_index[1].color,
 		color = DangerSettings.by_index[1].color,
 		color_disabled = MissionBoardViewSettings.color_disabled,
 		size = _apply_difficulty_scale({
 			6,
-			16
+			16,
 		}),
 		offset = _apply_difficulty_scale({
 			-1,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	difficulty_bar_2 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		default_color = DangerSettings.by_index[1].color,
 		color = DangerSettings.by_index[1].color,
 		color_disabled = MissionBoardViewSettings.color_disabled,
 		size = _apply_difficulty_scale({
 			6,
-			16
+			16,
 		}),
 		offset = _apply_difficulty_scale({
 			8,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	difficulty_bar_3 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		default_color = DangerSettings.by_index[1].color,
 		color = DangerSettings.by_index[1].color,
 		color_disabled = MissionBoardViewSettings.color_disabled,
 		size = _apply_difficulty_scale({
 			6,
-			16
+			16,
 		}),
 		offset = _apply_difficulty_scale({
 			17,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	difficulty_bar_4 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		default_color = DangerSettings.by_index[1].color,
 		color = DangerSettings.by_index[1].color,
 		color_disabled = MissionBoardViewSettings.color_disabled,
 		size = _apply_difficulty_scale({
 			6,
-			16
+			16,
 		}),
 		offset = _apply_difficulty_scale({
 			26,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	difficulty_bar_5 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		default_color = DangerSettings.by_index[1].color,
 		color = DangerSettings.by_index[1].color,
 		color_disabled = MissionBoardViewSettings.color_disabled,
 		size = _apply_difficulty_scale({
 			6,
-			16
+			16,
 		}),
 		offset = _apply_difficulty_scale({
 			35,
 			0,
-			3
-		})
+			3,
+		}),
 	},
 	location_frame = {
 		scale_to_material = true,
@@ -456,13 +456,13 @@ MissionBoardViewStyles.detail_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	location_image = {
 		material_values = {
-			texture_map = "content/ui/textures/missions/quickplay"
-		}
+			texture_map = "content/ui/textures/missions/quickplay",
+		},
 	},
 	location_vignette = {
 		scale_to_material = true,
@@ -470,26 +470,26 @@ MissionBoardViewStyles.detail_widget_style = {
 			255,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	location_lock = {
-		font_type = "itc_novarese_bold",
-		font_size = 160,
 		drop_shadow = false,
-		text_vertical_alignment = "center",
+		font_size = 160,
+		font_type = "itc_novarese_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_background,
 		offset = {
 			0,
 			-40,
-			3
-		}
+			3,
+		},
 	},
 	circumstance_frame = {
 		scale_to_material = true,
@@ -497,114 +497,114 @@ MissionBoardViewStyles.detail_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	circumstance_detail = {
 		color = MissionBoardViewSettings.color_accent,
 		offset = {
 			0,
 			0,
-			1
+			1,
 		},
 		size = {
-			6
-		}
+			6,
+		},
 	},
 	circumstance_icon = {
-		vertical_alignment = "top",
 		horizontal_alignment = "left",
+		vertical_alignment = "top",
 		color = MissionBoardViewSettings.color_accent,
 		size = {
 			40,
-			40
+			40,
 		},
 		offset = {
 			20,
 			10,
-			3
-		}
+			3,
+		},
 	},
 	circumstance_label = {
-		font_type = "proxima_nova_bold",
 		font_size = 18,
-		text_vertical_alignment = "bottom",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "right",
+		text_vertical_alignment = "bottom",
 		text_color = MissionBoardViewSettings.color_gray,
 		offset = {
 			-12,
 			-5,
-			5
-		}
+			5,
+		},
 	},
 	circumstance_name = {
-		font_type = "proxima_nova_bold",
 		font_size = 20,
+		font_type = "proxima_nova_bold",
 		text_color = MissionBoardViewSettings.color_accent,
 		offset = {
 			75,
 			10,
-			4
+			4,
 		},
 		size_addition = {
 			-85,
-			0
+			0,
 		},
-		size = {}
+		size = {},
 	},
 	circumstance_description = {
-		line_spacing = 1,
 		font_size = 18,
 		font_type = "proxima_nova_bold",
+		line_spacing = 1,
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			75,
 			30,
-			6
+			6,
 		},
 		size = {},
 		size_addition = {
 			-85,
-			0
-		}
+			0,
+		},
 	},
 	maelstrom_background = {
 		size = {
 			nil,
-			40
+			40,
 		},
 		color = Color.black(76.5, true),
 		offset = {
 			0,
 			-40,
-			6
-		}
+			6,
+		},
 	},
 	maelstrom_text = {
-		text_vertical_alignment = "center",
 		font_size = 20,
 		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		offset = {
 			0,
 			-40,
-			6
+			6,
 		},
 		size = {
 			nil,
-			40
+			40,
 		},
-		text_color = MissionBoardViewSettings.color_accent
-	}
+		text_color = MissionBoardViewSettings.color_accent,
+	},
 }
 MissionBoardViewStyles.objective_widget_style = {
 	background = {
-		color = MissionBoardViewSettings.color_background
+		color = MissionBoardViewSettings.color_background,
 	},
 	header_gradient = {
 		color = MissionBoardViewSettings.color_green_faded,
 		color_main = MissionBoardViewSettings.color_green_faded,
-		color_side = MissionBoardViewSettings.color_green_faded
+		color_side = MissionBoardViewSettings.color_green_faded,
 	},
 	header_frame = {
 		scale_to_material = true,
@@ -612,51 +612,51 @@ MissionBoardViewStyles.objective_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	header_icon = {
 		color = MissionBoardViewSettings.color_terminal_text_header,
 		offset = {
 			20,
 			16,
-			2
+			2,
 		},
 		size = {
 			36,
-			36
-		}
+			36,
+		},
 	},
 	header_title = {
-		font_type = "proxima_nova_bold",
 		font_size = 16,
+		font_type = "proxima_nova_bold",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			70,
 			13,
-			3
+			3,
 		},
 		size_addition = {
 			-90,
-			0
-		}
+			0,
+		},
 	},
 	header_subtitle = {
-		font_type = "proxima_nova_bold",
 		font_size = 20,
+		font_type = "proxima_nova_bold",
 		text_color = MissionBoardViewSettings.color_text_title,
 		offset = {
 			70,
 			33,
-			4
+			4,
 		},
 		size_addition = {
 			-90,
-			0
-		}
+			0,
+		},
 	},
 	body_background = {
-		color = MissionBoardViewSettings.color_dark_opacity
+		color = MissionBoardViewSettings.color_dark_opacity,
 	},
 	body_frame = {
 		scale_to_material = true,
@@ -664,44 +664,44 @@ MissionBoardViewStyles.objective_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	body_text = {
-		line_spacing = 1.2,
 		font_size = 18,
 		font_type = "proxima_nova_bold",
+		line_spacing = 1.2,
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			20,
 			80,
-			1
+			1,
 		},
 		size_addition = {
 			-40,
-			0
-		}
+			0,
+		},
 	},
 	reward_background = {
 		color = {
 			175,
 			0,
 			0,
-			0
-		}
+			0,
+		},
 	},
 	reward_gradient = {
 		color = {
 			32,
 			169,
 			211,
-			158
+			158,
 		},
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	reward_frame = {
 		scale_to_material = true,
@@ -709,33 +709,33 @@ MissionBoardViewStyles.objective_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	reward_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "right",
+		vertical_alignment = "center",
 		size = {
 			28,
-			20
+			20,
 		},
 		offset = {
 			0,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	reward_text = {
-		font_type = "proxima_nova_bold",
 		font_size = 22,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "right",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			-28,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	speaker_frame = {
 		scale_to_material = true,
@@ -743,8 +743,8 @@ MissionBoardViewStyles.objective_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	speaker_corner = {
 		scale_to_material = true,
@@ -752,28 +752,28 @@ MissionBoardViewStyles.objective_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	speaker_icon = {
 		offset = {
 			0,
 			0,
-			0
-		}
+			0,
+		},
 	},
 	speaker_text = {
-		font_type = "proxima_nova_bold",
 		font_size = 18,
-		text_vertical_alignment = "bottom",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "right",
+		text_vertical_alignment = "bottom",
 		text_color = MissionBoardViewSettings.color_gray,
 		offset = {
 			-38,
 			-3,
-			5
-		}
-	}
+			5,
+		},
+	},
 }
 MissionBoardViewStyles.difficulty_stepper_window_widget_style = {
 	background = {
@@ -781,8 +781,8 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style = {
 		offset = {
 			0,
 			0,
-			-1
-		}
+			-1,
+		},
 	},
 	frame = {
 		scale_to_material = true,
@@ -790,31 +790,31 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	glow = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
 		scale_to_material = true,
+		vertical_alignment = "center",
 		color = {
 			128,
 			169,
 			211,
-			158
+			158,
 		},
 		offset = {
 			0,
 			0,
-			-1
+			-1,
 		},
 		size_addition = {
 			24,
-			24
-		}
+			24,
+		},
 	},
 	header_gradient = {
-		color = MissionBoardViewSettings.color_green_faded
+		color = MissionBoardViewSettings.color_green_faded,
 	},
 	header_frame = {
 		scale_to_material = true,
@@ -822,8 +822,8 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	header_title = {
 		font_size = 20,
@@ -832,13 +832,13 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style = {
 		offset = {
 			12,
 			7,
-			2
-		}
-	}
+			2,
+		},
+	},
 }
 MissionBoardViewStyles.game_settings_widget_style = {
 	background = {
-		color = MissionBoardViewSettings.color_background
+		color = MissionBoardViewSettings.color_background,
 	},
 	frame = {
 		scale_to_material = true,
@@ -846,31 +846,31 @@ MissionBoardViewStyles.game_settings_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	glow = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
 		scale_to_material = true,
+		vertical_alignment = "center",
 		color = Color.terminal_corner_selected(255, true),
 		offset = {
 			0,
 			0,
-			-1
+			-1,
 		},
 		size_addition = {
 			24,
-			24
-		}
+			24,
+		},
 	},
 	header_gradient = {
 		color = {
 			200,
 			169,
 			211,
-			158
-		}
+			158,
+		},
 	},
 	header_frame = {
 		scale_to_material = true,
@@ -878,8 +878,8 @@ MissionBoardViewStyles.game_settings_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	header_title = {
 		font_size = 28,
@@ -888,13 +888,13 @@ MissionBoardViewStyles.game_settings_widget_style = {
 		offset = {
 			15,
 			3,
-			2
-		}
-	}
+			2,
+		},
+	},
 }
 MissionBoardViewStyles.info_box_widget_style = {
 	background = {
-		color = MissionBoardViewSettings.color_dark_opacity
+		color = MissionBoardViewSettings.color_dark_opacity,
 	},
 	frame = {
 		scale_to_material = true,
@@ -902,143 +902,143 @@ MissionBoardViewStyles.info_box_widget_style = {
 			0,
 			0,
 			0,
-			0
+			0,
 		},
 		color_info = MissionBoardViewSettings.color_accent,
 		color_warning = MissionBoardViewSettings.color_frame,
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	text = {
-		font_type = "proxima_nova_bold",
 		font_size = 18,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			0,
 			0,
-			2
+			2,
 		},
 		size_addition = {
 			-10,
-			0
-		}
-	}
+			0,
+		},
+	},
 }
 MissionBoardViewStyles.play_team_button_legend = {
 	text = {
-		font_type = "proxima_nova_bold",
 		font_size = 18,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			0,
 			50,
-			2
-		}
-	}
+			2,
+		},
+	},
 }
 MissionBoardViewStyles.search_text_style = {
 	text = {
-		font_type = "proxima_nova_bold",
 		font_size = 42,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_main,
 		offset = {
 			0,
 			0,
-			2
-		}
-	}
+			2,
+		},
+	},
 }
 MissionBoardViewStyles.mission_widget_style = {
 	background = {
-		color = MissionBoardViewSettings.color_background
+		color = MissionBoardViewSettings.color_background,
 	},
 	fluff_frame = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		size = {
 			160,
-			184
-		}
+			184,
+		},
 	},
 	glow = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
 		scale_to_material = true,
+		vertical_alignment = "center",
 		color = {
 			255,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			-1
+			-1,
 		},
 		size_addition = {
 			24,
-			24
-		}
+			24,
+		},
 	},
 	timer_frame = {
-		vertical_alignment = "center",
-		scale_to_material = true,
 		horizontal_alignment = "center",
+		scale_to_material = true,
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_frame,
 		size_addition = {
 			4,
-			4
+			4,
 		},
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	timer_bar = {
 		color = MissionBoardViewSettings.color_accent,
 		offset = {
 			0,
 			0,
-			1
+			1,
 		},
 		material_values = {
-			progress = 0.1
-		}
+			progress = 0.1,
+		},
 	},
 	timer_hourglass = {
 		color = MissionBoardViewSettings.color_main,
 		size = {
 			19,
-			19
+			19,
 		},
 		offset = {
 			-79,
 			-6,
-			2
-		}
+			2,
+		},
 	},
 	timer_text = {
-		vertical_alignment = "center",
-		font_size = 20,
-		horizontal_alignment = "left",
 		drop_shadow = true,
+		font_size = 20,
 		font_type = "proxima_nova_bold",
+		horizontal_alignment = "left",
+		vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_main,
 		offset = {
 			-60,
 			-5,
-			2
-		}
+			2,
+		},
 	},
 	difficulty_frame = {
 		scale_to_material = true,
@@ -1046,111 +1046,111 @@ MissionBoardViewStyles.mission_widget_style = {
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	difficulty_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_main,
 		size = {
 			23,
-			23
+			23,
 		},
 		offset = {
 			-26,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	difficulty_bar_1 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = DangerSettings.by_index[1].color,
 		size = {
 			6,
-			16
+			16,
 		},
 		offset = {
 			-5,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	difficulty_bar_2 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = DangerSettings.by_index[1].color,
 		size = {
 			6,
-			16
+			16,
 		},
 		offset = {
 			4,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	difficulty_bar_3 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = DangerSettings.by_index[1].color,
 		size = {
 			6,
-			16
+			16,
 		},
 		offset = {
 			13,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	difficulty_bar_4 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = DangerSettings.by_index[1].color,
 		size = {
 			6,
-			16
+			16,
 		},
 		offset = {
 			22,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	difficulty_bar_5 = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = DangerSettings.by_index[1].color,
 		size = {
 			6,
-			16
+			16,
 		},
 		offset = {
 			31,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	location_image = {
 		material_values = {
-			texture_map = "content/ui/textures/missions/quickplay"
-		}
+			texture_map = "content/ui/textures/missions/quickplay",
+		},
 	},
 	location_rect = {
 		visible = false,
 		offset = {
 			0,
 			0,
-			1
+			1,
 		},
 		color = {
 			200,
 			0,
 			0,
-			0
-		}
+			0,
+		},
 	},
 	location_vignette = {
 		scale_to_material = true,
@@ -1158,13 +1158,13 @@ MissionBoardViewStyles.mission_widget_style = {
 			255,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			1
-		}
+			1,
+		},
 	},
 	location_frame = {
 		scale_to_material = true,
@@ -1172,8 +1172,8 @@ MissionBoardViewStyles.mission_widget_style = {
 		offset = {
 			0,
 			0,
-			3
-		}
+			3,
+		},
 	},
 	location_corner = {
 		scale_to_material = true,
@@ -1181,35 +1181,35 @@ MissionBoardViewStyles.mission_widget_style = {
 		offset = {
 			0,
 			0,
-			4
-		}
+			4,
+		},
 	},
 	location_decoration = {
-		vertical_alignment = "top",
 		horizontal_alignment = "center",
+		vertical_alignment = "top",
 		color = MissionBoardViewSettings.color_main,
 		size = {
 			60,
-			20
+			20,
 		},
 		offset = {
 			0,
 			-3,
-			5
-		}
+			5,
+		},
 	},
 	location_lock = {
-		font_type = "itc_novarese_bold",
-		font_size = 80,
 		drop_shadow = false,
-		text_vertical_alignment = "center",
+		font_size = 80,
+		font_type = "itc_novarese_bold",
 		text_horizontal_alignment = "center",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_background,
 		offset = {
 			0,
 			0,
-			10
-		}
+			10,
+		},
 	},
 	objective_corner = {
 		scale_to_material = true,
@@ -1217,36 +1217,36 @@ MissionBoardViewStyles.mission_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	objective_1_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_terminal_text_header,
 		offset = {
 			0,
 			0,
-			3
+			3,
 		},
 		size_addition = {
 			-5,
-			-5
-		}
+			-5,
+		},
 	},
 	objective_2_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_gray,
 		offset = {
 			0,
 			0,
-			3
+			3,
 		},
 		size_addition = {
 			-10,
-			-10
-		}
+			-10,
+		},
 	},
 	circumstance_corner = {
 		scale_to_material = true,
@@ -1254,120 +1254,120 @@ MissionBoardViewStyles.mission_widget_style = {
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	circumstance_icon = {
-		vertical_alignment = "center",
 		horizontal_alignment = "center",
+		vertical_alignment = "center",
 		color = MissionBoardViewSettings.color_accent,
 		offset = {
 			0,
 			0,
-			3
+			3,
 		},
 		size_addition = {
 			-5,
-			-5
-		}
+			-5,
+		},
 	},
 	title_gradient = {
 		color = {
 			255,
 			0,
 			0,
-			0
+			0,
 		},
 		offset = {
 			0,
 			0,
-			1
+			1,
 		},
 		size_addition = {
 			-2,
-			-1
-		}
+			-1,
+		},
 	},
 	title_text = {
-		font_type = "proxima_nova_bold",
 		font_size = 22,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "right",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			-20,
 			2,
-			2
-		}
+			2,
+		},
 	},
 	title_flash_icon = {
-		vertical_alignment = "center",
 		drop_shadow = true,
 		horizontal_alignment = "right",
+		vertical_alignment = "center",
 		size = {
 			70,
-			70
+			70,
 		},
 		offset = {
 			0,
 			-90,
-			50
+			50,
 		},
-		color = MissionBoardViewSettings.color_accent
+		color = MissionBoardViewSettings.color_accent,
 	},
 	bonus_text = {
-		font_type = "proxima_nova_bold",
 		font_size = 22,
-		text_vertical_alignment = "center",
+		font_type = "proxima_nova_bold",
 		text_horizontal_alignment = "right",
+		text_vertical_alignment = "center",
 		text_color = MissionBoardViewSettings.color_text_body,
 		offset = {
 			0,
 			0,
-			2
-		}
+			2,
+		},
 	},
 	mission_line = {
-		vertical_alignment = "top",
 		horizontal_alignment = "center",
+		vertical_alignment = "top",
 		color = Color.terminal_frame(130, true),
 		offset = {
 			0,
 			100,
-			-5
+			-5,
 		},
 		size = {
 			2,
-			300
+			300,
 		},
 		size_addition = {
 			0,
-			0
-		}
+			0,
+		},
 	},
 	mission_completed_icon = {
-		vertical_alignment = "top",
 		horizontal_alignment = "center",
+		vertical_alignment = "top",
 		color = Color.terminal_frame(255, true),
 		offset = {
 			0,
 			130,
-			4
+			4,
 		},
 		size = {
 			82,
-			52
+			52,
 		},
 		size_addition = {
 			0,
-			0
-		}
-	}
+			0,
+		},
+	},
 }
 MissionBoardViewStyles.difficulty_stepper_style = {
 	danger = {
-		color = MissionBoardViewSettings.color_main
-	}
+		color = MissionBoardViewSettings.color_main,
+	},
 }
 
 MissionBoardViewStyles.screen_decorations_widget_style_function = function (mission_type)
@@ -1377,39 +1377,39 @@ MissionBoardViewStyles.screen_decorations_widget_style_function = function (miss
 				75,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				-1
-			}
+				-1,
+			},
 		},
 		overlay_top = {
 			color = {
 				0,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				500
-			}
+				500,
+			},
 		},
 		corner_right = {
 			uvs = {
 				{
 					1,
-					0
+					0,
 				},
 				{
 					0,
-					1
-				}
-			}
-		}
+					1,
+				},
+			},
+		},
 	}
 end
 
@@ -1424,12 +1424,12 @@ MissionBoardViewStyles.planet_widget_style_function = function (mission_type)
 
 	return {
 		title = {
-			font_type = "machine_medium",
-			font_size = 50,
 			drop_shadow = true,
+			font_size = 50,
+			font_type = "machine_medium",
 			text_color = color,
-			material = material_color
-		}
+			material = material_color,
+		},
 	}
 end
 
@@ -1440,21 +1440,21 @@ MissionBoardViewStyles.happening_widget_style_function = function (mission_type)
 				0,
 				0,
 				0,
-				0
-			}
+				0,
+			},
 		},
 		gradient = {
 			color = {
 				0,
 				54,
 				78,
-				40
+				40,
 			},
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		frame = {
 			scale_to_material = true,
@@ -1462,13 +1462,13 @@ MissionBoardViewStyles.happening_widget_style_function = function (mission_type)
 				0,
 				221,
 				172,
-				38
+				38,
 			},
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		icon = {
 			drop_shadow = true,
@@ -1476,35 +1476,35 @@ MissionBoardViewStyles.happening_widget_style_function = function (mission_type)
 			offset = {
 				10,
 				8,
-				3
+				3,
 			},
 			size = {
 				36,
-				36
-			}
+				36,
+			},
 		},
 		title = {
-			font_type = "proxima_nova_bold",
-			font_size = 20,
 			drop_shadow = true,
+			font_size = 20,
+			font_type = "proxima_nova_bold",
 			text_color = _get_color_by_name("color_accent", mission_type),
 			offset = {
 				60,
 				4,
-				4
-			}
+				4,
+			},
 		},
 		subtitle = {
-			font_type = "proxima_nova_bold",
-			font_size = 18,
 			drop_shadow = true,
+			font_size = 18,
+			font_type = "proxima_nova_bold",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				60,
 				25,
-				5
-			}
-		}
+				5,
+			},
+		},
 	}
 end
 
@@ -1515,8 +1515,8 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 				200,
 				0,
 				0,
-				0
-			}
+				0,
+			},
 		},
 		timer_frame = {
 			scale_to_material = true,
@@ -1524,53 +1524,53 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		timer_bar = {
-			vertical_alignment = "center",
 			horizontal_alignment = "right",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_main", mission_type),
 			offset = {
 				-12,
 				0,
-				2
+				2,
 			},
 			size = {
 				nil,
-				10
+				10,
 			},
 			size_addition = {
 				-115,
-				0
+				0,
 			},
 			material_values = {
-				progress = 0.75
-			}
+				progress = 0.75,
+			},
 		},
 		timer_hourglass = {
 			color = _get_color_by_name("color_gray", mission_type),
 			size = {
 				24,
-				24
+				24,
 			},
 			offset = {
 				8,
 				8,
-				2
-			}
+				2,
+			},
 		},
 		timer_text = {
-			font_type = "proxima_nova_bold",
 			font_size = 20,
+			font_type = "proxima_nova_bold",
 			horizontal_alignment = "left",
 			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_gray", mission_type),
 			offset = {
 				35,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		header_frame = {
 			scale_to_material = true,
@@ -1578,151 +1578,151 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		header_title = {
-			font_type = "proxima_nova_bold",
-			font_size = 24,
 			drop_shadow = true,
+			font_size = 24,
+			font_type = "proxima_nova_bold",
 			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_title", mission_type),
 			offset = {
 				20,
 				-10,
-				2
-			}
+				2,
+			},
 		},
 		header_subtitle = {
-			font_type = "proxima_nova_bold",
-			font_size = 18,
 			drop_shadow = true,
+			font_size = 18,
+			font_type = "proxima_nova_bold",
 			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_sub_header", mission_type),
 			offset = {
 				20,
 				14,
-				3
-			}
+				3,
+			},
 		},
 		bonus_title = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "top",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "left",
+			text_vertical_alignment = "top",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				20,
 				40,
-				2
-			}
+				2,
+			},
 		},
 		bonus_text = {
-			line_spacing = 1.5,
 			font_size = 22,
-			text_vertical_alignment = "top",
 			font_type = "proxima_nova_bold",
+			line_spacing = 1.5,
 			text_horizontal_alignment = "left",
+			text_vertical_alignment = "top",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				85,
 				50,
-				2
-			}
+				2,
+			},
 		},
 		difficulty_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_main_light", mission_type),
 			size = _apply_difficulty_scale({
 				18,
-				18
+				18,
 			}),
 			offset = _apply_difficulty_scale({
 				-16,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		difficulty_bar_1 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			default_color = DangerSettings.by_index[1].color,
 			color_disabled = _get_color_by_name("color_disabled", mission_type),
 			size = _apply_difficulty_scale({
 				5,
-				14
+				14,
 			}),
 			offset = _apply_difficulty_scale({
 				-2,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		difficulty_bar_2 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			default_color = DangerSettings.by_index[1].color,
 			color_disabled = _get_color_by_name("color_disabled", mission_type),
 			size = _apply_difficulty_scale({
 				5,
-				14
+				14,
 			}),
 			offset = _apply_difficulty_scale({
 				6,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		difficulty_bar_3 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			default_color = DangerSettings.by_index[1].color,
 			color_disabled = _get_color_by_name("color_disabled", mission_type),
 			size = _apply_difficulty_scale({
 				5,
-				14
+				14,
 			}),
 			offset = _apply_difficulty_scale({
 				14,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		difficulty_bar_4 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			default_color = DangerSettings.by_index[1].color,
 			color_disabled = _get_color_by_name("color_disabled", mission_type),
 			size = _apply_difficulty_scale({
 				5,
-				14
+				14,
 			}),
 			offset = _apply_difficulty_scale({
 				22,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		difficulty_bar_5 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			default_color = DangerSettings.by_index[1].color,
 			color_disabled = _get_color_by_name("color_disabled", mission_type),
 			size = _apply_difficulty_scale({
 				5,
-				14
+				14,
 			}),
 			offset = _apply_difficulty_scale({
 				30,
 				0,
-				3
-			})
+				3,
+			}),
 		},
 		location_frame = {
 			scale_to_material = true,
@@ -1730,13 +1730,13 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		location_image = {
 			material_values = {
-				texture_map = "content/ui/textures/missions/quickplay"
-			}
+				texture_map = "content/ui/textures/missions/quickplay",
+			},
 		},
 		location_vignette = {
 			scale_to_material = true,
@@ -1744,26 +1744,26 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 				255,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		location_lock = {
-			font_type = "itc_novarese_bold",
-			font_size = 100,
 			drop_shadow = false,
-			text_vertical_alignment = "center",
+			font_size = 100,
+			font_type = "itc_novarese_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_background", mission_type),
 			offset = {
 				0,
 				-40,
-				3
-			}
+				3,
+			},
 		},
 		circumstance_frame = {
 			scale_to_material = true,
@@ -1771,105 +1771,105 @@ MissionBoardViewStyles.detail_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		circumstance_detail = {
 			color = _get_color_by_name("color_accent", mission_type),
 			offset = {
 				0,
 				0,
-				1
+				1,
 			},
 			size = {
-				6
-			}
+				6,
+			},
 		},
 		circumstance_icon = {
-			vertical_alignment = "top",
 			horizontal_alignment = "left",
+			vertical_alignment = "top",
 			color = _get_color_by_name("color_accent", mission_type),
 			size = {
 				40,
-				40
+				40,
 			},
 			offset = {
 				20,
 				10,
-				3
-			}
+				3,
+			},
 		},
 		circumstance_label = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "bottom",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "right",
+			text_vertical_alignment = "bottom",
 			text_color = _get_color_by_name("color_gray", mission_type),
 			offset = {
 				-12,
 				-5,
-				5
-			}
+				5,
+			},
 		},
 		circumstance_name = {
-			font_type = "proxima_nova_bold",
 			font_size = 20,
+			font_type = "proxima_nova_bold",
 			text_color = _get_color_by_name("color_accent", mission_type),
 			offset = {
 				75,
 				10,
-				4
+				4,
 			},
 			size_addition = {
 				-85,
-				0
+				0,
 			},
-			size = {}
+			size = {},
 		},
 		circumstance_description = {
-			line_spacing = 1,
 			font_size = 18,
 			font_type = "proxima_nova_bold",
+			line_spacing = 1,
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				75,
 				30,
-				6
+				6,
 			},
 			size = {},
 			size_addition = {
 				-85,
-				0
-			}
+				0,
+			},
 		},
 		maelstrom_background = {
 			size = {
 				nil,
-				40
+				40,
 			},
 			color = Color.black(76.5, true),
 			offset = {
 				0,
 				-40,
-				6
-			}
+				6,
+			},
 		},
 		maelstrom_text = {
-			text_vertical_alignment = "center",
 			font_size = 20,
 			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			offset = {
 				0,
 				-40,
-				6
+				6,
 			},
 			size = {
 				nil,
-				40
+				40,
 			},
-			text_color = MissionBoardViewSettings.color_accent
-		}
+			text_color = MissionBoardViewSettings.color_accent,
+		},
 	}
 
 	return t
@@ -1878,12 +1878,12 @@ end
 MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 	return {
 		background = {
-			color = _get_color_by_name("color_background", mission_type)
+			color = _get_color_by_name("color_background", mission_type),
 		},
 		header_gradient = {
 			color = _get_color_by_name("color_green_faded", mission_type),
 			color_main = _get_color_by_name("color_green_faded", mission_type),
-			color_side = _get_color_by_name("color_green_faded", mission_type)
+			color_side = _get_color_by_name("color_green_faded", mission_type),
 		},
 		header_frame = {
 			scale_to_material = true,
@@ -1891,51 +1891,51 @@ MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		header_icon = {
 			color = _get_color_by_name("color_main", mission_type),
 			offset = {
 				20,
 				16,
-				2
+				2,
 			},
 			size = {
 				36,
-				36
-			}
+				36,
+			},
 		},
 		header_title = {
-			font_type = "proxima_nova_bold",
 			font_size = 16,
+			font_type = "proxima_nova_bold",
 			text_color = _get_color_by_name("color_text_sub_header", mission_type),
 			offset = {
 				70,
 				14,
-				3
+				3,
 			},
 			size_addition = {
 				-90,
-				0
-			}
+				0,
+			},
 		},
 		header_subtitle = {
-			font_type = "proxima_nova_bold",
 			font_size = 20,
+			font_type = "proxima_nova_bold",
 			text_color = _get_color_by_name("color_text_title", mission_type),
 			offset = {
 				70,
 				32,
-				4
+				4,
 			},
 			size_addition = {
 				-90,
-				0
-			}
+				0,
+			},
 		},
 		body_background = {
-			color = _get_color_by_name("color_dark_opacity", mission_type)
+			color = _get_color_by_name("color_dark_opacity", mission_type),
 		},
 		body_frame = {
 			scale_to_material = true,
@@ -1943,44 +1943,44 @@ MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		body_text = {
-			line_spacing = 1.2,
 			font_size = 18,
 			font_type = "proxima_nova_bold",
+			line_spacing = 1.2,
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				20,
 				80,
-				1
+				1,
 			},
 			size_addition = {
 				-40,
-				0
-			}
+				0,
+			},
 		},
 		reward_background = {
 			color = {
 				200,
 				0,
 				0,
-				0
-			}
+				0,
+			},
 		},
 		reward_gradient = {
 			color = {
 				32,
 				169,
 				211,
-				158
+				158,
 			},
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		reward_frame = {
 			scale_to_material = true,
@@ -1988,33 +1988,33 @@ MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		reward_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "right",
+			vertical_alignment = "center",
 			size = {
 				28,
-				20
+				20,
 			},
 			offset = {
 				0,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		reward_text = {
-			font_type = "proxima_nova_bold",
 			font_size = 20,
-			text_vertical_alignment = "center",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "right",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				-28,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		speaker_frame = {
 			scale_to_material = true,
@@ -2022,8 +2022,8 @@ MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		speaker_corner = {
 			scale_to_material = true,
@@ -2031,28 +2031,28 @@ MissionBoardViewStyles.objective_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		speaker_icon = {
 			offset = {
 				0,
 				0,
-				0
-			}
+				0,
+			},
 		},
 		speaker_text = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "bottom",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "right",
+			text_vertical_alignment = "bottom",
 			text_color = _get_color_by_name("color_gray", mission_type),
 			offset = {
 				-38,
 				-3,
-				5
-			}
-		}
+				5,
+			},
+		},
 	}
 end
 
@@ -2063,8 +2063,8 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style_function = functio
 			offset = {
 				0,
 				0,
-				-1
-			}
+				-1,
+			},
 		},
 		frame = {
 			scale_to_material = true,
@@ -2072,31 +2072,31 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style_function = functio
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		glow = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
 			scale_to_material = true,
+			vertical_alignment = "center",
 			color = {
 				128,
 				169,
 				211,
-				158
+				158,
 			},
 			offset = {
 				0,
 				0,
-				-1
+				-1,
 			},
 			size_addition = {
 				24,
-				24
-			}
+				24,
+			},
 		},
 		header_gradient = {
-			color = _get_color_by_name("color_green_faded", mission_type)
+			color = _get_color_by_name("color_green_faded", mission_type),
 		},
 		header_frame = {
 			scale_to_material = true,
@@ -2104,8 +2104,8 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style_function = functio
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		header_title = {
 			font_size = 20,
@@ -2114,16 +2114,16 @@ MissionBoardViewStyles.difficulty_stepper_window_widget_style_function = functio
 			offset = {
 				12,
 				7,
-				2
-			}
-		}
+				2,
+			},
+		},
 	}
 end
 
 MissionBoardViewStyles.game_settings_widget_style_function = function (mission_type)
 	return {
 		background = {
-			color = _get_color_by_name("color_background", mission_type)
+			color = _get_color_by_name("color_background", mission_type),
 		},
 		frame = {
 			scale_to_material = true,
@@ -2131,31 +2131,31 @@ MissionBoardViewStyles.game_settings_widget_style_function = function (mission_t
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		glow = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
 			scale_to_material = true,
+			vertical_alignment = "center",
 			color = Color.terminal_corner_selected(255, true),
 			offset = {
 				0,
 				0,
-				-1
+				-1,
 			},
 			size_addition = {
 				24,
-				24
-			}
+				24,
+			},
 		},
 		header_gradient = {
 			color = {
 				200,
 				169,
 				211,
-				158
-			}
+				158,
+			},
 		},
 		header_frame = {
 			scale_to_material = true,
@@ -2163,8 +2163,8 @@ MissionBoardViewStyles.game_settings_widget_style_function = function (mission_t
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		header_title = {
 			font_size = 28,
@@ -2173,9 +2173,9 @@ MissionBoardViewStyles.game_settings_widget_style_function = function (mission_t
 			offset = {
 				15,
 				3,
-				2
-			}
-		}
+				2,
+			},
+		},
 	}
 end
 
@@ -2186,8 +2186,8 @@ MissionBoardViewStyles.info_box_widget_style_function = function (mission_type)
 				150,
 				58,
 				15,
-				15
-			}
+				15,
+			},
 		},
 		frame = {
 			scale_to_material = true,
@@ -2195,56 +2195,56 @@ MissionBoardViewStyles.info_box_widget_style_function = function (mission_type)
 				0,
 				0,
 				0,
-				0
+				0,
 			},
 			color_info = _get_color_by_name("color_accent", mission_type),
 			color_warning = Color.ui_interaction_critical(255, true),
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		text = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "center",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			text_color = Color.ui_interaction_critical(255, true),
 			offset = {
 				0,
 				0,
-				2
+				2,
 			},
 			size_addition = {
 				-10,
-				0
-			}
-		}
+				0,
+			},
+		},
 	}
 end
 
 MissionBoardViewStyles.play_team_button_legend_function = function (mission_type)
 	return {
 		text = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "center",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				0,
 				40,
-				2
-			}
-		}
+				2,
+			},
+		},
 	}
 end
 
 MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 	return {
 		background = {
-			color = _get_color_by_name("color_background", mission_type)
+			color = _get_color_by_name("color_background", mission_type),
 		},
 		fluff_frame = {
 			horizontal_alignment = "center",
@@ -2253,83 +2253,83 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 				80,
 				113,
 				126,
-				103
+				103,
 			},
 			size = {
 				160,
-				184
-			}
+				184,
+			},
 		},
 		glow = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
 			scale_to_material = true,
+			vertical_alignment = "center",
 			color = {
 				255,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				-1
+				-1,
 			},
 			size_addition = {
 				24,
-				24
-			}
+				24,
+			},
 		},
 		timer_frame = {
-			vertical_alignment = "center",
-			scale_to_material = true,
 			horizontal_alignment = "center",
+			scale_to_material = true,
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_frame", mission_type),
 			size_addition = {
 				4,
-				4
+				4,
 			},
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		timer_bar = {
 			color = _get_color_by_name("color_main", mission_type),
 			offset = {
 				0,
 				0,
-				1
+				1,
 			},
 			material_values = {
-				progress = 0.1
-			}
+				progress = 0.1,
+			},
 		},
 		timer_hourglass = {
 			color = _get_color_by_name("color_main", mission_type),
 			size = {
 				19,
-				19
+				19,
 			},
 			offset = {
 				-79,
 				-7,
-				2
-			}
+				2,
+			},
 		},
 		timer_text = {
-			vertical_alignment = "center",
-			font_size = 20,
-			horizontal_alignment = "left",
 			drop_shadow = true,
+			font_size = 20,
 			font_type = "proxima_nova_bold",
+			horizontal_alignment = "left",
+			vertical_alignment = "center",
 			text_color = _get_color_by_name("color_main", mission_type),
 			offset = {
 				-60,
 				-9,
-				2
-			}
+				2,
+			},
 		},
 		difficulty_frame = {
 			scale_to_material = true,
@@ -2341,8 +2341,8 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		difficulty_corner = {
 			scale_to_material = true,
@@ -2354,111 +2354,111 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		difficulty_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_main_light", mission_type),
 			size = {
 				23,
-				23
+				23,
 			},
 			offset = {
 				-25,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		difficulty_bar_1 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			size = {
 				6,
-				16
+				16,
 			},
 			offset = {
 				-7,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		difficulty_bar_2 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			size = {
 				6,
-				16
+				16,
 			},
 			offset = {
 				2,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		difficulty_bar_3 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			size = {
 				6,
-				16
+				16,
 			},
 			offset = {
 				11,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		difficulty_bar_4 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			size = {
 				6,
-				16
+				16,
 			},
 			offset = {
 				20,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		difficulty_bar_5 = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = DangerSettings.by_index[1].color,
 			size = {
 				6,
-				16
+				16,
 			},
 			offset = {
 				29,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		location_image = {
 			material_values = {
-				texture_map = "content/ui/textures/missions/quickplay"
-			}
+				texture_map = "content/ui/textures/missions/quickplay",
+			},
 		},
 		location_rect = {
 			visible = false,
 			offset = {
 				0,
 				0,
-				1
+				1,
 			},
 			color = {
 				200,
 				0,
 				0,
-				0
-			}
+				0,
+			},
 		},
 		location_vignette = {
 			scale_to_material = true,
@@ -2466,13 +2466,13 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 				255,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				1
-			}
+				1,
+			},
 		},
 		location_frame = {
 			scale_to_material = true,
@@ -2484,8 +2484,8 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				3
-			}
+				3,
+			},
 		},
 		location_corner = {
 			scale_to_material = true,
@@ -2497,35 +2497,35 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				4
-			}
+				4,
+			},
 		},
 		location_decoration = {
-			vertical_alignment = "top",
 			horizontal_alignment = "center",
+			vertical_alignment = "top",
 			color = _get_color_by_name("color_main", mission_type),
 			size = {
 				60,
-				20
+				20,
 			},
 			offset = {
 				0,
 				-3,
-				5
-			}
+				5,
+			},
 		},
 		location_lock = {
-			font_type = "itc_novarese_bold",
-			font_size = 50,
 			drop_shadow = false,
-			text_vertical_alignment = "center",
+			font_size = 50,
+			font_type = "itc_novarese_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_background", mission_type),
 			offset = {
 				0,
 				-4,
-				10
-			}
+				10,
+			},
 		},
 		objective_corner = {
 			scale_to_material = true,
@@ -2537,36 +2537,36 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		objective_1_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				0,
 				0,
-				3
+				3,
 			},
 			size_addition = {
 				-5,
-				-5
-			}
+				-5,
+			},
 		},
 		objective_2_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_gray", mission_type),
 			offset = {
 				0,
 				0,
-				3
+				3,
 			},
 			size_addition = {
 				-10,
-				-10
-			}
+				-10,
+			},
 		},
 		circumstance_corner = {
 			scale_to_material = true,
@@ -2578,155 +2578,155 @@ MissionBoardViewStyles.mission_widget_style_function = function (mission_type)
 			offset = {
 				0,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		circumstance_icon = {
-			vertical_alignment = "center",
 			horizontal_alignment = "center",
+			vertical_alignment = "center",
 			color = _get_color_by_name("color_accent", mission_type),
 			offset = {
 				0,
 				0,
-				3
+				3,
 			},
 			size_addition = {
 				-5,
-				-5
-			}
+				-5,
+			},
 		},
 		title_gradient = {
 			color = {
 				255,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				1
+				1,
 			},
 			size_addition = {
 				-2,
-				-1
-			}
+				-1,
+			},
 		},
 		title_background = {
 			color = {
 				180,
 				0,
 				0,
-				0
+				0,
 			},
 			offset = {
 				0,
 				0,
-				1
+				1,
 			},
 			size_addition = {
 				-2,
-				-1
-			}
+				-1,
+			},
 		},
 		title_text = {
-			font_type = "proxima_nova_bold",
 			font_size = 22,
-			text_vertical_alignment = "center",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "left",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_title", mission_type),
 			offset = {
 				20,
 				0,
-				2
-			}
+				2,
+			},
 		},
 		title_flash_icon = {
-			vertical_alignment = "center",
 			drop_shadow = true,
 			horizontal_alignment = "right",
+			vertical_alignment = "center",
 			size = {
 				70,
-				70
+				70,
 			},
 			offset = {
 				0,
 				-90,
-				50
+				50,
 			},
-			color = _get_color_by_name("color_accent", mission_type)
+			color = _get_color_by_name("color_accent", mission_type),
 		},
 		bonus_text = {
-			font_type = "proxima_nova_bold",
 			font_size = 18,
-			text_vertical_alignment = "center",
+			font_type = "proxima_nova_bold",
 			text_horizontal_alignment = "center",
+			text_vertical_alignment = "center",
 			text_color = _get_color_by_name("color_text_body", mission_type),
 			offset = {
 				0,
 				-4,
-				2
-			}
+				2,
+			},
 		},
 		mission_line = {
-			vertical_alignment = "top",
 			horizontal_alignment = "center",
+			vertical_alignment = "top",
 			color = Color.terminal_frame(130, true),
 			offset = {
 				0,
 				100,
-				-5
+				-5,
 			},
 			size = {
 				2,
-				300
+				300,
 			},
 			size_addition = {
 				0,
-				0
-			}
+				0,
+			},
 		},
 		mission_completed_icon = {
-			vertical_alignment = "top",
 			horizontal_alignment = "center",
+			vertical_alignment = "top",
 			color = Color.terminal_frame(255, true),
 			offset = {
 				0,
 				130,
-				4
+				4,
 			},
 			size = {
 				82,
-				52
+				52,
 			},
 			size_addition = {
 				0,
-				0
-			}
-		}
+				0,
+			},
+		},
 	}
 end
 
 MissionBoardViewStyles.difficulty_stepper_style_function = function (mission_type)
 	return {
 		difficulty_bar_1 = {
-			color = DangerSettings.by_index[1].color
+			color = DangerSettings.by_index[1].color,
 		},
 		difficulty_bar_2 = {
-			color = DangerSettings.by_index[1].color
+			color = DangerSettings.by_index[1].color,
 		},
 		difficulty_bar_3 = {
-			color = DangerSettings.by_index[1].color
+			color = DangerSettings.by_index[1].color,
 		},
 		difficulty_bar_4 = {
-			color = DangerSettings.by_index[1].color
+			color = DangerSettings.by_index[1].color,
 		},
 		difficulty_bar_5 = {
-			color = DangerSettings.by_index[1].color
+			color = DangerSettings.by_index[1].color,
 		},
 		danger = {
-			color = _get_color_by_name("color_main_light", mission_type)
-		}
+			color = _get_color_by_name("color_main_light", mission_type),
+		},
 	}
 end
 

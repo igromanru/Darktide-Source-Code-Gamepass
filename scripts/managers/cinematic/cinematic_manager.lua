@@ -11,15 +11,15 @@ local CinematicManager = class("CinematicManager")
 local CINEMATIC_NAMES = CinematicSceneSettings.CINEMATIC_NAMES
 local CLIENT_RPCS = {
 	"rpc_cinematic_story_sync",
-	"rpc_cinematic_load_levels"
+	"rpc_cinematic_load_levels",
 }
 local SERVER_RPCS = {
-	"rpc_cinematic_loaded"
+	"rpc_cinematic_loaded",
 }
 local device_list = {
 	Keyboard,
 	Mouse,
-	Pad1
+	Pad1,
 }
 
 CinematicManager.init = function (self, world, is_server, network_event_delegate)
@@ -288,9 +288,9 @@ CinematicManager.update = function (self, dt, t)
 
 									self:_play_next_in_queue()
 									Vo.stop_all_currently_playing_vo()
-								end)
-							}
-						}
+								end),
+							},
+						},
 					}
 
 					Managers.event:trigger("event_show_ui_popup", context, function (id)

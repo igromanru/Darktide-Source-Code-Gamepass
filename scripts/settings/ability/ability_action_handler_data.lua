@@ -24,7 +24,7 @@ ability_action_data.actions = {
 	stance_change = _require_ability_action("action_stance_change"),
 	stance_change_gunlugger = _require_ability_action("action_stance_change"),
 	targeted_dash_aim = _require_ability_action("action_targeted_dash_aim"),
-	veteran_combat_ability = _require_ability_action("action_veteran_combat_ability")
+	veteran_combat_ability = _require_ability_action("action_veteran_combat_ability"),
 }
 
 local function _can_use_ability_check(action_settings, condition_func_params, used_input)
@@ -101,7 +101,7 @@ ability_action_data.action_kind_condition_funcs = {
 		end
 
 		return true
-	end
+	end,
 }
 ability_action_data.action_kind_total_time_funcs = {}
 ability_action_data.conditional_state_functions = {
@@ -109,7 +109,7 @@ ability_action_data.conditional_state_functions = {
 		local no_time_left = remaining_time <= 0
 
 		return no_time_left
-	end
+	end,
 }
 
 for name, _ in pairs(ability_action_data.action_kind_condition_funcs) do

@@ -23,10 +23,10 @@ CraftingReplacePerkView.init = function (self, settings, context)
 		item = self._item,
 		perk_ids = {},
 		perk_master_ids = {},
-		tiers = {}
+		tiers = {},
 	}
 	self._can_craft_context = {
-		perk_items = {}
+		perk_items = {},
 	}
 end
 
@@ -209,7 +209,7 @@ CraftingReplacePerkView.cb_on_perk_selected = function (self, widget, config)
 		self._perform_perk_selection_data = {
 			widget = widget,
 			config = config,
-			remove_perk_items_focus = remove_perks_focus
+			remove_perk_items_focus = remove_perks_focus,
 		}
 	end
 end

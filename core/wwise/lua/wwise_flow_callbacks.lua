@@ -32,7 +32,7 @@ if Wwise then
 		Listener4 = Wwise.LISTENER_4,
 		Listener5 = Wwise.LISTENER_5,
 		Listener6 = Wwise.LISTENER_6,
-		Listener7 = Wwise.LISTENER_7
+		Listener7 = Wwise.LISTENER_7,
 	}
 end
 
@@ -186,7 +186,7 @@ M.wwise_trigger_event = function (t)
 		playing_id = r1,
 		source_id = r2,
 		Playing_Id = r1,
-		Source_Id = r2
+		Source_Id = r2,
 	}
 end
 
@@ -194,7 +194,7 @@ M.wwise_event_resource = function (t)
 	local event_resource = t.Event_resource or t.event_resource or ""
 
 	return {
-		resource = event_resource
+		resource = event_resource,
 	}
 end
 
@@ -236,7 +236,7 @@ M.wwise_make_auto_source = function (t)
 
 	return {
 		source_id = id,
-		Source_Id = id
+		Source_Id = id,
 	}
 end
 
@@ -245,7 +245,7 @@ M.wwise_make_manual_source = function (t)
 
 	return {
 		source_id = id,
-		Source_Id = id
+		Source_Id = id,
 	}
 end
 
@@ -347,13 +347,13 @@ M.wwise_has_source = function (t)
 
 	if WwiseWorld.has_source(wwise_world, id) then
 		return {
+			Yes = true,
 			yes = true,
-			Yes = true
 		}
 	else
 		return {
 			No = true,
-			no = true
+			no = true,
 		}
 	end
 end
@@ -364,13 +364,13 @@ M.wwise_is_playing = function (t)
 
 	if WwiseWorld.is_playing(wwise_world, id) then
 		return {
+			Yes = true,
 			yes = true,
-			Yes = true
 		}
 	else
 		return {
 			No = true,
-			no = true
+			no = true,
 		}
 	end
 end
@@ -386,7 +386,7 @@ M.wwise_get_playing_elapsed = function (t)
 
 	return {
 		seconds = seconds,
-		Seconds = seconds
+		Seconds = seconds,
 	}
 end
 
@@ -405,7 +405,7 @@ M.wwise_add_soundscape_source = function (t)
 			if event_resource == "" then
 				return {
 					ss_source_id = result_id,
-					SS_Source_Id = result_id
+					SS_Source_Id = result_id,
 				}
 			end
 		end
@@ -416,7 +416,7 @@ M.wwise_add_soundscape_source = function (t)
 		local shape_map = {
 			point = Wwise.SHAPE_POINT,
 			sphere = Wwise.SHAPE_SPHERE,
-			box = Wwise.SHAPE_BOX
+			box = Wwise.SHAPE_BOX,
 		}
 
 		shape = shape_map[shape] or Wwise.SHAPE_POINT
@@ -445,7 +445,7 @@ M.wwise_add_soundscape_source = function (t)
 		local positioning_map = {
 			closest = Wwise.POSITIONING_CLOSEST_TO_LISTENER,
 			["random in shape"] = Wwise.POSITIONING_RANDOM_IN_SHAPE,
-			["random around listener"] = Wwise.POSITIONING_RANDOM_AROUND_LISTENER
+			["random around listener"] = Wwise.POSITIONING_RANDOM_AROUND_LISTENER,
 		}
 
 		positioning = positioning_map[positioning] or Wwise.POSITIONING_CLOSEST_TO_LISTENER
@@ -467,7 +467,7 @@ M.wwise_add_soundscape_source = function (t)
 
 	return {
 		ss_source_id = result_id,
-		SS_Source_Id = result_id
+		SS_Source_Id = result_id,
 	}
 end
 

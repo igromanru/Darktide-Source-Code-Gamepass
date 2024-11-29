@@ -22,7 +22,7 @@ local ProgressionManager = class("ProgressionManager")
 local FETCH_DUMMY_SESSION_REPORT = false
 local FETCH_DUMMY_SESSION_REPORT_DELAY = {
 	max = 5,
-	min = 0
+	min = 0,
 }
 local SESSION_REPORT_STATES = table.enum("none", "fetching", "success", "fail")
 local SET_TRAITS_STATES = table.enum("none", "updating", "success", "fail")
@@ -194,7 +194,7 @@ ProgressionManager._parse_experience_settings = function (self, unparsed_xp_sett
 	local experience_settings = {
 		experience_table = unparsed_xp_settings,
 		max_level_experience = unparsed_xp_settings[max_level],
-		max_level = max_level
+		max_level = max_level,
 	}
 
 	return experience_settings
@@ -418,7 +418,7 @@ ProgressionManager._get_mastery_rewards = function (self, account_data)
 						gainedXp = reward.reward.xp or 0,
 						startXp = reward.current.xp or 0,
 						trackId = trackId,
-						masteryId = masteryId
+						masteryId = masteryId,
 					}
 				end
 			end
@@ -622,7 +622,7 @@ ProgressionManager._parse_reward_cards = function (self, account_data, item_rewa
 				reward.gearId = nil
 				item_rewards[#item_rewards + 1] = {
 					gear_id = gear_id,
-					item_type = reward_type
+					item_type = reward_type,
 				}
 			end
 
@@ -685,7 +685,7 @@ ProgressionManager._add_unlocked_weapons_to_card = function (self, reward_card, 
 		for i = 1, #weapons_unlocks_at_level do
 			self:_append_reward_to_card(reward_card, {
 				reward_type = "weapon_unlock",
-				master_id = weapons_unlocks_at_level[i]
+				master_id = weapons_unlocks_at_level[i],
 			})
 		end
 	end
@@ -738,7 +738,7 @@ ProgressionManager._parse_level_up_rewards = function (self, reward_card, type, 
 					text = "testing testing",
 					type = reward_type,
 					reward_item_id = reward_item_id,
-					level = reward_info.level
+					level = reward_info.level,
 				}
 
 				table.insert(rewards, reward_data)
@@ -753,7 +753,7 @@ ProgressionManager._parse_level_up_rewards = function (self, reward_card, type, 
 
 						item_rewards[#item_rewards + 1] = {
 							gear_id = gear_id,
-							item_type = item_type
+							item_type = item_type,
 						}
 					end
 				end
@@ -917,7 +917,7 @@ local _card_animations = {
 	xp = EndPlayerViewAnimations.experience_card_show_content,
 	levelUp = EndPlayerViewAnimations.level_up_show_content,
 	salary = EndPlayerViewAnimations.salary_card_show_content,
-	weaponDrop = EndPlayerViewAnimations.item_reward_show_content
+	weaponDrop = EndPlayerViewAnimations.item_reward_show_content,
 }
 
 ProgressionManager._calculate_report_time = function (self, profile, participant_report)
@@ -1029,21 +1029,21 @@ ProgressionManager._fetch_dummy_session_report = function (self)
 			{
 				balance = {
 					amount = 12345,
-					type = "credits"
-				}
+					type = "credits",
+				},
 			},
 			{
 				balance = {
 					amount = 2345,
-					type = "plasteel"
-				}
+					type = "plasteel",
+				},
 			},
 			{
 				balance = {
 					amount = 25,
-					type = "diamantine"
-				}
-			}
+					type = "diamantine",
+				},
+			},
 		},
 		by_type = function (self, wallet_type)
 			if wallet_type == "credits" then
@@ -1053,7 +1053,7 @@ ProgressionManager._fetch_dummy_session_report = function (self)
 			elseif wallet_type == "diamantine" then
 				return self.wallets[3]
 			end
-		end
+		end,
 	}
 
 	self:_parse_report(session_report, dummy_wallet)

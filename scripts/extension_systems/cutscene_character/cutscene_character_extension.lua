@@ -10,9 +10,9 @@ local WeaponTemplate = require("scripts/utilities/weapon/weapon_template")
 local WeaponTemplates = require("scripts/settings/equipment/weapon_templates/weapon_templates")
 local CutsceneCharacterExtension = class("CutsceneCharacterExtension")
 local AnimationType = {
-	Weapon = 2,
 	Inventory = 1,
-	None = 0
+	None = 0,
+	Weapon = 2,
 }
 
 CutsceneCharacterExtension.init = function (self, extension_init_context, unit, extension_init_data, ...)

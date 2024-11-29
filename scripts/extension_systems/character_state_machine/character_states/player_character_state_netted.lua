@@ -26,7 +26,7 @@ local STINGER_ENTER_ALIAS = "disabled_enter"
 local STINGER_EXIT_ALIAS = "disabled_exit"
 local LOOPING_SOUND_ALIAS = "netted"
 local STINGER_PROPERTIES = {
-	stinger_type = "netted"
+	stinger_type = "netted",
 }
 local VCE_ALIAS = "scream_long_vce"
 
@@ -342,7 +342,7 @@ PlayerCharacterStateNetted._add_buffs = function (self, t)
 
 		self._damage_tick_buff_indexes = {
 			local_index = local_index,
-			component_index = component_index
+			component_index = component_index,
 		}
 	end
 end

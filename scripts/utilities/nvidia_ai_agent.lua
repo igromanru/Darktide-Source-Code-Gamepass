@@ -22,16 +22,16 @@ NvidiaAIAgent.init = function (self)
 		health = 0,
 		camera = {
 			position = {
-				z = 0,
 				x = 0,
-				y = 0
+				y = 0,
+				z = 0,
 			},
 			rotation = {
-				roll = 0,
 				pitch = 0,
-				yaw = 0
-			}
-		}
+				roll = 0,
+				yaw = 0,
+			},
+		},
 	}
 end
 

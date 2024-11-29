@@ -120,26 +120,26 @@ end
 
 ToxicGasFogSpawner.component_data = {
 	id = {
-		ui_type = "number",
+		max = 100,
 		min = 1,
 		step = 1,
-		value = 1,
 		ui_name = "ID",
-		max = 100
+		ui_type = "number",
+		value = 1,
 	},
 	section = {
-		ui_type = "number",
+		max = 50,
 		min = 1,
 		step = 1,
-		value = 1,
 		ui_name = "Section ID",
-		max = 50
+		ui_type = "number",
+		value = 1,
 	},
 	extents = {
-		ui_type = "vector",
 		ui_name = "Extents",
-		value = Vector3Box(2, 2, 2)
-	}
+		ui_type = "vector",
+		value = Vector3Box(2, 2, 2),
+	},
 }
 
 return ToxicGasFogSpawner

@@ -34,7 +34,7 @@ CosmeticsInspectView.init = function (self, settings, context)
 			image = context.bundle.image,
 			title = context.bundle.title,
 			description = context.bundle.description,
-			type = context.bundle.type
+			type = context.bundle.type,
 		}
 	end
 
@@ -178,74 +178,74 @@ CosmeticsInspectView._apply_default_appearance = function (self)
 	local scenegraph_definition = Definitions.scenegraph_definition
 
 	scenegraph_definition.corner_top_left = {
-		vertical_alignment = "top",
-		parent = "screen",
 		horizontal_alignment = "left",
+		parent = "screen",
+		vertical_alignment = "top",
 		size = {
 			180,
-			310
+			310,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_top_right = {
-		vertical_alignment = "top",
-		parent = "screen",
 		horizontal_alignment = "right",
+		parent = "screen",
+		vertical_alignment = "top",
 		size = {
 			180,
-			310
+			310,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_bottom_left = {
-		vertical_alignment = "bottom",
-		parent = "screen",
 		horizontal_alignment = "left",
+		parent = "screen",
+		vertical_alignment = "bottom",
 		size = {
 			180,
-			120
+			120,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_bottom_right = {
-		vertical_alignment = "bottom",
-		parent = "screen",
 		horizontal_alignment = "right",
+		parent = "screen",
+		vertical_alignment = "bottom",
 		size = {
 			180,
-			120
+			120,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.description_scrollbar = {
-		vertical_alignment = "top",
-		parent = "description_grid",
 		horizontal_alignment = "right",
+		parent = "description_grid",
+		vertical_alignment = "top",
 		size = {
 			10,
-			CosmeticsInspectViewSettings.grid_height - 40
+			CosmeticsInspectViewSettings.grid_height - 40,
 		},
 		position = {
 			30,
 			-20,
-			2
-		}
+			2,
+		},
 	}
 
 	local widget_definitions = Definitions.widget_definitions
@@ -253,107 +253,107 @@ CosmeticsInspectView._apply_default_appearance = function (self)
 	widget_definitions.corner_top_left = UIWidget.create_definition({
 		{
 			pass_type = "texture",
-			value = "content/ui/materials/frames/screen/metal_01_upper"
-		}
+			value = "content/ui/materials/frames/screen/metal_01_upper",
+		},
 	}, "corner_top_left")
 	widget_definitions.corner_top_right = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/frames/screen/metal_01_upper",
 			pass_type = "texture_uv",
+			value = "content/ui/materials/frames/screen/metal_01_upper",
 			style = {
 				uvs = {
 					{
 						1,
-						0
+						0,
 					},
 					{
 						0,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	}, "corner_top_right")
 	widget_definitions.corner_bottom_left = UIWidget.create_definition({
 		{
 			pass_type = "texture",
-			value = "content/ui/materials/frames/screen/metal_01_lower"
-		}
+			value = "content/ui/materials/frames/screen/metal_01_lower",
+		},
 	}, "corner_bottom_left")
 	widget_definitions.corner_bottom_right = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/frames/screen/metal_01_lower",
 			pass_type = "texture_uv",
+			value = "content/ui/materials/frames/screen/metal_01_lower",
 			style = {
 				uvs = {
 					{
 						1,
-						0
+						0,
 					},
 					{
 						0,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	}, "corner_bottom_right")
 	widget_definitions.description_background = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/backgrounds/terminal_basic",
 			pass_type = "texture",
+			value = "content/ui/materials/backgrounds/terminal_basic",
 			style = {
-				vertical_alignment = "center",
-				scale_to_material = true,
 				horizontal_alignment = "center",
+				scale_to_material = true,
+				vertical_alignment = "center",
 				color = Color.terminal_frame(255, true),
 				size_addition = {
 					20,
-					30
+					30,
 				},
 				offset = {
 					0,
 					0,
-					0
-				}
-			}
+					0,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/dividers/horizontal_frame_big_upper",
 			pass_type = "texture",
+			value = "content/ui/materials/dividers/horizontal_frame_big_upper",
 			style = {
-				vertical_alignment = "top",
 				horizontal_alignment = "center",
+				vertical_alignment = "top",
 				offset = {
 					0,
 					-18,
-					3
+					3,
 				},
 				size = {
 					nil,
-					36
-				}
-			}
+					36,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/dividers/horizontal_frame_big_lower",
 			pass_type = "texture",
+			value = "content/ui/materials/dividers/horizontal_frame_big_lower",
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				offset = {
 					0,
 					18,
-					3
+					3,
 				},
 				size = {
 					nil,
-					36
-				}
-			}
-		}
+					36,
+				},
+			},
+		},
 	}, "left_side", {
-		visible = false
+		visible = false,
 	})
 end
 
@@ -361,74 +361,74 @@ CosmeticsInspectView._apply_store_appearance = function (self)
 	local scenegraph_definition = Definitions.scenegraph_definition
 
 	scenegraph_definition.corner_top_left = {
-		vertical_alignment = "top",
-		parent = "screen",
 		horizontal_alignment = "left",
+		parent = "screen",
+		vertical_alignment = "top",
 		size = {
 			84,
-			224
+			224,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_top_right = {
-		vertical_alignment = "top",
-		parent = "screen",
 		horizontal_alignment = "right",
+		parent = "screen",
+		vertical_alignment = "top",
 		size = {
 			84,
-			224
+			224,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_bottom_left = {
-		vertical_alignment = "bottom",
-		parent = "screen",
 		horizontal_alignment = "left",
+		parent = "screen",
+		vertical_alignment = "bottom",
 		size = {
 			84,
-			224
+			224,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.corner_bottom_right = {
-		vertical_alignment = "bottom",
-		parent = "screen",
 		horizontal_alignment = "right",
+		parent = "screen",
+		vertical_alignment = "bottom",
 		size = {
 			84,
-			224
+			224,
 		},
 		position = {
 			0,
 			0,
-			62
-		}
+			62,
+		},
 	}
 	scenegraph_definition.description_scrollbar = {
-		vertical_alignment = "top",
-		parent = "description_grid",
 		horizontal_alignment = "right",
+		parent = "description_grid",
+		vertical_alignment = "top",
 		size = {
 			10,
-			CosmeticsInspectViewSettings.grid_height - 80
+			CosmeticsInspectViewSettings.grid_height - 80,
 		},
 		position = {
 			30,
 			-20,
-			2
-		}
+			2,
+		},
 	}
 
 	local widget_definitions = Definitions.widget_definitions
@@ -436,103 +436,103 @@ CosmeticsInspectView._apply_store_appearance = function (self)
 	widget_definitions.corner_top_left = UIWidget.create_definition({
 		{
 			pass_type = "texture",
-			value = "content/ui/materials/frames/screen/premium_upper_left"
-		}
+			value = "content/ui/materials/frames/screen/premium_upper_left",
+		},
 	}, "corner_top_left")
 	widget_definitions.corner_top_right = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/frames/screen/premium_upper_left",
 			pass_type = "texture_uv",
+			value = "content/ui/materials/frames/screen/premium_upper_left",
 			style = {
 				uvs = {
 					{
 						1,
-						0
+						0,
 					},
 					{
 						0,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	}, "corner_top_right")
 	widget_definitions.corner_bottom_left = UIWidget.create_definition({
 		{
 			pass_type = "texture",
-			value = "content/ui/materials/frames/screen/premium_lower_left"
-		}
+			value = "content/ui/materials/frames/screen/premium_lower_left",
+		},
 	}, "corner_bottom_left")
 	widget_definitions.corner_bottom_right = UIWidget.create_definition({
 		{
 			pass_type = "texture",
-			value = "content/ui/materials/frames/screen/premium_lower_right"
-		}
+			value = "content/ui/materials/frames/screen/premium_lower_right",
+		},
 	}, "corner_bottom_right")
 	widget_definitions.description_background = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/backgrounds/terminal_basic",
 			pass_type = "texture",
+			value = "content/ui/materials/backgrounds/terminal_basic",
 			style = {
-				vertical_alignment = "center",
-				scale_to_material = true,
 				horizontal_alignment = "center",
+				scale_to_material = true,
+				vertical_alignment = "center",
 				color = Color.terminal_frame(255, true),
 				size_addition = {
 					20,
-					30
+					30,
 				},
 				offset = {
 					0,
 					0,
-					0
-				}
-			}
+					0,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/frames/premium_store/details_upper",
 			pass_type = "texture",
+			value = "content/ui/materials/frames/premium_store/details_upper",
 			style = {
-				vertical_alignment = "top",
 				horizontal_alignment = "center",
+				vertical_alignment = "top",
 				size_addition = {
 					52,
-					0
+					0,
 				},
 				offset = {
 					0,
 					-60,
-					3
+					3,
 				},
 				size = {
 					nil,
-					80
-				}
-			}
+					80,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/frames/premium_store/details_lower_basic",
 			pass_type = "texture",
+			value = "content/ui/materials/frames/premium_store/details_lower_basic",
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				size_addition = {
 					52,
-					0
+					0,
 				},
 				offset = {
 					0,
 					34,
-					3
+					3,
 				},
 				size = {
 					nil,
-					108
-				}
-			}
-		}
+					108,
+				},
+			},
+		},
 	}, "left_side", {
-		visible = false
+		visible = false,
 	})
 end
 
@@ -651,12 +651,12 @@ CosmeticsInspectView._spawn_profile = function (self, profile, initial_rotation,
 end
 
 local ANIMATION_SLOTS_MAP = {
+	slot_animation_emote_1 = true,
+	slot_animation_emote_2 = true,
 	slot_animation_emote_3 = true,
-	slot_animation_end_of_round = true,
 	slot_animation_emote_4 = true,
 	slot_animation_emote_5 = true,
-	slot_animation_emote_1 = true,
-	slot_animation_emote_2 = true
+	slot_animation_end_of_round = true,
 }
 
 CosmeticsInspectView._setup_item_description = function (self, description_text, restriction_text, property_text)
@@ -681,7 +681,7 @@ CosmeticsInspectView._setup_item_description = function (self, description_text,
 	local function _add_text_widget(pass_template, text)
 		local widget_definition = UIWidget.create_definition(pass_template, scenegraph_id, nil, {
 			max_width,
-			0
+			0,
 		})
 		local widget = self:_create_widget(string.format("description_grid_widget_%d", #widgets), widget_definition)
 
@@ -691,7 +691,7 @@ CosmeticsInspectView._setup_item_description = function (self, description_text,
 		local text_options = UIFonts.get_font_options_by_style(widget.style.text)
 		local _, text_height = self:_text_size(text, widget_text_style.font_type, widget_text_style.font_size, {
 			max_width,
-			math.huge
+			math.huge,
 		}, text_options)
 
 		widget.content.size[2] = text_height
@@ -704,8 +704,8 @@ CosmeticsInspectView._setup_item_description = function (self, description_text,
 		alignment_widgets[#alignment_widgets + 1] = {
 			size = {
 				max_width,
-				height
-			}
+				height,
+			},
 		}
 	end
 
@@ -756,7 +756,7 @@ CosmeticsInspectView._setup_item_description = function (self, description_text,
 	local grid_pivot_scenegraph_id = "description_content_pivot"
 	local grid_spacing = {
 		0,
-		0
+		0,
 	}
 	local grid_direction = "down"
 	local use_is_focused_for_navigation = true
@@ -892,7 +892,7 @@ CosmeticsInspectView._start_preview_item = function (self)
 
 		local title_item_data = {
 			item_type = Localize(UISettings.item_type_localization_lookup[Utf8.upper(self._bundle_data.type)]),
-			display_name = self._bundle_data.title
+			display_name = self._bundle_data.title,
 		}
 
 		self:_setup_title(title_item_data, true)
@@ -933,11 +933,11 @@ CosmeticsInspectView._setup_title = function (self, item, ignore_localization)
 
 	local title_width, title_height = self:_text_size(self._widgets_by_name.title.content.text, title_style.font_type, title_style.font_size, {
 		max_width,
-		math.huge
+		math.huge,
 	}, title_options)
 	local sub_title_width, sub_title_height = self:_text_size(self._widgets_by_name.title.content.sub_text, sub_title_style.font_type, sub_title_style.font_size, {
 		max_width,
-		math.huge
+		math.huge,
 	}, sub_title_options)
 	local sub_title_margin = 10
 

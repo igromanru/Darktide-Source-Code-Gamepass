@@ -40,13 +40,13 @@ TrainingGroundsView.on_enter = function (self)
 		local shooting_range_name = shooting_range_button.content.text
 
 		shooting_range_button.content.text = string.format("%s (%s)", shooting_range_name, Localize("loc_requires_level", true, {
-			level = shooting_range_min_level
+			level = shooting_range_min_level,
 		}))
 		shooting_range_button.content.hotspot.disabled = true
 	end
 
 	self:play_vo_events({
-		"hub_interact_training_ground_psyker"
+		"hub_interact_training_ground_psyker",
 	}, "training_ground_psyker_a", nil, 0.8, true)
 end
 

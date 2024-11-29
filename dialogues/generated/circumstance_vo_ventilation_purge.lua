@@ -2,57 +2,57 @@
 
 return function ()
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_a_gas_a",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_a_gas_a",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
 				"voice_template",
 				OP.SET_INCLUDES,
 				args = {
-					"ogryn_a"
-				}
+					"ogryn_a",
+				},
 			},
 			{
 				"global_context",
@@ -63,73 +63,73 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
+					"zealot_male_b",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_a_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_a_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_a_gas_b",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_a_gas_b",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_ogryn_a_gas_a"
-				}
+					"combat_pause_circumstance_ogryn_a_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -141,72 +141,72 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
-			}
+					"zealot_male_b",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_b_gas_a",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_b_gas_a",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
 				"voice_template",
 				OP.SET_INCLUDES,
 				args = {
-					"ogryn_b"
-				}
+					"ogryn_b",
+				},
 			},
 			{
 				"global_context",
@@ -217,73 +217,73 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
+					"zealot_male_c",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_b_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_b_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_b_gas_b",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_b_gas_b",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_ogryn_b_gas_a"
-				}
+					"combat_pause_circumstance_ogryn_b_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -295,72 +295,72 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
-			}
+					"zealot_male_c",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_c_gas_a",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_c_gas_a",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
 				"voice_template",
 				OP.SET_INCLUDES,
 				args = {
-					"ogryn_c"
-				}
+					"ogryn_c",
+				},
 			},
 			{
 				"global_context",
@@ -372,73 +372,73 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
+					"zealot_male_a",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_c_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_ogryn_c_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_ogryn_c_gas_b",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_ogryn_c_gas_b",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_ogryn_c_gas_a"
-				}
+					"combat_pause_circumstance_ogryn_c_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -451,64 +451,64 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
-			}
+					"zealot_male_a",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_psyker_a_gas_a",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_psyker_a_gas_a",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -516,8 +516,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"psyker_female_a",
-					"psyker_male_a"
-				}
+					"psyker_male_a",
+				},
 			},
 			{
 				"global_context",
@@ -529,73 +529,73 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
+					"zealot_male_b",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_a_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_a_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_psyker_a_gas_b",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_psyker_a_gas_b",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_psyker_a_gas_a"
-				}
+					"combat_pause_circumstance_psyker_a_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -607,64 +607,64 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
-			}
+					"zealot_male_b",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_psyker_b_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_psyker_b_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_psyker_b_gas_a",
+		response = "combat_pause_circumstance_psyker_b_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -672,8 +672,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"psyker_female_b",
-					"psyker_male_b"
-				}
+					"psyker_male_b",
+				},
 			},
 			{
 				"global_context",
@@ -685,73 +685,73 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
+					"zealot_male_c",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_b_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_b_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_psyker_b_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_psyker_b_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_psyker_b_gas_b",
+		response = "combat_pause_circumstance_psyker_b_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_psyker_b_gas_a"
-				}
+					"combat_pause_circumstance_psyker_b_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -763,64 +763,64 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
-			}
+					"zealot_male_c",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_psyker_c_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_psyker_c_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_psyker_c_gas_a",
+		response = "combat_pause_circumstance_psyker_c_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -828,8 +828,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"psyker_female_c",
-					"psyker_male_c"
-				}
+					"psyker_male_c",
+				},
 			},
 			{
 				"global_context",
@@ -842,73 +842,73 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
+					"zealot_male_a",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_c_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_psyker_c_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_psyker_c_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_psyker_c_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_psyker_c_gas_b",
+		response = "combat_pause_circumstance_psyker_c_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_psyker_c_gas_a"
-				}
+					"combat_pause_circumstance_psyker_c_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -921,72 +921,72 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
-			}
+					"zealot_male_a",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_a_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_a_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_a_gas_a",
+		response = "combat_pause_circumstance_veteran_a_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
 				"voice_template",
 				OP.SET_INCLUDES,
 				args = {
-					"veteran_male_a"
-				}
+					"veteran_male_a",
+				},
 			},
 			{
 				"global_context",
@@ -997,73 +997,73 @@ return function ()
 					"psyker_female_c",
 					"psyker_male_c",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
+					"zealot_male_b",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_a_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_a_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_a_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_a_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_a_gas_b",
+		response = "combat_pause_circumstance_veteran_a_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_veteran_a_gas_a"
-				}
+					"combat_pause_circumstance_veteran_a_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1075,72 +1075,72 @@ return function ()
 					"psyker_male_c",
 					"zealot_female_b",
 					"zealot_male_b",
-					"veteran_male_a"
-				}
-			}
+					"veteran_male_a",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_b_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_b_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_b_gas_a",
+		response = "combat_pause_circumstance_veteran_b_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
 				"voice_template",
 				OP.SET_INCLUDES,
 				args = {
-					"veteran_female_b"
-				}
+					"veteran_female_b",
+				},
 			},
 			{
 				"global_context",
@@ -1151,73 +1151,73 @@ return function ()
 					"psyker_female_a",
 					"psyker_male_a",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
+					"zealot_male_c",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_b_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_b_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_b_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_b_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_b_gas_b",
+		response = "combat_pause_circumstance_veteran_b_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_veteran_b_gas_a"
-				}
+					"combat_pause_circumstance_veteran_b_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1229,64 +1229,64 @@ return function ()
 					"psyker_male_a",
 					"zealot_female_c",
 					"zealot_male_c",
-					"veteran_female_b"
-				}
-			}
+					"veteran_female_b",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_c_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_c_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_c_gas_a",
+		response = "combat_pause_circumstance_veteran_c_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -1294,8 +1294,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"veteran_female_c",
-					"veteran_male_c"
-				}
+					"veteran_male_c",
+				},
 			},
 			{
 				"global_context",
@@ -1306,73 +1306,73 @@ return function ()
 					"psyker_female_b",
 					"psyker_male_b",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
+					"zealot_male_a",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_c_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_veteran_c_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_veteran_c_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_veteran_c_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_veteran_c_gas_b",
+		response = "combat_pause_circumstance_veteran_c_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_veteran_c_gas_a"
-				}
+					"combat_pause_circumstance_veteran_c_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1385,64 +1385,64 @@ return function ()
 					"zealot_female_a",
 					"zealot_male_a",
 					"veteran_female_c",
-					"veteran_male_c"
-				}
-			}
+					"veteran_male_c",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_zealot_a_gas_a",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_zealot_a_gas_a",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -1450,8 +1450,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"zealot_female_a",
-					"zealot_male_a"
-				}
+					"zealot_male_a",
+				},
 			},
 			{
 				"global_context",
@@ -1463,73 +1463,73 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
+					"zealot_male_b",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_a_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_a_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
+		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
 		name = "combat_pause_circumstance_zealot_a_gas_b",
-		wwise_route = 0,
 		response = "combat_pause_circumstance_zealot_a_gas_b",
-		database = "circumstance_vo_ventilation_purge",
-		category = "conversations_prio_1",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_zealot_a_gas_a"
-				}
+					"combat_pause_circumstance_zealot_a_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1541,64 +1541,64 @@ return function ()
 					"psyker_male_c",
 					"veteran_male_a",
 					"zealot_female_b",
-					"zealot_male_b"
-				}
-			}
+					"zealot_male_b",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_zealot_b_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_zealot_b_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_zealot_b_gas_a",
+		response = "combat_pause_circumstance_zealot_b_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -1606,8 +1606,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"zealot_female_b",
-					"zealot_male_b"
-				}
+					"zealot_male_b",
+				},
 			},
 			{
 				"global_context",
@@ -1619,73 +1619,73 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
+					"zealot_male_c",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_b_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_b_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_zealot_b_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_zealot_b_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_zealot_b_gas_b",
+		response = "combat_pause_circumstance_zealot_b_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_zealot_b_gas_a"
-				}
+					"combat_pause_circumstance_zealot_b_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1697,64 +1697,64 @@ return function ()
 					"psyker_male_a",
 					"veteran_female_b",
 					"zealot_female_c",
-					"zealot_male_c"
-				}
-			}
+					"zealot_male_c",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_zealot_c_gas_a",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_zealot_c_gas_a",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_zealot_c_gas_a",
+		response = "combat_pause_circumstance_zealot_c_gas_a",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"short_story_talk"
+				"short_story_talk",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.SET_INCLUDES,
 				args = {
-					"circumstance_vo_ventilation_purge"
-				}
+					"circumstance_vo_ventilation_purge",
+				},
 			},
 			{
 				"user_context",
 				"friends_close",
 				OP.GT,
-				0
+				0,
 			},
 			{
 				"user_context",
 				"enemies_close",
 				OP.LT,
-				1
+				1,
 			},
 			{
 				"global_context",
 				"level_time",
 				OP.GT,
-				90
+				90,
 			},
 			{
 				"global_context",
 				"is_decaying_tension",
 				OP.EQ,
-				"true"
+				"true",
 			},
 			{
 				"user_context",
@@ -1762,8 +1762,8 @@ return function ()
 				OP.SET_INCLUDES,
 				args = {
 					"zealot_female_c",
-					"zealot_male_c"
-				}
+					"zealot_male_c",
+				},
 			},
 			{
 				"global_context",
@@ -1776,73 +1776,73 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
+					"zealot_male_a",
+				},
 			},
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_c_gas_a",
 				OP.EQ,
-				0
+				0,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				100
+				100,
 			},
 			{
 				"faction_memory",
 				"time_since_last_conversation",
 				OP.TIMEDIFF,
 				OP.GT,
-				20
-			}
+				20,
+			},
 		},
 		on_done = {
 			{
 				"faction_memory",
 				"combat_pause_circumstance_zealot_c_gas_a",
 				OP.ADD,
-				1
+				1,
 			},
 			{
 				"faction_memory",
 				"time_since_last_short_conversation",
 				OP.TIMESET,
-				"0"
-			}
+				"0",
+			},
 		},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 1
-			}
-		}
+				duration = 1,
+			},
+		},
 	})
 	define_rule({
-		name = "combat_pause_circumstance_zealot_c_gas_b",
-		wwise_route = 0,
-		response = "combat_pause_circumstance_zealot_c_gas_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_1",
+		database = "circumstance_vo_ventilation_purge",
+		name = "combat_pause_circumstance_zealot_c_gas_b",
+		response = "combat_pause_circumstance_zealot_c_gas_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"combat_pause_circumstance_zealot_c_gas_a"
-				}
+					"combat_pause_circumstance_zealot_c_gas_a",
+				},
 			},
 			{
 				"user_context",
@@ -1855,41 +1855,41 @@ return function ()
 					"veteran_female_c",
 					"veteran_male_c",
 					"zealot_female_a",
-					"zealot_male_a"
-				}
-			}
+					"zealot_male_a",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		post_wwise_event = "play_radio_static_end",
-		concurrent_wwise_event = "play_vox_static_loop",
-		pre_wwise_event = "play_radio_static_start",
-		name = "vent_circumstance_start_a",
-		response = "vent_circumstance_start_a",
-		database = "circumstance_vo_ventilation_purge",
-		wwise_route = 1,
 		category = "vox_prio_0",
+		concurrent_wwise_event = "play_vox_static_loop",
+		database = "circumstance_vo_ventilation_purge",
+		name = "vent_circumstance_start_a",
+		post_wwise_event = "play_radio_static_end",
+		pre_wwise_event = "play_radio_static_start",
+		response = "vent_circumstance_start_a",
+		wwise_route = 1,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"global_context",
 				"circumstance_vo_id",
 				OP.EQ,
-				"circumstance_vo_ventilation_purge"
+				"circumstance_vo_ventilation_purge",
 			},
 			{
 				"query_context",
@@ -1916,8 +1916,8 @@ return function ()
 					"mission_armoury_rooftops_c",
 					"mission_raid_safe_zone_e",
 					"mission_rise_first_objective_response",
-					"mission_core_safe_zone_e"
-				}
+					"mission_core_safe_zone_e",
+				},
 			},
 			{
 				"user_context",
@@ -1927,50 +1927,50 @@ return function ()
 					"explicator",
 					"pilot",
 					"sergeant",
-					"tech_priest"
-				}
-			}
+					"tech_priest",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "players"
+			target = "players",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 	define_rule({
-		name = "vent_circumstance_start_b",
-		wwise_route = 0,
-		response = "vent_circumstance_start_b",
-		database = "circumstance_vo_ventilation_purge",
 		category = "conversations_prio_0",
+		database = "circumstance_vo_ventilation_purge",
+		name = "vent_circumstance_start_b",
+		response = "vent_circumstance_start_b",
+		wwise_route = 0,
 		criterias = {
 			{
 				"query_context",
 				"concept",
 				OP.EQ,
-				"heard_speak"
+				"heard_speak",
 			},
 			{
 				"query_context",
 				"dialogue_name",
 				OP.SET_INCLUDES,
 				args = {
-					"vent_circumstance_start_a"
-				}
-			}
+					"vent_circumstance_start_a",
+				},
+			},
 		},
 		on_done = {},
 		heard_speak_routing = {
-			target = "disabled"
+			target = "disabled",
 		},
 		on_pre_rule_execution = {
 			delay_vo = {
-				duration = 0.2
-			}
-		}
+				duration = 0.2,
+			},
+		},
 	})
 end

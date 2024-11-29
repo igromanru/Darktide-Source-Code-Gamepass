@@ -14,5 +14,5 @@ local crit_impact_armor_mod = DamageProfileSettings.crit_impact_armor_mod
 
 return {
 	base_templates = damage_templates,
-	overrides = overrides
+	overrides = overrides,
 }

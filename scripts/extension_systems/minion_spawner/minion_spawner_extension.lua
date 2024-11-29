@@ -85,7 +85,7 @@ MinionSpawnerExtension.setup_from_component = function (self, spawner_groups, sp
 					rotation = QuaternionBox(Quaternion.look(wanted_direction)),
 					position = Vector3Box(spawn_pos),
 					height = spawn_height,
-					horizontal_length = spawn_horizontal_length
+					horizontal_length = spawn_horizontal_length,
 				}
 
 				randomized_spawn_data[#randomized_spawn_data + 1] = spawn_data
@@ -162,7 +162,7 @@ MinionSpawnerExtension.add_spawns = function (self, breed_list, spawn_side_id, o
 		group_id = optional_group_id,
 		attack_selection_template_name = optional_attack_selection_template_name,
 		aggro_state = optional_aggro_state,
-		max_health_modifier = optional_max_health_modifier
+		max_health_modifier = optional_max_health_modifier,
 	}
 	local queue_id = queue:enqueue(breed_list, spawn_data)
 
@@ -203,7 +203,7 @@ MinionSpawnerExtension.update = function (self, unit, dt, t)
 				spawned_minions[#spawned_minions + 1] = spawned_minion
 			else
 				spawned_minions_by_queue_id[queue_id] = {
-					spawned_minion
+					spawned_minion,
 				}
 			end
 

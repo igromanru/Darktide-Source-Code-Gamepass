@@ -78,7 +78,7 @@ MoveablePlatformExtension.init = function (self, extension_init_context, unit, e
 		while interactable_id ~= nil do
 			self._interactables[interactable_count] = {
 				name = interactable_name,
-				node_id = interactable_id
+				node_id = interactable_id,
 			}
 			interactable_count = interactable_count + 1
 			interactable_name = interactable_prefix .. tostring(interactable_count)

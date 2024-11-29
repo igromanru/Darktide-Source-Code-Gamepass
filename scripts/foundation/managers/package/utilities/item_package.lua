@@ -32,7 +32,7 @@ ItemPackage.level_resource_dependency_packages = function (item_definitions, lev
 	item_data = item_data or {
 		minion_items = {},
 		player_items = {},
-		weapon_items = {}
+		weapon_items = {},
 	}
 	item_data = _require_level_items(level_name, item_data)
 

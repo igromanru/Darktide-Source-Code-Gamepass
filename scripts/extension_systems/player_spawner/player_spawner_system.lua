@@ -61,7 +61,7 @@ PlayerSpawnerSystem.add_spawn_point = function (self, unit, side, spawn_identifi
 		rotation = QuaternionBox(rotation),
 		parent = parent_spawned and unit or nil,
 		spawn_priority = spawn_priority,
-		side = side
+		side = side,
 	}
 	local spawn_points = self._spawn_points_by_identifier[spawn_identifier]
 
@@ -72,7 +72,7 @@ PlayerSpawnerSystem.add_spawn_point = function (self, unit, side, spawn_identifi
 	else
 		self._next_spawn_point_index_by_identifier[spawn_identifier] = 1
 		self._spawn_points_by_identifier[spawn_identifier] = {
-			spawn_point_data
+			spawn_point_data,
 		}
 	end
 end
@@ -279,7 +279,7 @@ PlayerSpawnerSystem._add_progression_player = function (self, player, bot)
 					unit = player_unit,
 					distance = travel_distance,
 					disabled = PlayerUnitStatus.requires_help(character_state_component),
-					bot = bot
+					bot = bot,
 				})
 			end
 		end

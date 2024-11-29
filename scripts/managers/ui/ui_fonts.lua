@@ -34,7 +34,7 @@ UIFonts.font_height = function (gui, font_type, font_size)
 	font_heights[font_type][font_size] = {
 		height,
 		min.y,
-		max.y
+		max.y,
 	}
 
 	return height, min.y, max.y
@@ -43,12 +43,12 @@ end
 local text_horizontal_alignment_lookup = {
 	left = Gui.HorizontalAlignLeft,
 	center = Gui.HorizontalAlignCenter,
-	right = Gui.HorizontalAlignRight
+	right = Gui.HorizontalAlignRight,
 }
 local text_vertical_alignment_lookup = {
 	top = Gui.VerticalAlignTop,
 	center = Gui.VerticalAlignCenter,
-	bottom = Gui.VerticalAlignBottom
+	bottom = Gui.VerticalAlignBottom,
 }
 
 UIFonts.get_font_options_by_style = function (style, destination)

@@ -239,7 +239,7 @@ end
 
 local ACTION_KINDS_TO_CONSUME = {
 	reload_shotgun = true,
-	reload_state = true
+	reload_state = true,
 }
 
 InteractorExtension._consume_conflicting_gamepad_inputs = function (self, t)

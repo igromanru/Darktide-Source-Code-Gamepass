@@ -7,15 +7,15 @@ local mission_giver_vo_training_ground_psyker_a = {
 		sound_events = {
 			"loc_training_ground_psyker_a__tg_success_01",
 			"loc_training_ground_psyker_a__tg_success_03",
-			"loc_training_ground_psyker_a__tg_success_04"
+			"loc_training_ground_psyker_a__tg_success_04",
 		},
 		sound_events_duration = {
 			2.870979,
 			3.254625,
-			4.6355
+			4.6355,
 		},
-		randomize_indexes = {}
-	}
+		randomize_indexes = {},
+	},
 }
 
 return settings("mission_giver_vo_training_ground_psyker_a", mission_giver_vo_training_ground_psyker_a)

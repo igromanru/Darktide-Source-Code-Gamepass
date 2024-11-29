@@ -91,22 +91,22 @@ end
 
 GyroscopeParticleEffect.component_data = {
 	particle = {
-		ui_type = "resource",
+		filter = "particles",
 		preview = false,
-		value = "",
 		ui_name = "Particle",
-		filter = "particles"
+		ui_type = "resource",
+		value = "",
 	},
 	inputs = {
 		create_particle = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		destroy_particle = {
 			accessibility = "public",
-			type = "event"
-		}
-	}
+			type = "event",
+		},
+	},
 }
 
 return GyroscopeParticleEffect

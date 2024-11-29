@@ -21,7 +21,7 @@ LasgunAmmoDisplay.init = function (self, context, slot, weapon_template, fx_sour
 		for _, component in ipairs(components) do
 			unit_components[#unit_components + 1] = {
 				unit = attachment_unit,
-				component = component
+				component = component,
 			}
 		end
 	end
@@ -35,7 +35,7 @@ LasgunAmmoDisplay.init = function (self, context, slot, weapon_template, fx_sour
 		for _, component in ipairs(components) do
 			unit_components[#unit_components + 1] = {
 				unit = attachment_unit,
-				component = component
+				component = component,
 			}
 		end
 	end

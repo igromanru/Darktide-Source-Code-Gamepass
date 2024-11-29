@@ -70,7 +70,7 @@ ProfileUtils.character_names = {
 		"Villan",
 		"Xavier",
 		"Zapard",
-		"Zek"
+		"Zek",
 	},
 	female_names_1 = {
 		"Erith",
@@ -145,8 +145,8 @@ ProfileUtils.character_names = {
 		"Waynoka",
 		"Yvette",
 		"Zelie",
-		"Zellith"
-	}
+		"Zellith",
+	},
 }
 
 local function _fill_talents_and_selected_nodes(profile, character, archetype_name)
@@ -188,7 +188,7 @@ local function profile_from_backend_data(backend_profile_data)
 		talent_points = talent_points,
 		specialization = specialization,
 		name = character.name,
-		personal = character.personal
+		personal = character.personal,
 	}
 	local items = profile_data.items
 	local loadout_item_data = backend_profile.loadout_item_data
@@ -200,13 +200,13 @@ local function profile_from_backend_data(backend_profile_data)
 			local master_id = MasterItems.find_fallback_item_id(slot_name)
 
 			loadout_item_data[slot_name] = {
-				id = master_id
+				id = master_id,
 			}
 		else
 			local data = items[item_id].masterDataInstance
 
 			loadout_item_data[slot_name] = {
-				id = data.id
+				id = data.id,
 			}
 
 			local overrides = data.overrides
@@ -242,7 +242,7 @@ function _combine_item(slot_name, entry, attachments, visual_items, voice_fx_pre
 
 			attachments[child_slot_name] = {
 				item = data.item,
-				children = child_attachments
+				children = child_attachments,
 			}
 
 			if data.item.voice_fx_preset then
@@ -330,7 +330,7 @@ local function _generate_visual_loadout(visual_items)
 			local voice_fx_presets = {}
 			local hide_facial_hair = {
 				hide_beard = false,
-				hide_eyebrows = false
+				hide_eyebrows = false,
 			}
 			local stabilize_neck = {}
 			local mask_facial_hair = {}
@@ -361,7 +361,7 @@ local function _generate_visual_loadout(visual_items)
 				overrides = overrides or {}
 				overrides.attachments = overrides.attachments or {}
 				overrides.attachments[skin_color_slot_name] = {
-					item = skin_color_item_data.item
+					item = skin_color_item_data.item,
 				}
 			end
 
@@ -426,11 +426,11 @@ local function _generate_loadout_from_data(loadout_item_ids, loadout_item_data)
 			local gear = {
 				masterDataInstance = {
 					id = item_data.id,
-					overrides = item_data.overrides
+					overrides = item_data.overrides,
 				},
 				slots = {
-					slot_name
-				}
+					slot_name,
+				},
 			}
 			local item = MasterItems.get_item_instance(gear, item_id)
 
@@ -451,11 +451,11 @@ local function _generate_visual_loadout_from_data(loadout_item_ids, loadout_item
 			local gear = {
 				masterDataInstance = {
 					id = item_data.id,
-					overrides = item_data.overrides and table.clone_instance(item_data.overrides)
+					overrides = item_data.overrides and table.clone_instance(item_data.overrides),
 				},
 				slots = {
-					slot_name
-				}
+					slot_name,
+				},
 			}
 			local item = MasterItems.get_item_instance(gear, item_id)
 
@@ -463,7 +463,7 @@ local function _generate_visual_loadout_from_data(loadout_item_ids, loadout_item
 				visual_items[slot_name] = {
 					item = item,
 					gear = gear,
-					item_id = item_id
+					item_id = item_id,
 				}
 			end
 		end
@@ -534,7 +534,7 @@ ProfileUtils.process_backend_body = function (body)
 	return {
 		character = body.character,
 		items = items_by_uuid,
-		progression = body._embedded.progression
+		progression = body._embedded.progression,
 	}
 end
 
@@ -629,7 +629,7 @@ ProfileUtils.replace_profile_for_prologue = function (profile)
 
 		loadout_item_ids[slot_name] = item_name .. slot_name
 		loadout_item_data[slot_name] = {
-			id = item_name
+			id = item_name,
 		}
 	end
 
@@ -676,7 +676,7 @@ ProfileUtils.character_to_profile = function (character, gear_list, progression)
 		selected_nodes = {},
 		talents = {},
 		name = character.name,
-		personal = character.personal
+		personal = character.personal,
 	}
 
 	for slot, gear_id in pairs(item_ids) do
@@ -691,7 +691,7 @@ ProfileUtils.character_to_profile = function (character, gear_list, progression)
 				local data = gear.masterDataInstance
 
 				profile.loadout_item_data[slot] = {
-					id = data.id
+					id = data.id,
 				}
 
 				local overrides = data.overrides
@@ -902,7 +902,7 @@ ProfileUtils.add_profile_preset = function ()
 		loadout = {},
 		talents = {},
 		custom_icon_key = icon_key,
-		id = profile_preset_id
+		id = profile_preset_id,
 	}
 
 	Managers.save:queue_save()

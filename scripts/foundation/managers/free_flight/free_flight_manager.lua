@@ -57,7 +57,7 @@ FreeFlightManager._setup_standard_camera = function (self, camera)
 	camera.rotation_speed = self.STD_ROTATION_SPEED
 	camera.projection_type = Camera.PERSPECTIVE
 	camera.orthographic_data = {
-		size = self.STD_ORTHOGRAPHIC_SIZE
+		size = self.STD_ORTHOGRAPHIC_SIZE,
 	}
 	camera.dof_enabled = 0
 

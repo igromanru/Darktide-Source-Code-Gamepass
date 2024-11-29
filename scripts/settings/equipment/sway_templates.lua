@@ -24,87 +24,87 @@ WeaponTweaks.extract_weapon_tweaks("scripts/settings/equipment/weapon_templates/
 
 sway_templates.lasgun_zoomed = {
 	[weapon_movement_states.still] = {
-		intensity = 0.4,
-		sway_impact = 1.5,
 		horizontal_speed = 1.3,
+		intensity = 0.4,
 		rotation_speed = 0.5,
+		sway_impact = 1.5,
 		max_sway = {
+			pitch = 2.5,
 			yaw = 2.5,
-			pitch = 2.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.5,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 1,
 				yaw = 1,
-				pitch = 1
-			}
+			},
 		},
 		continuous_sway = {
+			pitch = 0.125,
 			yaw = 0.25,
-			pitch = 0.125
 		},
 		immediate_sway = {
 			num_shots_clear_time = 0.6,
 			crouch_transition = {
 				{
+					pitch = 2.25,
 					yaw = 2.25,
-					pitch = 2.25
-				}
+				},
 			},
 			alternate_fire_start = {
 				{
-					yaw = 2,
+					cap = true,
 					pitch = 2,
-					cap = true
-				}
+					yaw = 2,
+				},
 			},
 			suppression_hit = {
 				{
+					pitch = 0.2,
 					yaw = 0.2,
-					pitch = 0.2
-				}
+				},
 			},
 			damage_hit = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			shooting = {
 				{
+					pitch = 0.15,
 					yaw = 0.1,
-					pitch = 0.15
 				},
 				{
+					pitch = 1,
 					yaw = 0.75,
-					pitch = 1
 				},
 				{
+					pitch = 0.25,
 					yaw = 0.1,
-					pitch = 0.25
 				},
 				{
+					pitch = 0.275,
 					yaw = 0.125,
-					pitch = 0.275
 				},
 				{
+					pitch = 0.3,
 					yaw = 0.15,
-					pitch = 0.3
 				},
 				{
+					pitch = 0.35,
 					yaw = 0.175,
-					pitch = 0.35
-				}
-			}
+				},
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -122,87 +122,87 @@ sway_templates.lasgun_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
+		end,
 	},
 	[weapon_movement_states.moving] = {
 		rotation_speed = 0.75,
 		inherits = {
 			"lasgun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.5,
 			yaw = 0.75,
-			pitch = 0.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_still] = {
 		rotation_speed = 0.5,
 		inherits = {
 			"lasgun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.15,
 			yaw = 0.3,
-			pitch = 0.15
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_moving] = {
 		rotation_speed = 0.85,
 		inherits = {
 			"lasgun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 1,
 			yaw = 1,
-			pitch = 1
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -220,92 +220,92 @@ sway_templates.lasgun_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
-	}
+		end,
+	},
 }
 sway_templates.autogun_zoomed = {
 	still = {
-		intensity = 0.15,
-		sway_impact = 1.5,
 		horizontal_speed = 1.3,
+		intensity = 0.15,
 		rotation_speed = 0.5,
+		sway_impact = 1.5,
 		max_sway = {
+			pitch = 2.5,
 			yaw = 2.5,
-			pitch = 2.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.5,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 1,
 				yaw = 1,
-				pitch = 1
-			}
+			},
 		},
 		continuous_sway = {
+			pitch = 0.125,
 			yaw = 0.25,
-			pitch = 0.125
 		},
 		immediate_sway = {
 			num_shots_clear_time = 0.6,
 			crouch_transition = {
 				{
+					pitch = 2.25,
 					yaw = 2.25,
-					pitch = 2.25
-				}
+				},
 			},
 			alternate_fire_start = {
 				{
-					yaw = 2,
+					cap = true,
 					pitch = 2,
-					cap = true
-				}
+					yaw = 2,
+				},
 			},
 			suppression_hit = {
 				{
+					pitch = 0.2,
 					yaw = 0.2,
-					pitch = 0.2
-				}
+				},
 			},
 			damage_hit = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			shooting = {
 				{
+					pitch = 0.15,
 					yaw = 0.1,
-					pitch = 0.15
 				},
 				{
+					pitch = 1,
 					yaw = 0.75,
-					pitch = 1
 				},
 				{
+					pitch = 0.25,
 					yaw = 0.1,
-					pitch = 0.25
 				},
 				{
+					pitch = 0.275,
 					yaw = 0.125,
-					pitch = 0.275
 				},
 				{
+					pitch = 0.3,
 					yaw = 0.15,
-					pitch = 0.3
 				},
 				{
+					pitch = 0.35,
 					yaw = 0.175,
-					pitch = 0.35
-				}
-			}
+				},
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -323,87 +323,87 @@ sway_templates.autogun_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
+		end,
 	},
 	moving = {
 		rotation_speed = 0.75,
 		inherits = {
 			"autogun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.5,
 			yaw = 0.75,
-			pitch = 0.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	crouch_still = {
 		rotation_speed = 0.5,
 		inherits = {
 			"autogun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.15,
 			yaw = 0.3,
-			pitch = 0.15
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	crouch_moving = {
 		rotation_speed = 0.85,
 		inherits = {
 			"autogun_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 1,
 			yaw = 1,
-			pitch = 1
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -421,92 +421,92 @@ sway_templates.autogun_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
-	}
+		end,
+	},
 }
 sway_templates.autogun_fullauto_zoomed = {
 	still = {
-		intensity = 0,
-		sway_impact = 0,
 		horizontal_speed = 0,
+		intensity = 0,
 		rotation_speed = 0,
+		sway_impact = 0,
 		max_sway = {
+			pitch = 2.5,
 			yaw = 2.5,
-			pitch = 2.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.5,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 1,
 				yaw = 1,
-				pitch = 1
-			}
+			},
 		},
 		continuous_sway = {
+			pitch = 0.125,
 			yaw = 0.25,
-			pitch = 0.125
 		},
 		immediate_sway = {
 			num_shots_clear_time = 0.6,
 			crouch_transition = {
 				{
+					pitch = 2.25,
 					yaw = 2.25,
-					pitch = 2.25
-				}
+				},
 			},
 			alternate_fire_start = {
 				{
-					yaw = 2,
+					cap = true,
 					pitch = 2,
-					cap = true
-				}
+					yaw = 2,
+				},
 			},
 			suppression_hit = {
 				{
+					pitch = 0.2,
 					yaw = 0.2,
-					pitch = 0.2
-				}
+				},
 			},
 			damage_hit = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			shooting = {
 				{
+					pitch = 0.15,
 					yaw = 0.1,
-					pitch = 0.15
 				},
 				{
+					pitch = 1,
 					yaw = 0.75,
-					pitch = 1
 				},
 				{
+					pitch = 0.25,
 					yaw = 0.1,
-					pitch = 0.25
 				},
 				{
+					pitch = 0.275,
 					yaw = 0.125,
-					pitch = 0.275
 				},
 				{
+					pitch = 0.3,
 					yaw = 0.15,
-					pitch = 0.3
 				},
 				{
+					pitch = 0.35,
 					yaw = 0.175,
-					pitch = 0.35
-				}
-			}
+				},
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -524,87 +524,87 @@ sway_templates.autogun_fullauto_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
+		end,
 	},
 	moving = {
 		rotation_speed = 0.75,
 		inherits = {
 			"autogun_fullauto_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.5,
 			yaw = 0.75,
-			pitch = 0.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	crouch_still = {
 		rotation_speed = 0.5,
 		inherits = {
 			"autogun_fullauto_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.15,
 			yaw = 0.3,
-			pitch = 0.15
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	crouch_moving = {
 		rotation_speed = 0.85,
 		inherits = {
 			"autogun_fullauto_zoomed",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 1,
 			yaw = 1,
-			pitch = 1
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -622,87 +622,87 @@ sway_templates.autogun_fullauto_zoomed = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
-	}
+		end,
+	},
 }
 sway_templates.bolter_alternate_fire = {
 	[weapon_movement_states.still] = {
-		intensity = 0.4,
-		sway_impact = 2,
 		horizontal_speed = 0.5,
+		intensity = 0.4,
 		rotation_speed = 0.25,
+		sway_impact = 2,
 		max_sway = {
+			pitch = 2.5,
 			yaw = 2.5,
-			pitch = 2.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.5,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 1.5,
 				yaw = 1.5,
-				pitch = 1.5
-			}
+			},
 		},
 		continuous_sway = {
+			pitch = 0.3,
 			yaw = 0.2,
-			pitch = 0.3
 		},
 		immediate_sway = {
 			num_shots_clear_time = 0.6,
 			crouch_transition = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			alternate_fire_start = {
 				{
+					pitch = 1,
 					yaw = 1,
-					pitch = 1
-				}
+				},
 			},
 			suppression_hit = {
 				{
+					pitch = 0.2,
 					yaw = 0.2,
-					pitch = 0.2
-				}
+				},
 			},
 			damage_hit = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			shooting = {
 				{
+					pitch = 0.15,
 					yaw = 0.1,
-					pitch = 0.15
 				},
 				{
+					pitch = 0.25,
 					yaw = 0.1,
-					pitch = 0.25
 				},
 				{
+					pitch = 0.275,
 					yaw = 0.125,
-					pitch = 0.275
 				},
 				{
+					pitch = 0.3,
 					yaw = 0.15,
-					pitch = 0.3
 				},
 				{
+					pitch = 0.35,
 					yaw = 0.175,
-					pitch = 0.35
-				}
-			}
+				},
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -720,168 +720,168 @@ sway_templates.bolter_alternate_fire = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
+		end,
 	},
 	[weapon_movement_states.moving] = {
 		rotation_speed = 0.4,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.5,
 			yaw = 0.4,
-			pitch = 0.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_still] = {
 		rotation_speed = 0.2,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.4,
 			yaw = 0.15,
-			pitch = 0.4
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_moving] = {
 		rotation_speed = 0.5,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 1.75,
 			yaw = 1,
-			pitch = 1.75
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
-	}
+			},
+		},
+	},
 }
 sway_templates.shotgun_alternate_fire = {
 	[weapon_movement_states.still] = {
-		intensity = 0.5,
-		sway_impact = 2,
 		horizontal_speed = 0.5,
+		intensity = 0.5,
 		rotation_speed = 0.25,
+		sway_impact = 2,
 		max_sway = {
+			pitch = 2.5,
 			yaw = 2.5,
-			pitch = 2.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.5,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.5,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 1.5,
 				yaw = 1.5,
-				pitch = 1.5
-			}
+			},
 		},
 		continuous_sway = {
+			pitch = 0.3,
 			yaw = 0.2,
-			pitch = 0.3
 		},
 		immediate_sway = {
 			num_shots_clear_time = 0.6,
 			crouch_transition = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			alternate_fire_start = {
 				{
+					pitch = 1,
 					yaw = 1,
-					pitch = 1
-				}
+				},
 			},
 			suppression_hit = {
 				{
+					pitch = 0.2,
 					yaw = 0.2,
-					pitch = 0.2
-				}
+				},
 			},
 			damage_hit = {
 				{
+					pitch = 0.25,
 					yaw = 0.25,
-					pitch = 0.25
-				}
+				},
 			},
 			shooting = {
 				{
+					pitch = 0.15,
 					yaw = 0.1,
-					pitch = 0.15
 				},
 				{
+					pitch = 0.25,
 					yaw = 0.1,
-					pitch = 0.25
 				},
 				{
+					pitch = 0.275,
 					yaw = 0.125,
-					pitch = 0.275
 				},
 				{
+					pitch = 0.3,
 					yaw = 0.15,
-					pitch = 0.3
 				},
 				{
+					pitch = 0.35,
 					yaw = 0.175,
-					pitch = 0.35
-				}
-			}
+				},
+			},
 		},
 		sway_pattern = function (dt, t, sway_settings, yaw, pitch)
 			local horizontal_speed = sway_settings.horizontal_speed
@@ -899,96 +899,96 @@ sway_templates.shotgun_alternate_fire = {
 			local aim_offset_x = yaw_angle * yaw_scalar * intensity
 
 			return aim_offset_x, aim_offset_y
-		end
+		end,
 	},
 	[weapon_movement_states.moving] = {
 		rotation_speed = 0.4,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.5,
 			yaw = 0.4,
-			pitch = 0.5
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_still] = {
 		rotation_speed = 0.2,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 0.4,
 			yaw = 0.15,
-			pitch = 0.4
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
+			},
+		},
 	},
 	[weapon_movement_states.crouch_moving] = {
 		rotation_speed = 0.5,
 		inherits = {
 			"bolter_alternate_fire",
-			"still"
+			"still",
 		},
 		continuous_sway = {
+			pitch = 1.75,
 			yaw = 1,
-			pitch = 1.75
 		},
 		decay = {
 			crouch_transition_grace_time = 0.5,
 			enter_alternate_fire_grace_time = 0.3,
 			shooting = {
+				pitch = 0.15,
 				yaw = 0.15,
-				pitch = 0.15
 			},
 			idle = {
+				pitch = 0.5,
 				yaw = 0.75,
-				pitch = 0.5
 			},
 			player_event = {
+				pitch = 3,
 				yaw = 3,
-				pitch = 3
-			}
-		}
-	}
+			},
+		},
+	},
 }
 
 local _movement_states = {
 	"still",
 	"moving",
 	"crouch_still",
-	"crouch_moving"
+	"crouch_moving",
 }
 
 local function _inherit(move_state_settings, inheritance_settings)
@@ -1012,7 +1012,7 @@ local _immediate_sway_types = {
 	"damage_hit",
 	"shooting",
 	"alternate_fire_start",
-	"crouch_transition"
+	"crouch_transition",
 }
 
 for name, template in pairs(sway_templates) do

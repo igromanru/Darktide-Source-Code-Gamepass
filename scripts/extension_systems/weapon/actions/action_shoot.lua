@@ -29,8 +29,8 @@ local DEFUALT_NUM_CRITICAL_SHOTS = 1
 local DEFAULT_POWER_LEVEL = PowerLevelSettings.default_power_level
 local EMPTY_TABLE = {}
 local ALT_FIRE_WWISE_SWITCH = {
+	[false] = "false",
 	[true] = "true",
-	[false] = "false"
 }
 local EXTERNAL_PROPERTIES = {}
 local TAIL_SOURCE_POS = Vector3Box(0, 0, 0)

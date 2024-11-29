@@ -64,7 +64,7 @@ TestifySnippets.load_mission = function (mission_name, challenge, resistance, ci
 		challenge = challenge,
 		resistance = resistance,
 		circumstance_name = circumstance_name,
-		side_mission = side_mission
+		side_mission = side_mission,
 	}
 
 	Testify:make_request("load_mission", mission_context)
@@ -81,7 +81,7 @@ TestifySnippets.load_mission_in_mission_board = function (level_key, challenge, 
 		challenge = challenge,
 		resistance = resistance,
 		circumstance_name = circumstance_name,
-		side_mission = side_mission
+		side_mission = side_mission,
 	}
 
 	if peer_id == nil then
@@ -157,14 +157,14 @@ end
 TestifySnippets.set_difficulty = function (difficulty)
 	local resistance = {
 		name = "resistance",
-		value = difficulty.resistance
+		value = difficulty.resistance,
 	}
 
 	Testify:make_request("change_dev_parameter", resistance)
 
 	local challenge = {
 		name = "challenge",
-		value = difficulty.challenge
+		value = difficulty.challenge,
 	}
 
 	Testify:make_request("change_dev_parameter", challenge)
@@ -175,7 +175,7 @@ TestifySnippets.set_render_settings = function (setting_id, value, wait_time)
 	local new_value = value
 	local option_data = {
 		setting = setting,
-		new_value = new_value
+		new_value = new_value,
 	}
 
 	Testify:make_request("setting_on_activated", option_data)
@@ -367,7 +367,7 @@ end
 TestifySnippets.trigger_vo_query_player_look_at = function (look_at_tag, distance, num_dialogues)
 	local look_at_data = {
 		look_at_tag = look_at_tag,
-		distance = distance
+		distance = distance,
 	}
 
 	Testify:make_request("trigger_vo_query_player_look_at", look_at_data)
@@ -379,7 +379,7 @@ TestifySnippets.trigger_vo_query_faction_look_at = function (faction, look_at_ta
 	local look_at_data = {
 		faction = faction,
 		look_at_tag = look_at_tag,
-		distance = distance
+		distance = distance,
 	}
 
 	Testify:make_request("trigger_vo_query_faction_look_at", look_at_data)
@@ -390,7 +390,7 @@ end
 TestifySnippets.trigger_vo_query_mission_brief = function (mission_brief_starter_line, voice_profile, num_dialogues)
 	local mission_brief_data = {
 		mission_brief_starter_line = mission_brief_starter_line,
-		voice_profile = voice_profile
+		voice_profile = voice_profile,
 	}
 
 	Testify:make_request("trigger_vo_query_mission_brief", mission_brief_data)
@@ -401,7 +401,7 @@ end
 TestifySnippets.trigger_vo_query_mission_giver_mission_info = function (trigger_id, voice_profile, num_dialogues)
 	local mission_giver_data = {
 		trigger_id = trigger_id,
-		voice_profile = voice_profile
+		voice_profile = voice_profile,
 	}
 
 	Testify:make_request("trigger_vo_query_mission_giver_mission_info", mission_giver_data)
@@ -411,7 +411,7 @@ end
 
 TestifySnippets.trigger_vo_query_player_generic_vo = function (trigger_id, num_dialogues)
 	local player_generic_vo_data = {
-		trigger_id = trigger_id
+		trigger_id = trigger_id,
 	}
 
 	Testify:make_request("trigger_vo_query_player_generic_vo", player_generic_vo_data)
@@ -421,7 +421,7 @@ end
 
 TestifySnippets.trigger_vo_query_player_environmental_story_vo = function (trigger_id, num_dialogues)
 	local player_environmental_story_vo_data = {
-		trigger_id = trigger_id
+		trigger_id = trigger_id,
 	}
 
 	Testify:make_request("trigger_vo_query_player_environmental_story_vo", player_environmental_story_vo_data)
@@ -432,7 +432,7 @@ end
 TestifySnippets.trigger_mission_giver_conversation_starter = function (trigger_id, voice_profile, num_dialogues)
 	local mission_giver_conversation_starter_vo_data = {
 		trigger_id = trigger_id,
-		voice_profile = voice_profile
+		voice_profile = voice_profile,
 	}
 
 	Testify:make_request("trigger_mission_giver_conversation_starter", mission_giver_conversation_starter_vo_data)
@@ -442,7 +442,7 @@ end
 
 TestifySnippets.trigger_vo_query_player_start_banter = function (trigger_id, num_dialogues)
 	local player_start_banter_vo_data = {
-		trigger_id = trigger_id
+		trigger_id = trigger_id,
 	}
 
 	Testify:make_request("trigger_vo_query_player_start_banter", player_start_banter_vo_data)
@@ -453,7 +453,7 @@ end
 TestifySnippets.trigger_vo_on_demand = function (vo_concept, trigger_id, num_dialogues)
 	local player_vo_on_demand_starter_data = {
 		vo_concept = vo_concept,
-		trigger_id = trigger_id
+		trigger_id = trigger_id,
 	}
 
 	Testify:make_request("trigger_vo_on_demand", player_vo_on_demand_starter_data)
@@ -496,12 +496,12 @@ TestifySnippets.equip_all_traits_support_snippet = function (player, slot_name, 
 	local data = {
 		player = player,
 		slot = slot_name,
-		item = weapon
+		item = weapon,
 	}
 	local trait_params = {
 		player = player,
 		slot_name = slot_name,
-		traits = traits
+		traits = traits,
 	}
 
 	units_to_spawn = units_to_spawn or 1
@@ -510,7 +510,7 @@ TestifySnippets.equip_all_traits_support_snippet = function (player, slot_name, 
 	local minion = {
 		breed_side = 2,
 		breed_name = breed_name,
-		spawn_position = Vector3Box(Vector3.zero())
+		spawn_position = Vector3Box(Vector3.zero()),
 	}
 
 	if not has_local_profile then
@@ -541,7 +541,7 @@ TestifySnippets.reset_weapon_traits = function (player, slot_name)
 	local empty_trait_params = {
 		player = player,
 		slot_name = slot_name,
-		traits = {}
+		traits = {},
 	}
 
 	Testify:make_request("apply_select_traits", empty_trait_params)
@@ -559,9 +559,9 @@ TestifySnippets.open_barber_surgeon_shop = function ()
 	local view_data = {
 		view_name = "barber_vendor_background_view",
 		dummy_data = {
+			can_exit = true,
 			debug_preview = true,
-			can_exit = true
-		}
+		},
 	}
 
 	Testify:make_request("open_view", view_data)

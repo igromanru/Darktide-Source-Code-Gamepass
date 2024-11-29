@@ -46,21 +46,21 @@ end
 
 HazardProp.component_data = {
 	extensions = {
-		"HazardPropExtension"
+		"HazardPropExtension",
 	},
 	hazard_shape = {
-		value = "barrel",
-		ui_type = "combo_box",
 		ui_name = "Collider Setup",
+		ui_type = "combo_box",
+		value = "barrel",
 		options_keys = {
 			"barrel/canister/pipe",
-			"sphere"
+			"sphere",
 		},
 		options_values = {
 			"barrel",
-			"sphere"
-		}
-	}
+			"sphere",
+		},
+	},
 }
 
 return HazardProp

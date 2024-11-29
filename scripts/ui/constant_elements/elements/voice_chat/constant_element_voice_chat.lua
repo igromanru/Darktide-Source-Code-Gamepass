@@ -64,7 +64,7 @@ ConstantElementVoiceChat._update_players_speaking = function (self, dt, t, ui_re
 		"player_1",
 		"player_2",
 		"player_3",
-		"player_4"
+		"player_4",
 	}
 
 	for i = 1, #widgets_names do

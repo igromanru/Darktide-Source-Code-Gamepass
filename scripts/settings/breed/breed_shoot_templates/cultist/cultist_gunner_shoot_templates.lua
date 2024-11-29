@@ -11,7 +11,7 @@ local cultist_gunner_default = {
 	spread = math.degrees_to_radians(1.5),
 	effect_template = EffectTemplates.cultist_gunner_stubber,
 	damage_type = damage_types.minion_auto_bullet,
-	line_effect = LineEffects.cultist_autogun_bullet
+	line_effect = LineEffects.cultist_autogun_bullet,
 }
 local cultist_gunner_sweep = table.clone(cultist_gunner_default)
 
@@ -38,7 +38,7 @@ local shoot_templates = {
 	cultist_gunner_sweep = cultist_gunner_sweep,
 	cultist_gunner_aimed = cultist_gunner_aimed,
 	cultist_gunner_shoot_close = cultist_gunner_shoot_close,
-	cultist_gunner_shoot_spray_n_pray = cultist_gunner_shoot_spray_n_pray
+	cultist_gunner_shoot_spray_n_pray = cultist_gunner_shoot_spray_n_pray,
 }
 
 return shoot_templates

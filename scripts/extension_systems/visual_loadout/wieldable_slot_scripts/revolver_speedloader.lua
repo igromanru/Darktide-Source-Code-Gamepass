@@ -21,35 +21,35 @@ RevolverSpeedloader.init = function (self, context, slot, weapon_template, fx_so
 	self._first_person_extension = ScriptUnit.extension(owner_unit, "first_person_system")
 	self._bullets = {
 		{
-			casing_attachment_name = "casing_01",
-			visible_at_reload_start = true,
 			bullet_attachment_name = "bullet_01",
-			visible = true
+			casing_attachment_name = "casing_01",
+			visible = true,
+			visible_at_reload_start = true,
 		},
 		{
-			casing_attachment_name = "casing_02",
-			visible_at_reload_start = true,
 			bullet_attachment_name = "bullet_02",
-			visible = true
+			casing_attachment_name = "casing_02",
+			visible = true,
+			visible_at_reload_start = true,
 		},
 		{
-			casing_attachment_name = "casing_03",
-			visible_at_reload_start = true,
 			bullet_attachment_name = "bullet_03",
-			visible = true
+			casing_attachment_name = "casing_03",
+			visible = true,
+			visible_at_reload_start = true,
 		},
 		{
-			casing_attachment_name = "casing_04",
-			visible_at_reload_start = true,
 			bullet_attachment_name = "bullet_04",
-			visible = true
+			casing_attachment_name = "casing_04",
+			visible = true,
+			visible_at_reload_start = true,
 		},
 		{
-			casing_attachment_name = "casing_05",
-			visible_at_reload_start = true,
 			bullet_attachment_name = "bullet_05",
-			visible = true
-		}
+			casing_attachment_name = "casing_05",
+			visible = true,
+			visible_at_reload_start = true,
+		},
 	}
 	self._components_1p = {}
 	self._components_3p = {}
@@ -171,7 +171,7 @@ function _components(destination, destination_lookup, attachments, attachments_n
 			local data = {
 				unit = attachment_unit,
 				lookup_name = lookup_name,
-				component = component
+				component = component,
 			}
 
 			destination[#destination + 1] = data

@@ -14,7 +14,7 @@ local mission_giver_vo_dreg_leader_a = {
 			"loc_dreg_leader_a__info_extraction_a_07",
 			"loc_dreg_leader_a__info_extraction_a_08",
 			"loc_dreg_leader_a__info_extraction_a_09",
-			"loc_dreg_leader_a__info_extraction_a_10"
+			"loc_dreg_leader_a__info_extraction_a_10",
 		},
 		sound_events_duration = {
 			3.45678,
@@ -26,10 +26,10 @@ local mission_giver_vo_dreg_leader_a = {
 			3.45678,
 			3.45678,
 			3.45678,
-			3.45678
+			3.45678,
 		},
-		randomize_indexes = {}
-	}
+		randomize_indexes = {},
+	},
 }
 
 return settings("mission_giver_vo_dreg_leader_a", mission_giver_vo_dreg_leader_a)

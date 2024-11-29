@@ -21,14 +21,14 @@ require("scripts/ui/views/item_grid_view_base/item_grid_view_base")
 
 local crafting_options = {
 	{
-		type = "upgrade"
+		type = "upgrade",
 	},
 	{
-		type = "replace"
+		type = "replace",
 	},
 	{
-		type = "extract"
-	}
+		type = "extract",
+	},
 }
 local CraftingMechanicusModifyOptionsView = class("CraftingMechanicusModifyOptionsView", "ItemGridViewBase")
 
@@ -60,7 +60,7 @@ CraftingMechanicusModifyOptionsView.on_enter = function (self)
 	self._weapon_preview:center_align(0, {
 		0,
 		0,
-		0
+		0,
 	})
 	self._parent:set_active_view_instance(self)
 	self._parent:set_is_handling_navigation_input(true)
@@ -84,7 +84,7 @@ CraftingMechanicusModifyOptionsView.on_enter = function (self)
 			local profile = local_player:profile()
 			local search_slot = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 			local weapon_equipped = false
 			local weapon_slot
@@ -139,7 +139,7 @@ CraftingMechanicusModifyOptionsView._fetch_inventory = function (self)
 						trait_category = trait_item.weapon_type_restriction[1],
 						item_id = item.gear_id,
 						trait_id = trait_item.name,
-						trait_index = #traits + 1
+						trait_index = #traits + 1,
 					}
 				end
 			end
@@ -230,22 +230,22 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 				else
 					local next_rarity = item.rarity + 1
 					local currrent_rarity_name = ItemUtils.rarity_display_name({
-						rarity = item.rarity
+						rarity = item.rarity,
 					})
 					local current_rarity_color = ItemUtils.rarity_color({
-						rarity = item.rarity
+						rarity = item.rarity,
 					})
 					local next_rarity_name = ItemUtils.rarity_display_name({
-						rarity = next_rarity
+						rarity = next_rarity,
 					})
 					local next_rarity_color = ItemUtils.rarity_color({
-						rarity = next_rarity
+						rarity = next_rarity,
 					})
 					local current_rarity_localization_context = {
 						rarity_color_b = 0,
-						rarity_name = "n/a",
 						rarity_color_g = 0,
-						rarity_color_r = 0
+						rarity_color_r = 0,
+						rarity_name = "n/a",
 					}
 
 					current_rarity_localization_context.rarity_color_r = current_rarity_color[2]
@@ -255,9 +255,9 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 
 					local next_rarity_localization_context = {
 						rarity_color_b = 0,
-						rarity_name = "n/a",
 						rarity_color_g = 0,
-						rarity_color_r = 0
+						rarity_color_r = 0,
+						rarity_name = "n/a",
 					}
 
 					next_rarity_localization_context.rarity_color_r = next_rarity_color[2]
@@ -307,7 +307,7 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 							local notification_string = Localize("loc_crafting_failure")
 
 							Managers.event:trigger("event_add_notification_message", "alert", {
-								text = notification_string
+								text = notification_string,
 							})
 							self:_on_panel_option_pressed(index)
 
@@ -339,7 +339,7 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 					local widget_data = {
 						interactable = true,
 						trait = trait,
-						wallet_type = self._wallet_type
+						wallet_type = self._wallet_type,
 					}
 
 					local function callback()
@@ -350,7 +350,7 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 
 					traits[#traits + 1] = {
 						widget = widget,
-						widget_data = widget_data
+						widget_data = widget_data,
 					}
 				end
 
@@ -399,7 +399,7 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 							costs = operation_cost or nil,
 							cost_data = cost,
 							trait = trait,
-							wallet_type = self._wallet_type
+							wallet_type = self._wallet_type,
 						}
 
 						template.init(self, widget, widget_data, i)
@@ -414,7 +414,7 @@ CraftingMechanicusModifyOptionsView._on_panel_option_pressed = function (self, i
 
 						traits[#traits + 1] = {
 							widget = widget,
-							widget_data = widget_data
+							widget_data = widget_data,
 						}
 					end
 
@@ -450,7 +450,7 @@ CraftingMechanicusModifyOptionsView.setup_prices_widget = function (self, costs,
 	local scenegraph_name = "action_cost"
 	local currency_order = {
 		"diamantine",
-		"plasteel"
+		"plasteel",
 	}
 	local ordered_currency = {}
 	local currency = {}
@@ -528,7 +528,7 @@ CraftingMechanicusModifyOptionsView._can_afford = function (self, costs)
 
 	return Promise.resolved({
 		can_afford = can_afford,
-		afford_by_type = afford_by_type
+		afford_by_type = afford_by_type,
 	})
 end
 
@@ -628,7 +628,7 @@ CraftingMechanicusModifyOptionsView._set_tooltip_position = function (self, pare
 	local parent_widget_offset = parent_widget.offset or {
 		0,
 		0,
-		0
+		0,
 	}
 	local parent_scenegraph_id = parent_widget.scenegraph_id
 	local parent_scenegraph_position = self:_scenegraph_world_position(parent_scenegraph_id)
@@ -698,14 +698,14 @@ CraftingMechanicusModifyOptionsView._select_trait_extract = function (self, sele
 	local widget_data = {
 		interactable = false,
 		trait = trait,
-		wallet_type = self._wallet_type
+		wallet_type = self._wallet_type,
 	}
 
 	template.init(self, widget, widget_data)
 
 	self._selected_trait = {
 		widget = widget,
-		widget_data = widget_data
+		widget_data = widget_data,
 	}
 
 	self:_set_trait_tooltip(self._selected_trait, "down")
@@ -722,13 +722,13 @@ CraftingMechanicusModifyOptionsView._select_trait_extract = function (self, sele
 
 	self._widgets_by_name.extract_trait_button.content.hotspot.pressed_callback = function ()
 		local context = {
-			title_text = "loc_popup_header_destroy_weapon",
 			description_text = "loc_popup_description_destroy_weapon",
+			title_text = "loc_popup_header_destroy_weapon",
 			type = "warning",
 			options = {
 				{
-					text = "loc_popup_button_destroy_weapon",
 					close_on_pressed = true,
+					text = "loc_popup_button_destroy_weapon",
 					callback = callback(function ()
 						local gear_id = self._preview_item.gear_id
 
@@ -748,21 +748,21 @@ CraftingMechanicusModifyOptionsView._select_trait_extract = function (self, sele
 							local notification_string = Localize("loc_crafting_failure")
 
 							Managers.event:trigger("event_add_notification_message", "alert", {
-								text = notification_string
+								text = notification_string,
 							})
 							self:on_back_pressed()
 
 							self._crafting_promise = nil
 						end)
-					end)
+					end),
 				},
 				{
-					text = "loc_popup_button_cancel_destroy_weapon",
-					template_type = "terminal_button_small",
 					close_on_pressed = true,
-					hotkey = "back"
-				}
-			}
+					hotkey = "back",
+					template_type = "terminal_button_small",
+					text = "loc_popup_button_cancel_destroy_weapon",
+				},
+			},
 		}
 
 		Managers.event:trigger("event_show_ui_popup", context)
@@ -805,14 +805,14 @@ CraftingMechanicusModifyOptionsView._select_trait_modify = function (self, selec
 	local widget_data = {
 		interactable = false,
 		trait = trait,
-		wallet_type = self._wallet_type
+		wallet_type = self._wallet_type,
 	}
 
 	template.init(self, widget, widget_data)
 
 	self._selected_trait = {
 		widget = widget,
-		widget_data = widget_data
+		widget_data = widget_data,
 	}
 
 	self:_set_trait_tooltip(self._selected_trait, "left")
@@ -874,7 +874,7 @@ CraftingMechanicusModifyOptionsView._generate_weapon_traits = function (self)
 						icon = trait_item.icon,
 						trait_category = trait_item.weapon_type_restriction[1],
 						trait_id = trait_id,
-						trait_index = #traits + 1
+						trait_index = #traits + 1,
 					}
 				end
 			end
@@ -888,13 +888,13 @@ CraftingMechanicusModifyOptionsView._setup_trait_tabs = function (self)
 	local id = "traits_tab_menu"
 	local layer = 1
 	local tab_menu_settings = {
+		button_spacing = 20,
 		fixed_button_size = true,
 		horizontal_alignment = "center",
-		button_spacing = 20,
 		button_size = {
 			100,
-			50
-		}
+			50,
+		},
 	}
 	local tab_menu_element = self:_add_element(ViewElementTabMenu, id, layer, tab_menu_settings)
 
@@ -909,7 +909,7 @@ CraftingMechanicusModifyOptionsView._setup_trait_tabs = function (self)
 
 	tab_button_template[1].style = {
 		on_hover_sound = UISoundEvents.tab_secondary_button_hovered,
-		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed
+		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed,
 	}
 
 	local tab_ids = {}
@@ -992,7 +992,7 @@ CraftingMechanicusModifyOptionsView._present_layout_by_trait_rarity = function (
 						trait = trait,
 						disabled = already_available or selected_slot_rarity < trait_rarity or slot_category ~= trait.trait_category,
 						costs = costs,
-						wallet_type = self._wallet_type
+						wallet_type = self._wallet_type,
 					}
 					wallet_promise[#wallet_promise + 1] = self:_can_afford(costs)
 				end
@@ -1044,7 +1044,7 @@ CraftingMechanicusModifyOptionsView.cb_on_grid_entry_left_pressed = function (se
 			local notification_string = Localize("loc_crafting_failure")
 
 			Managers.event:trigger("event_add_notification_message", "alert", {
-				text = notification_string
+				text = notification_string,
 			})
 			self:on_back_pressed()
 
@@ -1305,7 +1305,7 @@ CraftingMechanicusModifyOptionsView._handle_input = function (self, input_servic
 			local focused_widget = selected_index and widgets[selected_index]
 			local widgets_changed = {
 				unfocused_widget,
-				focused_widget
+				focused_widget,
 			}
 
 			if unfocused_widget then

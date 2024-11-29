@@ -48,7 +48,7 @@ Weapon._init_weapon_special_implementation = function (self, weapon_template, we
 	local weapon_special_init_data = {
 		inventory_slot_component = self.inventory_slot_component,
 		tweak_data = weapon_template.weapon_special_tweak_data or EMPTY_TABLE,
-		weapon_template = weapon_template
+		weapon_template = weapon_template,
 	}
 	local weapon_special_implementation = CLASSES[weapon_special_class]:new(weapon_special_context, weapon_special_init_data)
 

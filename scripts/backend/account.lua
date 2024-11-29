@@ -17,7 +17,7 @@ end
 
 Account.set_has_created_first_character = function (self, value)
 	return self:set_data("core", {
-		has_created_first_character = value
+		has_created_first_character = value,
 	})
 end
 
@@ -27,7 +27,7 @@ end
 
 Account.set_has_completed_onboarding = function (self, value)
 	return self:set_data("core", {
-		has_completed_onboarding = value
+		has_completed_onboarding = value,
 	})
 end
 
@@ -37,7 +37,7 @@ end
 
 Account.set_selected_character = function (self, character_id)
 	return self:set_data("core", {
-		selected_character = character_id
+		selected_character = character_id,
 	})
 end
 
@@ -59,8 +59,8 @@ Account.set_data = function (self, section, data)
 	return BackendUtilities.make_account_title_request("account", BackendUtilities.url_builder("/data/"):path(section), {
 		method = "PUT",
 		body = {
-			data = data
-		}
+			data = data,
+		},
 	}):next(function (data)
 		return nil
 	end)
@@ -68,7 +68,7 @@ end
 
 local function _same_path(...)
 	local desired_path = {
-		...
+		...,
 	}
 
 	return function (entry)
@@ -98,8 +98,8 @@ Account.rename_account = function (self, requested_name)
 	return BackendUtilities.make_account_title_request("account", BackendUtilities.url_builder("/name"), {
 		method = "POST",
 		body = {
-			accountName = requested_name
-		}
+			accountName = requested_name,
+		},
 	})
 end
 
@@ -112,7 +112,7 @@ Account._get_migration_status = function (self, account_id)
 			has_pending = status.hasPending,
 			is_blocking = status.isBlocking,
 			migrate_link = BackendUtilities.fetch_link(body, "migrate"),
-			latest_completed = status.latestCompleted
+			latest_completed = status.latestCompleted,
 		}
 	end)
 end
@@ -121,21 +121,21 @@ Account.check_and_run_migrations = function (self, account_id)
 	return self:_get_migration_status(account_id):next(function (result)
 		if result.has_pending then
 			local migrate_promise = Managers.backend:title_request(result.migrate_link, {
-				method = "POST"
+				method = "POST",
 			})
 
 			if result.is_blocking then
 				return migrate_promise:next(function (data)
 					return {
 						migrations = data.body.migrations,
-						latest_completed = result.latest_completed
+						latest_completed = result.latest_completed,
 					}
 				end)
 			end
 		end
 
 		return Promise.resolved({
-			latest_completed = result.latest_completed
+			latest_completed = result.latest_completed,
 		})
 	end)
 end

@@ -89,9 +89,9 @@ MinionLocomotionExtension.set_check_falling = function (self, state)
 end
 
 local movement_types = {
+	constrained_by_mover = 2,
 	script_driven = 0,
 	snap_to_navmesh = 1,
-	constrained_by_mover = 2
 }
 
 MinionLocomotionExtension.set_movement_type = function (self, movement_type, override_mover_separate_distance, ignore_forced_mover_kill)

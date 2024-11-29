@@ -41,10 +41,10 @@ end
 
 HideableAmmo.component_data = {
 	start_hidden = {
+		ui_name = "Start Hidden",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Start Hidden"
-	}
+	},
 }
 
 return HideableAmmo

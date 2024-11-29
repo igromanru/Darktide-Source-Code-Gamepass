@@ -32,12 +32,12 @@ end
 local ListHeaderPassTemplates = {}
 
 ListHeaderPassTemplates.default_hotspot_style = {
+	anim_focus_speed = 8,
 	anim_hover_speed = 8,
 	anim_input_speed = 8,
 	anim_select_speed = 8,
-	anim_focus_speed = 8,
 	on_hover_sound = UISoundEvents.default_mouse_hover,
-	on_pressed_sound = UISoundEvents.default_click
+	on_pressed_sound = UISoundEvents.default_click,
 }
 ListHeaderPassTemplates.highlight_size_addition = highlight_size_addition
 ListHeaderPassTemplates.list_highlight_color_change_function = highlight_color_change_function
@@ -49,12 +49,12 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 
 	header_font_style.size = {
 		header_width,
-		height
+		height,
 	}
 	header_font_style.size_addition = {
 		-60,
 		0,
-		1
+		1,
 	}
 	header_font_style.default_color = Color.terminal_text_body(255, true)
 	header_font_style.text_color = Color.terminal_text_body(255, true)
@@ -63,17 +63,17 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 
 	local passes = {
 		{
-			style_id = "hotspot",
-			pass_type = "hotspot",
 			content_id = "hotspot",
+			pass_type = "hotspot",
+			style_id = "hotspot",
 			content = {
-				use_is_focused = use_is_focused
+				use_is_focused = use_is_focused,
 			},
-			style = ListHeaderPassTemplates.default_hotspot_style
+			style = ListHeaderPassTemplates.default_hotspot_style,
 		},
 		{
-			style_id = "hotspot",
 			pass_type = "logic",
+			style_id = "hotspot",
 			value = function (pass, renderer, style, content, position, size)
 				local hotspot = content.hotspot
 				local highlight_progress = math.max(hotspot.anim_select_progress, hotspot.anim_hover_progress, hotspot.anim_focus_progress)
@@ -93,8 +93,8 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 				end
 
 				content.anim_exclusive_focus_progress = anim_exclusive_focus_progress
-			end
-		}
+			end,
+		},
 	}
 
 	if header_width > 0 then
@@ -107,17 +107,17 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 				offset = {
 					0,
 					0,
-					0
+					0,
 				},
 				size = {
 					header_width,
-					height
-				}
+					height,
+				},
 			},
 			change_function = function (content, style)
 				style.color[1] = 255 * content.highlight_progress
 			end,
-			visibility_function = list_item_focused_visibility_function
+			visibility_function = list_item_focused_visibility_function,
 		}
 		passes[#passes + 1] = {
 			pass_type = "texture",
@@ -129,16 +129,16 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 				offset = {
 					0,
 					0,
-					11
+					11,
 				},
 				size_addition = {
 					0,
-					0
+					0,
 				},
 				size = {
 					4,
-					height
-				}
+					height,
+				},
 			},
 			change_function = function (content, style)
 				local hotspot = content.hotspot
@@ -154,15 +154,15 @@ ListHeaderPassTemplates.list_header = function (header_width, height, use_is_foc
 				style.offset[2] = -size_addition
 				style.hdr = progress == 1
 			end,
-			visibility_function = list_item_focused_visibility_function
+			visibility_function = list_item_focused_visibility_function,
 		}
 		passes[#passes + 1] = {
-			style_id = "list_header",
 			pass_type = "text",
+			style_id = "list_header",
 			value = "n/a",
 			value_id = "text",
 			style = header_font_style,
-			change_function = highlight_color_change_function
+			change_function = highlight_color_change_function,
 		}
 	end
 

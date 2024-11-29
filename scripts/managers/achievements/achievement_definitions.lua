@@ -37,7 +37,7 @@ local AchievementDefinitions = setmetatable({}, {
 	__newindex = function (_, key, value)
 		_achievement_count, _achievement_data[key] = _achievement_count + 1, value
 		value.index, value.id = _achievement_count, key
-	end
+	end,
 })
 
 local function string_replacement(pattern, index, config)
@@ -83,7 +83,7 @@ local function old_numeric_target_family(id_pattern, base, targets)
 
 	for i = 1, #targets do
 		configs[i] = {
-			target = targets[i]
+			target = targets[i],
 		}
 	end
 
@@ -92,7 +92,7 @@ local function old_numeric_target_family(id_pattern, base, targets)
 		title = "loc_achievement_" .. id_pattern .. "_name",
 		target = function (index, config)
 			return config.target
-		end
+		end,
 	}, configs)
 end
 
@@ -112,7 +112,7 @@ local function tiered_target_family(id_pattern, base, targets)
 
 	for i = 1, #targets do
 		configs[i] = {
-			target = targets[i]
+			target = targets[i],
 		}
 	end
 
@@ -121,7 +121,7 @@ local function tiered_target_family(id_pattern, base, targets)
 		loc_title_variables = _generate_tier_localization(),
 		target = function (index, config)
 			return config.target
-		end
+		end,
 	}, configs)
 end
 
@@ -130,7 +130,7 @@ local function target_family(id_pattern, base, targets)
 
 	for i = 1, #targets do
 		configs[i] = {
-			target = targets[i]
+			target = targets[i],
 		}
 	end
 
@@ -138,7 +138,7 @@ local function target_family(id_pattern, base, targets)
 		id = id_pattern,
 		target = function (index, config)
 			return config.target
-		end
+		end,
 	}, configs)
 end
 
@@ -149,14 +149,14 @@ do
 		15,
 		20,
 		25,
-		30
+		30,
 	}
 	local generic_mission_targets = {
 		5,
 		25,
 		50,
 		75,
-		100
+		100,
 	}
 
 	local function _generate_mission_difficulties(archetype_name)
@@ -170,7 +170,7 @@ do
 
 				stats[stat_name] = {
 					increasing = true,
-					target = difficulty
+					target = difficulty,
 				}
 			end
 
@@ -204,7 +204,7 @@ do
 			stat_name = "max_rank_veteran",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, rank_targets)
 		old_numeric_target_family("missions_veteran_2_{index:%d}", {
 			description = "loc_achievement_missions_veteran_2_x_description",
@@ -212,260 +212,260 @@ do
 			stat_name = "missions_veteran_2",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, generic_mission_targets)
 		family({
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0033",
 			type = AchievementTypesLookup.multi_stat,
 			category = category_progression,
 			target = #adventure_mission_types,
-			flags = {}
+			flags = {},
 		}, {
 			description = "loc_achievement_missions_veteran_2_objective_{index:%d}_description",
 			id = "missions_veteran_2_objective_{index:%d}",
 			title = "loc_achievement_missions_veteran_2_objective_{index:%d}_name",
 			stats = _generate_mission_difficulties("veteran"),
-			stats_sorting = _generate_mission_difficulties_sorting("veteran")
+			stats_sorting = _generate_mission_difficulties_sorting("veteran"),
 		}, {
 			{
-				difficulty = 1
+				difficulty = 1,
 			},
 			{
-				difficulty = 3
+				difficulty = 3,
 			},
 			{
-				difficulty = 4
-			}
+				difficulty = 4,
+			},
 		})
 		family({
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_02",
 			target = 1,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_veteran_2_easy_difficulty_{index:%d}",
-			title = "loc_missions_veteran_2_easy_difficulty_{index:%d}_name",
 			description = "loc_missions_veteran_2_easy_difficulty_{index:%d}_description",
-			stat_name = "missions_veteran_2_difficulty_{index:%d}"
+			id = "missions_veteran_2_easy_difficulty_{index:%d}",
+			stat_name = "missions_veteran_2_difficulty_{index:%d}",
+			title = "loc_missions_veteran_2_easy_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.group_veteran_2_rank_1_difficulty_1 = {
 			description = "loc_group_veteran_2_rank_1_difficulty_1_description",
-			title = "loc_group_veteran_2_rank_1_difficulty_1_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_10",
 			target = 2,
+			title = "loc_group_veteran_2_rank_1_difficulty_1_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_veteran_2_1",
-				"missions_veteran_2_easy_difficulty_1"
+				"missions_veteran_2_easy_difficulty_1",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_veteran_2_rank_2_difficulty_2 = {
 			description = "loc_group_veteran_2_rank_2_difficulty_2_description",
-			title = "loc_group_veteran_2_rank_2_difficulty_2_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_10",
 			target = 2,
+			title = "loc_group_veteran_2_rank_2_difficulty_2_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_veteran_2_2",
-				"missions_veteran_2_easy_difficulty_2"
+				"missions_veteran_2_easy_difficulty_2",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_2_easy_1 = {
 			description = "loc_achievement_veteran_2_easy_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_03",
-			title = "loc_achievement_veteran_2_easy_1_name",
-			target = 350,
 			stat_name = "veteran_2_weakspot_kills",
+			target = 350,
+			title = "loc_achievement_veteran_2_easy_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_2_easy_2 = {
 			description = "loc_achievement_veteran_2_easy_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_04",
-			title = "loc_achievement_veteran_2_easy_2_name",
-			target = 5000,
 			stat_name = "veteran_2_ammo_given",
+			target = 5000,
+			title = "loc_achievement_veteran_2_easy_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_infiltrate_supress = {
 			description = "loc_achievement_veteran_infiltrate_supress_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_18",
-			title = "loc_achievement_veteran_infiltrate_supress_name",
-			target = 750,
 			stat_name = "veteran_infiltrate_stagger",
+			target = 750,
+			title = "loc_achievement_veteran_infiltrate_supress_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_voice_of_command_toughness_given = {
 			description = "loc_achievement_veteran_voice_of_command_toughness_given_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_17",
-			title = "loc_achievement_veteran_voice_of_command_toughness_given_name",
-			target = 7500,
 			stat_name = "veteran_voice_of_command_toughness_given",
+			target = 7500,
+			title = "loc_achievement_veteran_voice_of_command_toughness_given_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_enemies_killed_with_max_focus_fire = {
 			description = "loc_achievement_veteran_enemies_killed_with_max_focus_fire_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_19",
-			title = "loc_achievement_veteran_enemies_killed_with_max_focus_fire_name",
-			target = 2500,
 			stat_name = "kills_during_max_focus_fire_stack",
+			target = 2500,
+			title = "loc_achievement_veteran_enemies_killed_with_max_focus_fire_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_krak_grenade_kills = {
 			description = "loc_achievement_veteran_krak_grenade_kills_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_13",
-			title = "loc_achievement_veteran_krak_grenade_kills_name",
-			target = 500,
 			stat_name = "veteran_krak_grenade_kills",
+			target = 500,
+			title = "loc_achievement_veteran_krak_grenade_kills_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_smoke_grenade_engulfed = {
 			description = "loc_achievement_veteran_smoke_grenade_engulfed_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_14",
-			title = "loc_achievement_veteran_smoke_grenade_engulfed_name",
-			target = 2000,
 			stat_name = "veteran_smoke_grenade_engulfed",
+			target = 2000,
+			title = "loc_achievement_veteran_smoke_grenade_engulfed_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_kills_with_improved_tag = {
 			description = "loc_achievement_veteran_kills_with_improved_tag_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_20",
-			title = "loc_achievement_veteran_kills_with_improved_tag_name",
-			target = 500,
 			stat_name = "veteran_kills_with_improved_tag",
+			target = 500,
+			title = "loc_achievement_veteran_kills_with_improved_tag_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_weapon_switch_passive_keystone_kills = {
 			description = "loc_achievement_veteran_weapon_switch_passive_keystone_kills_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_21",
-			title = "loc_achievement_veteran_weapon_switch_passive_keystone_kills_name",
-			target = 250,
 			stat_name = "veteran_weapon_switch_passive_keystone_kills",
+			target = 250,
+			title = "loc_achievement_veteran_weapon_switch_passive_keystone_kills_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_team_damage_aura_amplified = {
 			description = "loc_achievement_veteran_team_damage_amplified_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_15",
-			title = "loc_achievement_veteran_team_damage_amplified_name",
-			target = 7500,
 			stat_name = "veteran_team_damage_amplified",
+			target = 7500,
+			title = "loc_achievement_veteran_team_damage_amplified_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_team_movement_aura_amplified = {
 			description = "loc_achievement_veteran_team_movement_amplifed_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_16",
-			title = "loc_achievement_veteran_team_movement_amplifed_name",
-			target = 10000,
 			stat_name = "veteran_team_movement_amplifed",
+			target = 10000,
+			title = "loc_achievement_veteran_team_movement_amplifed_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_veteran_2_rank_4_difficulty_3 = {
 			description = "loc_group_veteran_2_rank_4_difficulty_3_description",
-			title = "loc_group_veteran_2_rank_4_difficulty_3_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_11",
 			target = 2,
+			title = "loc_group_veteran_2_rank_4_difficulty_3_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_veteran_2_4",
-				"missions_veteran_2_easy_difficulty_3"
+				"missions_veteran_2_easy_difficulty_3",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_veteran_2_rank_5_difficulty_4 = {
 			description = "loc_group_veteran_2_rank_5_difficulty_4_description",
-			title = "loc_group_veteran_2_rank_5_difficulty_4_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_11",
 			target = 2,
+			title = "loc_group_veteran_2_rank_5_difficulty_4_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_veteran_2_5",
-				"missions_veteran_2_easy_difficulty_4"
+				"missions_veteran_2_easy_difficulty_4",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_2_medium_1 = {
 			description = "loc_achievement_veteran_2_medium_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_05",
-			title = "loc_achievement_veteran_2_medium_1_name",
-			target = 150,
 			stat_name = "veteran_2_kill_volley_fire_target_malice",
+			target = 150,
+			title = "loc_achievement_veteran_2_medium_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_2_medium_2 = {
 			description = "loc_achievement_veteran_2_medium_2_description",
-			title = "loc_achievement_veteran_2_medium_2_name",
-			target = 100,
-			stat_name = "veteran_2_long_range_kills",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_06",
+			stat_name = "veteran_2_long_range_kills",
+			target = 100,
+			title = "loc_achievement_veteran_2_medium_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {},
 			loc_variables = {
-				distance = 30
-			}
+				distance = 30,
+			},
 		}
 		AchievementDefinitions.veteran_2_hard_1 = {
 			description = "loc_achievement_veteran_2_hard_1_description",
-			title = "loc_achievement_veteran_2_hard_1_name",
-			target = 50,
-			stat_name = "max_multiple_elite_or_special_kills_during_volley_fire_heresy",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_07",
+			stat_name = "max_multiple_elite_or_special_kills_during_volley_fire_heresy",
+			target = 50,
+			title = "loc_achievement_veteran_2_hard_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				num_enemies = 2
-			}
+				num_enemies = 2,
+			},
 		}
 		AchievementDefinitions.veteran_2_hard_2 = {
 			description = "loc_achievement_veteran_2_hard_2_description",
-			title = "loc_achievement_veteran_2_hard_2_name",
-			target = 5,
-			stat_name = "veteran_2_extended_volley_fire_duration",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_08",
+			stat_name = "veteran_2_extended_volley_fire_duration",
+			target = 5,
+			title = "loc_achievement_veteran_2_hard_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				time = 20
-			}
+				time = 20,
+			},
 		}
 
 		family({
@@ -473,7 +473,7 @@ do
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement_12",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_veteran_2_{index:%d}_rework",
 			title = "loc_achievement_group_class_veteran_2_{index:%d}_name",
@@ -482,14 +482,14 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"rank_veteran_2_4",
 				"missions_veteran_2_objective_1",
 				"missions_veteran_2_1",
 				"veteran_2_easy_1",
-				"veteran_2_easy_2"
+				"veteran_2_easy_2",
 			},
 			{
 				"group_class_veteran_2_1_rework",
@@ -497,7 +497,7 @@ do
 				"missions_veteran_2_objective_2",
 				"missions_veteran_2_2",
 				"veteran_2_medium_1",
-				"veteran_2_medium_2"
+				"veteran_2_medium_2",
 			},
 			{
 				"group_class_veteran_2_2_rework",
@@ -505,8 +505,8 @@ do
 				"missions_veteran_2_objective_3",
 				"missions_veteran_2_3",
 				"veteran_2_hard_1",
-				"veteran_2_hard_2"
-			}
+				"veteran_2_hard_2",
+			},
 		})
 	end
 
@@ -521,7 +521,7 @@ do
 			stat_name = "max_rank_zealot",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, rank_targets)
 		old_numeric_target_family("missions_zealot_2_{index:%d}", {
 			description = "loc_achievement_missions_zealot_2_x_description",
@@ -529,254 +529,254 @@ do
 			stat_name = "missions_zealot_2",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, generic_mission_targets)
 		family({
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0033",
 			type = AchievementTypesLookup.multi_stat,
 			category = category_progression,
 			target = #adventure_mission_types,
-			flags = {}
+			flags = {},
 		}, {
 			description = "loc_achievement_missions_zealot_2_objective_{index:%d}_description",
 			id = "missions_zealot_2_objective_{index:%d}",
 			title = "loc_achievement_missions_zealot_2_objective_{index:%d}_name",
 			stats = _generate_mission_difficulties("zealot"),
-			stats_sorting = _generate_mission_difficulties_sorting("zealot")
+			stats_sorting = _generate_mission_difficulties_sorting("zealot"),
 		}, {
 			{
-				difficulty = 1
+				difficulty = 1,
 			},
 			{
-				difficulty = 3
+				difficulty = 3,
 			},
 			{
-				difficulty = 4
-			}
+				difficulty = 4,
+			},
 		})
 		family({
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_02",
 			target = 1,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_zealot_2_easy_difficulty_{index:%d}",
-			title = "loc_missions_zealot_2_easy_difficulty_{index:%d}_name",
 			description = "loc_missions_zealot_2_easy_difficulty_{index:%d}_description",
-			stat_name = "missions_zealot_2_difficulty_{index:%d}"
+			id = "missions_zealot_2_easy_difficulty_{index:%d}",
+			stat_name = "missions_zealot_2_difficulty_{index:%d}",
+			title = "loc_missions_zealot_2_easy_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.group_zealot_2_rank_1_difficulty_1 = {
 			description = "loc_group_zealot_2_rank_1_difficulty_1_description",
-			title = "loc_group_zealot_2_rank_1_difficulty_1_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_10",
 			target = 2,
+			title = "loc_group_zealot_2_rank_1_difficulty_1_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_zealot_2_1",
-				"missions_zealot_2_easy_difficulty_1"
+				"missions_zealot_2_easy_difficulty_1",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_zealot_2_rank_2_difficulty_2 = {
 			description = "loc_group_zealot_2_rank_2_difficulty_2_description",
-			title = "loc_group_zealot_2_rank_2_difficulty_2_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_10",
 			target = 2,
+			title = "loc_group_zealot_2_rank_2_difficulty_2_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_zealot_2_2",
-				"missions_zealot_2_easy_difficulty_2"
+				"missions_zealot_2_easy_difficulty_2",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_easy_1 = {
 			description = "loc_achievement_zealot_2_easy_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_03",
-			title = "loc_achievement_zealot_2_easy_1_name",
-			target = 1500,
 			stat_name = "zealot_2_number_of_shocked_enemies",
+			target = 1500,
+			title = "loc_achievement_zealot_2_easy_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_easy_2 = {
 			description = "loc_achievement_zealot_2_easy_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_04",
-			title = "loc_achievement_zealot_2_easy_2_name",
-			target = 7500,
 			stat_name = "zealot_2_toughness_gained_from_chastise_the_wicked",
+			target = 7500,
+			title = "loc_achievement_zealot_2_easy_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_elite_or_special_kills_with_shroudfield = {
 			description = "loc_achievement_zealot_elite_or_special_kills_with_shroudfield_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_19",
-			title = "loc_achievement_zealot_elite_or_special_kills_with_shroudfield_name",
-			target = 150,
 			stat_name = "zealot_elite_or_special_kills_with_shroudfield",
+			target = 150,
+			title = "loc_achievement_zealot_elite_or_special_kills_with_shroudfield_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_team_toughness_restored_with_chorus = {
 			description = "loc_achievement_zealot_team_toughness_restored_with_chorus_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_18",
-			title = "loc_achievement_zealot_team_toughness_restored_with_chorus_name",
-			target = 7500,
 			stat_name = "zealot_team_toughness_restored_with_chorus",
+			target = 7500,
+			title = "loc_achievement_zealot_team_toughness_restored_with_chorus_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_elite_or_special_kills_during_fanatic_rage = {
 			description = "loc_achievement_zealot_elite_or_special_kills_during_fanatic_rage_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_20",
-			title = "loc_achievement_zealot_elite_or_special_kills_during_fanatic_rage_name",
-			target = 2000,
 			stat_name = "zealot_elite_or_special_kills_during_fanatic_rage",
+			target = 2000,
+			title = "loc_achievement_zealot_elite_or_special_kills_during_fanatic_rage_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_kills_during_movement_keystone_activated = {
 			description = "loc_achievement_zealot_kills_during_movement_keystone_activated_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_21",
-			title = "loc_achievement_zealot_kills_during_movement_keystone_activated_name",
-			target = 250,
 			stat_name = "zealot_kills_during_movement_keystone_activated",
+			target = 250,
+			title = "loc_achievement_zealot_kills_during_movement_keystone_activated_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_elite_or_special_kills_with_blade_of_faith = {
 			description = "loc_achievement_zealot_elite_or_special_kills_with_blade_of_faith_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_14",
-			title = "loc_achievement_zealot_elite_or_special_kills_with_blade_of_faith_name",
-			target = 500,
 			stat_name = "zealot_elite_or_special_kills_with_blade_of_faith",
+			target = 500,
+			title = "loc_achievement_zealot_elite_or_special_kills_with_blade_of_faith_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_kills_with_fire_grenade = {
 			description = "loc_achievement_zealot_kills_with_fire_grenade_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_13",
-			title = "loc_achievement_zealot_kills_with_fire_grenade_name",
-			target = 2000,
 			stat_name = "zealot_kills_with_fire_grenade",
+			target = 2000,
+			title = "loc_achievement_zealot_kills_with_fire_grenade_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_aura_backstab_kills_while_alone = {
 			description = "loc_achievement_zealot_aura_backstab_kills_while_alone_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_17",
-			title = "loc_achievement_zealot_aura_backstab_kills_while_alone_name",
-			target = 200,
 			stat_name = "zealot_aura_backstab_kills_while_alone",
+			target = 200,
+			title = "loc_achievement_zealot_aura_backstab_kills_while_alone_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_aura_toughness_damage_reduced = {
 			description = "loc_achievement_zealot_aura_toughness_damage_reduced_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_15",
-			title = "loc_achievement_zealot_aura_toughness_damage_reduced_name",
-			target = 1500,
 			stat_name = "zealot_aura_toughness_damage_reduced",
+			target = 1500,
+			title = "loc_achievement_zealot_aura_toughness_damage_reduced_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_aura_corruption_healed = {
 			description = "loc_achievement_zealot_aura_corruption_healed_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_16",
-			title = "loc_achievement_zealot_aura_corruption_healed_name",
-			target = 5000,
 			stat_name = "zealot_aura_corruption_healed",
+			target = 5000,
+			title = "loc_achievement_zealot_aura_corruption_healed_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_zealot_2_rank_4_difficulty_3 = {
 			description = "loc_group_zealot_2_rank_4_difficulty_3_description",
-			title = "loc_group_zealot_2_rank_4_difficulty_3_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_11",
 			target = 2,
+			title = "loc_group_zealot_2_rank_4_difficulty_3_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_zealot_2_4",
-				"missions_zealot_2_easy_difficulty_3"
+				"missions_zealot_2_easy_difficulty_3",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_zealot_2_rank_5_difficulty_4 = {
 			description = "loc_group_zealot_2_rank_5_difficulty_4_description",
-			title = "loc_group_zealot_2_rank_5_difficulty_4_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_11",
 			target = 2,
+			title = "loc_group_zealot_2_rank_5_difficulty_4_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_zealot_2_5",
-				"missions_zealot_2_easy_difficulty_4"
+				"missions_zealot_2_easy_difficulty_4",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_medium_1 = {
 			description = "loc_achievement_zealot_2_medium_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_05",
-			title = "loc_achievement_zealot_2_medium_1_name",
-			target = 75,
 			stat_name = "zealot_2_number_of_critical_hits_kills_when_stunned",
+			target = 75,
+			title = "loc_achievement_zealot_2_medium_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_medium_2 = {
 			description = "loc_achievement_zealot_2_medium_2_description",
-			title = "loc_achievement_zealot_2_medium_2_name",
-			target = 1000,
-			stat_name = "zealot_2_kills_with_martyrdoom_stacks",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_06",
+			stat_name = "zealot_2_kills_with_martyrdoom_stacks",
+			target = 1000,
+			title = "loc_achievement_zealot_2_medium_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				stacks = 3
-			}
+				stacks = 3,
+			},
 		}
 		AchievementDefinitions.zealot_2_hard_1 = {
 			description = "loc_achievement_zealot_2_hard_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_07",
-			title = "loc_achievement_zealot_2_hard_1_name",
-			target = 75,
 			stat_name = "zealot_2_killed_elites_and_specials_with_activated_attacks",
+			target = 75,
+			title = "loc_achievement_zealot_2_hard_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_hard_2 = {
 			description = "loc_achievement_zealot_2_hard_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_08",
-			title = "loc_achievement_zealot_2_hard_2_name",
-			target = 40,
 			stat_name = "zealot_2_charged_enemy_wielding_ranged_weapon",
+			target = 40,
+			title = "loc_achievement_zealot_2_hard_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 
 		family({
@@ -784,7 +784,7 @@ do
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement_12",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_zealot_2_{index:%d}_rework",
 			title = "loc_achievement_group_class_zealot_2_{index:%d}_name",
@@ -793,14 +793,14 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"rank_zealot_2_4",
 				"missions_zealot_2_objective_1",
 				"missions_zealot_2_1",
 				"zealot_2_easy_1",
-				"zealot_2_easy_2"
+				"zealot_2_easy_2",
 			},
 			{
 				"group_class_zealot_2_1_rework",
@@ -808,7 +808,7 @@ do
 				"missions_zealot_2_objective_2",
 				"missions_zealot_2_2",
 				"zealot_2_medium_1",
-				"zealot_2_medium_2"
+				"zealot_2_medium_2",
 			},
 			{
 				"group_class_zealot_2_2_rework",
@@ -816,8 +816,8 @@ do
 				"missions_zealot_2_objective_3",
 				"missions_zealot_2_3",
 				"zealot_2_hard_1",
-				"zealot_2_hard_2"
-			}
+				"zealot_2_hard_2",
+			},
 		})
 	end
 
@@ -832,7 +832,7 @@ do
 			stat_name = "max_rank_psyker",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, rank_targets)
 		old_numeric_target_family("missions_psyker_2_{index:%d}", {
 			description = "loc_achievement_missions_psyker_2_x_description",
@@ -840,251 +840,251 @@ do
 			stat_name = "missions_psyker_2",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, generic_mission_targets)
 		family({
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0023",
 			type = AchievementTypesLookup.multi_stat,
 			category = category_progression,
 			target = #adventure_mission_types,
-			flags = {}
+			flags = {},
 		}, {
 			description = "loc_achievement_missions_psyker_2_objective_{index:%d}_description",
 			id = "missions_psyker_2_objective_{index:%d}",
 			title = "loc_achievement_missions_psyker_2_objective_{index:%d}_name",
 			stats = _generate_mission_difficulties("psyker"),
-			stats_sorting = _generate_mission_difficulties_sorting("psyker")
+			stats_sorting = _generate_mission_difficulties_sorting("psyker"),
 		}, {
 			{
-				difficulty = 1
+				difficulty = 1,
 			},
 			{
-				difficulty = 3
+				difficulty = 3,
 			},
 			{
-				difficulty = 4
-			}
+				difficulty = 4,
+			},
 		})
 		family({
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_02",
 			target = 1,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_psyker_2_easy_difficulty_{index:%d}",
-			title = "loc_missions_psyker_2_easy_difficulty_{index:%d}_name",
 			description = "loc_missions_psyker_2_easy_difficulty_{index:%d}_description",
-			stat_name = "missions_psyker_2_difficulty_{index:%d}"
+			id = "missions_psyker_2_easy_difficulty_{index:%d}",
+			stat_name = "missions_psyker_2_difficulty_{index:%d}",
+			title = "loc_missions_psyker_2_easy_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.group_psyker_2_rank_1_difficulty_1 = {
 			description = "loc_group_psyker_2_rank_1_difficulty_1_description",
-			title = "loc_group_psyker_2_rank_1_difficulty_1_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_10",
 			target = 2,
+			title = "loc_group_psyker_2_rank_1_difficulty_1_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_psyker_2_1",
-				"missions_psyker_2_easy_difficulty_1"
+				"missions_psyker_2_easy_difficulty_1",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_psyker_2_rank_2_difficulty_2 = {
 			description = "loc_group_psyker_2_rank_2_difficulty_2_description",
-			title = "loc_group_psyker_2_rank_2_difficulty_2_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_10",
 			target = 2,
+			title = "loc_group_psyker_2_rank_2_difficulty_2_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_psyker_2_2",
-				"missions_psyker_2_easy_difficulty_2"
+				"missions_psyker_2_easy_difficulty_2",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_easy_1 = {
 			description = "loc_achievement_psyker_2_easy_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_03",
-			title = "loc_achievement_psyker_2_easy_1_name",
-			target = 200,
 			stat_name = "psyker_2_elite_or_special_kills_with_smite",
+			target = 200,
+			title = "loc_achievement_psyker_2_easy_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_elite_or_special_kills_with_assail = {
 			description = "loc_achievement_psyker_elite_or_special_kills_with_assail_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_14",
-			title = "loc_achievement_psyker_elite_or_special_kills_with_assail_name",
-			target = 250,
 			stat_name = "psyker_elite_or_special_kills_with_assail",
+			target = 250,
+			title = "loc_achievement_psyker_elite_or_special_kills_with_assail_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_kills_during_overcharge_stance = {
 			description = "loc_achievement_psyker_kills_during_overcharge_stance_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_19",
-			title = "loc_achievement_psyker_kills_during_overcharge_stance_name",
-			target = 40,
 			stat_name = "max_psyker_kills_during_overcharge_stance",
+			target = 40,
+			title = "loc_achievement_psyker_kills_during_overcharge_stance_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_kills_with_empowered_abilites = {
 			description = "loc_achievement_psyker_kills_with_empowered_abilites_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_20",
-			title = "loc_achievement_psyker_kills_with_empowered_abilites_name",
-			target = 250,
 			stat_name = "psyker_kills_with_empowered_abilites",
+			target = 250,
+			title = "loc_achievement_psyker_kills_with_empowered_abilites_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_time_at_max_unnatural = {
 			description = "loc_achievement_psyker_time_at_max_unnatural_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_21",
-			title = "loc_achievement_psyker_time_at_max_unnatural_name",
-			target = 1800,
 			stat_name = "psyker_time_at_max_unnatural",
+			target = 1800,
+			title = "loc_achievement_psyker_time_at_max_unnatural_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_damage_blocked_with_shield = {
 			description = "loc_achievement_psyker_damage_blocked_with_shield_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_18",
-			title = "loc_achievement_psyker_damage_blocked_with_shield_name",
-			target = 150000,
 			stat_name = "psyker_shield_total_damage_taken",
+			target = 150000,
+			title = "loc_achievement_psyker_damage_blocked_with_shield_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_team_elite_aura_kills = {
 			description = "loc_achievement_psyker_team_elite_aura_kills_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_15",
-			title = "loc_achievement_psyker_team_elite_aura_kills_name",
-			target = 2500,
 			stat_name = "psyker_team_elite_aura_kills",
+			target = 2500,
+			title = "loc_achievement_psyker_team_elite_aura_kills_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_team_cooldown_reduced = {
 			description = "loc_achievement_psyker_team_cooldown_reduced_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_16",
-			title = "loc_achievement_psyker_team_cooldown_reduced_name",
-			target = 2000,
 			stat_name = "psyker_team_cooldown_reduced",
+			target = 2000,
+			title = "loc_achievement_psyker_team_cooldown_reduced_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_team_critical_hits = {
 			description = "loc_achievement_psyker_team_critical_hits_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_17",
-			title = "loc_achievement_psyker_team_critical_hits_name",
-			target = 7500,
 			stat_name = "psyker_team_critical_hits",
+			target = 7500,
+			title = "loc_achievement_psyker_team_critical_hits_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_threshold_kills_reached_with_grenade_chain = {
 			description = "loc_achievement_psyker_threshold_kills_reached_with_grenade_chain_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_13",
-			title = "loc_achievement_psyker_threshold_kills_reached_with_grenade_chain_name",
-			target = 2500,
 			stat_name = "psyker_threshold_kills_reached_with_grenade_chain",
+			target = 2500,
+			title = "loc_achievement_psyker_threshold_kills_reached_with_grenade_chain_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_easy_2 = {
 			description = "loc_achievement_psyker_2_easy_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_04",
-			title = "loc_achievement_psyker_2_easy_2_name",
-			target = 50,
 			stat_name = "psyker_2_survived_perils",
+			target = 50,
+			title = "loc_achievement_psyker_2_easy_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_psyker_2_rank_4_difficulty_3 = {
 			description = "loc_group_psyker_2_rank_4_difficulty_3_description",
-			title = "loc_group_psyker_2_rank_4_difficulty_3_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_11",
 			target = 2,
+			title = "loc_group_psyker_2_rank_4_difficulty_3_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_psyker_2_4",
-				"missions_psyker_2_easy_difficulty_3"
+				"missions_psyker_2_easy_difficulty_3",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_psyker_2_rank_5_difficulty_4 = {
 			description = "loc_group_psyker_2_rank_5_difficulty_4_description",
-			title = "loc_group_psyker_2_rank_5_difficulty_4_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_11",
 			target = 2,
+			title = "loc_group_psyker_2_rank_5_difficulty_4_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_psyker_2_5",
-				"missions_psyker_2_easy_difficulty_4"
+				"missions_psyker_2_easy_difficulty_4",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_medium_1 = {
 			description = "loc_achievement_psyker_2_medium_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_05",
-			title = "loc_achievement_psyker_2_medium_1_name",
-			target = 100,
 			stat_name = "psyker_2_smite_kills_at_max_souls",
+			target = 100,
+			title = "loc_achievement_psyker_2_medium_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_medium_2 = {
 			description = "loc_achievement_psyker_2_medium_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_06",
-			title = "loc_achievement_psyker_2_medium_2_name",
-			target = 2500,
 			stat_name = "psyker_2_warp_kills",
+			target = 2500,
+			title = "loc_achievement_psyker_2_medium_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_hard_1 = {
 			description = "loc_achievement_psyker_2_hard_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_07",
-			title = "loc_achievement_psyker_2_hard_1_name",
-			target = 25,
 			stat_name = "psyker_2_killed_disablers_before_disabling",
+			target = 25,
+			title = "loc_achievement_psyker_2_hard_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.psyker_2_hard_2 = {
 			description = "loc_achievement_psyker_2_hard_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_08",
-			title = "loc_achievement_psyker_2_hard_2_name",
-			target = 3,
 			stat_name = "psyker_2_x_missions_no_elite_melee_damage_taken",
+			target = 3,
+			title = "loc_achievement_psyker_2_hard_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 
 		family({
@@ -1092,7 +1092,7 @@ do
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement_12",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_psyker_2_{index:%d}_rework",
 			title = "loc_achievement_group_class_psyker_2_{index:%d}_name",
@@ -1101,14 +1101,14 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"rank_psyker_2_4",
 				"missions_psyker_2_objective_1",
 				"missions_psyker_2_1",
 				"psyker_2_easy_1",
-				"psyker_2_easy_2"
+				"psyker_2_easy_2",
 			},
 			{
 				"group_class_psyker_2_1_rework",
@@ -1116,7 +1116,7 @@ do
 				"missions_psyker_2_objective_2",
 				"missions_psyker_2_2",
 				"psyker_2_medium_1",
-				"psyker_2_medium_2"
+				"psyker_2_medium_2",
 			},
 			{
 				"group_class_psyker_2_2_rework",
@@ -1124,8 +1124,8 @@ do
 				"missions_psyker_2_objective_3",
 				"missions_psyker_2_3",
 				"psyker_2_hard_1",
-				"psyker_2_hard_2"
-			}
+				"psyker_2_hard_2",
+			},
 		})
 	end
 
@@ -1140,7 +1140,7 @@ do
 			stat_name = "max_rank_ogryn",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, rank_targets)
 		old_numeric_target_family("missions_ogryn_2_{index:%d}", {
 			description = "loc_achievement_missions_ogryn_2_x_description",
@@ -1148,282 +1148,282 @@ do
 			stat_name = "missions_ogryn_2",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, generic_mission_targets)
 		family({
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0003",
 			type = AchievementTypesLookup.multi_stat,
 			category = category_progression,
 			target = #adventure_mission_types,
-			flags = {}
+			flags = {},
 		}, {
 			description = "loc_achievement_missions_ogryn_2_objective_{index:%d}_description",
 			id = "missions_ogryn_2_objective_{index:%d}",
 			title = "loc_achievement_missions_ogryn_2_objective_{index:%d}_name",
 			stats = _generate_mission_difficulties("ogryn"),
-			stats_sorting = _generate_mission_difficulties_sorting("ogryn")
+			stats_sorting = _generate_mission_difficulties_sorting("ogryn"),
 		}, {
 			{
-				difficulty = 1
+				difficulty = 1,
 			},
 			{
-				difficulty = 3
+				difficulty = 3,
 			},
 			{
-				difficulty = 4
-			}
+				difficulty = 4,
+			},
 		})
 		family({
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_02",
 			target = 1,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_ogryn_2_easy_difficulty_{index:%d}",
-			title = "loc_missions_ogryn_2_easy_difficulty_{index:%d}_name",
 			description = "loc_missions_ogryn_2_easy_difficulty_{index:%d}_description",
-			stat_name = "missions_ogryn_2_difficulty_{index:%d}"
+			id = "missions_ogryn_2_easy_difficulty_{index:%d}",
+			stat_name = "missions_ogryn_2_difficulty_{index:%d}",
+			title = "loc_missions_ogryn_2_easy_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.group_ogryn_2_rank_1_difficulty_1 = {
 			description = "loc_group_ogryn_2_rank_1_difficulty_1_description",
-			title = "loc_group_ogryn_2_rank_1_difficulty_1_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_10",
 			target = 2,
+			title = "loc_group_ogryn_2_rank_1_difficulty_1_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_ogryn_2_1",
-				"missions_ogryn_2_easy_difficulty_1"
+				"missions_ogryn_2_easy_difficulty_1",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_ogryn_2_rank_2_difficulty_2 = {
 			description = "loc_group_ogryn_2_rank_2_difficulty_2_description",
-			title = "loc_group_ogryn_2_rank_2_difficulty_2_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_10",
 			target = 2,
+			title = "loc_group_ogryn_2_rank_2_difficulty_2_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_ogryn_2_2",
-				"missions_ogryn_2_easy_difficulty_2"
+				"missions_ogryn_2_easy_difficulty_2",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_2_easy_1 = {
 			description = "loc_achievement_ogryn_2_easy_1_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_03",
-			title = "loc_achievement_ogryn_2_easy_1_name",
-			target = 40,
 			stat_name = "ogryn_2_number_of_revived_or_assisted_allies",
+			target = 40,
+			title = "loc_achievement_ogryn_2_easy_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_2_easy_2 = {
 			description = "loc_achievement_ogryn_2_easy_2_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_04",
-			title = "loc_achievement_ogryn_2_easy_2_name",
-			target = 5000,
 			stat_name = "ogryn_2_number_of_knocked_down_enemies",
+			target = 5000,
+			title = "loc_achievement_ogryn_2_easy_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_taunt_shout_hit = {
 			description = "loc_achievement_ogryn_taunt_shout_hit_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_18",
-			title = "loc_achievement_ogryn_taunt_shout_hit_name",
-			target = 1000,
 			stat_name = "ogryn_taunt_shout_hit",
+			target = 1000,
+			title = "loc_achievement_ogryn_taunt_shout_hit_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_grenade_rock_elites_or_specialists = {
 			description = "loc_achievement_ogryn_grenade_rock_elites_or_specialists_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_13",
-			title = "loc_achievement_ogryn_grenade_rock_elites_or_specialists_name",
-			target = 75,
 			stat_name = "ogryn_grenade_rock_elites_or_specialists",
+			target = 75,
+			title = "loc_achievement_ogryn_grenade_rock_elites_or_specialists_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_grenade_frag_group_of_enemies = {
 			description = "loc_achievement_ogryn_grenade_frag_group_of_enemies_description",
-			title = "loc_achievement_ogryn_grenade_frag_group_of_enemies_name",
-			target = 25,
-			stat_name = "ogryn_grenade_frag_group_of_enemies_killed",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_14",
+			stat_name = "ogryn_grenade_frag_group_of_enemies_killed",
+			target = 25,
+			title = "loc_achievement_ogryn_grenade_frag_group_of_enemies_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				amount = 25
-			}
+				amount = 25,
+			},
 		}
 		AchievementDefinitions.ogryn_kills_during_max_stacks_heavy_hitter = {
 			description = "loc_achievement_ogryn_kills_during_max_stacks_heavy_hitter_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_20",
-			title = "loc_achievement_ogryn_kills_during_max_stacks_heavy_hitter_name",
-			target = 5000,
 			stat_name = "ogryn_kills_during_max_stacks_heavy_hitter",
+			target = 5000,
+			title = "loc_achievement_ogryn_kills_during_max_stacks_heavy_hitter_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_kills_during_barrage_threshold = {
 			description = "loc_achievement_ogryn_kills_during_barrage_threshold_description",
-			title = "loc_achievement_ogryn_kills_during_barrage_threshold_name",
-			target = 50,
-			stat_name = "kills_achieved_group_barrage_threshold",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_19",
+			stat_name = "kills_achieved_group_barrage_threshold",
+			target = 50,
+			title = "loc_achievement_ogryn_kills_during_barrage_threshold_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				amount = 25
-			}
+				amount = 25,
+			},
 		}
 		AchievementDefinitions.ogryn_feel_no_pain_kills_at_max = {
 			description = "loc_achievement_ogryn_feel_no_pain_kills_at_max_description",
-			title = "loc_achievement_ogryn_ogryn_feel_no_pain_kills_at_max_name",
-			target = 2500,
-			stat_name = "ogryn_feel_no_pain_kills_at_max",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_21",
+			stat_name = "ogryn_feel_no_pain_kills_at_max",
+			target = 2500,
+			title = "loc_achievement_ogryn_ogryn_feel_no_pain_kills_at_max_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				amount = 7
-			}
+				amount = 7,
+			},
 		}
 		AchievementDefinitions.ogryn_leadbelcher_free_shot = {
 			description = "loc_achievement_ogryn_leadbelcher_free_shot_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_22",
-			title = "loc_achievement_ogryn_leadbelcher_free_shot_name",
-			target = 4500,
 			stat_name = "ogryn_leadbelcher_free_shot",
+			target = 4500,
+			title = "loc_achievement_ogryn_leadbelcher_free_shot_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_team_heavy_aura_kills = {
 			description = "loc_achievement_ogryn_team_heavy_aura_kills_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_15",
-			title = "loc_achievement_ogryn_team_heavy_aura_kills_name",
-			target = 5000,
 			stat_name = "ogryn_team_heavy_aura_kills",
+			target = 5000,
+			title = "loc_achievement_ogryn_team_heavy_aura_kills_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_team_suppressed_aura_kills = {
 			description = "loc_achievement_ogryn_team_suppressed_aura_kills_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_17",
-			title = "loc_achievement_ogryn_team_suppressed_aura_kills_name",
-			target = 7500,
 			stat_name = "ogryn_team_suppressed_aura_kills",
+			target = 7500,
+			title = "loc_achievement_ogryn_team_suppressed_aura_kills_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_team_toughness_restored_aura = {
 			description = "loc_achievement_ogryn_team_toughness_restored_aura_description",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_16",
-			title = "loc_achievement_ogryn_team_toughness_restored_aura_name",
-			target = 15000,
 			stat_name = "ogryn_team_toughness_restored_aura",
+			target = 15000,
+			title = "loc_achievement_ogryn_team_toughness_restored_aura_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_ogryn_2_rank_4_difficulty_3 = {
 			description = "loc_group_ogryn_2_rank_4_difficulty_3_description",
-			title = "loc_group_ogryn_2_rank_4_difficulty_3_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_11",
 			target = 2,
+			title = "loc_group_ogryn_2_rank_4_difficulty_3_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_ogryn_2_4",
-				"missions_ogryn_2_easy_difficulty_3"
+				"missions_ogryn_2_easy_difficulty_3",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.group_ogryn_2_rank_5_difficulty_4 = {
 			description = "loc_group_ogryn_2_rank_5_difficulty_4_description",
-			title = "loc_group_ogryn_2_rank_5_difficulty_4_name",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_11",
 			target = 2,
+			title = "loc_group_ogryn_2_rank_5_difficulty_4_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"rank_ogryn_2_5",
-				"missions_ogryn_2_easy_difficulty_4"
+				"missions_ogryn_2_easy_difficulty_4",
 			}),
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.ogryn_2_medium_1 = {
 			description = "loc_achievement_ogryn_2_medium_1_description",
-			title = "loc_achievement_ogryn_2_medium_1_name",
-			target = 25,
-			stat_name = "ogryn_2_bullrushed_group_of_ranged_enemies",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_05",
+			stat_name = "ogryn_2_bullrushed_group_of_ranged_enemies",
+			target = 25,
+			title = "loc_achievement_ogryn_2_medium_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				num_enemies = 3
-			}
+				num_enemies = 3,
+			},
 		}
 		AchievementDefinitions.ogryn_2_medium_2 = {
 			description = "loc_achievement_ogryn_2_medium_2_description",
-			title = "loc_achievement_ogryn_2_medium_2_name",
-			target = 250,
-			stat_name = "ogryn_2_killed_multiple_enemies_with_sweep",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_06",
+			stat_name = "ogryn_2_killed_multiple_enemies_with_sweep",
+			target = 250,
+			title = "loc_achievement_ogryn_2_medium_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {},
 			loc_variables = {
-				amount = 2
-			}
+				amount = 2,
+			},
 		}
 		AchievementDefinitions.ogryn_2_hard_1 = {
 			description = "loc_achievement_ogryn_2_hard_1_description",
-			title = "loc_achievement_ogryn_2_hard_1_name",
-			target = 3,
-			stat_name = "ogryn_2_number_of_missions_with_no_deaths_and_all_revives_within_x_seconds",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_07",
+			stat_name = "ogryn_2_number_of_missions_with_no_deaths_and_all_revives_within_x_seconds",
+			target = 3,
+			title = "loc_achievement_ogryn_2_hard_1_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {},
 			loc_variables = {
-				time = 10
-			}
+				time = 10,
+			},
 		}
 		AchievementDefinitions.ogryn_2_hard_2 = {
 			description = "loc_achievement_ogryn_2_hard_2_description",
-			title = "loc_achievement_ogryn_2_hard_2_name",
-			target = 5,
-			stat_name = "ogryn_2_grenade_box_kills_without_missing",
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_08",
+			stat_name = "ogryn_2_grenade_box_kills_without_missing",
+			target = 5,
+			title = "loc_achievement_ogryn_2_hard_2_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				amount = 4
-			}
+				amount = 4,
+			},
 		}
 
 		family({
@@ -1431,7 +1431,7 @@ do
 			icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement_12",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_ogryn_2_{index:%d}_rework",
 			title = "loc_achievement_group_class_ogryn_2_{index:%d}_name",
@@ -1440,14 +1440,14 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"rank_ogryn_2_4",
 				"missions_ogryn_2_objective_1",
 				"missions_ogryn_2_1",
 				"ogryn_2_easy_1",
-				"ogryn_2_easy_2"
+				"ogryn_2_easy_2",
 			},
 			{
 				"group_class_ogryn_2_1_rework",
@@ -1455,7 +1455,7 @@ do
 				"missions_ogryn_2_objective_2",
 				"missions_ogryn_2_2",
 				"ogryn_2_medium_1",
-				"ogryn_2_medium_2"
+				"ogryn_2_medium_2",
 			},
 			{
 				"group_class_ogryn_2_2_rework",
@@ -1463,8 +1463,8 @@ do
 				"missions_ogryn_2_objective_3",
 				"missions_ogryn_2_3",
 				"ogryn_2_hard_1",
-				"ogryn_2_hard_2"
-			}
+				"ogryn_2_hard_2",
+			},
 		})
 	end
 
@@ -1478,91 +1478,91 @@ do
 			target = 5,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_veteran_2_medium_difficulty_{index:%d}",
-			title = "loc_missions_veteran_2_medium_difficulty_{index:%d}_name",
 			description = "loc_missions_veteran_2_medium_difficulty_{index:%d}_description",
-			stat_name = "missions_veteran_2_difficulty_{index:%d}"
+			id = "missions_veteran_2_medium_difficulty_{index:%d}",
+			stat_name = "missions_veteran_2_difficulty_{index:%d}",
+			title = "loc_missions_veteran_2_medium_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.veteran_2_weakspot_hits_during_volley_fire_alternate_fire = {
 			description = "loc_achievement_veteran_2_weakspot_hits_during_volley_fire_alternate_fire_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0015",
-			title = "loc_achievement_veteran_2_weakspot_hits_during_volley_fire_alternate_fire_name",
-			target = 4,
 			stat_name = "max_weakspot_hit_during_volley_fire_alternate_fire",
+			target = 4,
+			title = "loc_achievement_veteran_2_weakspot_hits_during_volley_fire_alternate_fire_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
-				"hide_from_carousel"
-			}
+				"hide_from_carousel",
+			},
 		}
 		AchievementDefinitions.veteran_2_unbounced_grenade_kills = {
 			description = "loc_achievement_veteran_2_unbounced_grenade_kills_description",
-			title = "loc_achievement_veteran_2_unbounced_grenade_kills_name",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0014",
+			title = "loc_achievement_veteran_2_unbounced_grenade_kills_name",
 			type = AchievementTypesLookup.direct_unlock,
 			category = category_abilites,
 			flags = {},
 			loc_variables = {
-				target = 5
-			}
+				target = 5,
+			},
 		}
 		AchievementDefinitions.veteran_2_kills_with_last_round_in_mag = {
 			description = "loc_achievement_veteran_2_kills_with_last_round_in_mag_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0017",
-			title = "loc_achievement_veteran_2_kills_with_last_round_in_mag_name",
-			target = 8,
 			stat_name = "max_veteran_2_kills_with_last_round_in_mag",
+			target = 8,
+			title = "loc_achievement_veteran_2_kills_with_last_round_in_mag_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {
-				"hide_from_carousel"
-			}
+				"hide_from_carousel",
+			},
 		}
 		AchievementDefinitions.veteran_2_no_melee_damage_taken = {
 			description = "loc_achievement_veteran_2_no_melee_damage_taken_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0016",
-			title = "loc_achievement_veteran_2_no_melee_damage_taken_name",
-			target = 1,
 			stat_name = "veteran_min_melee_damage_taken",
+			target = 1,
+			title = "loc_achievement_veteran_2_no_melee_damage_taken_name",
 			type = AchievementTypesLookup.decreasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire = {
 			description = "loc_achievement_veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0018",
-			title = "loc_achievement_veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire_name",
-			target = 5,
 			stat_name = "max_elite_weakspot_kill_during_volley_fire_alternate_fire",
+			target = 5,
+			title = "loc_achievement_veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
-				"hide_from_carousel"
-			}
+				"hide_from_carousel",
+			},
 		}
 		AchievementDefinitions.veteran_2_no_missed_shots_empty_ammo = {
 			description = "loc_achievement_veteran_2_no_missed_shots_empty_ammo_description",
-			title = "loc_achievement_veteran_2_no_missed_shots_empty_ammo_name",
-			target = 90,
-			stat_name = "veteran_accuracy_at_end_of_mission_with_no_ammo_left",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0019",
+			stat_name = "veteran_accuracy_at_end_of_mission_with_no_ammo_left",
+			target = 90,
+			title = "loc_achievement_veteran_2_no_missed_shots_empty_ammo_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {
-				AchievementFlags.hide_progress
+				AchievementFlags.hide_progress,
 			},
 			loc_variables = {
-				accuracy = 90
-			}
+				accuracy = 90,
+			},
 		}
 
 		family({
@@ -1570,7 +1570,7 @@ do
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0096",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_veteran_2_{index:%d}",
 			title = "loc_group_class_challenges_veteran_2_{index:%d}_name",
@@ -1579,22 +1579,22 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"veteran_2_unbounced_grenade_kills",
-				"veteran_2_weakspot_hits_during_volley_fire_alternate_fire"
+				"veteran_2_weakspot_hits_during_volley_fire_alternate_fire",
 			},
 			{
 				"group_class_veteran_2_1",
 				"veteran_2_no_melee_damage_taken",
-				"veteran_2_kills_with_last_round_in_mag"
+				"veteran_2_kills_with_last_round_in_mag",
 			},
 			{
 				"group_class_veteran_2_2",
 				"veteran_2_no_missed_shots_empty_ammo",
-				"veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire"
-			}
+				"veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire",
+			},
 		})
 	end
 
@@ -1608,96 +1608,96 @@ do
 			target = 5,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_zealot_2_medium_difficulty_{index:%d}",
-			title = "loc_missions_zealot_2_medium_difficulty_{index:%d}_name",
 			description = "loc_missions_zealot_2_medium_difficulty_{index:%d}_description",
-			stat_name = "missions_zealot_2_difficulty_{index:%d}"
+			id = "missions_zealot_2_medium_difficulty_{index:%d}",
+			stat_name = "missions_zealot_2_difficulty_{index:%d}",
+			title = "loc_missions_zealot_2_medium_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.zealot_2_stagger_sniper_with_grenade_distance = {
 			description = "loc_achievement_zealot_2_stagger_sniper_with_grenade_distance_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0035",
-			title = "loc_achievement_zealot_2_stagger_sniper_with_grenade_distance_name",
-			target = 40,
 			stat_name = "max_zealot_2_stagger_sniper_with_grenade_distance",
+			target = 40,
+			title = "loc_achievement_zealot_2_stagger_sniper_with_grenade_distance_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
-				"hide_from_carousel"
-			}
+				"hide_from_carousel",
+			},
 		}
 		AchievementDefinitions.zelot_2_kill_mutant_charger_with_melee_while_dashing = {
 			description = "loc_achievement_zelot_2_kill_mutant_charger_with_melee_while_dashing_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0039",
-			title = "loc_achievement_zelot_2_kill_mutant_charger_with_melee_while_dashing_name",
-			target = 1,
 			stat_name = "zelot_2_kill_mutant_charger_with_melee_while_dashing",
+			target = 1,
+			title = "loc_achievement_zelot_2_kill_mutant_charger_with_melee_while_dashing_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
-				AchievementFlags.hide_progress
-			}
+				AchievementFlags.hide_progress,
+			},
 		}
 		AchievementDefinitions.zealot_2_kills_of_shocked_enemies_last_15 = {
 			description = "loc_achievement_zealot_2_kills_of_shocked_enemies_last_15_description",
-			title = "loc_achievement_zealot_2_kills_of_shocked_enemies_last_15_name",
-			target = 40,
-			stat_name = "max_zealot_2_kills_of_shocked_enemies_last_15",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0037",
+			stat_name = "max_zealot_2_kills_of_shocked_enemies_last_15",
+			target = 40,
+			title = "loc_achievement_zealot_2_kills_of_shocked_enemies_last_15_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
-				"hide_from_carousel"
+				"hide_from_carousel",
 			},
 			loc_variables = {
-				time_window = 10
-			}
+				time_window = 10,
+			},
 		}
 		AchievementDefinitions.zealot_2_not_use_ranged_attacks = {
 			description = "loc_achievement_zealot_2_not_use_ranged_attacks_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0038",
-			title = "loc_achievement_zealot_2_not_use_ranged_attacks_name",
-			target = 1,
 			stat_name = "zealot_2_not_use_ranged_attacks",
+			target = 1,
+			title = "loc_achievement_zealot_2_not_use_ranged_attacks_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
 			flags = {
-				AchievementFlags.hide_progress
-			}
+				AchievementFlags.hide_progress,
+			},
 		}
 		AchievementDefinitions.zealot_2_healed_up_after_resisting_death = {
 			description = "loc_achievement_zealot_2_healed_up_after_resisting_death_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0036",
-			title = "loc_achievement_zealot_2_healed_up_after_resisting_death_name",
-			target = 25,
 			stat_name = "max_zealot_2_health_healed_with_leech_during_resist_death",
+			target = 25,
+			title = "loc_achievement_zealot_2_healed_up_after_resisting_death_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.zealot_2_health_on_last_segment_enough_during_mission = {
 			description = "loc_achievement_zealot_2_health_on_last_segment_enough_during_mission_description",
-			title = "loc_achievement_zealot_2_health_on_last_segment_enough_during_mission_name",
-			target = 1200,
-			stat_name = "zealot_2_fastest_mission_with_low_health",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0034",
+			stat_name = "zealot_2_fastest_mission_with_low_health",
+			target = 1200,
+			title = "loc_achievement_zealot_2_health_on_last_segment_enough_during_mission_name",
 			type = AchievementTypesLookup.decreasing_stat,
 			category = category_progression,
 			flags = {
-				AchievementFlags.private_only
+				AchievementFlags.private_only,
 			},
 			loc_variables = {
 				health = 75,
-				time_window = 20
-			}
+				time_window = 20,
+			},
 		}
 
 		family({
@@ -1705,7 +1705,7 @@ do
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0096",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_zealot_2_{index:%d}",
 			title = "loc_group_class_challenges_zealot_2_{index:%d}_name",
@@ -1714,22 +1714,22 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"zelot_2_kill_mutant_charger_with_melee_while_dashing",
-				"zealot_2_stagger_sniper_with_grenade_distance"
+				"zealot_2_stagger_sniper_with_grenade_distance",
 			},
 			{
 				"group_class_zealot_2_1",
 				"zealot_2_kills_of_shocked_enemies_last_15",
-				"zealot_2_not_use_ranged_attacks"
+				"zealot_2_not_use_ranged_attacks",
 			},
 			{
 				"group_class_zealot_2_2",
 				"zealot_2_health_on_last_segment_enough_during_mission",
-				"zealot_2_healed_up_after_resisting_death"
-			}
+				"zealot_2_healed_up_after_resisting_death",
+			},
 		})
 	end
 
@@ -1743,97 +1743,97 @@ do
 			target = 5,
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
-			id = "missions_psyker_2_medium_difficulty_{index:%d}",
-			title = "loc_missions_psyker_2_medium_difficulty_{index:%d}_name",
 			description = "loc_missions_psyker_2_medium_difficulty_{index:%d}_description",
-			stat_name = "missions_psyker_2_difficulty_{index:%d}"
+			id = "missions_psyker_2_medium_difficulty_{index:%d}",
+			stat_name = "missions_psyker_2_difficulty_{index:%d}",
+			title = "loc_missions_psyker_2_medium_difficulty_{index:%d}_name",
 		}, {
 			{},
 			{},
 			{},
 			{},
-			{}
+			{},
 		})
 
 		AchievementDefinitions.psyker_2_smite_hound_mid_leap = {
 			description = "loc_achievement_psyker_2_smite_hound_mid_leap_description",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0024",
-			title = "loc_achievement_psyker_2_smite_hound_mid_leap_name",
-			target = 1,
 			stat_name = "smite_hound_mid_leap",
-			type = AchievementTypesLookup.increasing_stat,
-			category = category_abilites,
-			flags = {
-				AchievementFlags.hide_progress
-			}
-		}
-		AchievementDefinitions.psyker_2_edge_kills_last_2_sec = {
-			description = "loc_achievement_psyker_2_edge_kills_last_2_sec_description",
-			title = "loc_achievement_psyker_2_edge_kills_last_2_sec_name",
-			target = 7,
-			stat_name = "max_psyker_2_edge_kills_last_2_sec",
-			icon = "content/ui/textures/icons/achievements/achievement_icon_0028",
-			type = AchievementTypesLookup.increasing_stat,
-			category = category_progression,
-			flags = {
-				"hide_from_carousel"
-			},
-			loc_variables = {
-				time_window = 2
-			}
-		}
-		AchievementDefinitions.psyker_2_stay_at_max_souls_for_duration = {
-			description = "loc_achievement_psyker_2_stay_at_max_souls_for_duration_description",
-			icon = "content/ui/textures/icons/achievements/achievement_icon_0027",
-			title = "loc_achievement_psyker_2_stay_at_max_souls_for_duration_name",
-			target = 120,
-			stat_name = "max_psyker_2_time_at_max_souls",
-			type = AchievementTypesLookup.increasing_stat,
-			category = category_abilites,
-			flags = {
-				"hide_from_carousel"
-			}
-		}
-		AchievementDefinitions.psyker_2_perils_of_the_warp_elite_kills = {
-			description = "loc_achievement_psyker_2_perils_of_the_warp_elite_kills_description",
-			title = "loc_achievement_psyker_2_perils_of_the_warp_elite_kills_name",
-			icon = "content/ui/textures/icons/achievements/achievement_icon_0025",
-			type = AchievementTypesLookup.direct_unlock,
-			category = category_abilites,
-			flags = {},
-			loc_variables = {
-				target = 1
-			}
-		}
-		AchievementDefinitions.psyker_2_elite_or_special_kills_with_smite_last_10_sec = {
-			description = "loc_achievement_psyker_2_elite_or_special_kills_with_smite_last_10_sec_description",
-			title = "loc_achievement_psyker_2_elite_or_special_kills_with_smite_last_10_sec_name",
-			target = 4,
-			stat_name = "max_elite_or_special_kills_with_smite_last_12_sec",
-			icon = "content/ui/textures/icons/achievements/achievement_icon_0027",
-			type = AchievementTypesLookup.increasing_stat,
-			category = category_abilites,
-			flags = {
-				"hide_from_carousel"
-			},
-			loc_variables = {
-				time_window = 12
-			}
-		}
-		AchievementDefinitions.psyker_2_kill_boss_solo_with_smite = {
-			description = "loc_achievement_psyker_2_kill_boss_solo_with_smite_description",
-			icon = "content/ui/textures/icons/achievements/achievement_icon_0029",
-			title = "loc_achievement_psyker_2_kill_boss_solo_with_smite_name",
-			target = 50,
-			stat_name = "max_smite_damage_done_to_boss",
+			target = 1,
+			title = "loc_achievement_psyker_2_smite_hound_mid_leap_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_abilites,
 			flags = {
 				AchievementFlags.hide_progress,
-				AchievementFlags.private_only
-			}
+			},
+		}
+		AchievementDefinitions.psyker_2_edge_kills_last_2_sec = {
+			description = "loc_achievement_psyker_2_edge_kills_last_2_sec_description",
+			icon = "content/ui/textures/icons/achievements/achievement_icon_0028",
+			stat_name = "max_psyker_2_edge_kills_last_2_sec",
+			target = 7,
+			title = "loc_achievement_psyker_2_edge_kills_last_2_sec_name",
+			type = AchievementTypesLookup.increasing_stat,
+			category = category_progression,
+			flags = {
+				"hide_from_carousel",
+			},
+			loc_variables = {
+				time_window = 2,
+			},
+		}
+		AchievementDefinitions.psyker_2_stay_at_max_souls_for_duration = {
+			description = "loc_achievement_psyker_2_stay_at_max_souls_for_duration_description",
+			icon = "content/ui/textures/icons/achievements/achievement_icon_0027",
+			stat_name = "max_psyker_2_time_at_max_souls",
+			target = 120,
+			title = "loc_achievement_psyker_2_stay_at_max_souls_for_duration_name",
+			type = AchievementTypesLookup.increasing_stat,
+			category = category_abilites,
+			flags = {
+				"hide_from_carousel",
+			},
+		}
+		AchievementDefinitions.psyker_2_perils_of_the_warp_elite_kills = {
+			description = "loc_achievement_psyker_2_perils_of_the_warp_elite_kills_description",
+			icon = "content/ui/textures/icons/achievements/achievement_icon_0025",
+			title = "loc_achievement_psyker_2_perils_of_the_warp_elite_kills_name",
+			type = AchievementTypesLookup.direct_unlock,
+			category = category_abilites,
+			flags = {},
+			loc_variables = {
+				target = 1,
+			},
+		}
+		AchievementDefinitions.psyker_2_elite_or_special_kills_with_smite_last_10_sec = {
+			description = "loc_achievement_psyker_2_elite_or_special_kills_with_smite_last_10_sec_description",
+			icon = "content/ui/textures/icons/achievements/achievement_icon_0027",
+			stat_name = "max_elite_or_special_kills_with_smite_last_12_sec",
+			target = 4,
+			title = "loc_achievement_psyker_2_elite_or_special_kills_with_smite_last_10_sec_name",
+			type = AchievementTypesLookup.increasing_stat,
+			category = category_abilites,
+			flags = {
+				"hide_from_carousel",
+			},
+			loc_variables = {
+				time_window = 12,
+			},
+		}
+		AchievementDefinitions.psyker_2_kill_boss_solo_with_smite = {
+			description = "loc_achievement_psyker_2_kill_boss_solo_with_smite_description",
+			icon = "content/ui/textures/icons/achievements/achievement_icon_0029",
+			stat_name = "max_smite_damage_done_to_boss",
+			target = 50,
+			title = "loc_achievement_psyker_2_kill_boss_solo_with_smite_name",
+			type = AchievementTypesLookup.increasing_stat,
+			category = category_abilites,
+			flags = {
+				AchievementFlags.hide_progress,
+				AchievementFlags.private_only,
+			},
 		}
 
 		family({
@@ -1841,7 +1841,7 @@ do
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0096",
 			type = AchievementTypesLookup.meta,
 			category = category_progression,
-			flags = {}
+			flags = {},
 		}, {
 			id = "group_class_psyker_2_{index:%d}",
 			title = "loc_group_class_challenges_psyker_2_{index:%d}_name",
@@ -1850,22 +1850,22 @@ do
 			end,
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			{
 				"psyker_2_edge_kills_last_2_sec",
-				"psyker_2_smite_hound_mid_leap"
+				"psyker_2_smite_hound_mid_leap",
 			},
 			{
 				"group_class_psyker_2_1",
 				"psyker_2_perils_of_the_warp_elite_kills",
-				"psyker_2_stay_at_max_souls_for_duration"
+				"psyker_2_stay_at_max_souls_for_duration",
 			},
 			{
 				"group_class_psyker_2_2",
 				"psyker_2_elite_or_special_kills_with_smite_last_10_sec",
-				"psyker_2_kill_boss_solo_with_smite"
-			}
+				"psyker_2_kill_boss_solo_with_smite",
+			},
 		})
 	end
 
@@ -1878,93 +1878,93 @@ do
 		target = 5,
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_progression,
-		flags = {}
+		flags = {},
 	}, {
-		id = "missions_ogryn_2_medium_difficulty_{index:%d}",
-		title = "loc_missions_ogryn_2_medium_difficulty_{index:%d}_name",
 		description = "loc_missions_ogryn_2_medium_difficulty_{index:%d}_description",
-		stat_name = "missions_ogryn_2_difficulty_{index:%d}"
+		id = "missions_ogryn_2_medium_difficulty_{index:%d}",
+		stat_name = "missions_ogryn_2_difficulty_{index:%d}",
+		title = "loc_missions_ogryn_2_medium_difficulty_{index:%d}_name",
 	}, {
 		{},
 		{},
 		{},
 		{},
-		{}
+		{},
 	})
 
 	AchievementDefinitions.ogryn_2_bull_rushed_charging_ogryn = {
 		description = "loc_achievement_ogryn_2_bull_rushed_charging_ogryn_description",
-		title = "loc_achievement_ogryn_2_bull_rushed_charging_ogryn_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0004",
+		title = "loc_achievement_ogryn_2_bull_rushed_charging_ogryn_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_abilites,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.ogryn_2_killed_corruptor_with_grenade_impact = {
 		description = "loc_achievement_ogryn_2_killed_corruptor_with_grenade_impact_description",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0008",
-		title = "loc_achievement_ogryn_2_killed_corruptor_with_grenade_impact_name",
-		target = 1,
 		stat_name = "ogryn_2_killed_corruptor_with_grenade_impact",
+		target = 1,
+		title = "loc_achievement_ogryn_2_killed_corruptor_with_grenade_impact_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_abilites,
 		flags = {
-			AchievementFlags.hide_progress
-		}
+			AchievementFlags.hide_progress,
+		},
 	}
 	AchievementDefinitions.ogryn_2_win_with_coherency_all_alive_units = {
 		description = "loc_achievement_ogryn_2_win_with_coherency_all_alive_units_description",
-		title = "loc_achievement_ogryn_2_win_with_coherency_all_alive_units_name",
-		target = 90,
-		stat_name = "ogryn_2_win_with_coherency_all_alive_units",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0009",
+		stat_name = "ogryn_2_win_with_coherency_all_alive_units",
+		target = 90,
+		title = "loc_achievement_ogryn_2_win_with_coherency_all_alive_units_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_progression,
 		flags = {
-			AchievementFlags.hide_progress
+			AchievementFlags.hide_progress,
 		},
 		loc_variables = {
-			time = 90
-		}
+			time = 90,
+		},
 	}
 	AchievementDefinitions.ogryn_2_bull_rushed_100_enemies = {
 		description = "loc_achievement_ogryn_2_bull_rushed_100_enemies_description",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0006",
-		title = "loc_achievement_ogryn_2_bull_rushed_100_enemies_name",
-		target = 60,
 		stat_name = "max_ogryn_2_lunge_number_of_enemies_hit",
+		target = 60,
+		title = "loc_achievement_ogryn_2_bull_rushed_100_enemies_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_abilites,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}
 	AchievementDefinitions.ogryn_2_bull_rushed_70_within_25_seconds = {
 		description = "loc_achievement_ogryn_2_bull_rushed_70_within_25_seconds_description",
-		title = "loc_achievement_ogryn_2_bull_rushed_70_within_25_seconds_name",
-		target = 40,
-		stat_name = "max_ogryn_2_lunge_distance_last_x_seconds",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0007",
+		stat_name = "max_ogryn_2_lunge_distance_last_x_seconds",
+		target = 40,
+		title = "loc_achievement_ogryn_2_bull_rushed_70_within_25_seconds_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_abilites,
 		flags = {
-			"hide_from_carousel"
+			"hide_from_carousel",
 		},
 		loc_variables = {
-			time_window = 20
-		}
+			time_window = 20,
+		},
 	}
 	AchievementDefinitions.ogryn_2_bull_rushed_4_ogryns = {
 		description = "loc_achievement_ogryn_2_bull_rushed_4_ogryns_description",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0005",
-		title = "loc_achievement_ogryn_2_bull_rushed_4_ogryns_name",
-		target = 4,
 		stat_name = "max_ogryns_bullrushed",
+		target = 4,
+		title = "loc_achievement_ogryn_2_bull_rushed_4_ogryns_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_abilites,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}
 
 	family({
@@ -1973,8 +1973,8 @@ do
 		type = AchievementTypesLookup.meta,
 		category = category_progression,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}, {
 		id = "group_class_ogryn_2_{index:%d}",
 		title = "loc_group_class_challenges_ogryn_2_{index:%d}_name",
@@ -1983,22 +1983,22 @@ do
 		end,
 		achievements = function (self, config)
 			return table.set(config)
-		end
+		end,
 	}, {
 		{
 			"ogryn_2_killed_corruptor_with_grenade_impact",
-			"ogryn_2_bull_rushed_charging_ogryn"
+			"ogryn_2_bull_rushed_charging_ogryn",
 		},
 		{
 			"group_class_ogryn_2_1",
 			"ogryn_2_bull_rushed_100_enemies",
-			"ogryn_2_win_with_coherency_all_alive_units"
+			"ogryn_2_win_with_coherency_all_alive_units",
 		},
 		{
 			"group_class_ogryn_2_2",
 			"ogryn_2_bull_rushed_70_within_25_seconds",
-			"ogryn_2_bull_rushed_4_ogryns"
-		}
+			"ogryn_2_bull_rushed_4_ogryns",
+		},
 	})
 end
 
@@ -2017,15 +2017,15 @@ do
 			type = AchievementTypesLookup.direct_unlock,
 			stat_name = "mastery_track_reached_20_" .. weapon.pattern,
 			loc_title_variables = {
-				weapon_name = localized_pattern_name
+				weapon_name = localized_pattern_name,
 			},
 			loc_variables = {
 				rank = 20,
-				weapon_name = localized_pattern_name
+				weapon_name = localized_pattern_name,
 			},
 			icon = "content/ui/textures/icons/achievements/weapon_achievements/" .. weapon.pattern .. "_mastery",
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 	end
 end
@@ -2037,7 +2037,7 @@ do
 		80,
 		120,
 		160,
-		200
+		200,
 	}
 
 	for i = 1, #mastery_level_tiers do
@@ -2045,19 +2045,19 @@ do
 
 		AchievementDefinitions[mastery_track_levels_name] = {
 			description = "loc_achievement_total_mastery_description",
-			title = "loc_achievement_total_mastery_name",
-			stat_name = "mastery_track_levels",
 			icon = "content/ui/textures/icons/achievements/weapon_achievements/weapon_achievements_icon_0003",
+			stat_name = "mastery_track_levels",
+			title = "loc_achievement_total_mastery_name",
 			type = AchievementTypesLookup.increasing_stat,
 			target = mastery_level_tiers[i],
 			loc_variables = {
-				level = mastery_level_tiers[i]
+				level = mastery_level_tiers[i],
 			},
 			loc_title_variables = {
-				rank = i
+				rank = i,
 			},
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 	end
 
@@ -2065,7 +2065,7 @@ do
 		20,
 		30,
 		40,
-		50
+		50,
 	}
 
 	for i = 1, #unlock_blessings do
@@ -2073,31 +2073,31 @@ do
 
 		AchievementDefinitions[mastery_track_levels_name] = {
 			description = "loc_achievement_total_blessings_unlocked_description",
-			title = "loc_achievement_total_blessings_unlocked_name",
-			stat_name = "crafting_unique_traits_seen",
 			icon = "content/ui/textures/icons/achievements/weapon_achievements/weapon_achievements_icon_0001",
+			stat_name = "crafting_unique_traits_seen",
+			title = "loc_achievement_total_blessings_unlocked_name",
 			type = AchievementTypesLookup.increasing_stat,
 			target = unlock_blessings[i],
 			loc_variables = {
-				amount = unlock_blessings[i]
+				amount = unlock_blessings[i],
 			},
 			loc_title_variables = {
-				rank = i
+				rank = i,
 			},
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 	end
 
 	local expertise_tiers_variable = {
 		300,
 		400,
-		500
+		500,
 	}
 	local expertise_tiers = {
 		30,
 		40,
-		50
+		50,
 	}
 
 	for i = 1, #expertise_tiers do
@@ -2105,44 +2105,44 @@ do
 
 		AchievementDefinitions[expertise_tiers_name] = {
 			description = "loc_achievement_expertise_level_description",
-			title = "loc_achievement_expertise_level_name",
 			icon = "content/ui/textures/icons/achievements/weapon_achievements/weapon_achievements_icon_0005",
+			title = "loc_achievement_expertise_level_name",
 			type = AchievementTypesLookup.direct_unlock,
 			stat_name = "expertise_reached_" .. expertise_tiers[i],
 			loc_variables = {
-				level = expertise_tiers_variable[i]
+				level = expertise_tiers_variable[i],
 			},
 			loc_title_variables = {
-				rank = i
+				rank = i,
 			},
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 	end
 
 	AchievementDefinitions.primary_weapon_max_expertise = {
 		description = "loc_achievement_primary_weapon_max_expertise_description",
 		icon = "content/ui/textures/icons/achievements/weapon_achievements/weapon_achievements_icon_0004",
-		title = "loc_achievement_primary_weapon_max_expertise_name",
 		stat_name = "expertise_reached_50_primary",
+		title = "loc_achievement_primary_weapon_max_expertise_name",
 		type = AchievementTypesLookup.direct_unlock,
 		loc_variables = {
-			level = 500
+			level = 500,
 		},
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.secondary_weapon_max_expertise = {
 		description = "loc_achievement_secondary_weapon_max_expertise_description",
 		icon = "content/ui/textures/icons/achievements/weapon_achievements/weapon_achievements_icon_0002",
-		title = "loc_achievement_secondary_weapon_max_expertise_name",
 		stat_name = "expertise_reached_50_secondary",
+		title = "loc_achievement_secondary_weapon_max_expertise_name",
 		type = AchievementTypesLookup.direct_unlock,
 		loc_variables = {
-			level = 500
+			level = 500,
 		},
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 end
 
@@ -2161,7 +2161,7 @@ do
 
 			stats[stat_name] = {
 				increasing = true,
-				target = target
+				target = target,
 			}
 		end
 
@@ -2170,42 +2170,42 @@ do
 
 	AchievementDefinitions.all_renegade_specials_killed = {
 		description = "loc_achievement_all_renegade_specials_killed_description",
-		title = "loc_achievement_all_renegade_specials_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0041",
+		title = "loc_achievement_all_renegade_specials_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.renegade_special,
 		stats = stats_from_breeds(AchievementBreedGroups.renegade_special, kill_all_specials_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_specials_target
-		}
+			target = kill_all_specials_target,
+		},
 	}
 	AchievementDefinitions.all_renegade_elites_killed = {
 		description = "loc_achievement_all_renegade_elites_killed_description",
-		title = "loc_achievement_all_renegade_elites_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0042",
+		title = "loc_achievement_all_renegade_elites_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.renegade_elite,
 		stats = stats_from_breeds(AchievementBreedGroups.renegade_elite, kill_all_elites_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_elites_target
-		}
+			target = kill_all_elites_target,
+		},
 	}
 	AchievementDefinitions.all_renegades_killed = {
 		description = "loc_achievement_all_renegades_killed_description",
-		title = "loc_achievement_all_renegades_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0043",
+		title = "loc_achievement_all_renegades_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.renegade,
 		stats = stats_from_breeds(AchievementBreedGroups.renegade, kill_all_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_target
-		}
+			target = kill_all_target,
+		},
 	}
 
 	old_numeric_target_family("kill_renegades_{index:%d}", {
@@ -2214,40 +2214,40 @@ do
 		stat_name = "total_renegade_kills",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		500,
 		2500,
 		5000,
 		7500,
-		12500
+		12500,
 	})
 
 	AchievementDefinitions.melee_renegade = {
 		description = "loc_achievement_melee_renegade_description",
-		title = "loc_achievement_melee_renegade_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0045",
-		target = 10,
 		stat_name = "total_renegade_grenadier_melee",
+		target = 10,
+		title = "loc_achievement_melee_renegade_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.executor_non_headshot = {
 		description = "loc_achievement_executor_non_headshot_description",
-		title = "loc_achievement_executor_non_headshot_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0046",
-		target = 10,
 		stat_name = "total_renegade_executors_non_headshot",
+		target = 10,
+		title = "loc_achievement_executor_non_headshot_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.group_enemies_renegades = {
 		description = "loc_achievement_group_enemies_renegades_description",
-		title = "loc_achievement_group_enemies_renegades_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0047",
 		target = 6,
+		title = "loc_achievement_group_enemies_renegades_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"all_renegade_specials_killed",
@@ -2255,49 +2255,49 @@ do
 			"all_renegades_killed",
 			"kill_renegades_5",
 			"melee_renegade",
-			"executor_non_headshot"
+			"executor_non_headshot",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.all_cultist_specials_killed = {
 		description = "loc_achievement_all_cultist_specials_killed_description",
-		title = "loc_achievement_all_cultist_specials_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0048",
+		title = "loc_achievement_all_cultist_specials_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.cultist_special,
 		stats = stats_from_breeds(AchievementBreedGroups.cultist_special, kill_all_specials_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_specials_target
-		}
+			target = kill_all_specials_target,
+		},
 	}
 	AchievementDefinitions.all_cultist_elites_killed = {
 		description = "loc_achievement_all_cultist_elites_killed_description",
-		title = "loc_achievement_all_cultist_elites_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0049",
+		title = "loc_achievement_all_cultist_elites_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.cultist_elite,
 		stats = stats_from_breeds(AchievementBreedGroups.cultist_elite, kill_all_elites_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_elites_target
-		}
+			target = kill_all_elites_target,
+		},
 	}
 	AchievementDefinitions.all_cultists_killed = {
 		description = "loc_achievement_all_cultists_killed_description",
-		title = "loc_achievement_all_cultists_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0050",
+		title = "loc_achievement_all_cultists_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.cultist,
 		stats = stats_from_breeds(AchievementBreedGroups.cultist, kill_all_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_target
-		}
+			target = kill_all_target,
+		},
 	}
 
 	old_numeric_target_family("kill_cultists_{index:%d}", {
@@ -2306,79 +2306,79 @@ do
 		stat_name = "total_cultist_kills",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		500,
 		2500,
 		5000,
 		7500,
-		12500
+		12500,
 	})
 
 	AchievementDefinitions.cultist_berzerker_head = {
 		description = "loc_achievement_cultist_berzerker_head_description",
-		title = "loc_achievement_cultist_berzerker_head_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0052",
-		target = 10,
 		stat_name = "total_cultist_berzerker_head",
+		target = 10,
+		title = "loc_achievement_cultist_berzerker_head_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.group_enemies_cultists = {
 		description = "loc_achievement_group_enemies_cultists_description",
-		title = "loc_achievement_group_enemies_cultists_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0107",
 		target = 5,
+		title = "loc_achievement_group_enemies_cultists_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"all_cultist_specials_killed",
 			"all_cultist_elites_killed",
 			"all_cultists_killed",
 			"kill_cultists_5",
-			"cultist_berzerker_head"
+			"cultist_berzerker_head",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.all_chaos_specials_killed = {
 		description = "loc_achievement_all_chaos_specials_killed_description",
-		title = "loc_achievement_all_chaos_specials_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0048",
+		title = "loc_achievement_all_chaos_specials_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.chaos_special,
 		stats = stats_from_breeds(AchievementBreedGroups.chaos_special, kill_all_specials_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_specials_target
-		}
+			target = kill_all_specials_target,
+		},
 	}
 	AchievementDefinitions.all_chaos_elites_killed = {
 		description = "loc_achievement_all_chaos_elites_killed_description",
-		title = "loc_achievement_all_chaos_elites_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0049",
+		title = "loc_achievement_all_chaos_elites_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.chaos_elite,
 		stats = stats_from_breeds(AchievementBreedGroups.chaos_elite, kill_all_elites_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_elites_target
-		}
+			target = kill_all_elites_target,
+		},
 	}
 	AchievementDefinitions.all_chaos_killed = {
 		description = "loc_achievement_all_chaos_killed_description",
-		title = "loc_achievement_all_chaos_killed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0050",
+		title = "loc_achievement_all_chaos_killed_name",
 		type = AchievementTypesLookup.multi_stat,
 		target = #AchievementBreedGroups.chaos,
 		stats = stats_from_breeds(AchievementBreedGroups.chaos, kill_all_target),
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = kill_all_target
-		}
+			target = kill_all_target,
+		},
 	}
 
 	old_numeric_target_family("kill_chaos_{index:%d}", {
@@ -2387,56 +2387,56 @@ do
 		stat_name = "total_chaos_kills",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		1000,
 		5000,
 		7500,
 		10000,
-		15000
+		15000,
 	})
 
 	AchievementDefinitions.ogryn_gunner_melee = {
 		description = "loc_achievement_ogryn_gunner_melee_description",
-		title = "loc_achievement_ogryn_gunner_melee_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0109",
-		target = 10,
 		stat_name = "total_ogryn_gunner_melee",
+		target = 10,
+		title = "loc_achievement_ogryn_gunner_melee_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.banish_daemonhost = {
 		description = "loc_achievement_banish_daemonhost_description",
-		title = "loc_achievement_banish_daemonhost_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0110",
-		target = 1,
 		stat_name = "kill_daemonhost",
+		target = 1,
+		title = "loc_achievement_banish_daemonhost_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.group_enemies_chaos = {
 		description = "loc_achievement_group_enemies_chaos_description",
-		title = "loc_achievement_group_enemies_chaos_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0108",
 		target = 5,
+		title = "loc_achievement_group_enemies_chaos_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"all_chaos_specials_killed",
 			"all_chaos_elites_killed",
 			"all_chaos_killed",
 			"kill_chaos_5",
-			"ogryn_gunner_melee"
+			"ogryn_gunner_melee",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.training_grounds_fully_unlocked = {
 		description = "loc_achievement_training_grounds_fully_unlocked_description",
-		title = "loc_achievement_training_grounds_fully_unlocked_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0120",
 		target = 6,
+		title = "loc_achievement_training_grounds_fully_unlocked_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"all_renegade_specials_killed",
@@ -2444,160 +2444,160 @@ do
 			"all_renegade_elites_killed",
 			"all_chaos_elites_killed",
 			"all_cultist_specials_killed",
-			"all_cultist_elites_killed"
+			"all_cultist_elites_killed",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.pox_hounds_pushed_midair = {
 		description = "loc_achievement_pox_hounds_pushed_description",
-		title = "loc_achievement_pox_hounds_pushed_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0129",
-		target = 50,
 		stat_name = "poxhound_pushed_mid_air",
+		target = 50,
+		title = "loc_achievement_pox_hounds_pushed_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.trappers_net_dodged = {
 		description = "loc_achievement_trapper_net_dodged_description",
-		title = "loc_achievement_trapper_net_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0130",
-		target = 50,
 		stat_name = "trapper_net_dodged",
+		target = 50,
+		title = "loc_achievement_trapper_net_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.shotgunner_spread_dodged = {
 		description = "loc_achievement_shotgunner_spread_dodged_description",
-		title = "loc_achievement_shotgunner_spread_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0132",
-		target = 50,
 		stat_name = "shotgunner_spread_dodged",
+		target = 50,
+		title = "loc_achievement_shotgunner_spread_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.mutant_charge_dodged = {
 		description = "loc_achievement_mutant_charge_dodged_description",
-		title = "loc_achievement_mutant_charge_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0135",
-		target = 50,
 		stat_name = "mutant_charge_dodged",
+		target = 50,
+		title = "loc_achievement_mutant_charge_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.mauler_attack_dodged = {
 		description = "loc_achievement_mauler_attack_dodged_description",
-		title = "loc_achievement_mauler_attack_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0139",
-		target = 50,
 		stat_name = "mauler_attack_dodged",
+		target = 50,
+		title = "loc_achievement_mauler_attack_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.crusher_overhead_smash_dodged = {
 		description = "loc_achievement_crusher_overhead_smash_dodged_description",
-		title = "loc_achievement_crusher_overhead_smash_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0140",
-		target = 50,
 		stat_name = "crusher_overhead_smash_dodged",
+		target = 50,
+		title = "loc_achievement_crusher_overhead_smash_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.renegade_sniper_dodged = {
 		description = "loc_achievement_sniper_dodged_description",
-		title = "loc_achievement_sniper_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0138",
-		target = 50,
 		stat_name = "sniper_dodged",
+		target = 50,
+		title = "loc_achievement_sniper_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.bulwark_backstab_damage_inflicted = {
 		description = "loc_achievement_bulwark_backstab_damage_inflicted_description",
-		title = "loc_achievement_bulwark_backstab_damage_inflicted_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0141",
-		target = 25000,
 		stat_name = "bulwark_backstab_damage_inflicted",
+		target = 25000,
+		title = "loc_achievement_bulwark_backstab_damage_inflicted_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.cultist_gunner_shot_dodged = {
 		description = "loc_achievement_cultist_gunner_shot_dodged_description",
-		title = "loc_achievement_cultist_gunner_shot_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0133",
-		target = 500,
 		stat_name = "cultist_gunner_shot_dodged",
+		target = 500,
+		title = "loc_achievement_cultist_gunner_shot_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.ogryn_gunner_shot_dodged = {
 		description = "loc_achievement_ogryn_gunner_shot_dodged_description",
-		title = "loc_achievement_ogryn_gunner_shot_dodged_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0142",
-		target = 500,
 		stat_name = "ogryn_gunner_shot_dodged",
+		target = 500,
+		title = "loc_achievement_ogryn_gunner_shot_dodged_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.team_poxburster_damage_avoided = {
 		description = "loc_achievement_team_poxburster_damage_avoided_description",
-		title = "loc_achievement_team_poxburster_damage_avoided_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0136",
-		target = 50,
 		stat_name = "team_poxburster_damage_avoided",
+		target = 50,
+		title = "loc_achievement_team_poxburster_damage_avoided_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.grenadier_killed_before_attack_occurred = {
 		description = "loc_achievement_grenadier_killed_before_attack_occurred_description",
-		title = "loc_achievement_grenadier_killed_before_attack_occurred_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0137",
-		target = 50,
 		stat_name = "grenadier_killed_before_attack_occurred",
+		target = 50,
+		title = "loc_achievement_grenadier_killed_before_attack_occurred_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.flamer_killed_before_attack_occurred = {
 		description = "loc_achievement_flamer_killed_before_attack_occurred_description",
-		title = "loc_achievement_flamer_killed_before_attack_occurred_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0134",
-		target = 50,
 		stat_name = "flamer_killed_before_attack_occurred",
+		target = 50,
+		title = "loc_achievement_flamer_killed_before_attack_occurred_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.team_chaos_spawned_killed_no_players_grabbed = {
 		description = "loc_achievement_team_chaos_spawned_killed_no_players_grabbed_description",
-		title = "loc_achievement_team_chaos_spawned_killed_no_players_grabbed_name",
-		target = 1,
 		stat_name = "team_chaos_spawned_killed_no_players_grabbed",
+		target = 1,
+		title = "loc_achievement_team_chaos_spawned_killed_no_players_grabbed_name",
 		type = AchievementTypesLookup.increasing_stat,
 		icon = path .. "achievement_icon_0127",
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.team_chaos_beast_of_nurgle_slain_no_corruption = {
 		description = "loc_achievement_team_chaos_beast_of_nurgle_slain_no_corruption_description",
-		title = "loc_achievement_team_team_chaos_beast_of_nurgle_slain_no_corruption_name",
-		target = 1,
 		stat_name = "team_chaos_beast_of_nurgle_slain_no_corruption",
+		target = 1,
+		title = "loc_achievement_team_team_chaos_beast_of_nurgle_slain_no_corruption_name",
 		type = AchievementTypesLookup.increasing_stat,
 		icon = path .. "achievement_icon_0124",
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 end
 
@@ -2609,7 +2609,7 @@ do
 		local excluded_maps = {}
 		local excluded_zones = {}
 		local excluded_zones_for_destructible = {
-			operations = true
+			operations = true,
 		}
 
 		do
@@ -2622,13 +2622,13 @@ do
 					icon = icon,
 					stat_name = "type_" .. id .. "_missions",
 					category = category_name,
-					flags = {}
+					flags = {},
 				}, {
 					10,
 					25,
 					50,
 					75,
-					100
+					100,
 				})
 			end
 
@@ -2659,29 +2659,29 @@ do
 			if not excluded_maps[mission.name] then
 				family({
 					description = "loc_achievement_level_mission_description",
-					title = "loc_achievement_level_mission_name",
 					target = 1,
+					title = "loc_achievement_level_mission_name",
 					type = AchievementTypesLookup.increasing_stat,
 					category = mission.category.default,
 					icon = mission.icon.mission_default,
 					flags = {},
 					loc_title_variables = {
-						mission_name = Localize(mission.local_variable)
+						mission_name = Localize(mission.local_variable),
 					},
 					loc_variables = {
-						mission_name = Localize(mission.local_variable)
-					}
+						mission_name = Localize(mission.local_variable),
+					},
 				}, {
 					id = "level_" .. mission.name .. "_mission_{index:%d}",
 					stat_name = "mission_" .. mission.name .. "_difficulty_{index:%d}",
 					loc_title_variables = _generate_tier_localization(),
-					loc_variables = _generate_difficulty_localization()
+					loc_variables = _generate_difficulty_localization(),
 				}, {
 					{},
 					{},
 					{},
 					{},
-					{}
+					{},
 				})
 			end
 		end
@@ -2714,26 +2714,26 @@ do
 			if not excluded_maps[mission.name] then
 				family({
 					description = "loc_achievement_level_mission_auric_description",
-					title = "loc_achievement_level_mission_auric_name",
 					target = 1,
+					title = "loc_achievement_level_mission_auric_name",
 					type = AchievementTypesLookup.increasing_stat,
 					category = mission.category.default,
 					icon = mission.icon.auric,
 					flags = {},
 					loc_title_variables = {
-						mission_name = Localize(mission.local_variable)
+						mission_name = Localize(mission.local_variable),
 					},
 					loc_variables = {
-						mission_name = Localize(mission.local_variable)
-					}
+						mission_name = Localize(mission.local_variable),
+					},
 				}, {
 					id = "level_" .. mission.name .. "_mission_{index:%d}_auric",
 					stat_name = _generate_auric_difficulty_stats(mission.name),
 					loc_title_variables = _generate_tier_localization(),
-					loc_variables = _generate_difficulty_auric_localization()
+					loc_variables = _generate_difficulty_auric_localization(),
 				}, {
 					{},
-					{}
+					{},
 				})
 			end
 		end
@@ -2749,15 +2749,15 @@ do
 					category = zone.category,
 					flags = {},
 					loc_variables = {
-						zone_name = Localize(zone.local_variable)
+						zone_name = Localize(zone.local_variable),
 					},
 					loc_title_variables = {
-						zone_name = Localize(zone.local_variable)
-					}
+						zone_name = Localize(zone.local_variable),
+					},
 				}, {
 					10,
 					25,
-					50
+					50,
 				})
 			end
 
@@ -2771,15 +2771,15 @@ do
 					category = zone.category,
 					flags = {},
 					loc_variables = {
-						zone_name = Localize(zone.local_variable)
+						zone_name = Localize(zone.local_variable),
 					},
 					loc_title_variables = {
-						zone_name = Localize(zone.local_variable)
-					}
+						zone_name = Localize(zone.local_variable),
+					},
 				}, {
 					10,
 					25,
-					50
+					50,
 				})
 			end
 		end
@@ -2790,13 +2790,13 @@ do
 			stat_name = "missions",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}, {
 			25,
 			50,
 			150,
 			250,
-			500
+			500,
 		})
 		old_numeric_target_family("scan_{index:%d}", {
 			description = "loc_achievement_scan_x_description",
@@ -2804,13 +2804,13 @@ do
 			stat_name = "total_scans",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}, {
 			10,
 			25,
 			50,
 			100,
-			200
+			200,
 		})
 		old_numeric_target_family("hack_{index:%d}", {
 			description = "loc_achievement_hack_x_description",
@@ -2818,39 +2818,39 @@ do
 			stat_name = "total_hacks",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}, {
 			10,
 			25,
 			50,
 			100,
-			200
+			200,
 		})
 		tiered_target_family("amount_of_chests_opened_{index:%d}", {
 			description = "loc_achievement_amount_of_chests_opened_description",
-			title = "loc_achievement_amount_of_chests_opened_name",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0122",
 			stat_name = "chest_opened",
+			title = "loc_achievement_amount_of_chests_opened_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}, {
 			100,
 			250,
 			500,
 			1000,
-			2500
+			2500,
 		})
 
 		AchievementDefinitions.hack_perfect = {
 			description = "loc_achievement_hack_perfect_description",
-			title = "loc_achievement_hack_perfect_name",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0072",
-			target = 1,
 			stat_name = "perfect_hacks",
+			target = 1,
+			title = "loc_achievement_hack_perfect_name",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 
 		old_numeric_target_family("mission_circumstace_{index:%d}", {
@@ -2859,13 +2859,13 @@ do
 			stat_name = "mission_circumstance",
 			type = AchievementTypesLookup.increasing_stat,
 			category = category_name,
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			25,
 			50,
 			100,
-			250
+			250,
 		})
 
 		do
@@ -2878,7 +2878,7 @@ do
 
 					stats[stat_name] = {
 						increasing = true,
-						target = difficulty
+						target = difficulty,
 					}
 				end
 
@@ -2890,36 +2890,36 @@ do
 				type = AchievementTypesLookup.multi_stat,
 				category = category_name,
 				target = #adventure_mission_types,
-				flags = {}
+				flags = {},
 			}, {
+				description = "loc_achievement_mission_difficulty_objectives_{index:%d}_description",
 				id = "mission_difficulty_objectives_{index:%d}",
 				title = "loc_achievement_mission_difficulty_objectives_{index:%d}_name",
-				description = "loc_achievement_mission_difficulty_objectives_{index:%d}_description",
-				stats = _generate_mission_completion_per_difficulty_stats
+				stats = _generate_mission_completion_per_difficulty_stats,
 			}, {
 				{
-					difficulty = 1
+					difficulty = 1,
 				},
 				{
-					difficulty = 2
+					difficulty = 2,
 				},
 				{
-					difficulty = 3
+					difficulty = 3,
 				},
 				{
-					difficulty = 4
+					difficulty = 4,
 				},
 				{
-					difficulty = 5
-				}
+					difficulty = 5,
+				},
 			})
 		end
 
 		AchievementDefinitions.group_missions = {
 			description = "loc_achievement_group_missions_description",
-			title = "loc_achievement_group_missions_name",
 			icon = "content/ui/textures/icons/achievements/achievement_icon_0078",
 			target = 7,
+			title = "loc_achievement_group_missions_name",
 			type = AchievementTypesLookup.meta,
 			achievements = table.set({
 				"type_1_mission_2",
@@ -2928,208 +2928,208 @@ do
 				"type_4_mission_2",
 				"type_5_mission_2",
 				"type_6_mission_2",
-				"type_7_mission_2"
+				"type_7_mission_2",
 			}),
 			category = category_name,
-			flags = {}
+			flags = {},
 		}
 
 		tiered_target_family("mission_auric_{index:%d}", {
-			description = "loc_achievement_mission_auric_x_description",
-			title = "loc_achievement_mission_auric_x_name",
 			category = "mission_auric",
+			description = "loc_achievement_mission_auric_x_description",
 			icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_0012",
 			stat_name = "auric_missions",
+			title = "loc_achievement_mission_auric_x_name",
 			type = AchievementTypesLookup.increasing_stat,
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			20,
 			50,
 			100,
-			250
+			250,
 		})
 		tiered_target_family("mission_auric_maelstrom_{index:%d}", {
-			description = "loc_achievement_mission_auric_maelstrom_x_description",
-			title = "loc_achievement_mission_auric_maelstrom_x_name",
 			category = "mission_auric",
+			description = "loc_achievement_mission_auric_maelstrom_x_description",
 			icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_0013",
 			stat_name = "mission_auric_maelstrom",
+			title = "loc_achievement_mission_auric_maelstrom_x_name",
 			type = AchievementTypesLookup.increasing_stat,
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			5,
-			30
+			30,
 		})
 
 		AchievementDefinitions.mission_auric_flawless_maelstrom = {
-			description = "loc_achievement_mission_auric_flawless_description",
-			title = "loc_achievement_mission_auric_flawless_name",
 			category = "mission_auric",
-			target = 1,
+			description = "loc_achievement_mission_auric_flawless_description",
 			stat_name = "flawless_auric_maelstrom",
+			target = 1,
+			title = "loc_achievement_mission_auric_flawless_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0012",
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.mission_auric_flawless_maelstrom_won = {
-			description = "loc_achievement_mission_auric_flawless_maelstrom_x_description",
-			title = "loc_achievement_mission_auric_flawless_maelstrom_x_name",
 			category = "mission_auric",
-			target = 1,
+			description = "loc_achievement_mission_auric_flawless_maelstrom_x_description",
 			stat_name = "flawless_auric_maelstrom_won",
+			target = 1,
+			title = "loc_achievement_mission_auric_flawless_maelstrom_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0014",
-			flags = {}
+			flags = {},
 		}
 		AchievementDefinitions.flawless_auric_maelstrom_consecutive = {
-			description = "loc_achievement_mission_consecutive_maelstrom_x_description",
-			title = "loc_achievement_mission_consecutive_maelstrom_x_name",
 			category = "mission_auric",
-			target = 5,
+			description = "loc_achievement_mission_consecutive_maelstrom_x_description",
 			stat_name = "flawless_auric_maelstrom_consecutive",
+			target = 5,
+			title = "loc_achievement_mission_consecutive_maelstrom_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0034",
-			flags = {}
+			flags = {},
 		}
 
 		tiered_target_family("personal_mission_auric_flawless_{index:%d}", {
-			description = "loc_achievement_personal_flawless_auric_description",
-			title = "loc_achievement_personal_flawless_auric_name",
 			category = "mission_auric",
+			description = "loc_achievement_personal_flawless_auric_description",
 			stat_name = "personal_flawless_auric",
+			title = "loc_achievement_personal_flawless_auric_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0033",
-			flags = {}
+			flags = {},
 		}, {
 			5,
-			10
+			10,
 		})
 		tiered_target_family("mission_maelstrom_{index:%d}", {
-			description = "loc_achievement_mission_maelstrom_x_description",
-			title = "loc_achievement_mission_maelstrom_x_name",
 			category = "missions_general",
+			description = "loc_achievement_mission_maelstrom_x_description",
 			stat_name = "mission_maelstrom",
+			title = "loc_achievement_mission_maelstrom_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0015",
-			flags = {}
+			flags = {},
 		}, {
 			10,
 			25,
-			50
+			50,
 		})
 		tiered_target_family("mission_tox_gas_{index:%d}", {
-			description = "loc_achievement_mission_tox_gas_x_description",
-			title = "loc_achievement_mission_tox_gas_x_name",
 			category = "missions_general",
+			description = "loc_achievement_mission_tox_gas_x_description",
 			stat_name = "toxic_gas_circumstance_completed",
+			title = "loc_achievement_mission_tox_gas_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0037",
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			10,
-			50
+			50,
 		})
 		tiered_target_family("mission_ventilation_{index:%d}", {
-			description = "loc_achievement_mission_ventilation_x_description",
-			title = "loc_achievement_mission_ventilation_x_name",
 			category = "missions_general",
+			description = "loc_achievement_mission_ventilation_x_description",
 			stat_name = "ventilation_circumstance_completed",
+			title = "loc_achievement_mission_ventilation_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0036",
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			10,
-			50
+			50,
 		})
 		tiered_target_family("mission_darkness_{index:%d}", {
-			description = "loc_achievement_mission_darkness_x_description",
-			title = "loc_achievement_mission_darkness_x_name",
 			category = "missions_general",
+			description = "loc_achievement_mission_darkness_x_description",
 			stat_name = "darkness_circumstance_completed",
+			title = "loc_achievement_mission_darkness_x_name",
 			type = AchievementTypesLookup.increasing_stat,
 			icon = path .. "mission_achievements/missions_achievement_0035",
-			flags = {}
+			flags = {},
 		}, {
 			1,
 			10,
-			50
+			50,
 		})
 	end
 
 	AchievementDefinitions.mission_scavenge_samples = {
-		description = "loc_achievement_mission_scavenge_samples_description",
-		title = "loc_achievement_mission_scavenge_samples_name",
 		category = "exploration_dust",
+		description = "loc_achievement_mission_scavenge_samples_description",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_challenge_0010",
+		title = "loc_achievement_mission_scavenge_samples_name",
 		type = AchievementTypesLookup.direct_unlock,
 		flags = {},
 		loc_variables = {
-			target = 5
-		}
+			target = 5,
+		},
 	}
 	AchievementDefinitions.mission_propaganda_fan_kills = {
-		description = "loc_achievement_mission_propganda_fan_kills_description",
-		title = "loc_achievement_mission_propganda_fan_kills_name",
-		target = 10,
-		stat_name = "mission_propaganda_fan_kills",
 		category = "exploration_dust",
+		description = "loc_achievement_mission_propganda_fan_kills_description",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_challenge_0008",
+		stat_name = "mission_propaganda_fan_kills",
+		target = 10,
+		title = "loc_achievement_mission_propganda_fan_kills_name",
 		type = AchievementTypesLookup.increasing_stat,
 		flags = {},
 		loc_variables = {
-			target = 10
-		}
+			target = 10,
+		},
 	}
 	AchievementDefinitions.mission_raid_bottles = {
-		description = "loc_achievement_mission_raid_bottles_description",
-		title = "loc_achievement_mission_raid_bottles_name",
 		category = "exploration_entertainment",
+		description = "loc_achievement_mission_raid_bottles_description",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_challenge_0026",
-		target = 12,
 		stat_name = "mission_raid_bottles_destroyed",
+		target = 12,
+		title = "loc_achievement_mission_raid_bottles_name",
 		type = AchievementTypesLookup.increasing_stat,
-		flags = {}
+		flags = {},
 	}
 
 	tiered_target_family("grimoire_recovered_{index:%d}", {
-		description = "loc_achievement_mission_grimoire_recovery_description",
-		title = "loc_achievement_mission_grimoire_recovery_name",
 		category = "missions_general",
+		description = "loc_achievement_mission_grimoire_recovery_description",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_0031",
 		stat_name = "grimoire_recovered_mission_won",
+		title = "loc_achievement_mission_grimoire_recovery_name",
 		type = AchievementTypesLookup.increasing_stat,
-		flags = {}
+		flags = {},
 	}, {
 		1,
 		10,
 		25,
 		45,
-		75
+		75,
 	})
 	tiered_target_family("scripture_recovered_{index:%d}", {
-		description = "loc_achievement_mission_scripture_recovery_description",
-		title = "loc_achievement_mission_scripture_recovery_name",
 		category = "missions_general",
+		description = "loc_achievement_mission_scripture_recovery_description",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_0030",
 		stat_name = "scripture_recovered_mission_won",
+		title = "loc_achievement_mission_scripture_recovery_name",
 		type = AchievementTypesLookup.increasing_stat,
-		flags = {}
+		flags = {},
 	}, {
 		1,
 		10,
 		30,
 		60,
-		100
+		100,
 	})
 
 	do
 		local excluded_maps_for_puzzles = {
+			core_research = true,
 			op_train = true,
-			core_research = true
 		}
 
 		for _, mission in ipairs(missions) do
@@ -3138,27 +3138,27 @@ do
 			if not excluded_maps_for_puzzles[mission_name] then
 				AchievementDefinitions["mission_zone_" .. mission.name .. "_mission_collectible_1"] = {
 					description = "loc_achievement_level_collectible_description",
-					title = "loc_achievement_level_collectible_name",
 					target = 1,
+					title = "loc_achievement_level_collectible_name",
 					type = AchievementTypesLookup.increasing_stat,
 					category = mission.category.puzzle,
 					icon = mission.icon.collectible,
 					flags = {
-						"hide_progress"
+						"hide_progress",
 					},
 					stat_name = string.format("mission_%s_collectible", mission.name),
 					loc_title_variables = {
-						mission_name = Localize(mission.local_variable)
+						mission_name = Localize(mission.local_variable),
 					},
 					loc_variables = {
-						mission_name = Localize(mission.local_variable)
-					}
+						mission_name = Localize(mission.local_variable),
+					},
 				}
 			end
 		end
 
 		local excluded_zones = {
-			operations = true
+			operations = true,
 		}
 
 		for _, zone in ipairs(AchievementMissionGroups.zone_meta) do
@@ -3170,11 +3170,11 @@ do
 					category = zone.category,
 					flags = {},
 					loc_title_variables = {
-						zone_name = Localize(zone.local_variable)
+						zone_name = Localize(zone.local_variable),
 					},
 					loc_variables = {
-						zone_name = Localize(zone.local_variable)
-					}
+						zone_name = Localize(zone.local_variable),
+					},
 				}, {
 					title = "loc_achievement_zone_wide_completion_name",
 					id = "group_mission_zone_wide_" .. zone.name .. "_completion",
@@ -3183,9 +3183,9 @@ do
 					end,
 					achievements = function (self, config)
 						return table.set(config)
-					end
+					end,
 				}, {
-					zone.achievements
+					zone.achievements,
 				})
 			end
 		end
@@ -3195,75 +3195,75 @@ do
 
 	AchievementDefinitions.mission_twins_win = {
 		description = "loc_achievement_mission_twins_win_description",
-		title = "loc_achievement_mission_twins_win_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_twins_mission",
-		target = 1,
 		stat_name = "mission_twins",
+		target = 1,
+		title = "loc_achievement_mission_twins_win_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			AchievementFlags.hide_missing
-		}
+			AchievementFlags.hide_missing,
+		},
 	}
 	AchievementDefinitions.difficult_mission_twins_win = {
 		description = "loc_achievement_difficult_mission_twins_win_description",
-		title = "loc_achievement_difficult_mission_twins_win_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_twins_mission_level5",
-		target = 5,
 		stat_name = "mission_twins",
+		target = 5,
+		title = "loc_achievement_difficult_mission_twins_win_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			AchievementFlags.hide_missing
-		}
+			AchievementFlags.hide_missing,
+		},
 	}
 	AchievementDefinitions.difficult_mission_twins_hard_mode_win = {
 		description = "loc_achievement_difficult_mission_twins_hard_mode_win_description",
-		title = "loc_achievement_difficult_mission_twins_hard_mode_win_name",
-		target = 1,
 		stat_name = "mission_twins_hard_mode",
+		target = 1,
+		title = "loc_achievement_difficult_mission_twins_hard_mode_win_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			AchievementFlags.hide_missing
-		}
+			AchievementFlags.hide_missing,
+		},
 	}
 	AchievementDefinitions.mission_twins_secret = {
 		description = "loc_achievement_mission_twins_unlocked_puzzle_description",
-		title = "loc_achievement_mission_twins_unlocked_puzzle_name",
-		target = 1,
 		stat_name = "mission_twins_secret_puzzle_trigger",
+		target = 1,
+		title = "loc_achievement_mission_twins_unlocked_puzzle_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			AchievementFlags.hide_missing
-		}
+			AchievementFlags.hide_missing,
+		},
 	}
 	AchievementDefinitions.mission_twins_killed_successfully_within_x = {
 		description = "loc_achievement_mission_twins_within_limit_name_description",
-		title = "loc_achievement_mission_twins_within_limit_name",
-		target = 1,
-		stat_name = "mission_twins_killed_successfully_within_x",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_challenge_0023",
+		stat_name = "mission_twins_killed_successfully_within_x",
+		target = 1,
+		title = "loc_achievement_mission_twins_within_limit_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			target = 5
-		}
+			target = 5,
+		},
 	}
 	AchievementDefinitions.mission_twins_killed_no_mines_triggered = {
 		description = "loc_achievement_mission_twins_killed_no_mines_triggered_description",
-		title = "loc_achievement_mission_twins_killed_no_mines_triggered_name",
-		target = 1,
-		stat_name = "mission_twins_no_mines_triggered",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_challenge_0024",
+		stat_name = "mission_twins_no_mines_triggered",
+		target = 1,
+		title = "loc_achievement_mission_twins_killed_no_mines_triggered_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			amount = 3
-		}
+			amount = 3,
+		},
 	}
 end
 
@@ -3278,13 +3278,13 @@ do
 			"rank_veteran_2_6",
 			"rank_zealot_2_6",
 			"rank_psyker_2_6",
-			"rank_ogryn_2_6"
+			"rank_ogryn_2_6",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		2,
-		4
+		4,
 	})
 
 	local function _generate_class_meta_targets()
@@ -3293,7 +3293,7 @@ do
 			15,
 			25,
 			35,
-			45
+			45,
 		}
 
 		return function (index, config)
@@ -3310,23 +3310,23 @@ do
 			category = class.category,
 			flags = {},
 			loc_title_variables = {
-				class_name = Localize(class.local_variable)
+				class_name = Localize(class.local_variable),
 			},
 			loc_variables = {
-				class_name = Localize(class.local_variable)
-			}
+				class_name = Localize(class.local_variable),
+			},
 		}, {
 			id = "group_mission_class_" .. class.name .. "_completion_{index:%d}",
 			target = _generate_class_meta_targets(),
 			achievements = function (self, config)
 				return table.set(config)
-			end
+			end,
 		}, {
 			class.achievements,
 			class.achievements,
 			class.achievements,
 			class.achievements,
-			class.achievements
+			class.achievements,
 		})
 	end
 end
@@ -3336,43 +3336,43 @@ do
 
 	AchievementDefinitions.prologue = {
 		description = "loc_achievement_prologue_description",
-		title = "loc_achievement_prologue_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0080",
+		title = "loc_achievement_prologue_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.basic_training = {
 		description = "loc_achievement_basic_training_description",
-		title = "loc_achievement_basic_training_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0081",
+		title = "loc_achievement_basic_training_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.unlock_gadgets = {
 		description = "loc_achievement_unlock_gadgets_description",
-		title = "loc_achievement_unlock_gadgets_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0077",
+		title = "loc_achievement_unlock_gadgets_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.unlock_contracts = {
 		description = "loc_achievement_unlock_contracts_description",
-		title = "loc_achievement_unlock_contracts_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0104",
+		title = "loc_achievement_unlock_contracts_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.unlock_crafting = {
 		description = "loc_achievement_unlock_crafting_description",
-		title = "loc_achievement_unlock_crafting_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0105",
+		title = "loc_achievement_unlock_crafting_name",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 
 	old_numeric_target_family("path_of_trust_{index:%d}", {
@@ -3380,14 +3380,14 @@ do
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0082",
 		type = AchievementTypesLookup.direct_unlock,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		1,
 		2,
 		3,
 		4,
 		5,
-		6
+		6,
 	})
 end
 
@@ -3400,13 +3400,13 @@ do
 		stat_name = "total_player_rescues",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		10,
 		50,
 		100,
 		250,
-		500
+		500,
 	})
 	old_numeric_target_family("assists_{index:%d}", {
 		description = "loc_achievement_assists_x_description",
@@ -3414,46 +3414,46 @@ do
 		stat_name = "total_player_assists",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		10,
 		50,
 		100,
 		500,
-		1000
+		1000,
 	})
 
 	AchievementDefinitions.flawless_team = {
 		description = "loc_achievement_flawless_team_description",
-		title = "loc_achievement_flawless_team_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0085",
-		target = 100,
 		stat_name = "team_flawless_missions",
+		target = 100,
+		title = "loc_achievement_flawless_team_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.coherency_toughness = {
 		description = "loc_achievement_coherency_toughness_description",
-		title = "loc_achievement_coherency_toughness_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0086",
-		target = 2000,
 		stat_name = "total_coherency_toughness",
+		target = 2000,
+		title = "loc_achievement_coherency_toughness_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.revive_all = {
 		description = "loc_achievement_revive_all_description",
-		title = "loc_achievement_revive_all_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0087",
-		target = 3,
 		stat_name = "max_different_players_rescued",
+		target = 3,
+		title = "loc_achievement_revive_all_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}
 
 	old_numeric_target_family("deployables_{index:%d}", {
@@ -3462,30 +3462,30 @@ do
 		stat_name = "total_deployables_placed",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		25,
 		50,
 		100,
 		250,
-		500
+		500,
 	})
 
 	AchievementDefinitions.group_cooperation = {
 		description = "loc_achievement_group_cooperation_description",
-		title = "loc_achievement_group_cooperation_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0088",
 		target = 5,
+		title = "loc_achievement_group_cooperation_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"revive_3",
 			"assists_3",
 			"flawless_team",
 			"coherency_toughness",
-			"deployables_3"
+			"deployables_3",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 end
 
@@ -3494,45 +3494,45 @@ do
 
 	tiered_target_family("enemies_killed_by_barrels_{index:%d}", {
 		description = "loc_achievement_enemies_killed_by_barrels_description",
-		title = "loc_achievement_enemies_killed_by_barrels_name",
 		stat_name = "enemies_killed_with_barrels",
+		title = "loc_achievement_enemies_killed_by_barrels_name",
 		type = AchievementTypesLookup.increasing_stat,
 		icon = path .. "achievement_icon_0128",
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		100,
 		250,
 		500,
 		1000,
-		2500
+		2500,
 	})
 	tiered_target_family("enemies_killed_by_poxburster_{index:%d}", {
 		description = "loc_achievement_enemies_killed_by_poxburster_description",
-		title = "loc_achievement_enemies_killed_by_poxburster_name",
 		stat_name = "enemies_killed_with_poxburster_explosion",
+		title = "loc_achievement_enemies_killed_by_poxburster_name",
 		type = AchievementTypesLookup.increasing_stat,
 		icon = path .. "achievement_icon_0123",
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		10,
 		50,
-		100
+		100,
 	})
 
 	AchievementDefinitions.team_win_without_ally_downed_longer_then_x = {
 		description = "loc_achievement_team_win_without_ally_downed_longer_then_x_description",
-		title = "loc_achievement_team_win_without_ally_downed_longer_then_x_name",
-		target = 1,
-		stat_name = "team_win_without_ally_downed_longer_then_x",
 		icon = "content/ui/textures/icons/achievements/mission_achievements/missions_achievement_0029",
+		stat_name = "team_win_without_ally_downed_longer_then_x",
+		target = 1,
+		title = "loc_achievement_team_win_without_ally_downed_longer_then_x_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {},
 		loc_variables = {
-			downed_times = 5
-		}
+			downed_times = 5,
+		},
 	}
 
 	old_numeric_target_family("enemies_{index:%d}", {
@@ -3541,24 +3541,24 @@ do
 		stat_name = "total_kills",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		1000,
 		40000,
 		100000,
 		250000,
-		500000
+		500000,
 	})
 
 	AchievementDefinitions.consecutive_headshots = {
 		description = "loc_achievement_consecutive_headshots_description",
-		title = "loc_achievement_consecutive_headshots_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0090",
-		target = 20,
 		stat_name = "max_head_shot_in_a_row",
+		target = 20,
+		title = "loc_achievement_consecutive_headshots_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 
 	old_numeric_target_family("boss_fast_{index:%d}", {
@@ -3568,12 +3568,12 @@ do
 		type = AchievementTypesLookup.decreasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}, {
 		60,
 		20,
-		5
+		5,
 	})
 	old_numeric_target_family("fast_enemies_{index:%d}", {
 		description = "loc_achievement_fast_enemies_x_description",
@@ -3582,26 +3582,26 @@ do
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
+			"hide_from_carousel",
 		},
 		loc_variables = {
-			time_window = 30
-		}
+			time_window = 30,
+		},
 	}, {
 		60,
 		90,
-		120
+		120,
 	})
 
 	AchievementDefinitions.enemies_climbing = {
 		description = "loc_achievement_enemies_climbing_description",
-		title = "loc_achievement_enemies_climbing_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0093",
-		target = 50,
 		stat_name = "kill_climbing",
+		target = 50,
+		title = "loc_achievement_enemies_climbing_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 
 	old_numeric_target_family("fast_headshot_{index:%d}", {
@@ -3611,22 +3611,22 @@ do
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
+			"hide_from_carousel",
 		},
 		loc_variables = {
-			time_window = 10
-		}
+			time_window = 10,
+		},
 	}, {
 		3,
 		7,
-		15
+		15,
 	})
 
 	AchievementDefinitions.group_offence = {
 		description = "loc_achievement_group_offence_description",
-		title = "loc_achievement_group_offence_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0088",
 		target = 6,
+		title = "loc_achievement_group_offence_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"enemies_2",
@@ -3634,10 +3634,10 @@ do
 			"boss_fast_2",
 			"fast_enemies_2",
 			"enemies_climbing",
-			"fast_headshot_2"
+			"fast_headshot_2",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 end
 
@@ -3651,15 +3651,15 @@ do
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
+			"hide_from_carousel",
 		},
 		loc_variables = {
-			time_window = 10
-		}
+			time_window = 10,
+		},
 	}, {
 		400,
 		600,
-		900
+		900,
 	})
 	old_numeric_target_family("consecutive_dodge_{index:%d}", {
 		description = "loc_achievement_consecutive_dodge_x_description",
@@ -3668,12 +3668,12 @@ do
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
 		flags = {
-			"hide_from_carousel"
-		}
+			"hide_from_carousel",
+		},
 	}, {
 		7,
 		12,
-		20
+		20,
 	})
 	old_numeric_target_family("flawless_mission_{index:%d}", {
 		description = "loc_achievement_flawless_mission_x_description",
@@ -3681,58 +3681,58 @@ do
 		stat_name = "max_flawless_mission_in_a_row",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}, {
 		5,
 		10,
-		15
+		15,
 	})
 
 	AchievementDefinitions.total_sprint_dodges = {
 		description = "loc_achievement_total_sprint_dodges_description",
-		title = "loc_achievement_total_sprint_dodges_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0099",
-		target = 99,
 		stat_name = "total_sprint_dodges",
+		target = 99,
+		title = "loc_achievement_total_sprint_dodges_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.slide_dodge = {
 		description = "loc_achievement_slide_dodge_description",
-		title = "loc_achievement_slide_dodge_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0100",
-		target = 1,
 		stat_name = "total_slide_dodges",
+		target = 1,
+		title = "loc_achievement_slide_dodge_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.melee_toughness = {
 		description = "loc_achievement_melee_toughness_description",
-		title = "loc_achievement_melee_toughness_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0101",
-		target = 40000,
 		stat_name = "total_melee_toughness_regen",
+		target = 40000,
+		title = "loc_achievement_melee_toughness_name",
 		type = AchievementTypesLookup.increasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.mission_no_damage = {
 		description = "loc_achievement_mission_no_damage_description",
-		title = "loc_achievement_mission_no_damage_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0102",
-		target = 1,
 		stat_name = "lowest_damage_taken_on_win",
+		target = 1,
+		title = "loc_achievement_mission_no_damage_name",
 		type = AchievementTypesLookup.decreasing_stat,
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 	AchievementDefinitions.group_defence = {
 		description = "loc_achievement_group_defence_description",
-		title = "loc_achievement_group_defence_name",
 		icon = "content/ui/textures/icons/achievements/achievement_icon_0103",
 		target = 7,
+		title = "loc_achievement_group_defence_name",
 		type = AchievementTypesLookup.meta,
 		achievements = table.set({
 			"fast_blocks_2",
@@ -3741,10 +3741,10 @@ do
 			"total_sprint_dodges",
 			"slide_dodge",
 			"melee_toughness",
-			"mission_no_damage"
+			"mission_no_damage",
 		}),
 		category = category_name,
-		flags = {}
+		flags = {},
 	}
 end
 
@@ -3760,7 +3760,7 @@ for id, definition in pairs(AchievementDefinitions) do
 	if platform_id ~= nil then
 		definition.xbox = {
 			id = platform_id,
-			show_progress = not not XboxLivePlatformAchievements.show_progress[platform_id]
+			show_progress = not not XboxLivePlatformAchievements.show_progress[platform_id],
 		}
 	end
 end
@@ -3771,7 +3771,7 @@ for id, definition in pairs(AchievementDefinitions) do
 	if platform_id ~= nil then
 		definition.steam = {
 			id = platform_id,
-			stat_id = SteamPlatformAchievements.platform_to_stat[platform_id]
+			stat_id = SteamPlatformAchievements.platform_to_stat[platform_id],
 		}
 	end
 end
@@ -3782,7 +3782,7 @@ for id, definition in pairs(AchievementDefinitions) do
 	if platform_id ~= nil then
 		definition.psn = {
 			id = platform_id,
-			show_progress = not not PSNPlatformAchievements.show_progress[platform_id]
+			show_progress = not not PSNPlatformAchievements.show_progress[platform_id],
 		}
 	end
 end

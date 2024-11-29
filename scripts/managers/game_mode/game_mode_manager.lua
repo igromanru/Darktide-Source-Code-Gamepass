@@ -14,7 +14,7 @@ for name, settings in pairs(GameModeSettings) do
 end
 
 local CLIENT_RPCS = {
-	"rpc_game_mode_end_conditions_met"
+	"rpc_game_mode_end_conditions_met",
 }
 local GameModeManager = class("GameModeManager")
 

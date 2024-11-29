@@ -4,66 +4,66 @@ local PlayerProgressionUnlocks = require("scripts/settings/player/player_progres
 local DangerSettings = {
 	by_index = {
 		{
-			index = 1,
-			name = "sedition",
 			display_name = "loc_mission_board_danger_lowest",
 			expected_resistance = 2,
+			index = 1,
+			name = "sedition",
 			color = {
 				255,
 				169,
 				211,
-				158
-			}
+				158,
+			},
 		},
 		{
-			index = 2,
-			name = "uprising",
 			display_name = "loc_mission_board_danger_low",
 			expected_resistance = 2,
+			index = 2,
+			name = "uprising",
 			color = {
 				255,
 				169,
 				211,
-				158
-			}
+				158,
+			},
 		},
 		{
-			index = 3,
-			name = "malice",
 			display_name = "loc_mission_board_danger_medium",
 			expected_resistance = 3,
+			index = 3,
+			name = "malice",
 			color = {
 				255,
 				228,
 				189,
-				81
-			}
+				81,
+			},
 		},
 		{
-			index = 4,
-			name = "heresy",
 			display_name = "loc_mission_board_danger_high",
 			expected_resistance = 3,
+			index = 4,
+			name = "heresy",
 			color = {
 				255,
 				228,
 				189,
-				81
-			}
+				81,
+			},
 		},
 		{
-			index = 5,
-			name = "damnation",
 			display_name = "loc_mission_board_danger_highest",
 			expected_resistance = 4,
+			index = 5,
+			name = "damnation",
 			color = {
 				255,
 				233,
 				84,
-				84
-			}
-		}
-	}
+				84,
+			},
+		},
+	},
 }
 
 DangerSettings.calculate_danger = function (challenge, resistance)

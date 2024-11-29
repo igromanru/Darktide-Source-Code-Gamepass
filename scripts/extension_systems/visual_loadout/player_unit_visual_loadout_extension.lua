@@ -59,7 +59,7 @@ PlayerUnitVisualLoadoutExtension.init = function (self, extension_init_context, 
 	if package_synchronizer_client then
 		optional_item_streaming_settings = {
 			package_synchronizer_client = package_synchronizer_client,
-			player = self._player
+			player = self._player,
 		}
 	end
 
@@ -129,7 +129,7 @@ PlayerUnitVisualLoadoutExtension.init = function (self, extension_init_context, 
 		visual_loadout_extension = self,
 		unit_data_extension = unit_data_extension,
 		fx_extension = fx_extension,
-		player_particle_group_id = Managers.state.extension:system("fx_system").unit_to_particle_group_lookup[unit]
+		player_particle_group_id = Managers.state.extension:system("fx_system").unit_to_particle_group_lookup[unit],
 	}
 
 	local inventory_slot_component_data = PlayerCharacterConstants.inventory_slot_component_data
@@ -1014,7 +1014,7 @@ PlayerUnitVisualLoadoutExtension._cache_node_names = function (self, weapon_temp
 			node_unit_1p = node_unit_1p,
 			node_index_1p = node_index_1p,
 			node_unit_3p = node_unit_3p,
-			node_index_3p = node_index_3p
+			node_index_3p = node_index_3p,
 		}
 	end
 end

@@ -10,21 +10,21 @@ local ui_view_level_requirement = {
 	credits_vendor_background_view = PlayerProgressionUnlocks.credits_vendor,
 	crafting_view = PlayerProgressionUnlocks.crafting,
 	contracts_background_view = PlayerProgressionUnlocks.contracts,
-	cosmetics_vendor_background_view = PlayerProgressionUnlocks.cosmetics_vendor
+	cosmetics_vendor_background_view = PlayerProgressionUnlocks.cosmetics_vendor,
 }
 local view_story_chapter_requirement = {
 	credits_vendor_background_view = {
 		chapter = "pot_story_traitor_first",
-		story = "path_of_trust"
+		story = "path_of_trust",
 	},
 	crafting_view = {
 		chapter = "pot_crafting",
-		story = "path_of_trust"
+		story = "path_of_trust",
 	},
 	contracts_background_view = {
 		chapter = "pot_contracts",
-		story = "path_of_trust"
-	}
+		story = "path_of_trust",
+	},
 }
 
 ViewInteraction._ui_interaction = function (self, interactee_unit)
@@ -76,13 +76,13 @@ ViewInteraction._start = function (self, interactor_unit, interactee_unit)
 	local narrative_event = hli_settings and Managers.narrative.EVENTS[hli_settings.narrative_event_name]
 	local hli_seen = hli_settings and Managers.narrative:is_event_complete(narrative_event)
 	local context = {
-		hub_interaction = true
+		hub_interaction = true,
 	}
 
 	if hli_settings and not hli_seen then
 		ui_interaction, context = "video_view", {
 			allow_skip_input = true,
-			template = hli_settings.video_template
+			template = hli_settings.video_template,
 		}
 
 		Managers.narrative:complete_event(narrative_event)

@@ -25,19 +25,19 @@ local ViewElementInputLegend = require("scripts/ui/view_elements/view_element_in
 local ViewElementPlayerPanel = require("scripts/ui/view_elements/view_element_player_panel/view_element_player_panel")
 local generate_blueprints_function = require("scripts/ui/view_content_blueprints/item_blueprints")
 local WIDGET_TYPE_BY_SLOT = {
-	slot_gear_head = "gear_item",
-	slot_animation_end_of_round = "gear_item",
-	slot_animation_emote_4 = "ui_item",
-	slot_gear_extra_cosmetic = "gear_item",
 	slot_animation_emote_1 = "ui_item",
-	slot_animation_emote_5 = "ui_item",
-	slot_insignia = "ui_item",
-	slot_character_title = "character_title_item",
+	slot_animation_emote_2 = "ui_item",
 	slot_animation_emote_3 = "ui_item",
-	slot_portrait_frame = "ui_item",
+	slot_animation_emote_4 = "ui_item",
+	slot_animation_emote_5 = "ui_item",
+	slot_animation_end_of_round = "gear_item",
+	slot_character_title = "character_title_item",
+	slot_gear_extra_cosmetic = "gear_item",
+	slot_gear_head = "gear_item",
 	slot_gear_lowerbody = "gear_item",
 	slot_gear_upperbody = "gear_item",
-	slot_animation_emote_2 = "ui_item"
+	slot_insignia = "ui_item",
+	slot_portrait_frame = "ui_item",
 }
 local PENANCE_TRACK_ID = "dec942ce-b6ba-439c-95e2-022c5d71394d"
 local InventoryCosmeticsView = class("InventoryCosmeticsView", "ItemGridViewBase")
@@ -58,7 +58,7 @@ InventoryCosmeticsView.init = function (self, settings, context)
 	if not self._debug then
 		self._selected_slot = context.selected_slot
 		self._selected_slots = context.selected_slots or {
-			context.selected_slot
+			context.selected_slot,
 		}
 		self._initial_rotation = context.initial_rotation
 		self._disable_rotation_input = context.disable_rotation_input
@@ -72,10 +72,10 @@ InventoryCosmeticsView.init = function (self, settings, context)
 		self._initialize_zoom = is_gear
 	else
 		self._selected_slot = {
-			name = "slot_gear_upperbody"
+			name = "slot_gear_upperbody",
 		}
 		self._selected_slots = {
-			self._selected_slot
+			self._selected_slot,
 		}
 		self._initial_rotation = 0
 	end
@@ -145,7 +145,7 @@ InventoryCosmeticsView.on_enter = function (self)
 			if has_rarity then
 				self._sort_options[#self._sort_options + 1] = {
 					display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-						sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+						sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 					}),
 					sort_function = function (a, b)
 						local a_locked, b_locked = a.locked, b.locked
@@ -166,13 +166,13 @@ InventoryCosmeticsView.on_enter = function (self)
 							">",
 							ItemUtils.compare_item_rarity,
 							"<",
-							ItemUtils.compare_item_name
+							ItemUtils.compare_item_name,
 						})(a, b)
-					end
+					end,
 				}
 				self._sort_options[#self._sort_options + 1] = {
 					display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-						sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+						sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 					}),
 					sort_function = function (a, b)
 						local a_locked, b_locked = a.locked, b.locked
@@ -193,15 +193,15 @@ InventoryCosmeticsView.on_enter = function (self)
 							"<",
 							ItemUtils.compare_item_rarity,
 							"<",
-							ItemUtils.compare_item_name
+							ItemUtils.compare_item_name,
 						})(a, b)
-					end
+					end,
 				}
 			end
 
 			self._sort_options[#self._sort_options + 1] = {
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_increasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = function (a, b)
 					local a_locked, b_locked = a.locked, b.locked
@@ -220,13 +220,13 @@ InventoryCosmeticsView.on_enter = function (self)
 
 					return ItemUtils.sort_comparator({
 						"<",
-						ItemUtils.compare_item_name
+						ItemUtils.compare_item_name,
 					})(a, b)
-				end
+				end,
 			}
 			self._sort_options[#self._sort_options + 1] = {
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_decreasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = function (a, b)
 					local a_locked, b_locked = a.locked, b.locked
@@ -245,9 +245,9 @@ InventoryCosmeticsView.on_enter = function (self)
 
 					return ItemUtils.sort_comparator({
 						">",
-						ItemUtils.compare_item_name
+						ItemUtils.compare_item_name,
 					})(a, b)
-				end
+				end,
 			}
 
 			self:_setup_sort_options()
@@ -366,12 +366,12 @@ InventoryCosmeticsView._spawn_profile = function (self, profile, initial_rotatio
 end
 
 local ANIMATION_SLOTS_MAP = {
+	slot_animation_emote_1 = true,
+	slot_animation_emote_2 = true,
 	slot_animation_emote_3 = true,
-	slot_animation_end_of_round = true,
 	slot_animation_emote_4 = true,
 	slot_animation_emote_5 = true,
-	slot_animation_emote_1 = true,
-	slot_animation_emote_2 = true
+	slot_animation_end_of_round = true,
 }
 
 InventoryCosmeticsView._destroy_side_panel = function (self)
@@ -404,7 +404,7 @@ InventoryCosmeticsView._setup_side_panel = function (self, item, is_locked, dx, 
 	local function _add_text_widget(pass_template, text)
 		local widget_definition = UIWidget.create_definition(pass_template, scenegraph_id, nil, {
 			max_width,
-			0
+			0,
 		})
 		local widget = self:_create_widget(string.format("side_panel_widget_%d", #widgets), widget_definition)
 
@@ -415,7 +415,7 @@ InventoryCosmeticsView._setup_side_panel = function (self, item, is_locked, dx, 
 		local text_options = UIFonts.get_font_options_by_style(widget.style.text)
 		local _, text_height = self:_text_size(text, widget_text_style.font_type, widget_text_style.font_size, {
 			max_width,
-			math.huge
+			math.huge,
 		}, text_options)
 
 		y_offset = y_offset + text_height
@@ -549,7 +549,7 @@ InventoryCosmeticsView._preview_element = function (self, element)
 
 	local item_size = {
 		700,
-		60
+		60,
 	}
 	local ui_renderer = self._ui_default_renderer
 	local scenegraph_id = "item_name_pivot"
@@ -557,10 +557,10 @@ InventoryCosmeticsView._preview_element = function (self, element)
 	local Blueprints = generate_blueprints_function(item_size)
 	local template = Blueprints[widget_type]
 	local config = {
-		vertical_alignment = "bottom",
 		horizontal_alignment = "right",
+		vertical_alignment = "bottom",
 		size = item_size,
-		item = item
+		item = item,
 	}
 	local size = template.size_function and template.size_function(self, config, ui_renderer) or template.size
 	local pass_template = template.pass_template_function and template.pass_template_function(self, config, ui_renderer) or template.pass_template
@@ -886,7 +886,7 @@ InventoryCosmeticsView._fetch_inventory_items = function (self, selected_slots)
 								if valid then
 									penance_track_items[#penance_track_items + 1] = {
 										item = reward_item,
-										label = Localize("loc_item_source_penance_track")
+										label = Localize("loc_item_source_penance_track"),
 									}
 								end
 							end
@@ -920,7 +920,7 @@ InventoryCosmeticsView._achievement_items = function (self, selected_slot_name)
 				local sub_penances_count = table.size(achievement.achievements)
 
 				description_text = Localize("loc_inventory_cosmetic_item_acquisition_penance_description_multiple_requirement", true, {
-					penance_amount = sub_penances_count
+					penance_amount = sub_penances_count,
 				})
 			else
 				description_text = AchievementUIHelper.localized_description(achievement)
@@ -933,7 +933,7 @@ InventoryCosmeticsView._achievement_items = function (self, selected_slot_name)
 				achievement_items[#achievement_items + 1] = {
 					item = reward_item,
 					label = AchievementUIHelper.localized_title(achievement),
-					description = description_text
+					description = description_text,
 				}
 			end
 		end
@@ -1014,13 +1014,13 @@ InventoryCosmeticsView._prepare_cosmetic_layout_data = function (self, result)
 			store = found_store,
 			new_item_marker = is_new,
 			remove_new_marker_callback = remove_new_marker_callback,
-			profile = profile
+			profile = profile,
 		}
 	end
 
 	if #achievement_items > 0 and used_achievements_count < #achievement_items or #penance_track_items > 0 and used_penance_track_count < #penance_track_items or #store_items > 0 and used_store_count < #store_items then
 		layout[#layout + 1] = {
-			widget_type = "divider"
+			widget_type = "divider",
 		}
 	end
 
@@ -1033,7 +1033,7 @@ InventoryCosmeticsView._prepare_cosmetic_layout_data = function (self, result)
 				item = achievement_item.item,
 				slot = selected_slot,
 				widget_type = WIDGET_TYPE_BY_SLOT[selected_slot_name],
-				achievement = achievement_item
+				achievement = achievement_item,
 			}
 		end
 	end
@@ -1047,7 +1047,7 @@ InventoryCosmeticsView._prepare_cosmetic_layout_data = function (self, result)
 				item = penance_track_item.item,
 				slot = selected_slot,
 				widget_type = WIDGET_TYPE_BY_SLOT[selected_slot_name],
-				penance_track = penance_track_item
+				penance_track = penance_track_item,
 			}
 		end
 	end
@@ -1061,7 +1061,7 @@ InventoryCosmeticsView._prepare_cosmetic_layout_data = function (self, result)
 				item = store_item,
 				slot = selected_slot,
 				widget_type = WIDGET_TYPE_BY_SLOT[selected_slot_name],
-				store = store_item
+				store = store_item,
 			}
 		end
 	end
@@ -1074,7 +1074,7 @@ InventoryCosmeticsView._calc_text_size = function (self, widget, text_and_style_
 	local text_style = widget.style[text_and_style_id]
 	local text_options = UIFonts.get_font_options_by_style(text_style)
 	local size = text_style.size or widget.content.size or {
-		self:_scenegraph_size(widget.scenegraph_id)
+		self:_scenegraph_size(widget.scenegraph_id),
 	}
 
 	return UIRenderer.text_size(self._ui_renderer, text, text_style.font_type, text_style.font_size, size, text_options)

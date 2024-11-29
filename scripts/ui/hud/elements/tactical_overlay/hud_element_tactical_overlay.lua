@@ -149,7 +149,7 @@ HudElementTacticalOverlay._update_left_panel_elements = function (self, ui_rende
 		local circumstance_name_font_options = UIFonts.get_font_options_by_style(circumstance_name_style)
 		local _, circumstance_name_height = UIRenderer.text_size(ui_renderer, circumstance_info_content.circumstance_name, circumstance_name_style.font_type, circumstance_name_style.font_size, {
 			circumstance_name_style.size[1],
-			1000
+			1000,
 		}, circumstance_name_font_options)
 		local description_margin = 5
 		local min_height = circumstance_info_widget.style.icon.size[2]
@@ -161,7 +161,7 @@ HudElementTacticalOverlay._update_left_panel_elements = function (self, ui_rende
 		local circumstance_description_font_options = UIFonts.get_font_options_by_style(circumstance_description_style)
 		local _, circumstance_description_height = UIRenderer.text_size(ui_renderer, circumstance_info_content.circumstance_description, circumstance_description_style.font_type, circumstance_description_style.font_size, {
 			circumstance_description_style.size[1],
-			1000
+			1000,
 		}, circumstance_description_font_options)
 
 		circumstance_description_style.offset[2] = title_height + circumstance_name_style.offset[2] + description_margin
@@ -354,7 +354,7 @@ HudElementTacticalOverlay._update_right_tab_bar = function (self, ui_renderer)
 				local config = {
 					is_left = false,
 					value = page_settings.icon.value,
-					selected = selected
+					selected = selected,
 				}
 				local index = #tab_bar_widgets + 1
 				local name = string.format("tab_%d", index)
@@ -511,7 +511,7 @@ HudElementTacticalOverlay._setup_contracts = function (self, contracts_data, ui_
 		configs[i] = {
 			blueprint = "contract",
 			task = tasks[i],
-			reward = table.nested_get(tasks[i], "reward", "amount")
+			reward = table.nested_get(tasks[i], "reward", "amount"),
 		}
 	end
 
@@ -557,16 +557,16 @@ HudElementTacticalOverlay._setup_live_event = function (self, ui_renderer)
 	local configs = {
 		{
 			blueprint = "title",
-			text = Localize(event_name)
+			text = Localize(event_name),
 		},
 		{
 			blueprint = "header",
-			text = Localize("loc_event_briefing")
+			text = Localize("loc_event_briefing"),
 		},
 		{
 			blueprint = "body",
-			text = Localize(event_description)
-		}
+			text = Localize(event_description),
+		},
 	}
 	local tiers = Managers.live_event:active_tiers()
 	local tier_count = tiers and #tiers or 0
@@ -576,7 +576,7 @@ HudElementTacticalOverlay._setup_live_event = function (self, ui_renderer)
 	if shown_tiers > 0 then
 		configs[#configs + 1] = {
 			blueprint = "header",
-			text = Localize("loc_event_objectives")
+			text = Localize("loc_event_objectives"),
 		}
 	end
 
@@ -595,7 +595,7 @@ HudElementTacticalOverlay._setup_live_event = function (self, ui_renderer)
 		configs[#configs + 1] = {
 			blueprint = "event_tier",
 			target = tier.target,
-			rewards = tier.rewards
+			rewards = tier.rewards,
 		}
 	end
 
@@ -605,8 +605,8 @@ HudElementTacticalOverlay._setup_live_event = function (self, ui_renderer)
 		configs[#configs + 1] = {
 			blueprint = "divider",
 			text = Localize("loc_tactical_overlay_extra_entries", true, {
-				amount = remaining_tiers
-			})
+				amount = remaining_tiers,
+			}),
 		}
 	end
 
@@ -660,7 +660,7 @@ HudElementTacticalOverlay._setup_achievements = function (self, ui_renderer)
 		if Managers.achievements:achievement_definition(id) then
 			configs[#configs + 1] = {
 				blueprint = "achievement",
-				id = id
+				id = id,
 			}
 			current_achievements[i] = id
 		end
@@ -736,7 +736,7 @@ end
 
 HudElementTacticalOverlay._setup_left_panel_widgets = function (self)
 	local definitions = {
-		widget_definitions = self._definitions.left_panel_widgets_definitions
+		widget_definitions = self._definitions.left_panel_widgets_definitions,
 	}
 
 	self._left_panel_widgets = {}
@@ -823,7 +823,7 @@ end
 
 HudElementTacticalOverlay._setup_right_panel_widgets = function (self)
 	local definitions = {
-		widget_definitions = self._definitions.right_panel_widgets_definitions
+		widget_definitions = self._definitions.right_panel_widgets_definitions,
 	}
 
 	self._right_panel_widgets = {}

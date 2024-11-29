@@ -52,23 +52,23 @@ end
 
 Flyer.component_data = {
 	start_free_flight_enabled = {
+		ui_name = "Free Flight Enabled",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Free Flight Enabled"
 	},
 	inputs = {
 		free_flight_enable = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		free_flight_disable = {
 			accessibility = "public",
-			type = "event"
-		}
+			type = "event",
+		},
 	},
 	extensions = {
-		"FlyerExtension"
-	}
+		"FlyerExtension",
+	},
 }
 
 return Flyer

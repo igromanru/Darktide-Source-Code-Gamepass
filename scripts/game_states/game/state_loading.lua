@@ -54,7 +54,7 @@ StateLoading.on_enter = function (self, parent, params, creation_context)
 	local player_game_state_mapping = {}
 	local game_state_context = {
 		mission_name = params.mission_name,
-		mission_giver_vo = params.mission_giver_vo or "none"
+		mission_giver_vo = params.mission_giver_vo or "none",
 	}
 
 	Managers.player:on_game_state_enter(self, player_game_state_mapping, game_state_context)
@@ -104,7 +104,7 @@ StateLoading._reset_player_game_state = function (self, mission_name, mission_gi
 	local player_game_state_mapping = {}
 	local game_state_context = {
 		mission_name = mission_name,
-		mission_giver_vo = mission_giver_vo or "none"
+		mission_giver_vo = mission_giver_vo or "none",
 	}
 
 	Managers.player:on_game_state_enter(self, player_game_state_mapping, game_state_context)

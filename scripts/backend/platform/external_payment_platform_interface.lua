@@ -9,7 +9,7 @@ local ExternalPaymentPlatformInterface = {
 	"init_txn",
 	"finalize_txn",
 	"fail_txn",
-	"show_empty_store_error"
+	"show_empty_store_error",
 }
 
 return ExternalPaymentPlatformInterface

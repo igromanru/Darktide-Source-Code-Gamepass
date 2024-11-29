@@ -31,8 +31,8 @@ local proc_events = BuffSettings.proc_events
 local buff_keywords = BuffSettings.keywords
 local DEFAULT_POWER_LEVEL = PowerLevelSettings.default_power_level
 local POWERED_WWISE_SWITCH = {
+	[false] = "false",
 	[true] = "true",
-	[false] = "false"
 }
 local _dot
 
@@ -144,7 +144,7 @@ ActionSweep.init = function (self, action_context, action_params, action_setting
 				hit_distance = 0,
 				hit_actor = ActorBox(),
 				hit_position = Vector3Box(),
-				hit_normal = Vector3Box()
+				hit_normal = Vector3Box(),
 			}
 		end
 	end
@@ -550,7 +550,7 @@ end
 
 local stickyness_impact_fx_data = {
 	will_be_predicted = true,
-	source_parameters = {}
+	source_parameters = {},
 }
 
 ActionSweep._update_hit_stickyness = function (self, dt, t, action_sweep_component, hit_stickyness_settings)
@@ -1147,7 +1147,7 @@ ActionSweep._current_max_hit_mass = function (self, weapon_action_component)
 end
 
 local attack_intensities = {
-	ranged = 15
+	ranged = 15,
 }
 
 ActionSweep._process_hit = function (self, t, hit_unit, hit_actor, hit_units, action_settings, hit_position, attack_direction, hit_zone_name_or_nil, hit_normal, action_sweep_component)
@@ -1282,8 +1282,8 @@ local impact_fx_data = {
 	will_be_predicted = true,
 	source_parameters = {
 		hit_mass_percentage = 0,
-		num_melee_hits = 0
-	}
+		num_melee_hits = 0,
+	},
 }
 
 ActionSweep._do_damage_to_unit = function (self, damage_profile, hit_unit, hit_actor, hit_position, hit_normal, attack_direction, target_index, num_hit_enemies, hit_zone_name_or_nil, abort_attack, amount_of_mass_hit, damage_type, is_special_active)

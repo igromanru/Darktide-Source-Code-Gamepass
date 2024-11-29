@@ -5,14 +5,14 @@ local MonsterInjectionTemplates = {}
 MonsterInjectionTemplates.backend_twins = {
 	breed_names = {
 		"renegade_twin_captain",
-		"renegade_twin_captain_two"
+		"renegade_twin_captain_two",
 	},
 	difficulties = {
 		false,
 		false,
 		true,
 		true,
-		true
+		true,
 	},
 	should_inject = function ()
 		local pacing_manager = Managers.state.pacing
@@ -28,26 +28,26 @@ MonsterInjectionTemplates.backend_twins = {
 		monster.set_enraged = Managers.state.mutator:mutator("mutator_auric_tension_modifier")
 	end,
 	sound_data = {
-		voice_profile = "captain_twin_female_a",
 		breed_name = "renegade_twin_captain_two",
 		event = "wwise/events/minions/play_minion_special_twins_ambush_spawn",
 		vo_event = "cult_pre_ambush_a",
-		distance = math.random(25, 45)
-	}
+		voice_profile = "captain_twin_female_a",
+		distance = math.random(25, 45),
+	},
 }
 
 do
 	local single_twin = table.clone(MonsterInjectionTemplates.backend_twins)
 
 	single_twin.breed_names = {
-		"renegade_twin_captain_two"
+		"renegade_twin_captain_two",
 	}
 	single_twin.difficulties = {
 		true,
 		true,
 		true,
 		true,
-		true
+		true,
 	}
 
 	single_twin.should_inject = function ()

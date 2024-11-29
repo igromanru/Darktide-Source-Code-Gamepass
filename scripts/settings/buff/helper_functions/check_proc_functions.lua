@@ -16,7 +16,7 @@ local _is_within_close_distance
 
 CheckProcFunctions.all = function (...)
 	local conditions = {
-		...
+		...,
 	}
 
 	return function (...)
@@ -32,7 +32,7 @@ end
 
 CheckProcFunctions.any = function (...)
 	local conditions = {
-		...
+		...,
 	}
 
 	return function (...)

@@ -29,7 +29,7 @@ ExtensionSystemBase.init = function (self, extension_system_creation_context, sy
 		is_server = self._is_server,
 		has_navmesh = extension_system_creation_context.has_navmesh,
 		soft_cap_out_of_bounds_units = extension_system_creation_context.soft_cap_out_of_bounds_units,
-		owner_system = self
+		owner_system = self,
 	}
 	self._update_list = {}
 	self._extensions = {}
@@ -46,7 +46,7 @@ ExtensionSystemBase.init = function (self, extension_system_creation_context, sy
 		local extension_name = extension_list[i]
 		local update_list = {
 			update = {},
-			hot_join_sync = {}
+			hot_join_sync = {},
 		}
 
 		if has_pre_update then

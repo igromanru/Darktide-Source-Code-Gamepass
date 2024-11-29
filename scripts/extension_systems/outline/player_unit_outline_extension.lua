@@ -3,9 +3,9 @@
 local PlayerUnitStatus = require("scripts/utilities/attack/player_unit_status")
 local PlayerUnitOutlineExtension = class("PlayerUnitOutlineExtension")
 local IGNORED_DISABLED_OUTLINE_STATES = {
-	grabbed = true,
 	catapulted = true,
-	consumed = true
+	consumed = true,
+	grabbed = true,
 }
 local UPDATE_WAITING_PERIOD = 0.5
 

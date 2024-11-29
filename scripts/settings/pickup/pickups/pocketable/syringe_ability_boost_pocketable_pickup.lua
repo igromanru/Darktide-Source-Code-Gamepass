@@ -2,20 +2,20 @@
 
 local pickup_data = {
 	description = "loc_pickup_syringe_pocketable_02",
-	name = "syringe_ability_boost_pocketable",
-	look_at_tag = "pocketable",
-	spawn_unit_component_event = "set_colors",
-	pickup_sound = "wwise/events/player/play_pick_up_syringe",
-	interaction_type = "pocketable",
-	group = "pocketable",
-	inventory_slot_name = "slot_pocketable_small",
 	game_object_type = "pickup",
+	group = "pocketable",
 	interaction_icon = "content/ui/materials/hud/interactions/icons/pocketable_syringe_ability",
-	unit_template_name = "pickup",
+	interaction_type = "pocketable",
+	inventory_item = "content/items/pocketable/syringe_ability_boost_pocketable",
+	inventory_slot_name = "slot_pocketable_small",
+	look_at_tag = "pocketable",
+	name = "syringe_ability_boost_pocketable",
+	pickup_sound = "wwise/events/player/play_pick_up_syringe",
+	smart_tag_target_type = "pickup",
+	spawn_unit_component_event = "set_colors",
 	spawn_weighting = 0,
 	unit_name = "content/pickups/pocketables/syringe/pup_syringe_case",
-	smart_tag_target_type = "pickup",
-	inventory_item = "content/items/pocketable/syringe_ability_boost_pocketable",
+	unit_template_name = "pickup",
 	on_pickup_func = function (pickup_unit, interactor_unit, pickup_data)
 		local unit_data_extension = ScriptUnit.has_extension(interactor_unit, "unit_data_system")
 		local inventory_component = unit_data_extension and unit_data_extension:read_component("inventory")
@@ -41,13 +41,13 @@ local pickup_data = {
 				local pickup_name = pickup_data.name
 				local data = {
 					pickup_name = pickup_name,
-					exchanged_unit = replaced_unit_name
+					exchanged_unit = replaced_unit_name,
 				}
 
 				Managers.telemetry_events:player_picked_up_stimm(player, data)
 			end
 		end
-	end
+	end,
 }
 
 return pickup_data

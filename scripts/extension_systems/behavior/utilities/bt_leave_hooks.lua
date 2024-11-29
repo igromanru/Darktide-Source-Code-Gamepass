@@ -149,7 +149,7 @@ local BtLeaveHooks = {
 
 		behavior_component.net_is_ready = true
 		behavior_component.shoot_net_cooldown = 0
-	end
+	end,
 }
 
 return BtLeaveHooks

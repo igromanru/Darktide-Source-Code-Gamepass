@@ -8,5 +8,5 @@ table.make_unique(overrides)
 
 return {
 	base_templates = sway_templates,
-	overrides = overrides
+	overrides = overrides,
 }

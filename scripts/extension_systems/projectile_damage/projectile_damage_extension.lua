@@ -32,10 +32,10 @@ local ProjectileDamageExtension = class("ProjectileDamageExtension")
 local DEFAULT_POWER_LEVEL = PowerLevelSettings.default_power_level
 local IMPACT_FX_DATA = {
 	will_be_predicted = false,
-	source_parameters = {}
+	source_parameters = {},
 }
 local IMPACT_CONFIG = {
-	destroy_on_impact = false
+	destroy_on_impact = false,
 }
 
 ProjectileDamageExtension.init = function (self, extension_init_context, unit, extension_init_data, ...)

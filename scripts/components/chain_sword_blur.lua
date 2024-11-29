@@ -79,65 +79,65 @@ end
 
 ChainSwordBlur.component_data = {
 	min_speed = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 60,
 		min = 0,
 		step = 0.1,
-		decimals = 2,
-		value = 5,
 		ui_name = "Min speed",
-		max = 60
+		ui_type = "slider",
+		value = 5,
 	},
 	max_speed = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 60,
 		min = 0,
 		step = 0.1,
-		decimals = 2,
-		value = 30,
 		ui_name = "Max speed",
-		max = 60
+		ui_type = "slider",
+		value = 30,
 	},
 	fresnel_min = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		decimals = 2,
-		value = 0,
 		ui_name = "Fresnel min",
-		max = 1
+		ui_type = "slider",
+		value = 0,
 	},
 	fresnel_max = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		decimals = 2,
-		value = 0.47,
 		ui_name = "Fresnel max",
-		max = 1
+		ui_type = "slider",
+		value = 0.47,
 	},
 	blur_amount_min = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		decimals = 2,
-		value = 0.23,
 		ui_name = "Blur min",
-		max = 1
+		ui_type = "slider",
+		value = 0.23,
 	},
 	blur_amount_max = {
-		ui_type = "slider",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		decimals = 2,
-		value = 0.23,
 		ui_name = "Blur max",
-		max = 1
+		ui_type = "slider",
+		value = 0.23,
 	},
 	inputs = {
 		set_speed = {
 			accessibility = "public",
-			type = "event"
-		}
-	}
+			type = "event",
+		},
+	},
 }
 
 return ChainSwordBlur

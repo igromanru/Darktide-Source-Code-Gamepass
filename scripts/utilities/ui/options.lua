@@ -32,7 +32,7 @@ OptionsUtilities.create_percent_slider_template = function (params)
 		normalized_step_size = normalized_step_size,
 		apply_on_drag = params.apply_on_drag,
 		tooltip_text = params.tooltip_text,
-		id = params.id
+		id = params.id,
 	}
 
 	return slider_template
@@ -85,7 +85,7 @@ OptionsUtilities.create_value_slider_template = function (params)
 		normalized_step_size = normalized_step_size,
 		apply_on_drag = params.apply_on_drag,
 		tooltip_text = params.tooltip_text,
-		id = params.id
+		id = params.id,
 	}
 
 	return slider_template

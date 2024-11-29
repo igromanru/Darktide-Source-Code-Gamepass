@@ -30,7 +30,7 @@ local TENSION_TYPE = "knocked_down"
 local STINGER_ENTER_ALIAS = "disabled_enter"
 local STINGER_EXIT_ALIAS = "disabled_exit"
 local STINGER_PROPERTIES = {
-	stinger_type = "teammate_knocked_down"
+	stinger_type = "teammate_knocked_down",
 }
 
 PlayerCharacterStateKnockedDown.init = function (self, character_state_init_context, ...)
@@ -299,7 +299,7 @@ PlayerCharacterStateKnockedDown._add_buffs = function (self, t)
 
 		self._damage_reduction_buff_indexes = {
 			local_index = local_index,
-			component_index = component_index
+			component_index = component_index,
 		}
 	end
 
@@ -308,7 +308,7 @@ PlayerCharacterStateKnockedDown._add_buffs = function (self, t)
 
 		self._damage_tick_buff_indexes = {
 			local_index = local_index,
-			component_index = component_index
+			component_index = component_index,
 		}
 	end
 end

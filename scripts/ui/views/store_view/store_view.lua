@@ -21,47 +21,47 @@ local ViewElementTabMenu = require("scripts/ui/view_elements/view_element_tab_me
 local ViewElementWallet = require("scripts/ui/view_elements/view_element_wallet/view_element_wallet")
 local Vo = require("scripts/utilities/vo")
 local DIRECTION = {
+	DOWN = 2,
+	LEFT = 3,
 	RIGHT = 4,
 	UP = 1,
-	LEFT = 3,
-	DOWN = 2
 }
 local STORE_LAYOUT = {
 	{
-		telemetry_name = "featured",
 		display_name = "loc_premium_store_category_title_featured",
 		storefront = "premium_store_featured",
-		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button
+		telemetry_name = "featured",
+		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button,
 	},
 	{
-		telemetry_name = "veteran",
 		display_name = "loc_premium_store_category_skins_title_veteran",
 		storefront = "premium_store_skins_veteran",
-		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button
+		telemetry_name = "veteran",
+		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button,
 	},
 	{
-		telemetry_name = "zealot",
 		display_name = "loc_premium_store_category_skins_title_zealot",
 		storefront = "premium_store_skins_zealot",
-		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button
+		telemetry_name = "zealot",
+		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button,
 	},
 	{
-		telemetry_name = "psyker",
 		display_name = "loc_premium_store_category_skins_title_psyker",
 		storefront = "premium_store_skins_psyker",
-		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button
+		telemetry_name = "psyker",
+		template = ButtonPassTemplates.terminal_tab_menu_with_divider_button,
 	},
 	{
-		telemetry_name = "ogryn",
 		display_name = "loc_premium_store_category_skins_title_ogryn",
 		storefront = "premium_store_skins_ogryn",
-		template = ButtonPassTemplates.terminal_tab_menu_button
-	}
+		telemetry_name = "ogryn",
+		template = ButtonPassTemplates.terminal_tab_menu_button,
+	},
 }
 local AQUILA_STORE_LAYOUT = {
 	display_name = "loc_premium_store_category_title_currency",
 	storefront = "hard_currency_store",
-	template = ButtonPassTemplates.default_button
+	template = ButtonPassTemplates.default_button,
 }
 local DEBUG_GRID = false
 local StoreView = class("StoreView", "BaseView")
@@ -75,7 +75,7 @@ StoreView.init = function (self, settings, context)
 	self._pass_draw = false
 	self._can_exit = true
 	self._wallet_type = {
-		"aquilas"
+		"aquilas",
 	}
 	self._current_vo_event = nil
 	self._current_vo_id = nil
@@ -105,7 +105,7 @@ StoreView.on_enter = function (self)
 	self:_update_element_position("wallet_element_pivot", self._wallet_element, true)
 	self._wallet_element:_generate_currencies(self._wallet_type, {
 		nil,
-		30
+		30,
 	})
 
 	self._store_promise = self:_update_account_items():next(function ()
@@ -145,7 +145,7 @@ StoreView._update_store_page = function (self)
 
 		local path = {
 			page_index = self._selected_page_index or 1,
-			category_index = self._selected_category_index or 1
+			category_index = self._selected_category_index or 1,
 		}
 
 		return self:_open_navigation_path(path):next(function ()
@@ -204,13 +204,13 @@ StoreView._set_panels_store = function (self)
 	end
 
 	local tab_menu_settings = {
-		wrapped_selection = true,
-		horizontal_alignment = "center",
 		button_spacing = 20,
+		horizontal_alignment = "center",
+		wrapped_selection = true,
 		button_size = {
 			200,
-			30
-		}
+			30,
+		},
 	}
 	local category_panel = self:_setup_element(ViewElementTabMenu, "category_panel", 10, tab_menu_settings)
 
@@ -231,13 +231,13 @@ StoreView._set_panels_store = function (self)
 
 		tab_button_template[1].style = {
 			on_hover_sound = UISoundEvents.tab_secondary_button_hovered,
-			on_pressed_sound = UISoundEvents.tab_secondary_button_pressed
+			on_pressed_sound = UISoundEvents.tab_secondary_button_pressed,
 		}
 
 		local function entry_callback_function()
 			local path = {
 				page_index = 1,
-				category_index = i
+				category_index = i,
 			}
 
 			if not self._using_cursor_navigation then
@@ -274,7 +274,7 @@ end
 StoreView._initialize_opening_page = function (self)
 	local path = {
 		category_index = 1,
-		page_index = 1
+		page_index = 1,
 	}
 
 	self:_open_navigation_path(path)
@@ -352,7 +352,7 @@ StoreView.cb_on_back_pressed = function (self)
 
 		local path = {
 			page_index = self._selected_page_index,
-			category_index = self._selected_category_index
+			category_index = self._selected_category_index,
 		}
 
 		self._widgets_by_name.aquila_button.content.visible = true
@@ -644,7 +644,7 @@ StoreView._extract_items = function (self, offer)
 				real_item = real_item,
 				gearId = bundle_offer.description.gearId,
 				item = item,
-				offer = bundle_offer
+				offer = bundle_offer,
 			}
 		end
 	else
@@ -654,7 +654,7 @@ StoreView._extract_items = function (self, offer)
 			real_item = real_item,
 			gearId = offer.description.gearId,
 			item = item,
-			offer = offer
+			offer = offer,
 		}
 	end
 
@@ -682,7 +682,7 @@ StoreView._extract_item = function (self, description)
 
 		if visual_item and not visual_item.slots then
 			visual_item.slots = {
-				"slot_trinket_1"
+				"slot_trinket_1",
 			}
 		end
 	end
@@ -715,7 +715,7 @@ StoreView._fill_layout_with_offers = function (self, pages, offers, bundle_rules
 
 		if element then
 			local widget_types = {
-				special_offer_1 = "button_special_offer_1"
+				special_offer_1 = "button_special_offer_1",
 			}
 			local metadata_presentation_data = offer.sku.metadata and offer.sku.metadata.customPresentation
 
@@ -767,7 +767,7 @@ StoreView._fill_layout_with_offers = function (self, pages, offers, bundle_rules
 			end
 
 			local item_type_display_name_localized = Items.type_display_name({
-				item_type = item_type
+				item_type = item_type,
 			})
 
 			element.title = title
@@ -850,23 +850,23 @@ StoreView._create_aquilas_presentation = function (self, offers)
 	local template = StoreViewContentBlueprints.aquila_button
 	local size_addition = {
 		20,
-		20
+		20,
 	}
 	local spacing = {
 		20,
-		25
+		25,
 	}
 	local large_size = {
 		260,
-		350
+		350,
 	}
 	local small_size = {
 		260,
-		250
+		250,
 	}
 	local medium_size = {
 		260,
-		300
+		300,
 	}
 	local size_per_row = {}
 	local pass_template = template.pass_template
@@ -935,7 +935,7 @@ StoreView._create_aquilas_presentation = function (self, offers)
 				local aquilas = offer.value.amount
 				local aquila_minus_bonus = aquilas - bonus_aquila
 				local bonus_text = Localize("loc_premium_store_credits_bonus", true, {
-					amount = bonus_aquila
+					amount = bonus_aquila,
 				})
 
 				description = string.format("%d\n%s", aquila_minus_bonus, bonus_text)
@@ -944,7 +944,7 @@ StoreView._create_aquilas_presentation = function (self, offers)
 			element.description = description
 			element.offer = offer
 			element.item_types = {
-				"currency"
+				"currency",
 			}
 
 			local size, max_allowed_items_per_row, total_elements_in_row
@@ -983,7 +983,7 @@ StoreView._create_aquilas_presentation = function (self, offers)
 			widget.offset = {
 				element_position * (size[1] + spacing[1]),
 				0,
-				0
+				0,
 			}
 
 			local init = template.init
@@ -1018,22 +1018,22 @@ StoreView._create_aquilas_presentation = function (self, offers)
 			local description_style_options = UIFonts.get_font_options_by_style(widget.style.bonus_description)
 			local description_width, description_height = self:_text_size(widget.content.bonus_description, widget.style.bonus_description.font_type, widget.style.bonus_description.font_size, {
 				1920,
-				1080
+				1080,
 			}, description_style_options)
 
 			widget.style.bonus_description_background.size = {
 				description_width,
-				description_height
+				description_height,
 			}
 			widget.style.bonus_description_background_line.size = {
 				description_width,
-				description_height
+				description_height,
 			}
 			widgets[i] = widget
 			widget_grid_position_by_index[#widget_grid_position_by_index + 1] = {
 				row = row,
 				element_position_in_row = total_elements_in_row - element_position,
-				grid_index = start_row + element_position + 1
+				grid_index = start_row + element_position + 1,
 			}
 			widgets_count_per_row[row] = widgets_count_per_row[row] and widgets_count_per_row[row] + 1 or 1
 		end
@@ -1078,7 +1078,7 @@ StoreView._create_aquilas_presentation = function (self, offers)
 		widgets_position_by_index = widget_grid_position_by_index,
 		num_rows = needed_rows,
 		widgets_count_per_row = widgets_count_per_row,
-		total_widgets = #self._aquilas_widgets
+		total_widgets = #self._aquilas_widgets,
 	}
 
 	if not self._using_cursor_navigation then
@@ -1092,9 +1092,9 @@ StoreView._create_aquilas_presentation = function (self, offers)
 
 	if IS_PLAYSTATION then
 		local POSITION = {
-			RIGHT = 2,
 			CENTER = 0,
-			LEFT = 1
+			LEFT = 1,
+			RIGHT = 2,
 		}
 
 		if not self._ps_store_icon_showing then
@@ -1224,14 +1224,14 @@ StoreView._fetch_storefront = function (self, storefront, on_complete_callback)
 		local layout = layout_config and layout_config.layout or {
 			pages = {
 				{
-					items = {}
-				}
-			}
+					items = {},
+				},
+			},
 		}
 		local layout_pages = layout.pages
 		local spacing = {
 			30,
-			40
+			40,
 		}
 		local category_pages_layout_data = {}
 
@@ -1254,23 +1254,23 @@ StoreView._fetch_storefront = function (self, storefront, on_complete_callback)
 					display_name = "entry_" .. j,
 					grid_position = {
 						column_index,
-						row_index
+						row_index,
 					},
 					grid_size = {
 						cell_count_width,
-						cell_count_height
+						cell_count_height,
 					},
 					spacing = spacing,
 					mediaSize = item.mediaSize,
 					size_scale = {
 						cell_count_width / num_columns,
-						cell_count_height / num_rows
+						cell_count_height / num_rows,
 					},
 					position_scale = {
 						(column_index - 1) / num_columns,
-						(row_index - 1) / num_rows
+						(row_index - 1) / num_rows,
 					},
-					item_types = item.itemTypes
+					item_types = item.itemTypes,
 				}
 			end
 
@@ -1282,19 +1282,19 @@ StoreView._fetch_storefront = function (self, storefront, on_complete_callback)
 				grid_settings = {
 					size = {
 						w,
-						h
+						h,
 					},
 					start_offset = {
 						start_pos[1],
-						start_pos[2]
+						start_pos[2],
 					},
 					rows = num_rows,
 					columns = num_columns,
 					cell_size = {
 						grid_cell_width,
-						grid_cell_height
-					}
-				}
+						grid_cell_height,
+					},
+				},
 			}
 		end
 
@@ -1352,13 +1352,13 @@ end
 StoreView._setup_panels = function (self, category_pages_layout_data)
 	if #category_pages_layout_data > 1 then
 		local tab_menu_settings = {
+			button_spacing = 0,
 			fixed_button_size = true,
 			horizontal_alignment = "center",
-			button_spacing = 0,
 			button_size = {
 				30,
-				30
-			}
+				30,
+			},
 		}
 		local page_panel = self:_setup_element(ViewElementTabMenu, "page_panel", 10, tab_menu_settings)
 
@@ -1372,7 +1372,7 @@ StoreView._setup_panels = function (self, category_pages_layout_data)
 				local path = {
 					category_index = self._selected_category_index,
 					screen_index = self._selected_screen_index,
-					page_index = i
+					page_index = i,
 				}
 
 				self:_open_navigation_path(path)
@@ -1629,7 +1629,7 @@ StoreView.update = function (self, dt, t, input_service)
 
 			corner_right.content.original_size = {
 				corner_width,
-				corner_height
+				corner_height,
 			}
 		end
 
@@ -1658,7 +1658,7 @@ StoreView._update_timers = function (self)
 		local path = {
 			page_index = self._selected_page_index or 1,
 			category_index = self._selected_category_index or 1,
-			screen_index = self._selected_screen_index or 1
+			screen_index = self._selected_screen_index or 1,
 		}
 
 		self:_open_navigation_path(path)
@@ -1716,7 +1716,7 @@ StoreView.cb_on_grid_entry_left_pressed = function (self, widget, element)
 
 			Managers.event:trigger("event_add_notification_message", "currency", {
 				currency = currency,
-				amount = amount
+				amount = amount,
 			})
 			self:_update_wallets()
 			self:cb_on_back_pressed()
@@ -1730,7 +1730,7 @@ StoreView.cb_on_grid_entry_left_pressed = function (self, widget, element)
 
 		Managers.ui:open_view("store_item_detail_view", nil, nil, nil, nil, {
 			store_item = element,
-			parent = self
+			parent = self,
 		})
 	end
 end
@@ -1792,7 +1792,7 @@ StoreView._create_entry_widget_from_config = function (self, config, suffix, pri
 	if size_scale then
 		new_size = {
 			layout_width * size_scale[1] - spacing[1],
-			layout_height * size_scale[2] - spacing[2]
+			layout_height * size_scale[2] - spacing[2],
 		}
 	end
 
@@ -1803,7 +1803,7 @@ StoreView._create_entry_widget_from_config = function (self, config, suffix, pri
 		new_position = {
 			position_scale[1] * layout_width + spacing[1] * 0.5,
 			position_scale[2] * layout_height + spacing[2] * 0.5,
-			0
+			0,
 		}
 	end
 
@@ -1818,7 +1818,7 @@ StoreView._create_entry_widget_from_config = function (self, config, suffix, pri
 	widget.offset = new_position or {
 		0,
 		0,
-		0
+		0,
 	}
 	widget.nodes = self:_generate_nine_grid_nodes(size, widget.offset)
 	widget.config = config
@@ -2029,45 +2029,45 @@ StoreView._generate_nine_grid_nodes = function (self, size, position)
 		{
 			{
 				0,
-				0
+				0,
 			},
 			{
 				size[1] * 0.5,
-				0
+				0,
 			},
 			{
 				size[1],
-				0
-			}
+				0,
+			},
 		},
 		{
 			{
 				0,
-				size[2] * 0.5
+				size[2] * 0.5,
 			},
 			{
 				size[1] * 0.5,
-				size[2] * 0.5
+				size[2] * 0.5,
 			},
 			{
 				size[1],
-				size[2] * 0.5
-			}
+				size[2] * 0.5,
+			},
 		},
 		{
 			{
 				0,
-				size[2]
+				size[2],
 			},
 			{
 				size[1] * 0.5,
-				size[2]
+				size[2],
 			},
 			{
 				size[1],
-				size[2]
-			}
-		}
+				size[2],
+			},
+		},
 	}
 
 	for r = 1, #nodes do
@@ -2133,7 +2133,7 @@ StoreView._draw_grid = function (self, dt, t, input_service)
 		end
 
 		self._shine_animation_id = self:_start_animation("on_hover", self._widgets_by_name, {
-			widget = focused_widget
+			widget = focused_widget,
 		})
 	elseif not focused_widget and self._focused_widget then
 		self._focused_widget = nil
@@ -2331,20 +2331,20 @@ StoreView._debug_generate_layout = function (self, grid_settings)
 					display_name = "entry_" .. #layout + 1,
 					grid_position = {
 						column_index,
-						row_index
+						row_index,
 					},
 					grid_size = {
 						random_cell_count_width,
-						random_cell_count_height
+						random_cell_count_height,
 					},
 					size_scale = {
 						random_cell_count_width / num_columns,
-						random_cell_count_height / num_rows
+						random_cell_count_height / num_rows,
 					},
 					position_scale = {
 						(column_index - 1) / num_columns,
-						(row_index - 1) / num_rows
-					}
+						(row_index - 1) / num_rows,
+					},
 				}
 
 				layout[#layout + 1] = entry
@@ -2397,7 +2397,7 @@ StoreView._debug_draw_grid = function (self, dt, t, ui_renderer)
 		80,
 		255,
 		255,
-		255
+		255,
 	}
 
 	for i = 1, num_rows + 1 do
@@ -2516,7 +2516,7 @@ StoreView.play_vo_events = function (self, events, voice_profile, optional_route
 			voice_profile = voice_profile,
 			optional_route_key = optional_route_key,
 			delay = optional_delay,
-			is_opinion_vo = is_opinion_vo
+			is_opinion_vo = is_opinion_vo,
 		}
 	else
 		local wwise_route_key = optional_route_key or 40

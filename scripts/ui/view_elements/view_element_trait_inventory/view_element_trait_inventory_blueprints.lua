@@ -11,7 +11,7 @@ amount_style.text_color = Color.terminal_icon(nil, true)
 amount_style.offset = {
 	0,
 	-1,
-	3
+	3,
 }
 amount_style.text_horizontal_alignment = "center"
 amount_style.text_vertical_alignment = "bottom"
@@ -21,7 +21,7 @@ local unknown_style = table.clone(amount_style)
 unknown_style.offset = {
 	0,
 	-5,
-	3
+	3,
 }
 unknown_style.font_size = 10
 unknown_style.text_color[1] = 60
@@ -31,27 +31,27 @@ local ViewElementTraitInventoryBlueprints = {}
 ViewElementTraitInventoryBlueprints.spacing_vertical_small = {
 	size = {
 		430,
-		5
-	}
+		5,
+	},
 }
 ViewElementTraitInventoryBlueprints.spacing_vertical = {
 	size = {
 		430,
-		20
-	}
+		20,
+	},
 }
 ViewElementTraitInventoryBlueprints.trait = {
 	size = {
 		110,
-		110
+		110,
 	},
 	pass_template = {
 		{
-			pass_type = "hotspot",
 			content_id = "hotspot",
+			pass_type = "hotspot",
 			content = {
 				on_hover_sound = UISoundEvents.default_mouse_hover,
-				on_pressed_sound = UISoundEvents.default_click
+				on_pressed_sound = UISoundEvents.default_click,
 			},
 			change_function = function (content, style, animations, dt)
 				local parent_content = content.parent
@@ -81,27 +81,27 @@ ViewElementTraitInventoryBlueprints.trait = {
 				local lerp_direction = is_hover and 1 or -1
 
 				content.parent.progress = math.clamp((content.parent.progress or 0) + dt * lerp_direction * 6, 0, 1)
-			end
+			end,
 		},
 		{
-			value = "content/ui/materials/frames/dropshadow_medium",
-			style_id = "outer_shadow",
 			pass_type = "texture",
+			style_id = "outer_shadow",
+			value = "content/ui/materials/frames/dropshadow_medium",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
 				scale_to_material = true,
+				vertical_alignment = "center",
 				color = Color.black(100, true),
 				size_addition = {
 					20,
-					20
+					20,
 				},
 				offset = {
 					0,
 					0,
-					7
-				}
-			}
+					7,
+				},
+			},
 		},
 		{
 			pass_type = "texture",
@@ -109,17 +109,17 @@ ViewElementTraitInventoryBlueprints.trait = {
 			value = "content/ui/materials/backgrounds/default_square",
 			style = {
 				default_color = Color.terminal_background(nil, true),
-				selected_color = Color.terminal_background_selected(nil, true)
+				selected_color = Color.terminal_background_selected(nil, true),
 			},
-			change_function = ButtonPassTemplates.terminal_button_change_function
+			change_function = ButtonPassTemplates.terminal_button_change_function,
 		},
 		{
 			pass_type = "texture",
 			style_id = "frame",
 			value = "content/ui/materials/frames/frame_tile_2px",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				color = Color.terminal_frame(nil, true),
 				default_color = Color.terminal_frame(nil, true),
 				selected_color = Color.terminal_frame_selected(nil, true),
@@ -127,124 +127,124 @@ ViewElementTraitInventoryBlueprints.trait = {
 				offset = {
 					0,
 					0,
-					2
-				}
+					2,
+				},
 			},
-			change_function = ButtonPassTemplates.terminal_button_change_function
+			change_function = ButtonPassTemplates.terminal_button_change_function,
 		},
 		{
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				default_color = Color.terminal_background_gradient(nil, true),
 				selected_color = Color.terminal_frame_selected(nil, true),
 				offset = {
 					0,
 					0,
-					1
-				}
+					1,
+				},
 			},
 			{
 				pass_type = "texture",
 				style_id = "corner",
 				value = "content/ui/materials/frames/frame_corner_2px",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					default_color = Color.terminal_corner(nil, true),
 					selected_color = Color.terminal_corner_selected(nil, true),
 					offset = {
 						0,
 						0,
-						6
-					}
+						6,
+					},
 				},
-				change_function = ButtonPassTemplates.terminal_button_change_function
+				change_function = ButtonPassTemplates.terminal_button_change_function,
 			},
-			style_id = "background_gradient",
 			pass_type = "texture",
+			style_id = "background_gradient",
 			value = "content/ui/materials/gradients/gradient_vertical",
 			change_function = function (content, style)
 				ButtonPassTemplates.terminal_button_change_function(content, style)
 				ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-			end
+			end,
 		},
 		{
-			value = "content/ui/materials/frames/line_thin_dashed_animated",
 			pass_type = "texture",
+			value = "content/ui/materials/frames/line_thin_dashed_animated",
 			style = {
-				vertical_alignment = "center",
-				scale_to_material = true,
 				horizontal_alignment = "right",
+				scale_to_material = true,
+				vertical_alignment = "center",
 				offset = {
 					0,
 					0,
-					8
+					8,
 				},
 				color = Color.terminal_corner_selected(nil, true),
 				default_color = Color.terminal_corner_selected(0, true),
-				selected_color = Color.terminal_corner_selected(nil, true)
+				selected_color = Color.terminal_corner_selected(nil, true),
 			},
 			visibility_function = function (content, style)
 				return content.marked
-			end
+			end,
 		},
 		{
-			value = "content/ui/materials/frames/line_thin_detailed_02",
 			pass_type = "texture",
+			value = "content/ui/materials/frames/line_thin_detailed_02",
 			style = {
 				horizontal_alignment = "center",
 				vertical_alignment = "center",
 				offset = {
 					0,
 					0,
-					3
+					3,
 				},
-				color = Color.terminal_frame(128, true)
-			}
+				color = Color.terminal_frame(128, true),
+			},
 		},
 		{
 			pass_type = "texture",
 			style_id = "icon",
 			value = "content/ui/materials/icons/traits/traits_container",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				material_values = {},
 				size = {
 					64,
-					64
+					64,
 				},
 				offset = {
 					0,
 					0,
-					5
+					5,
 				},
-				color = Color.terminal_icon(255, true)
+				color = Color.terminal_icon(255, true),
 			},
 			change_function = function (content, style)
 				style.color[1] = (content.is_wasteful or content.is_unseen) and 60 or 255
-			end
+			end,
 		},
 		{
-			value_id = "expertise_cost",
-			style_id = "expertise_cost",
 			pass_type = "text",
+			style_id = "expertise_cost",
 			value = "",
+			value_id = "expertise_cost",
 			style = {
-				vertical_alignment = "bottom",
-				horizontal_alignment = "right",
 				font_size = 18,
-				text_vertical_alignment = "bottom",
+				horizontal_alignment = "right",
 				text_horizontal_alignment = "right",
+				text_vertical_alignment = "bottom",
+				vertical_alignment = "bottom",
 				offset = {
 					-5,
 					-5,
-					6
+					6,
 				},
-				text_color = Color.terminal_corner(255, true)
-			}
-		}
+				text_color = Color.terminal_corner(255, true),
+			},
+		},
 	},
 	init = function (parent, widget, config, callback_name)
 		local content = widget.content
@@ -321,51 +321,51 @@ ViewElementTraitInventoryBlueprints.trait = {
 				content.is_wasteful = true
 			end
 		end
-	end
+	end,
 }
 ViewElementTraitInventoryBlueprints.unknown_trait = {
 	size = {
 		110,
-		110
+		110,
 	},
 	pass_template = {
 		{
-			value = "content/ui/materials/frames/line_thin_detailed_02",
 			pass_type = "texture",
+			value = "content/ui/materials/frames/line_thin_detailed_02",
 			style = {
 				horizontal_alignment = "center",
 				vertical_alignment = "center",
 				offset = {
 					0,
 					0,
-					3
+					3,
 				},
-				color = Color.terminal_frame(255, true)
-			}
+				color = Color.terminal_frame(255, true),
+			},
 		},
 		{
-			value = "content/ui/materials/icons/traits/traits_container",
-			style_id = "icon",
 			pass_type = "texture",
+			style_id = "icon",
+			value = "content/ui/materials/icons/traits/traits_container",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				material_values = {
-					icon = "content/ui/textures/icons/traits/weapon_trait_unknown"
+					icon = "content/ui/textures/icons/traits/weapon_trait_unknown",
 				},
 				size = {
 					64,
-					64
+					64,
 				},
 				offset = {
 					0,
 					0,
-					5
+					5,
 				},
-				color = Color.terminal_icon(100, true)
-			}
-		}
-	}
+				color = Color.terminal_icon(100, true),
+			},
+		},
+	},
 }
 
 return ViewElementTraitInventoryBlueprints

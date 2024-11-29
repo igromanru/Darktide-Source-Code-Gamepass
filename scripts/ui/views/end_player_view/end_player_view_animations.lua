@@ -163,8 +163,8 @@ local function _create_icon_animation(animation_table, icons)
 	local _icon_styles = {}
 
 	animation_table[#animation_table + 1] = {
-		name = "fade_in_icons",
 		end_time = 0.1,
+		name = "fade_in_icons",
 		start_time = 0,
 		init = function (parent, ui_scenegraph, scenegraph_definition, widget, params)
 			local widget_style = widget.style
@@ -191,7 +191,7 @@ local function _create_icon_animation(animation_table, icons)
 
 				_color_utils_color_lerp(start_color, dimmed_out_color, eased_progress, icon_style.color)
 			end
-		end
+		end,
 	}
 
 	for i = 1, #icons, 2 do
@@ -240,7 +240,7 @@ local function _create_icon_animation(animation_table, icons)
 
 					color_utils_color_lerp(in_focus_color, dimmed_out_color, color_progress, prev_icon_bg_style.color)
 				end
-			end
+			end,
 		}
 		_passes_to_dim[#_passes_to_dim + 1] = icon_id
 		_passes_to_hide[#_passes_to_hide + 1] = background_id
@@ -286,7 +286,7 @@ local function _create_count_up_animation(animation_table, value_name, value_gro
 		end,
 		on_complete = function (parent, ui_scenegraph, scenegraph_definition, widget, params)
 			params._label_name = nil
-		end
+		end,
 	}
 	animation_table[#animation_table + 1] = {
 		start_time = animation_table[#animation_table].end_time,
@@ -345,7 +345,7 @@ local function _create_count_up_animation(animation_table, value_name, value_gro
 
 				parent:play_sound(sound_events.stop)
 			end
-		end
+		end,
 	}
 
 	if not animation_table._passes_to_dim then
@@ -357,12 +357,12 @@ end
 
 local function _create_progress_bar_animation(animation_table, start_time, end_time)
 	animation_table[#animation_table + 1] = {
-		name = "fade_in_experience_gain_text",
 		end_time = 0.1,
+		name = "fade_in_experience_gain_text",
 		start_time = 0,
 		init = function (parent, ui_scenegraph, scenegraph_definition, widget, params)
 			parent:update_xp_bar(0)
-		end
+		end,
 	}
 	animation_table[#animation_table + 1] = {
 		name = "update_progress_bar",
@@ -389,7 +389,7 @@ local function _create_progress_bar_animation(animation_table, start_time, end_t
 
 			parent:update_xp_bar(target_value)
 			parent:play_sound(UISoundEvents.end_screen_summary_xp_bar_stop)
-		end
+		end,
 	}
 end
 
@@ -405,7 +405,7 @@ local function _create_consolidate_wallet_animation(animation_table, retract_sta
 			local eased_progress = _math_ease_in_cubic(progress)
 
 			parent:retract_currency_gain_widgets(eased_progress)
-		end
+		end,
 	}
 	animation_table[#animation_table + 1] = {
 		name = "update_belated_wallet",
@@ -421,7 +421,7 @@ local function _create_consolidate_wallet_animation(animation_table, retract_sta
 		end,
 		on_complete = function (parent, ui_scenegraph, scenegraph_definition, widget, params)
 			parent:update_belated_wallet(1)
-		end
+		end,
 	}
 end
 
@@ -464,7 +464,7 @@ local function _create_fade_in_pass_animation(animation_table, style_name, start
 			local color_progress = _math_ease_sine(progress)
 
 			color_utils_color_lerp(start_color, target_color, color_progress, pass_color)
-		end
+		end,
 	}
 
 	local passes_to_dim = animation_table._passes_to_dim
@@ -480,7 +480,7 @@ end
 local function _create_init_weapon_animation(animation_table, start_time)
 	local slots = {
 		"slot_primary",
-		"slot_secondary"
+		"slot_secondary",
 	}
 
 	start_time = start_time or 0
@@ -525,7 +525,7 @@ local function _create_progress_weapon_animation(animation_table, start_time, en
 			local eased_progress = progress < 0.5 and _math_ease_sine(progress) or _math_ease_cubic(progress)
 			local slots = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 
 			for f = 1, #slots do
@@ -546,7 +546,7 @@ local function _create_progress_weapon_animation(animation_table, start_time, en
 
 			local slots = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 
 			for f = 1, #slots do
@@ -558,7 +558,7 @@ local function _create_progress_weapon_animation(animation_table, start_time, en
 			end
 
 			parent:play_sound(UISoundEvents.end_screen_summary_mastery_bar_stop)
-		end
+		end,
 	}
 end
 
@@ -576,7 +576,7 @@ local function _create_dim_weapon_animation(animation_table)
 
 			local slots = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 
 			for f = 1, #slots do
@@ -592,7 +592,7 @@ local function _create_dim_weapon_animation(animation_table)
 		update = function (parent, ui_scenegraph, scenegraph_definition, widget, progress, params)
 			local slots = {
 				"slot_primary",
-				"slot_secondary"
+				"slot_secondary",
 			}
 			local current_alpha = 255 - 255 * progress
 			local current_alpha_icon = 255 - 128 * progress
@@ -624,7 +624,7 @@ local function _create_dim_weapon_animation(animation_table)
 				"background",
 				"background_gradient",
 				"button_gradient",
-				"background"
+				"background",
 			}
 
 			for f = 1, #pass_names do
@@ -633,7 +633,7 @@ local function _create_dim_weapon_animation(animation_table)
 
 				widget.style[name].offset[2] = widget.style[name].start_offset[2] + current_offset
 			end
-		end
+		end,
 	}
 end
 
@@ -800,7 +800,7 @@ local function _create_dim_out_animation(animation_table, show_content_animation
 
 				color_utils_color_lerp(bg_start_color, bg_target_color, eased_progress, icon_bg_style.color)
 			end
-		end
+		end,
 	}
 end
 
@@ -869,7 +869,7 @@ local function _create_compress_content_animation(animation_table)
 				style.offset[1] = math_lerp(offset_original[1], offset_compressed[1], eased_progress)
 				style.offset[2] = math_lerp(offset_original[2], offset_compressed[2], eased_progress)
 			end
-		end
+		end,
 	}
 end
 
@@ -878,7 +878,7 @@ animations.experience_card_dim_out_content = {}
 
 _create_icon_animation(animations.experience_card_show_content, {
 	"experience",
-	0.25
+	0.25,
 })
 _create_count_up_animation(animations.experience_card_show_content, "base_xp", "experience", 0.25, 3)
 _create_count_up_animation(animations.experience_card_show_content, "side_mission_xp", "experience", 3.25, 4)
@@ -897,7 +897,7 @@ _create_icon_animation(animations.salary_card_show_content, {
 	"plasteel",
 	4.25,
 	"diamantine",
-	5.25
+	5.25,
 })
 _create_count_up_animation(animations.salary_card_show_content, "credits", "credits", 0.25, 2)
 _create_count_up_animation(animations.salary_card_show_content, "side_mission_credits", "credits", 2.25, 3)
@@ -931,8 +931,8 @@ _create_dim_out_animation(animations.item_reward_dim_out_content, animations.ite
 
 animations.test = {
 	{
-		name = "test",
 		end_time = 1,
+		name = "test",
 		start_time = 0,
 		init = function (parent, ui_scenegraph, scenegraph_definition, widgets_by_name, params)
 			return
@@ -942,8 +942,8 @@ animations.test = {
 		end,
 		on_complete = function (parent, ui_scenegraph, scenegraph_definition, widgets_by_name, params)
 			return
-		end
-	}
+		end,
+	},
 }
 animations.weapon_card_show_content = {}
 animations.weapon_card_dim_out_content = {}
@@ -985,8 +985,8 @@ end
 
 animations.weapon_level_up = {
 	{
-		name = "level_up_mastery",
 		end_time = 1,
+		name = "level_up_mastery",
 		start_time = 0,
 		init = function (parent, ui_scenegraph, scenegraph_definition, widget, params)
 			return
@@ -1011,7 +1011,7 @@ animations.weapon_level_up = {
 			local current_mastery_level = widget.content["weapon_current_mastery_level_" .. slot]
 			local slug_text = string.format("{#size(%d);color(%d, %d, %d)}%d{#reset()}", current_font_size, text_style.highlight_text_color[2], text_style.highlight_text_color[3], text_style.highlight_text_color[4], current_mastery_level)
 			local animated_mastery_level = Localize("loc_mastery_level_current", true, {
-				level = slug_text
+				level = slug_text,
 			})
 
 			widget.content["weapon_level_" .. slot] = animated_mastery_level
@@ -1029,10 +1029,10 @@ animations.weapon_level_up = {
 			local current_mastery_level = widget.content["weapon_current_mastery_level_" .. slot]
 
 			widget.content["weapon_level_" .. slot] = Localize("loc_mastery_level_current", true, {
-				level = current_mastery_level
+				level = current_mastery_level,
 			})
-		end
-	}
+		end,
+	},
 }
 
 return settings("EndPlayerViewAnimations", animations)

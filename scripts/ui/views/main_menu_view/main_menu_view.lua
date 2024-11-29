@@ -109,7 +109,7 @@ end
 
 MainMenuView._create_server_migration_element = function (self, data)
 	self._server_migration_element = self:_add_element(ViewElementServerMigration, "server_migration_element", 200, {
-		on_destroy_callback = callback(self, "on_server_migration_removed")
+		on_destroy_callback = callback(self, "on_server_migration_removed"),
 	})
 
 	self._server_migration_element:present(data)
@@ -144,15 +144,15 @@ MainMenuView._create_wallet_element = function (self)
 		"credits",
 		"marks",
 		"plasteel",
-		"diamantine"
+		"diamantine",
 	}
 
 	self._wallet_element:_generate_currencies(currencies, {
 		150,
-		30
+		30,
 	}, #currencies, {
 		nil,
-		10
+		10,
 	})
 
 	self._widgets_by_name.wallet_element_background.content.visible = true
@@ -304,7 +304,7 @@ MainMenuView._event_profiles_changed = function (self, profiles)
 	local slots_remaining = num_characters < max_num_characters and max_num_characters - num_characters or 0
 
 	self._widgets_by_name.slots_count.content.text = Localize("loc_main_menu_slots_remaining", true, {
-		count = slots_remaining
+		count = slots_remaining,
 	})
 
 	if num_characters == 0 then
@@ -390,7 +390,7 @@ end
 
 MainMenuView._reset_news_list = function (self)
 	return {
-		slides = {}
+		slides = {},
 	}
 end
 
@@ -403,7 +403,7 @@ MainMenuView._populate_news_list = function (self)
 		if #slides > 0 then
 			self._news_list = {
 				starting_slide_index = 1,
-				slides = slides
+				slides = slides,
 			}
 		else
 			self._news_list = self:_reset_news_list()
@@ -443,7 +443,7 @@ MainMenuView.update = function (self, dt, t, input_service)
 
 		Managers.ui:open_view("news_view", nil, nil, nil, nil, {
 			on_startup = true,
-			slide_data = slide_data
+			slide_data = slide_data,
 		})
 
 		self._news_list = self:_reset_news_list()
@@ -626,17 +626,17 @@ MainMenuView._on_delete_selected_character_pressed = function (self)
 
 	popup_params.title_text = "loc_main_menu_delete_character_popup_title"
 	popup_params.title_text_params = {
-		character_name = ProfileUtils.character_name(profile)
+		character_name = ProfileUtils.character_name(profile),
 	}
 	popup_params.title_text = "loc_main_menu_delete_character_popup_title"
 	popup_params.description_text = "loc_main_menu_delete_character_popup_description"
 	popup_params.type = "warning"
 	popup_params.options = {
 		{
-			text = "loc_main_menu_delete_character_popup_confirm",
-			template_type = "terminal_button_hold_small",
-			stop_exit_sound = true,
 			close_on_pressed = true,
+			stop_exit_sound = true,
+			template_type = "terminal_button_hold_small",
+			text = "loc_main_menu_delete_character_popup_confirm",
 			on_complete_sound = UISoundEvents.delete_character_confirm,
 			callback = callback(function ()
 				local character_id = profile.character_id
@@ -644,17 +644,17 @@ MainMenuView._on_delete_selected_character_pressed = function (self)
 				Managers.event:trigger("event_request_delete_character", character_id)
 
 				self._delete_popup_id = nil
-			end)
+			end),
 		},
 		{
-			text = "loc_main_menu_delete_character_popup_cancel",
-			template_type = "terminal_button_small",
 			close_on_pressed = true,
 			hotkey = "back",
+			template_type = "terminal_button_small",
+			text = "loc_main_menu_delete_character_popup_cancel",
 			callback = callback(function ()
 				self._delete_popup_id = nil
-			end)
-		}
+			end),
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", popup_params, function (id)
@@ -735,7 +735,7 @@ MainMenuView._sync_character_slots = function (self)
 
 	local grid = UIWidgetGrid:new(char_list, char_list, self._ui_scenegraph, grid_scenegraph_id, grid_direction, {
 		0,
-		0
+		0,
 	})
 	local scrollbar_widget = self._widgets_by_name.character_grid_scrollbar
 	local grid_content_scenegraph_id = "character_grid_content_pivot"
@@ -816,7 +816,7 @@ MainMenuView._create_character_list_renderer = function (self)
 		world = world,
 		viewport = viewport,
 		viewport_name = viewport_name,
-		renderer_name = renderer_name
+		renderer_name = renderer_name,
 	}
 end
 

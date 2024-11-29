@@ -26,7 +26,7 @@ local StatDefinitions = setmetatable({}, {
 	__newindex = function (_, key, value)
 		_stat_count, _stat_data[key] = _stat_count + 1, value
 		value.index, value.id = _stat_count, key
-	end
+	end,
 })
 
 local function _sorted(t)
@@ -207,8 +207,8 @@ end
 
 StatDefinitions.hook_player_spawned = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 
 do
@@ -225,10 +225,10 @@ do
 
 		StatDefinitions[stat_name] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				archetype_name = archetype_name
+				archetype_name = archetype_name,
 			},
 			triggers = {
 				{
@@ -237,33 +237,33 @@ do
 						local current_level = profile.current_level or 0
 
 						return set_to_max(self, stat_data, current_level)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 	end
 end
 
 StatDefinitions.hook_ranged_attack_concluded = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.shots_fired = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_ranged_attack_concluded",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.shots_missed = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -272,9 +272,9 @@ StatDefinitions.shots_missed = {
 				if not hit_minion then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 
 do
@@ -296,13 +296,13 @@ do
 		triggers = {
 			{
 				id = "shots_fired",
-				trigger = accuracy_function
+				trigger = accuracy_function,
 			},
 			{
 				id = "shots_missed",
-				trigger = accuracy_function
-			}
-		}
+				trigger = accuracy_function,
+			},
+		},
 	}
 end
 
@@ -310,7 +310,7 @@ StatDefinitions.shot_hit_weakspot = {
 	flags = {
 		StatFlags.never_log,
 		StatFlags.no_recover,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -319,15 +319,15 @@ StatDefinitions.shot_hit_weakspot = {
 				if hit_weakspot then
 					return self.id, hit_minion, hit_weakspot, killing_blow, last_round_in_mag
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.shot_missed_weakspot = {
 	flags = {
 		StatFlags.never_log,
 		StatFlags.no_recover,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -336,25 +336,25 @@ StatDefinitions.shot_missed_weakspot = {
 				if not hit_weakspot then
 					return self.id, hit_minion, hit_weakspot, killing_blow, last_round_in_mag
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_projectile_hit = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_health_update = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.never_log
-	}
+		StatFlags.never_log,
+	},
 }
 StatDefinitions.time_spent_on_last_health_segment = {
 	flags = {
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -363,89 +363,89 @@ StatDefinitions.time_spent_on_last_health_segment = {
 				if not is_knocked_down and remaining_health_segments <= 0 then
 					return increment_by(self, stat_data, dt)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_alternate_fire_start = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_alternate_fire_stop = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.alternate_fire_active = {
 	flags = {
 		StatFlags.no_recover,
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_alternate_fire_start",
 			trigger = function (self, stat_data)
 				return set_to_max(self, stat_data, 1)
-			end
+			end,
 		},
 		{
 			id = "hook_alternate_fire_stop",
 			trigger = function (self, stat_data)
 				return set_to_min(self, stat_data, 0)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_kill = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.team_kill = {
 	flags = {
 		StatFlags.team,
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_kill",
-			trigger = StatMacros.forward
-		}
-	}
+			trigger = StatMacros.forward,
+		},
+	},
 }
 StatDefinitions.session_team_kills = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
 			id = "hook_kill",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.local_team_kills = {
 	flags = {},
 	triggers = {
 		{
 			id = "team_kill",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.total_kills = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_kill",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 
 do
@@ -454,19 +454,19 @@ do
 	for _, sub_faction_name in ipairs({
 		"chaos",
 		"renegade",
-		"cultist"
+		"cultist",
 	}) do
 		for _, attack_type in ipairs({
 			"melee",
 			"ranged",
-			"explosion"
+			"explosion",
 		}) do
 			local stat_name = string.format("team_%s_killed_with_%s", sub_faction_name, attack_type)
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.never_log
-				}
+					StatFlags.never_log,
+				},
 			}
 			tree[sub_faction_name] = tree[sub_faction_name] or {}
 			tree[sub_faction_name][attack_type] = stat_name
@@ -476,11 +476,11 @@ do
 	StatDefinitions.team_killed_with_splitter = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
 			stat_lookup = tree,
-			breed_lookup = breed_name_to_sub_faction_lookup
+			breed_lookup = breed_name_to_sub_faction_lookup,
 		},
 		triggers = {
 			{
@@ -498,9 +498,9 @@ do
 
 						return id, stat_data[id]
 					end
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 end
 
@@ -510,17 +510,17 @@ do
 	for _, sub_faction_name in ipairs({
 		"chaos",
 		"renegade",
-		"cultist"
+		"cultist",
 	}) do
 		for _, attack_type in ipairs({
 			"melee",
 			"ranged",
-			"explosion"
+			"explosion",
 		}) do
 			local stat_name = string.format("%s_killed_with_%s", sub_faction_name, attack_type)
 
 			StatDefinitions[stat_name] = {
-				flags = {}
+				flags = {},
 			}
 			tree[sub_faction_name] = tree[sub_faction_name] or {}
 			tree[sub_faction_name][attack_type] = stat_name
@@ -530,11 +530,11 @@ do
 	StatDefinitions.killed_with_splitter = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
 			stat_lookup = tree,
-			breed_lookup = breed_name_to_sub_faction_lookup
+			breed_lookup = breed_name_to_sub_faction_lookup,
 		},
 		triggers = {
 			{
@@ -552,9 +552,9 @@ do
 
 						return id, stat_data[id]
 					end
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 end
 
@@ -569,21 +569,21 @@ do
 
 		local flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		}
 
 		StatDefinitions[id] = {
-			flags = flags
+			flags = flags,
 		}
 	end
 
 	StatDefinitions.breed_kill_splitter = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
-			breed_to_stat = breed_to_stat
+			breed_to_stat = breed_to_stat,
 		},
 		triggers = {
 			{
@@ -593,9 +593,9 @@ do
 					local id = self.data.breed_to_stat[breed_name]
 
 					return id, attack_data
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 
 	for i = 1, #breed_names do
@@ -605,15 +605,15 @@ do
 
 		StatDefinitions[stat_id] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			triggers = {
 				{
 					id = hook_id,
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			stat_name = Breeds[breed_name].display_name
+			stat_name = Breeds[breed_name].display_name,
 		}
 	end
 
@@ -625,7 +625,7 @@ do
 
 			triggers[i] = {
 				id = hook_id,
-				trigger = StatMacros.increment
+				trigger = StatMacros.increment,
 			}
 		end
 
@@ -634,27 +634,27 @@ do
 
 	StatDefinitions.total_renegade_kills = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
-		triggers = breed_kill_triggers(renegade_breeds)
+		triggers = breed_kill_triggers(renegade_breeds),
 	}
 	StatDefinitions.total_cultist_kills = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
-		triggers = breed_kill_triggers(cultist_breeds)
+		triggers = breed_kill_triggers(cultist_breeds),
 	}
 	StatDefinitions.total_chaos_kills = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
-		triggers = breed_kill_triggers(chaos_breeds)
+		triggers = breed_kill_triggers(chaos_breeds),
 	}
 end
 
 StatDefinitions.weakspot_kill = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -663,26 +663,26 @@ StatDefinitions.weakspot_kill = {
 				if is_weakspot_hit(attack_data) then
 					return self.id, attack_data
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.team_weakspot_kill = {
 	flags = {
 		StatFlags.team,
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "weakspot_kill",
-			trigger = StatMacros.forward
-		}
-	}
+			trigger = StatMacros.forward,
+		},
+	},
 }
 StatDefinitions.head_shot_kill = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -691,13 +691,13 @@ StatDefinitions.head_shot_kill = {
 				if attack_data.attack_type == "ranged" then
 					return self.id, attack_data
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.non_head_shot_kill = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -708,108 +708,108 @@ StatDefinitions.non_head_shot_kill = {
 				if not is_head_shot then
 					return self.id, attack_data
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.session_weakspot_kills = {
 	flags = {},
 	triggers = {
 		{
 			id = "team_weakspot_kill",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.head_shot_kills_last_10_sec = {
 	flags = {
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
 			id = "head_shot_kill",
-			trigger = StatMacros.increment
+			trigger = StatMacros.increment,
 		},
 		{
 			id = "head_shot_kill",
 			trigger = StatMacros.decrement,
-			delay = seconds(10)
-		}
-	}
+			delay = seconds(10),
+		},
+	},
 }
 StatDefinitions.max_head_shot_kills_last_10_sec = {
 	running_stat = "head_shot_kills_last_10_sec",
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "head_shot_kills_last_10_sec",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.head_shot_kills_in_a_row = {
 	flags = {
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
 			id = "head_shot_kill",
-			trigger = StatMacros.increment
+			trigger = StatMacros.increment,
 		},
 		{
 			id = "non_head_shot_kill",
 			trigger = function (self, stat_data, attack_data)
 				return set_to_min(self, stat_data, 0)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.max_head_shot_in_a_row = {
 	running_stat = "head_shot_kills_in_a_row",
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "head_shot_kills_in_a_row",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.kills_last_60_sec = {
 	flags = {
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
 			id = "hook_kill",
-			trigger = StatMacros.increment
+			trigger = StatMacros.increment,
 		},
 		{
 			id = "hook_kill",
 			trigger = StatMacros.decrement,
-			delay = seconds(30)
-		}
-	}
+			delay = seconds(30),
+		},
+	},
 }
 StatDefinitions.max_kills_last_60_sec = {
 	running_stat = "kills_last_60_sec",
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "kills_last_60_sec",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.kill_climbing = {
 	flags = {
 		StatFlags.backend,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -820,14 +820,14 @@ StatDefinitions.kill_climbing = {
 				if action == "climb" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.ledge_kill = {
 	flags = {
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -838,54 +838,54 @@ StatDefinitions.ledge_kill = {
 				if damage_profile_name == "kill_volume_and_off_navmesh" then
 					return self.id, attack_data
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_boss_died = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.team
-	}
+		StatFlags.team,
+	},
 }
 StatDefinitions.fastest_boss_kill = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_boss_died",
 			trigger = function (self, stat_data, breed_name, boss_max_health, boss_unit_id, time_since_first_damage)
 				return set_to_min(self, stat_data, time_since_first_damage)
-			end
-		}
+			end,
+		},
 	},
-	default = hours(5)
+	default = hours(5),
 }
 StatDefinitions.session_boss_kills = {
 	flags = {},
 	triggers = {
 		{
 			id = "hook_boss_died",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.hook_damage_dealt = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_explosion = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_team_explosion = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.team
-	}
+		StatFlags.team,
+	},
 }
 
 do
@@ -899,21 +899,21 @@ do
 
 		local flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		}
 
 		StatDefinitions[id] = {
-			flags = flags
+			flags = flags,
 		}
 	end
 
 	StatDefinitions.breed_damage_splitter = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
-			breed_to_stat = breed_to_stat
+			breed_to_stat = breed_to_stat,
 		},
 		triggers = {
 			{
@@ -923,62 +923,62 @@ do
 					local id = self.data.breed_to_stat[breed_name]
 
 					return id, attack_data
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 end
 
 StatDefinitions.hook_buff = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_shout_buff = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_damage_taken = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.session_damage_taken = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_damage_taken",
 			trigger = function (self, stat_data, damage_dealt, attack_type, attacker_breed)
 				return increment_by(self, stat_data, damage_dealt)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.session_team_damage_taken = {
 	flags = {
 		StatFlags.team,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_damage_taken",
 			trigger = function (self, stat_data, damage_dealt, attack_type, attacker_breed)
 				return increment_by(self, stat_data, damage_dealt)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_dodged_attack = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.dodges_in_a_row = {
 	flags = {
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
@@ -987,31 +987,31 @@ StatDefinitions.dodges_in_a_row = {
 				if attack_type ~= "ranged" and dodge_type == "dodge" then
 					return increment(self, stat_data)
 				end
-			end
+			end,
 		},
 		{
 			id = "hook_damage_taken",
 			trigger = function (self, stat_data, breed_name, attack_type, dodge_type)
 				return set_to_min(self, stat_data, 0)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.max_dodges_in_a_row = {
 	running_stat = "dodges_in_a_row",
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "dodges_in_a_row",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.total_sprint_dodges = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -1020,13 +1020,13 @@ StatDefinitions.total_sprint_dodges = {
 				if attack_type == "ranged" and dodge_type == "sprint" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_slide_dodges = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -1035,153 +1035,153 @@ StatDefinitions.total_slide_dodges = {
 				if dodge_type == "slide" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_blocked_damage = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.team_blocked_damage = {
 	flags = {
 		StatFlags.team,
 		StatFlags.no_sync,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	triggers = {
 		{
 			id = "hook_blocked_damage",
-			trigger = StatMacros.forward
-		}
-	}
+			trigger = StatMacros.forward,
+		},
+	},
 }
 StatDefinitions.session_my_blocked_damage = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "hook_blocked_damage",
 			trigger = function (self, stat_data, weapon_template_name, damage_blocked)
 				return increment_by(self, stat_data, damage_blocked)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.session_team_blocked_damage = {
 	flags = {
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
 			id = "team_blocked_damage",
 			trigger = function (self, stat_data, weapon_template_name, damage_blocked)
 				return increment_by(self, stat_data, damage_blocked)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.damage_blocked_last_20_sec = {
 	flags = {
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
 			id = "hook_blocked_damage",
 			trigger = function (self, stat_data, weapon_template_name, damage_blocked)
 				return increment_by(self, stat_data, damage_blocked)
-			end
+			end,
 		},
 		{
 			id = "hook_blocked_damage",
 			trigger = function (self, stat_data, weapon_template_name, damage_blocked)
 				return increment_by(self, stat_data, -damage_blocked)
 			end,
-			delay = seconds(10)
-		}
-	}
+			delay = seconds(10),
+		},
+	},
 }
 StatDefinitions.max_damage_blocked_last_20_sec = {
 	running_stat = "damage_blocked_last_20_sec",
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "damage_blocked_last_20_sec",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.hook_knocked_down = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.session_knock_downs = {
 	flags = {},
 	triggers = {
 		{
 			id = "hook_knocked_down",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.team_knock_downs = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
 			id = "hook_knocked_down",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.hook_death = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.session_deaths = {
 	flags = {},
 	triggers = {
 		{
 			id = "hook_death",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.team_deaths = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
 			id = "hook_death",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.hook_collect_material = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.team_collect_material = {
 	flags = {
 		StatFlags.no_sync,
 		StatFlags.team,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	triggers = {
 		{
 			id = "hook_collect_material",
-			trigger = StatMacros.forward
-		}
-	}
+			trigger = StatMacros.forward,
+		},
+	},
 }
 
 do
@@ -1195,57 +1195,57 @@ do
 
 	for _, material in ipairs({
 		"plasteel",
-		"diamantine"
+		"diamantine",
 	}) do
 		local total_id = string.format("total_%s_collected", material)
 
 		StatDefinitions[total_id] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				material = material
+				material = material,
 			},
 			triggers = {
 				{
 					id = "hook_collect_material",
-					trigger = material_increases
-				}
-			}
+					trigger = material_increases,
+				},
+			},
 		}
 
 		local team_id = string.format("team_%s_collected", material)
 
 		StatDefinitions[team_id] = {
 			flags = {
-				StatFlags.team
+				StatFlags.team,
 			},
 			data = {
-				material = material
+				material = material,
 			},
 			triggers = {
 				{
 					id = "hook_collect_material",
-					trigger = material_increases
-				}
-			}
+					trigger = material_increases,
+				},
+			},
 		}
 
 		local seen_id = string.format("seen_%s_collected", material)
 
 		StatDefinitions[seen_id] = {
 			flags = {
-				StatFlags
+				StatFlags,
 			},
 			data = {
-				material = material
+				material = material,
 			},
 			triggers = {
 				{
 					id = "team_collect_material",
-					trigger = material_increases
-				}
-			}
+					trigger = material_increases,
+				},
+			},
 		}
 	end
 end
@@ -1258,26 +1258,26 @@ do
 	StatDefinitions.hook_mission_ended = {
 		flags = {
 			StatFlags.hook,
-			StatFlags.team
-		}
+			StatFlags.team,
+		},
 	}
 	StatDefinitions.hook_fan_kill = {
 		flags = {
 			StatFlags.hook,
-			StatFlags.team
-		}
+			StatFlags.team,
+		},
 	}
 	StatDefinitions.hook_bottle_kill = {
 		flags = {
 			StatFlags.hook,
-			StatFlags.team
-		}
+			StatFlags.team,
+		},
 	}
 	StatDefinitions.mission_won = {
 		flags = {
 			StatFlags.no_sync,
 			StatFlags.never_log,
-			StatFlags.team
+			StatFlags.team,
 		},
 		triggers = {
 			{
@@ -1286,55 +1286,55 @@ do
 					if won then
 						return self.id, ...
 					end
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 	StatDefinitions.whole_mission_won = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		triggers = {
 			{
 				id = "mission_won",
-				trigger = StatMacros.forward
-			}
+				trigger = StatMacros.forward,
+			},
 		},
 		include_condition = function (self, config)
 			return config.joined_at <= 0.2
-		end
+		end,
 	}
 	StatDefinitions.missions = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
-				trigger = StatMacros.increment
-			}
-		}
+				trigger = StatMacros.increment,
+			},
+		},
 	}
 	StatDefinitions.auric_missions = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
 				trigger = function (self, stat_data)
 					return increment(self, stat_data)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_auric_mission
-		end
+		end,
 	}
 	StatDefinitions.personal_flawless_auric = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1347,52 +1347,52 @@ do
 					else
 						return set_to_min(self, stat_data, 0)
 					end
-				end
+				end,
 			},
 			{
 				id = "hook_death",
 				trigger = function (self, stat_data)
 					return set_to_min(self, stat_data, 0)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_auric_mission and config.joined_at <= 0.2
-		end
+		end,
 	}
 	StatDefinitions.mission_maelstrom = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_flash_mission
-		end
+		end,
 	}
 	StatDefinitions.mission_auric_maelstrom = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
 				trigger = function (self, stat_data)
 					return increment(self, stat_data)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_flash_mission and config.is_auric_mission
-		end
+		end,
 	}
 	StatDefinitions.flawless_auric_maelstrom = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1403,16 +1403,16 @@ do
 					if team_knock_downs == 0 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_auric_mission and config.difficulty >= 5
-		end
+		end,
 	}
 	StatDefinitions.flawless_auric_maelstrom_consecutive = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1425,22 +1425,22 @@ do
 					else
 						return set_to_min(self, stat_data, 0)
 					end
-				end
+				end,
 			},
 			{
 				id = "hook_death",
 				trigger = function (self, stat_data)
 					return set_to_min(self, stat_data, 0)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_flash_mission and config.is_auric_mission and config.difficulty >= 5 and config.joined_at <= 0.2
-		end
+		end,
 	}
 	StatDefinitions.flawless_auric_maelstrom_won = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1451,12 +1451,12 @@ do
 					if team_knock_downs == 0 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.is_flash_mission and config.is_auric_mission and config.difficulty >= 5
-		end
+		end,
 	}
 	StatDefinitions.mission_propaganda_fan_kills = {
 		flags = {},
@@ -1464,12 +1464,12 @@ do
 		triggers = {
 			{
 				id = "hook_fan_kill",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
 		include_condition = function (self, config)
 			return config.mission_name == "dm_propaganda"
-		end
+		end,
 	}
 	StatDefinitions.mission_raid_bottles_destroyed = {
 		flags = {},
@@ -1477,22 +1477,22 @@ do
 		triggers = {
 			{
 				id = "hook_bottle_kill",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
 		include_condition = function (self, config)
 			return config.mission_name == "cm_raid"
-		end
+		end,
 	}
 	StatDefinitions.mission_circumstance = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
@@ -1500,27 +1500,27 @@ do
 			local eligible_circumstance_name = circumstance_name ~= nil and circumstance_name ~= "default" and not hidden_circumstance_name
 
 			return eligible_circumstance_name
-		end
+		end,
 	}
 	StatDefinitions.mission_twins = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "mission_won",
-				trigger = _max_difficulty
-			}
+				trigger = _max_difficulty,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name ~= nil and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_hard_mode = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1531,19 +1531,19 @@ do
 					if has_hard_mode and difficulty >= 5 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 			local has_correct_circumstance = circumstance_name ~= nil and circumstance_name == "toxic_gas_twins_01"
 
 			return has_correct_circumstance
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_secret_puzzle_trigger = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1554,19 +1554,19 @@ do
 					if has_hard_mode then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 			local has_correct_circumstance = circumstance_name ~= nil and circumstance_name == "toxic_gas_twins_01"
 
 			return has_correct_circumstance
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_kills_within_x = {
 		flags = {
-			StatFlags.always_log
+			StatFlags.always_log,
 		},
 		triggers = {
 			{
@@ -1575,7 +1575,7 @@ do
 					if breed_name == "renegade_twin_captain" or breed_name == "renegade_twin_captain_two" then
 						return increment(self, stat_data)
 					end
-				end
+				end,
 			},
 			{
 				id = "hook_boss_died",
@@ -1584,19 +1584,19 @@ do
 						return decrement(self, stat_data)
 					end
 				end,
-				delay = seconds(5)
-			}
+				delay = seconds(5),
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_killed_successfully_within_x = {
 		running_stat = "mission_twins_kills_within_x",
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1605,49 +1605,49 @@ do
 					if value == 2 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.hook_mission_twins_mine_triggered = {
 		flags = {
 			StatFlags.hook,
-			StatFlags.team
-		}
+			StatFlags.team,
+		},
 	}
 	StatDefinitions.hook_mission_twins_boss_started_mine_intialized = {
 		flags = {
 			StatFlags.hook,
-			StatFlags.team
-		}
+			StatFlags.team,
+		},
 	}
 	StatDefinitions.team_twins_boss_fight_started = {
 		flags = {
-			StatFlags.team
+			StatFlags.team,
 		},
 		triggers = {
 			{
 				id = "hook_mission_twins_boss_started_mine_intialized",
 				trigger = function (self, stat_data)
 					return set_to(self, stat_data, 1)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_mine_triggered_count = {
 		default = 3,
 		flags = {
-			StatFlags.team
+			StatFlags.team,
 		},
 		triggers = {
 			{
@@ -1658,18 +1658,18 @@ do
 					if _boss_fight_started then
 						return decrement(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.mission_twins_no_mines_triggered = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -1680,18 +1680,18 @@ do
 					if track_mines then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			local circumstance_name = config.circumstance_name
 
 			return circumstance_name and circumstance_name == "toxic_gas_twins_01"
-		end
+		end,
 	}
 	StatDefinitions.team_knocked_down_timer_stat = {
 		flags = {
-			StatFlags.team
+			StatFlags.team,
 		},
 		triggers = {
 			{
@@ -1700,16 +1700,16 @@ do
 					if is_knocked_down then
 						return increment_by(self, stat_data, dt)
 					end
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 	StatDefinitions.team_win_without_ally_downed_longer_then_x = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			threshold = 5
+			threshold = 5,
 		},
 		triggers = {
 			{
@@ -1720,28 +1720,28 @@ do
 					if team_knock_downs < self.data.threshold then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.difficulty >= 4
-		end
+		end,
 	}
 
 	do
 		local circumstance_entries = {
 			{
 				mutator = "mutator_darkness_los",
-				name = "darkness"
+				name = "darkness",
 			},
 			{
 				mutator = "mutator_ventilation_purge_los",
-				name = "ventilation"
+				name = "ventilation",
 			},
 			{
 				mutator = "mutator_toxic_gas_volumes",
-				name = "toxic_gas"
-			}
+				name = "toxic_gas",
+			},
 		}
 
 		local function has_correct_mutator(self, config)
@@ -1755,18 +1755,18 @@ do
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
-					mutator = entry.mutator
+					mutator = entry.mutator,
 				},
 				triggers = {
 					{
 						id = "mission_won",
-						trigger = StatMacros.increment
-					}
+						trigger = StatMacros.increment,
+					},
 				},
-				include_condition = has_correct_mutator
+				include_condition = has_correct_mutator,
 			}
 		end
 	end
@@ -1777,20 +1777,20 @@ do
 
 		StatDefinitions[stat_name] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				mission_type = mission_type.type
+				mission_type = mission_type.type,
 			},
 			triggers = {
 				{
 					id = "mission_won",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
 			include_condition = function (self, config)
 				return self.data.mission_type == config.mission_type
-			end
+			end,
 		}
 	end
 
@@ -1800,17 +1800,17 @@ do
 
 		StatDefinitions[stat_name] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				mission_type = mission_type.type
+				mission_type = mission_type.type,
 			},
 			stat_name = mission_type.name,
 			triggers = {
 				{
 					id = "mission_won",
-					trigger = _max_difficulty
-				}
+					trigger = _max_difficulty,
+				},
 			},
 			include_condition = function (self, config)
 				return self.data.mission_type == config.mission_type
@@ -1823,7 +1823,7 @@ do
 						return difficulty
 					end
 				end
-			end
+			end,
 		}
 	end
 
@@ -1833,20 +1833,20 @@ do
 
 		StatDefinitions[stat_name] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				mission_name = mission_name
+				mission_name = mission_name,
 			},
 			triggers = {
 				{
 					id = "mission_won",
-					trigger = _max_difficulty
-				}
+					trigger = _max_difficulty,
+				},
 			},
 			include_condition = function (self, config)
 				return self.data.mission_name == config.mission_name
-			end
+			end,
 		}
 	end
 
@@ -1858,23 +1858,23 @@ do
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
 					mission_name = mission_name,
-					difficulty = difficulty
+					difficulty = difficulty,
 				},
 				triggers = {
 					{
 						id = "mission_won",
 						trigger = function (self, stat_data)
 							return set_to_max(self, stat_data, 1)
-						end
-					}
+						end,
+					},
 				},
 				include_condition = function (self, config)
 					return self.data.mission_name == config.mission_name and self.data.difficulty <= config.difficulty
-				end
+				end,
 			}
 		end
 	end
@@ -1887,23 +1887,23 @@ do
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
 					mission_name = mission_name,
-					difficulty = difficulty
+					difficulty = difficulty,
 				},
 				triggers = {
 					{
 						id = "mission_won",
 						trigger = function (self, stat_data)
 							return set_to_max(self, stat_data, 1)
-						end
-					}
+						end,
+					},
 				},
 				include_condition = function (self, config)
 					return self.data.mission_name == config.mission_name and self.data.difficulty <= config.difficulty and config.is_auric_mission
-				end
+				end,
 			}
 		end
 	end
@@ -1914,16 +1914,16 @@ do
 
 		StatDefinitions[stat_name] = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				zone_id = zone_name
+				zone_id = zone_name,
 			},
 			triggers = {
 				{
 					id = "mission_won",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
 			include_condition = function (self, config)
 				local is_hub = config.is_hub
@@ -1933,7 +1933,7 @@ do
 				end
 
 				return MissionTemplates[config.mission_name].zone_id == self.data.zone_id
-			end
+			end,
 		}
 	end
 
@@ -1945,20 +1945,20 @@ do
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
-					archetype_name = archetype_name
+					archetype_name = archetype_name,
 				},
 				triggers = {
 					{
 						id = "mission_won",
-						trigger = StatMacros.increment
-					}
+						trigger = StatMacros.increment,
+					},
 				},
 				include_condition = function (self, config)
 					return self.data.archetype_name == config.archetype_name
-				end
+				end,
 			}
 		end
 
@@ -1968,18 +1968,18 @@ do
 
 			StatDefinitions[stat_name] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				stat_name = mission_type.name,
 				data = {
 					mission_type = mission_type.type,
-					archetype_name = archetype_name
+					archetype_name = archetype_name,
 				},
 				triggers = {
 					{
 						id = "mission_won",
-						trigger = _max_difficulty
-					}
+						trigger = _max_difficulty,
+					},
 				},
 				include_condition = function (self, config)
 					local data = self.data
@@ -1998,7 +1998,7 @@ do
 							return difficulty
 						end
 					end
-				end
+				end,
 			}
 		end
 
@@ -2007,17 +2007,17 @@ do
 
 			StatDefinitions[stat_id] = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
 					archetype_name = archetype_name,
-					difficulty = difficulty
+					difficulty = difficulty,
 				},
 				triggers = {
 					{
 						id = "mission_won",
-						trigger = StatMacros.increment
-					}
+						trigger = StatMacros.increment,
+					},
 				},
 				include_condition = function (self, config)
 					local data = self.data
@@ -2025,14 +2025,14 @@ do
 					local correct_archetype_name = config.archetype_name == data.archetype_name
 
 					return correct_difficulty and correct_archetype_name
-				end
+				end,
 			}
 		end
 	end
 
 	StatDefinitions._flawless_missions_in_a_row = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -2046,43 +2046,43 @@ do
 					else
 						return set_to_min(self, stat_data, 0)
 					end
-				end
+				end,
 			},
 			{
 				id = "hook_knocked_down",
 				trigger = function (self, stat_data)
 					return set_to_min(self, stat_data, 0)
-				end
+				end,
 			},
 			{
 				id = "hook_death",
 				trigger = function (self, stat_data)
 					return set_to_min(self, stat_data, 0)
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return config.difficulty >= 3 and config.joined_at <= 0.2
 		end,
 		init = function (self, stat_data)
 			return math.max(stat_data.flawless_missions_in_a_row or 0, stat_data.flawless_mission_in_a_row or 0)
-		end
+		end,
 	}
 	StatDefinitions.max_flawless_mission_in_a_row = {
 		running_stat = "_flawless_missions_in_a_row",
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
 				id = "_flawless_missions_in_a_row",
-				trigger = StatMacros.set_to_max
-			}
-		}
+				trigger = StatMacros.set_to_max,
+			},
+		},
 	}
 	StatDefinitions.team_flawless_missions = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -2093,14 +2093,14 @@ do
 					if team_downs == 0 then
 						return increment(self, stat_data)
 					end
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 	StatDefinitions.lowest_damage_taken_on_win = {
 		default = 9999,
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		triggers = {
 			{
@@ -2109,78 +2109,78 @@ do
 					local damage_taken = read_stat(StatDefinitions.session_damage_taken, stat_data)
 
 					return set_to_min(self, stat_data, damage_taken)
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 end
 
 StatDefinitions.hook_lunge_start = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_lunge_stop = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_lunge_distance = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.is_lunging = {
 	flags = {
 		StatFlags.no_sync,
 		StatFlags.no_recover,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	triggers = {
 		{
 			id = "hook_lunge_start",
 			trigger = function (self, stat_data)
 				return set_to_max(self, stat_data, 1)
-			end
+			end,
 		},
 		{
 			id = "hook_lunge_stop",
 			trigger = function (self, stat_data)
 				return set_to_min(self, stat_data, 0)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_coherency_toughness_regenerated = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.never_log
-	}
+		StatFlags.never_log,
+	},
 }
 StatDefinitions.hook_lounge_toughness_regenerated = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.never_log
-	}
+		StatFlags.never_log,
+	},
 }
 StatDefinitions.hook_melee_kill_toughness_regenerated = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.never_log
-	}
+		StatFlags.never_log,
+	},
 }
 StatDefinitions.hook_toughness_broken = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.total_coherency_toughness = {
 	flags = {
 		StatFlags.backend,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	data = {
-		cap = 2000
+		cap = 2000,
 	},
 	triggers = {
 		{
@@ -2195,16 +2195,16 @@ StatDefinitions.total_coherency_toughness = {
 
 					return id, stat_data[id]
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_melee_toughness_regen = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {
-		cap = 40000
+		cap = 40000,
 	},
 	triggers = {
 		{
@@ -2219,16 +2219,16 @@ StatDefinitions.total_melee_toughness_regen = {
 
 					return id, stat_data[id]
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.poxhound_pushed_mid_air = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {
-		cap = 50
+		cap = 50,
 	},
 	triggers = {
 		{
@@ -2247,13 +2247,13 @@ StatDefinitions.poxhound_pushed_mid_air = {
 				if breed_name == "chaos_hound" and action == "leap" and attack_type == "push" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.trapper_net_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2263,13 +2263,13 @@ StatDefinitions.trapper_net_dodged = {
 				if breed_name == "renegade_netgunner" and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.sniper_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2279,13 +2279,13 @@ StatDefinitions.sniper_dodged = {
 				if breed_name == "renegade_sniper" and attacker_action == "shoot" and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.shotgunner_spread_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2295,13 +2295,13 @@ StatDefinitions.shotgunner_spread_dodged = {
 				if (breed_name == "cultist_shocktrooper" or breed_name == "renegade_shocktrooper") and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.mutant_charge_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2311,13 +2311,13 @@ StatDefinitions.mutant_charge_dodged = {
 				if breed_name == "cultist_mutant" and attacker_action == "charge" and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.mauler_attack_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2327,13 +2327,13 @@ StatDefinitions.mauler_attack_dodged = {
 				if breed_name == "renegade_executor" and (attacker_action == "moving_melee_cleave_attack" or attacker_action == "melee_cleave_attack") and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.crusher_overhead_smash_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2343,13 +2343,13 @@ StatDefinitions.crusher_overhead_smash_dodged = {
 				if breed_name == "chaos_ogryn_executor" and (attacker_action == "moving_melee_attack_cleave" or attacker_action == "melee_attack_cleave") and not previously_dodged then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.bulwark_backstab_damage_inflicted = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2363,13 +2363,13 @@ StatDefinitions.bulwark_backstab_damage_inflicted = {
 				if is_backstab and breed_name == "chaos_ogryn_bulwark" then
 					return increment_by(self, stat_data, damage_amount)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.cultist_gunner_shot_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2379,13 +2379,13 @@ StatDefinitions.cultist_gunner_shot_dodged = {
 				if attack_type == "ranged" and (breed_name == "cultist_gunner" or breed_name == "renegade_gunner") and (dodge_type == "sprint" or dodge_type == "slide") then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.ogryn_gunner_shot_dodged = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2395,13 +2395,13 @@ StatDefinitions.ogryn_gunner_shot_dodged = {
 				if breed_name == "chaos_ogryn_gunner" and attack_type == "ranged" and (dodge_type == "sprint" or dodge_type == "slide") then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.grenadier_killed_before_attack_occurred = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2423,13 +2423,13 @@ StatDefinitions.grenadier_killed_before_attack_occurred = {
 						return increment(self, stat_data)
 					end
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.flamer_killed_before_attack_occurred = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2451,13 +2451,13 @@ StatDefinitions.flamer_killed_before_attack_occurred = {
 						return increment(self, stat_data)
 					end
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.team_poxburster_damage_avoided = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2477,13 +2477,13 @@ StatDefinitions.team_poxburster_damage_avoided = {
 
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.team_chaos_spawned_killed_no_players_grabbed = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2503,13 +2503,13 @@ StatDefinitions.team_chaos_spawned_killed_no_players_grabbed = {
 						return increment(self, stat_data)
 					end
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.team_chaos_beast_of_nurgle_slain_no_corruption = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2529,13 +2529,13 @@ StatDefinitions.team_chaos_beast_of_nurgle_slain_no_corruption = {
 						return increment(self, stat_data)
 					end
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.enemies_killed_with_barrels = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2556,7 +2556,7 @@ StatDefinitions.enemies_killed_with_barrels = {
 
 					return increment_by(self, stat_data, killed_units)
 				end
-			end
+			end,
 		},
 		{
 			id = "hook_kill",
@@ -2566,13 +2566,13 @@ StatDefinitions.enemies_killed_with_barrels = {
 				if damage_profile_name == "liquid_area_fire_burning_barrel" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.enemies_killed_with_poxburster_explosion = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
@@ -2597,41 +2597,41 @@ StatDefinitions.enemies_killed_with_poxburster_explosion = {
 
 					return increment_by(self, stat_data, killed_units)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_placed_item = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_collect_collectible = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_team_chest_opened = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.team
-	}
+		StatFlags.team,
+	},
 }
 StatDefinitions.hook_objective_side_incremented_progression = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.team
-	}
+		StatFlags.team,
+	},
 }
 StatDefinitions.total_deployables_placed = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {
 		item_lookup = table.set({
 			"medical_crate_deployable",
-			"ammo_cache_deployable"
-		})
+			"ammo_cache_deployable",
+		}),
 	},
 	triggers = {
 		{
@@ -2642,18 +2642,18 @@ StatDefinitions.total_deployables_placed = {
 				if item_lookup[item_name] then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.collectibles_picked_up = {
 	flags = {},
 	triggers = {
 		{
 			id = "hook_collect_collectible",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 
 for i = 1, #mission_templates do
@@ -2662,10 +2662,10 @@ for i = 1, #mission_templates do
 
 	StatDefinitions[stat_name] = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			mission_name = mission_name
+			mission_name = mission_name,
 		},
 		triggers = {
 			{
@@ -2676,29 +2676,29 @@ for i = 1, #mission_templates do
 					if track_collectible then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
 		include_condition = function (self, config)
 			return self.data.mission_name == config.mission_name
-		end
+		end,
 	}
 end
 
 StatDefinitions.chest_opened = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_team_chest_opened",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.grimoire_carried = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	data = {},
 	triggers = {
@@ -2708,14 +2708,14 @@ StatDefinitions.grimoire_carried = {
 				if objective_name == "side_mission_grimoire" then
 					return set_to(self, stat_data, value)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.grimoire_delivered = {
 	flags = {
 		StatFlags.team,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	data = {},
 	triggers = {
@@ -2727,25 +2727,25 @@ StatDefinitions.grimoire_delivered = {
 				if grimoire_count >= 1 then
 					return self.id, grimoire_count
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.grimoire_recovered_mission_won = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
 		{
 			id = "grimoire_delivered",
-			trigger = StatMacros.increment_by
-		}
-	}
+			trigger = StatMacros.increment_by,
+		},
+	},
 }
 StatDefinitions.scriptures_carried = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
@@ -2754,14 +2754,14 @@ StatDefinitions.scriptures_carried = {
 				if objective_name == "side_mission_tome" then
 					return set_to(self, stat_data, value)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.scriptures_delivered = {
 	flags = {
 		StatFlags.team,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	data = {},
 	triggers = {
@@ -2773,46 +2773,46 @@ StatDefinitions.scriptures_delivered = {
 				if scriptures_count >= 1 then
 					return self.id, scriptures_count
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.scripture_recovered_mission_won = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	data = {},
 	triggers = {
 		{
 			id = "scriptures_delivered",
-			trigger = StatMacros.increment_by
-		}
-	}
+			trigger = StatMacros.increment_by,
+		},
+	},
 }
 StatDefinitions.hook_assist_ally = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_rescue_ally = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.total_player_rescues = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_rescue_ally",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.total_player_assists = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -2821,14 +2821,14 @@ StatDefinitions.total_player_assists = {
 				if assistance_type == "revive" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_escaped_captivitiy = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.longest_time_spent_in_captivity = {
 	flags = {},
@@ -2837,20 +2837,20 @@ StatDefinitions.longest_time_spent_in_captivity = {
 			id = "hook_escaped_captivitiy",
 			trigger = function (self, stat_data, state_name, time_disabled)
 				return set_to_max(self, stat_data, time_disabled)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.team_longest_time_spent_in_captivity = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
 			id = "longest_time_spent_in_captivity",
-			trigger = StatMacros.set_to_max
-		}
-	}
+			trigger = StatMacros.set_to_max,
+		},
+	},
 }
 StatDefinitions.session_time_spent_in_captivity = {
 	flags = {},
@@ -2859,14 +2859,14 @@ StatDefinitions.session_time_spent_in_captivity = {
 			id = "hook_escaped_captivitiy",
 			trigger = function (self, stat_data, state_name, time_disabled)
 				return increment_by(self, stat_data, time_disabled)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.different_players_rescued = {
 	flags = {
 		StatFlags.no_sync,
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
@@ -2882,24 +2882,24 @@ StatDefinitions.different_players_rescued = {
 
 					return id, rescued_player_id
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.amount_different_players_rescued = {
 	flags = {
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
 			id = "different_players_rescued",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.max_different_players_rescued = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -2908,20 +2908,20 @@ StatDefinitions.max_different_players_rescued = {
 				local amount_different_players_rescued = read_stat(StatDefinitions.amount_different_players_rescued, stat_data)
 
 				return set_to_max(self, stat_data, amount_different_players_rescued)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_coherency_update = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.never_log
-	}
+		StatFlags.never_log,
+	},
 }
 StatDefinitions.session_time_coherency = {
 	flags = {
 		StatFlags.never_log,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	triggers = {
 		{
@@ -2930,52 +2930,52 @@ StatDefinitions.session_time_coherency = {
 				if units_in_coherency > 1 then
 					return increment_by(self, stat_data, time_since_update)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_sweep_finished = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.hook_scan = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.total_scans = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_scan",
 			trigger = function (self, stat_data, amount)
 				return increment_by(self, stat_data, amount)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.hook_hack = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.total_hacks = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
 			id = "hook_hack",
-			trigger = StatMacros.increment
-		}
-	}
+			trigger = StatMacros.increment,
+		},
+	},
 }
 StatDefinitions.perfect_hacks = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -2984,15 +2984,15 @@ StatDefinitions.perfect_hacks = {
 				if mistakes == 0 then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.mission_destructible_destroyed = {
 	flags = {
 		StatFlags.hook,
-		StatFlags.team
-	}
+		StatFlags.team,
+	},
 }
 
 for i = 1, #mission_zones do
@@ -3001,34 +3001,34 @@ for i = 1, #mission_zones do
 
 	StatDefinitions[stat_name] = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			zone_name = zone_name
+			zone_name = zone_name,
 		},
 		triggers = {
 			{
 				id = "mission_destructible_destroyed",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
 		include_condition = function (self, config)
 			return not config.is_hub and MissionTemplates[config.mission_name].zone_id == self.data.zone_name
-		end
+		end,
 	}
 end
 
 StatDefinitions.hook_ammo_consumed = {
 	flags = {
-		StatFlags.hook
-	}
+		StatFlags.hook,
+	},
 }
 StatDefinitions.remaining_primary_ammo = {
 	default = 0,
 	flags = {
 		StatFlags.never_log,
 		StatFlags.no_sync,
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
@@ -3043,16 +3043,16 @@ StatDefinitions.remaining_primary_ammo = {
 
 					return id, total_ammo
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.remaining_secondary_ammo = {
 	default = 0,
 	flags = {
 		StatFlags.never_log,
 		StatFlags.no_sync,
-		StatFlags.no_recover
+		StatFlags.no_recover,
 	},
 	triggers = {
 		{
@@ -3067,13 +3067,13 @@ StatDefinitions.remaining_secondary_ammo = {
 
 					return id, total_ammo
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_renegade_grenadier_melee = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -3084,15 +3084,15 @@ StatDefinitions.total_renegade_grenadier_melee = {
 				if attack_type == "melee" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.id_of_renegade_executors_hit_by_weakspot = {
 	default = false,
 	flags = {
 		StatFlags.no_sync,
-		StatFlags.team
+		StatFlags.team,
 	},
 	triggers = {
 		{
@@ -3120,13 +3120,13 @@ StatDefinitions.id_of_renegade_executors_hit_by_weakspot = {
 
 					return id, target_id, data[target_id]
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_renegade_executors_non_headshot = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -3145,13 +3145,13 @@ StatDefinitions.total_renegade_executors_non_headshot = {
 				end
 
 				return increment(self, stat_data)
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_cultist_berzerker_head = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -3162,13 +3162,13 @@ StatDefinitions.total_cultist_berzerker_head = {
 				if hit_zone_name == "head" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.total_ogryn_gunner_melee = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -3179,13 +3179,13 @@ StatDefinitions.total_ogryn_gunner_melee = {
 				if attack_type == "melee" then
 					return increment(self, stat_data)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 StatDefinitions.kill_daemonhost = {
 	flags = {
-		StatFlags.backend
+		StatFlags.backend,
 	},
 	triggers = {
 		{
@@ -3194,9 +3194,9 @@ StatDefinitions.kill_daemonhost = {
 				if breed_name == "chaos_daemonhost" then
 					return set_to_max(self, stat_data, 1)
 				end
-			end
-		}
-	}
+			end,
+		},
+	},
 }
 
 do
@@ -3217,74 +3217,74 @@ do
 
 		StatDefinitions.hook_volley_fire_start = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_volley_fire_stop = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_ammo_given = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_kill_volley_fire_target = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_infiltrate_stagger = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_voice_of_command_toughness_given = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_focus_fire_max_stacks = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_focus_fire_max_reset = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_improved_tag = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_weapon_switch_keystone = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_damage_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_movement_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_veteran_units_engulfed_smoke = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.volley_fire_active = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -3292,16 +3292,16 @@ do
 					id = "hook_volley_fire_start",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_volley_fire_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.weakspot_hit_during_volley_fire_alternate_fire = {
 			flags = {},
@@ -3316,43 +3316,43 @@ do
 						if volley_fire_active and alternate_fire_active then
 							return increment(self, stat_data)
 						end
-					end
+					end,
 				},
 				{
 					id = "shot_missed_weakspot",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
+					end,
 				},
 				{
 					id = "hook_volley_fire_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_weakspot_hit_during_volley_fire_alternate_fire = {
 			running_stat = "weakspot_hit_during_volley_fire_alternate_fire",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "weakspot_hit_during_volley_fire_alternate_fire",
-					trigger = StatMacros.set_to_max
-				}
+					trigger = StatMacros.set_to_max,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_veteran_2_kills_with_last_round_in_mag = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -3361,15 +3361,15 @@ do
 						if last_round_in_mag and killing_blow then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_melee_damage_taken = {
 			flags = {},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -3378,18 +3378,18 @@ do
 						if attack_type == "melee" then
 							return increment_by(self, stat_data, damage_dealt)
 						end
-					end
-				}
-			}
+					end,
+				},
+			},
 		}
 		StatDefinitions.veteran_min_melee_damage_taken = {
 			default = 999,
 			running_stat = "veteran_melee_damage_taken",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -3398,16 +3398,16 @@ do
 						local damage_taken = read_stat(StatDefinitions.veteran_melee_damage_taken, stat_data)
 
 						return set_to_min(self, stat_data, damage_taken)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.elite_weakspot_kill_during_volley_fire_alternate_fire = {
 			flags = {},
 			data = {
 				difficulty = 4,
-				breed_lookup = volley_fire_target_breed_lookup
+				breed_lookup = volley_fire_target_breed_lookup,
 			},
 			triggers = {
 				{
@@ -3418,40 +3418,40 @@ do
 						if self.data.breed_lookup[breed_name] then
 							return increment(self, stat_data)
 						end
-					end
+					end,
 				},
 				{
 					id = "hook_volley_fire_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_elite_weakspot_kill_during_volley_fire_alternate_fire = {
 			running_stat = "elite_weakspot_kill_during_volley_fire_alternate_fire",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
 					id = "elite_weakspot_kill_during_volley_fire_alternate_fire",
-					trigger = StatMacros.set_to_max
-				}
+					trigger = StatMacros.set_to_max,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_accuracy_at_end_of_mission_with_no_ammo_left = {
 			running_stat = "accuracy",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
@@ -3463,27 +3463,27 @@ do
 						if remaining_secondary_ammo == 0 then
 							return set_to_max(self, stat_data, accuracy)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_2_weakspot_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "head_shot_kill",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_2_ammo_given = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3491,27 +3491,27 @@ do
 					id = "hook_veteran_ammo_given",
 					trigger = function (self, stat_data, ammo_given)
 						return increment_by(self, stat_data, ammo_given)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_team_damage_amplified = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "hook_veteran_damage_aura",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_team_movement_amplifed = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3519,14 +3519,14 @@ do
 					id = "hook_veteran_movement_aura",
 					trigger = function (self, stat_data, distance)
 						return increment_by(self, stat_data, distance)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_infiltrate_stagger = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3534,14 +3534,14 @@ do
 					id = "hook_veteran_infiltrate_stagger",
 					trigger = function (self, stat_data, count)
 						return increment_by(self, stat_data, count)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_voice_of_command_toughness_given = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3549,16 +3549,16 @@ do
 					id = "hook_voice_of_command_toughness_given",
 					trigger = function (self, stat_data, count)
 						return increment_by(self, stat_data, count)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.focus_fire_max_stacks_active = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -3566,20 +3566,20 @@ do
 					id = "hook_focus_fire_max_stacks",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_focus_fire_max_reset",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.kills_during_max_focus_fire_stack = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3591,17 +3591,17 @@ do
 						if track_focus_status then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_krak_grenade_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = armor_breeds
+				breed_lookup = armor_breeds,
 			},
 			triggers = {
 				{
@@ -3614,14 +3614,14 @@ do
 						if data.breed_lookup[breed_name] and weapon_name == "krak_grenade" then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_smoke_grenade_engulfed = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3629,30 +3629,30 @@ do
 					id = "hook_veteran_units_engulfed_smoke",
 					trigger = function (self, stat_data, num_engulfed)
 						return increment_by(self, stat_data, num_engulfed)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_kills_with_improved_tag = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "hook_veteran_improved_tag",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_weapon_switch_passive_keystone_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -3664,34 +3664,34 @@ do
 						if breed_lookup[breed_name] and params.hit_weakspot == true then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_2_kill_volley_fire_target_malice = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
 					id = "hook_veteran_kill_volley_fire_target",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_2_long_range_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				distance = 30,
 				difficulty = 3,
-				breed_lookup = ranged_breed_lookup
+				distance = 30,
+				breed_lookup = ranged_breed_lookup,
 			},
 			triggers = {
 				{
@@ -3705,19 +3705,19 @@ do
 						if data.breed_lookup[breed_name] and required_distance <= distance then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.elite_or_special_kills_during_current_volley_fire = {
 			flags = {
 				StatFlags.no_recover,
-				StatFlags.no_sync
+				StatFlags.no_sync,
 			},
 			data = {
 				difficulty = 4,
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -3735,23 +3735,23 @@ do
 						if volley_fire_active then
 							return increment(self, stat_data)
 						end
-					end
+					end,
 				},
 				{
 					id = "hook_volley_fire_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_multiple_elite_or_special_kills_during_volley_fire_heresy = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
@@ -3760,18 +3760,18 @@ do
 						if amount == 2 then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.veteran_2_extended_volley_fire_duration = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
 				difficulty = 4,
-				time = 20
+				time = 20,
 			},
 			triggers = {
 				{
@@ -3782,10 +3782,10 @@ do
 						if required_time <= volley_fire_tota_time then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 	end
 
@@ -3794,74 +3794,74 @@ do
 
 		StatDefinitions.hook_zealot_health_leeched_during_resist_death = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_martyrdom_stacks = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_shroudfield_start = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_shroudfield_stop = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_chorus_toughness_restored = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_fanatic_rage_start = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_fanatic_rage_stop = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_movement_keystone_start = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_movement_keystone_stop = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_corruption_healed_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_toughness_reduced_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_loner_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_zealot_engulfed_enemies = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.last_seen_martyrdom_stacks = {
 			flags = {
 				StatFlags.never_log,
 				StatFlags.no_sync,
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {},
 			triggers = {
@@ -3873,13 +3873,13 @@ do
 						stat_data[id] = stacks
 
 						return id, stacks
-					end
-				}
-			}
+					end,
+				},
+			},
 		}
 		StatDefinitions.max_zealot_2_stagger_sniper_with_grenade_distance = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3894,14 +3894,14 @@ do
 
 							return set_to_max(self, stat_data, distance)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zelot_2_kill_mutant_charger_with_melee_while_dashing = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -3922,16 +3922,16 @@ do
 						end
 
 						return increment(self, stat_data)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_shocked_kill = {
 			flags = {
 				StatFlags.never_log,
 				StatFlags.no_sync,
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {},
 			triggers = {
@@ -3943,55 +3943,55 @@ do
 						if buffs and buffs.shock_grenade_shock then
 							return self.id, attack_data
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_kills_of_shocked_enemies_last_15 = {
 			flags = {
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
 					id = "zealot_shocked_kill",
-					trigger = StatMacros.increment
+					trigger = StatMacros.increment,
 				},
 				{
-					id = "zealot_shocked_kill",
 					delay = 10,
-					trigger = StatMacros.decrement
-				}
+					id = "zealot_shocked_kill",
+					trigger = StatMacros.decrement,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_zealot_2_kills_of_shocked_enemies_last_15 = {
 			running_stat = "zealot_2_kills_of_shocked_enemies_last_15",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
 					id = "zealot_2_kills_of_shocked_enemies_last_15",
 					trigger = function (self, stat_data, value)
 						return set_to_max(self, stat_data, value)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_not_use_ranged_attacks = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -4002,36 +4002,36 @@ do
 						if shots_fired == 0 then
 							return set_to_max(self, stat_data, 1)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_zealot_2_health_healed_with_leech_during_resist_death = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
 					id = "hook_zealot_health_leeched_during_resist_death",
 					trigger = function (self, stat_data, percent_leeched)
 						return set_to_max(self, stat_data, percent_leeched)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_fastest_mission_with_low_health = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				private_session = true,
 				difficulty = 4,
-				percent_at_low_health = 75
+				percent_at_low_health = 75,
+				private_session = true,
 			},
 			triggers = {
 				{
@@ -4045,15 +4045,15 @@ do
 						if time_at_low_health >= target_percent * mission_time then
 							return set_to_min(self, stat_data, rounded_mission_time)
 						end
-					end
-				}
+					end,
+				},
 			},
 			include_condition = include_condition,
-			default = minutes(99)
+			default = minutes(99),
 		}
 		StatDefinitions.zealot_2_number_of_shocked_enemies = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4063,14 +4063,14 @@ do
 						if template_name == "shock_grenade_interval" then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_toughness_gained_from_chastise_the_wicked = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4078,16 +4078,16 @@ do
 					id = "hook_lounge_toughness_regenerated",
 					trigger = function (self, stat_data, amount)
 						return increment_by(self, stat_data, amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.shroudfield_stance_active = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -4095,23 +4095,23 @@ do
 					id = "hook_shroudfield_start",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_shroudfield_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_elite_or_special_kills_with_shroudfield = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4124,14 +4124,14 @@ do
 						if attack_data.is_backstab and shroudfield_stance_active and data.breed_lookup[breed] then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_team_toughness_restored_with_chorus = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4139,17 +4139,17 @@ do
 					id = "hook_zealot_chorus_toughness_restored",
 					trigger = function (self, stat_data, toughness_amount)
 						return increment_by(self, stat_data, toughness_amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_elite_or_special_kills_with_blade_of_faith = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4163,16 +4163,16 @@ do
 						if data.breed_lookup[breed] and damage_type == "throwing_knife_zealot" and attack_type == "ranged" then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_fanatic_rage_status = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -4180,20 +4180,20 @@ do
 					id = "hook_zealot_fanatic_rage_start",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_zealot_fanatic_rage_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_elite_or_special_kills_during_fanatic_rage = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4205,16 +4205,16 @@ do
 						if fanatic_rage_active then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_movement_keystone_status = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -4222,23 +4222,23 @@ do
 					id = "hook_zealot_movement_keystone_start",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_zealot_movement_keystone_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_kills_during_movement_keystone_activated = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4251,14 +4251,14 @@ do
 						if movement_keystone_active and data.breed_lookup[breed] then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_kills_with_fire_grenade = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4266,27 +4266,27 @@ do
 					id = "hook_zealot_engulfed_enemies",
 					trigger = function (self, stat_data, num_engulfed)
 						return increment_by(self, stat_data, num_engulfed)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_aura_backstab_kills_while_alone = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "hook_zealot_loner_aura",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_aura_toughness_damage_reduced = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4294,14 +4294,14 @@ do
 					id = "hook_toughness_reduced_aura",
 					trigger = function (self, stat_data, amount)
 						return increment_by(self, stat_data, amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_aura_corruption_healed = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4309,17 +4309,17 @@ do
 					id = "hook_zealot_corruption_healed_aura",
 					trigger = function (self, stat_data, amount)
 						return increment_by(self, stat_data, amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_number_of_critical_hits_kills_when_stunned = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -4331,17 +4331,17 @@ do
 						if is_critical_hit and target_buff_keywords.shock_grenade_shock then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_kills_with_martyrdoom_stacks = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -4360,19 +4360,19 @@ do
 						end
 
 						return increment(self, stat_data)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_killed_elites_and_specials_with_activated_attacks = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
 				difficulty = 4,
 				weapon_lookup = weapons_with_activated_specials,
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4386,17 +4386,17 @@ do
 						if is_weapon_special and data.weapon_lookup[weapon] and data.breed_lookup[breed] then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.zealot_2_charged_enemy_wielding_ranged_weapon = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
@@ -4405,10 +4405,10 @@ do
 						if has_target and target_is_ranged then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 	end
 
@@ -4417,74 +4417,74 @@ do
 
 		StatDefinitions.hook_psyker_time_at_max_souls = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_survived_perils = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_reached_max_souls = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_lost_max_souls = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_overcharge_stance_start = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_overcharge_stance_stop = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_chain_lightning_ability = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_empowered_ability = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_spent_max_unnatural_stack = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_shield_damage_taken = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_team_elite_aura_kills = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_team_critical_hits_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.hook_psyker_team_cooldown_recovery_aura = {
 			flags = {
-				StatFlags.hook
-			}
+				StatFlags.hook,
+			},
 		}
 		StatDefinitions.psyker_at_max_souls = {
 			flags = {
 				StatFlags.no_recover,
 				StatFlags.never_log,
-				StatFlags.no_sync
+				StatFlags.no_sync,
 			},
 			data = {},
 			triggers = {
@@ -4492,20 +4492,20 @@ do
 					id = "hook_psyker_reached_max_souls",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_psyker_lost_max_souls",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.smite_hound_mid_leap = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4518,67 +4518,67 @@ do
 						if action == "leap" and weapon == "psyker_smite" then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_2_edge_kills_last_2_sec = {
 			flags = {
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "ledge_kill",
-					trigger = StatMacros.increment
+					trigger = StatMacros.increment,
 				},
 				{
 					id = "ledge_kill",
 					trigger = StatMacros.decrement,
-					delay = seconds(2)
-				}
+					delay = seconds(2),
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_psyker_2_edge_kills_last_2_sec = {
 			running_stat = "psyker_2_edge_kills_last_2_sec",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "psyker_2_edge_kills_last_2_sec",
-					trigger = StatMacros.set_to_max
-				}
+					trigger = StatMacros.set_to_max,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_psyker_2_time_at_max_souls = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
 					id = "hook_psyker_time_at_max_souls",
 					trigger = function (self, stat_data, time_at_max)
 						return set_to_max(self, stat_data, time_at_max)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.elite_or_special_kill_with_smite = {
 			flags = {
 				StatFlags.never_log,
-				StatFlags.no_sync
+				StatFlags.no_sync,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4591,46 +4591,46 @@ do
 						if data.breed_lookup[breed] and weapon == "psyker_smite" then
 							return self.id, attack_data
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.elite_or_special_kills_with_smite_last_12_sec = {
 			flags = {
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
 					id = "elite_or_special_kill_with_smite",
-					trigger = StatMacros.increment
+					trigger = StatMacros.increment,
 				},
 				{
-					id = "elite_or_special_kill_with_smite",
 					delay = 12,
-					trigger = StatMacros.decrement
-				}
+					id = "elite_or_special_kill_with_smite",
+					trigger = StatMacros.decrement,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_elite_or_special_kills_with_smite_last_12_sec = {
 			running_stat = "elite_or_special_kills_with_smite_last_12_sec",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
 					id = "elite_or_special_kills_with_smite_last_12_sec",
-					trigger = StatMacros.set_to_max
-				}
+					trigger = StatMacros.set_to_max,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 
 		do
@@ -4655,27 +4655,27 @@ do
 				flags = {
 					StatFlags.no_recover,
 					StatFlags.no_sync,
-					StatFlags.never_log
+					StatFlags.never_log,
 				},
 				data = {
 					difficulty = 4,
-					private_session = true
+					private_session = true,
 				},
 				triggers = table.map(boss_breeds, function (breed_name)
 					return {
 						id = string.format("%s_damaged", breed_name),
-						trigger = damaged_by_smite_trigger
+						trigger = damaged_by_smite_trigger,
 					}
 				end),
-				include_condition = include_condition
+				include_condition = include_condition,
 			}
 			StatDefinitions.max_smite_damage_done_to_boss = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
 					difficulty = 4,
-					private_session = true
+					private_session = true,
 				},
 				triggers = {
 					{
@@ -4685,45 +4685,45 @@ do
 							local percentage_damage_dealt = math.round(100 * damage_dealt / (boss_max_health + 0.01))
 
 							return set_to_max(self, stat_data, percentage_damage_dealt)
-						end
-					}
+						end,
+					},
 				},
-				include_condition = include_condition
+				include_condition = include_condition,
 			}
 		end
 
 		StatDefinitions.psyker_2_elite_or_special_kills_with_smite = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "elite_or_special_kill_with_smite",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_2_survived_perils = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "hook_psyker_survived_perils",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_2_smite_kills_at_max_souls = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 3
+				difficulty = 3,
 			},
 			triggers = {
 				{
@@ -4734,18 +4734,18 @@ do
 						if at_max_souls then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_2_warp_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
 				difficulty = 3,
-				damage_type_lookup = DamageSettings.warp_damage_types
+				damage_type_lookup = DamageSettings.warp_damage_types,
 			},
 			triggers = {
 				{
@@ -4756,18 +4756,18 @@ do
 						if self.data.damage_type_lookup[damage_type] then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.elite_or_special_kill_with_assail = {
 			flags = {
 				StatFlags.never_log,
-				StatFlags.no_sync
+				StatFlags.no_sync,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4780,14 +4780,14 @@ do
 						if data.breed_lookup[breed] and weapon == "psyker_throwing_knives" then
 							return self.id, attack_data
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_threshold_kills_reached_with_grenade_chain = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4795,29 +4795,29 @@ do
 					id = "hook_chain_lightning_ability",
 					trigger = function (self, stat_data, amount)
 						return increment_by(self, stat_data, amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_elite_or_special_kills_with_assail = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "elite_or_special_kill_with_assail",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.overcharge_stance_active = {
 			flags = {
 				StatFlags.no_sync,
 				StatFlags.no_recover,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {},
 			triggers = {
@@ -4825,20 +4825,20 @@ do
 					id = "hook_overcharge_stance_start",
 					trigger = function (self, stat_data)
 						return set_to_max(self, stat_data, 1)
-					end
+					end,
 				},
 				{
 					id = "hook_overcharge_stance_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_kills_during_overcharge_stance = {
 			flags = {
-				StatFlags.no_recover
+				StatFlags.no_recover,
 			},
 			data = {},
 			triggers = {
@@ -4850,37 +4850,37 @@ do
 						if overcharge_stance_active then
 							return increment(self, stat_data)
 						end
-					end
+					end,
 				},
 				{
 					id = "hook_overcharge_stance_stop",
 					trigger = function (self, stat_data)
 						return set_to_min(self, stat_data, 0)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.max_psyker_kills_during_overcharge_stance = {
 			running_stat = "psyker_kills_during_overcharge_stance",
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "psyker_kills_during_overcharge_stance",
-					trigger = StatMacros.set_to_max
-				}
+					trigger = StatMacros.set_to_max,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_kills_with_empowered_abilites = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				breed_lookup = special_and_elite_breed_lookup
+				breed_lookup = special_and_elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -4892,14 +4892,14 @@ do
 						if breed_lookup[breed_name] then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_time_at_max_unnatural = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4907,14 +4907,14 @@ do
 					id = "hook_psyker_spent_max_unnatural_stack",
 					trigger = function (self, stat_data, rounded_time_value)
 						return increment_by(self, stat_data, rounded_time_value)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_shield_total_damage_taken = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4922,27 +4922,27 @@ do
 					id = "hook_psyker_shield_damage_taken",
 					trigger = function (self, stat_data, damage)
 						return increment_by(self, stat_data, damage)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_team_elite_aura_kills = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
 				{
 					id = "hook_psyker_team_elite_aura_kills",
-					trigger = StatMacros.increment
-				}
+					trigger = StatMacros.increment,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_team_critical_hits = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {},
 			triggers = {
@@ -4950,15 +4950,15 @@ do
 					id = "hook_psyker_team_critical_hits_aura",
 					trigger = function (self, stat_data, amount)
 						return increment_by(self, stat_data, amount)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_team_cooldown_reduced = {
 			flags = {
 				StatFlags.backend,
-				StatFlags.always_log
+				StatFlags.always_log,
 			},
 			data = {},
 			triggers = {
@@ -4966,10 +4966,10 @@ do
 					id = "hook_psyker_team_cooldown_recovery_aura",
 					trigger = function (self, stat_data, saved_time)
 						return increment_by(self, stat_data, saved_time)
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 
 		do
@@ -4996,29 +4996,29 @@ do
 
 			StatDefinitions.psyker_2_killed_disablers_before_disabling = {
 				flags = {
-					StatFlags.backend
+					StatFlags.backend,
 				},
 				data = {
-					difficulty = 4
+					difficulty = 4,
 				},
 				triggers = table.map(disabler_breeds, function (breed_name)
 					return {
 						id = string.format("%s_killed", breed_name),
-						trigger = kill_before_disabling
+						trigger = kill_before_disabling,
 					}
 				end),
-				include_condition = include_condition
+				include_condition = include_condition,
 			}
 		end
 
 		StatDefinitions.psyker_elite_melee_damage_taken = {
 			flags = {
 				StatFlags.no_sync,
-				StatFlags.never_log
+				StatFlags.never_log,
 			},
 			data = {
 				difficulty = 4,
-				breed_lookup = elite_breed_lookup
+				breed_lookup = elite_breed_lookup,
 			},
 			triggers = {
 				{
@@ -5027,17 +5027,17 @@ do
 						if attack_type == "melee" and self.data.breed_lookup[attacker_breed] then
 							return increment_by(self, stat_data, damage_dealt)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 		StatDefinitions.psyker_2_x_missions_no_elite_melee_damage_taken = {
 			flags = {
-				StatFlags.backend
+				StatFlags.backend,
 			},
 			data = {
-				difficulty = 4
+				difficulty = 4,
 			},
 			triggers = {
 				{
@@ -5048,10 +5048,10 @@ do
 						if damage_taken == 0 then
 							return increment(self, stat_data)
 						end
-					end
-				}
+					end,
+				},
 			},
-			include_condition = include_condition
+			include_condition = include_condition,
 		}
 	end
 
@@ -5059,52 +5059,52 @@ do
 
 	StatDefinitions.hook_ogryn_heavy_hitter_at_max_stacks = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_heavy_hitter_at_max_lost = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_feel_no_pain_kills_at_max = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_leadbelcher_free_shot = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_frag_grenade = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_barrage_end = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_heavy_aura_kills = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_suppressed_aura_kills = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.hook_ogryn_toughness_restored_aura = {
 		flags = {
-			StatFlags.hook
-		}
+			StatFlags.hook,
+		},
 	}
 	StatDefinitions.ogryn_2_killed_corruptor_with_grenade_impact = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
@@ -5122,17 +5122,17 @@ do
 							return increment(self, stat_data)
 						end
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_win_with_coherency_all_alive_units = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 3
+			difficulty = 3,
 		},
 		triggers = {
 			{
@@ -5143,95 +5143,95 @@ do
 					local percent_in_coherency = math.clamp(math.round(raw_percentage_in_coherency * 100), 0, 100)
 
 					return set_to_max(self, stat_data, percent_in_coherency)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.max_ogryn_2_lunge_number_of_enemies_hit = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 3
+			difficulty = 3,
 		},
 		triggers = {
 			{
 				id = "hook_lunge_stop",
 				trigger = function (self, stat_data, units_hit, ranged_units_hit, ogryns_hit)
 					return set_to_max(self, stat_data, units_hit)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_lunge_distance_last_x_seconds = {
 		flags = {
-			StatFlags.no_recover
+			StatFlags.no_recover,
 		},
 		data = {
-			difficulty = 4
+			difficulty = 4,
 		},
 		triggers = {
 			{
 				id = "hook_lunge_distance",
 				trigger = function (self, stat_data, delta_distance)
 					return increment_by(self, stat_data, delta_distance)
-				end
+				end,
 			},
 			{
 				delay = 20,
 				id = "hook_lunge_distance",
 				trigger = function (self, stat_data, delta_distance)
 					return increment_by(self, stat_data, -delta_distance)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.max_ogryn_2_lunge_distance_last_x_seconds = {
 		running_stat = "ogryn_2_lunge_distance_last_x_seconds",
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 4
+			difficulty = 4,
 		},
 		triggers = {
 			{
 				id = "ogryn_2_lunge_distance_last_x_seconds",
-				trigger = StatMacros.set_to_max
-			}
+				trigger = StatMacros.set_to_max,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.max_ogryns_bullrushed = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 4
+			difficulty = 4,
 		},
 		triggers = {
 			{
 				id = "hook_lunge_stop",
 				trigger = function (self, stat_data, units_hit, ranged_units_hit, ogryns_hit)
 					return set_to_max(self, stat_data, ogryns_hit)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_number_of_revived_or_assisted_allies = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
 			assistance_types = table.set({
 				"revive",
 				"pull_up",
-				"remove_net"
-			})
+				"remove_net",
+			}),
 		},
 		triggers = {
 			{
@@ -5242,20 +5242,20 @@ do
 					if assistance_type_lookup[assistance_type] then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_number_of_knocked_down_enemies = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
 			stagger_types = table.set({
 				StaggerSettings.stagger_types.heavy,
-				StaggerSettings.stagger_types.explosion
-			})
+				StaggerSettings.stagger_types.explosion,
+			}),
 		},
 		triggers = {
 			{
@@ -5268,17 +5268,17 @@ do
 					if attack_result ~= "died" and stagger_type_lookup[stagger_type] then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_taunt_shout_hit = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			breed_lookup = special_and_elite_breed_lookup
+			breed_lookup = special_and_elite_breed_lookup,
 		},
 		triggers = {
 			{
@@ -5289,17 +5289,17 @@ do
 					if buff_name == "taunted" and data.breed_lookup[breed_name] then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_grenade_rock_elites_or_specialists = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			breed_lookup = special_and_elite_breed_lookup
+			breed_lookup = special_and_elite_breed_lookup,
 		},
 		triggers = {
 			{
@@ -5312,14 +5312,14 @@ do
 					if data.breed_lookup[breed] and weapon == "ogryn_grenade_friend_rock" then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_grenade_frag_group_of_enemies_killed = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
@@ -5327,16 +5327,16 @@ do
 				id = "hook_ogryn_frag_grenade",
 				trigger = function (self, stat_data)
 					return increment(self, stat_data)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_heavy_hitter_status = {
 		flags = {
 			StatFlags.never_log,
 			StatFlags.no_recover,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
 		data = {},
 		triggers = {
@@ -5344,20 +5344,20 @@ do
 				id = "hook_ogryn_heavy_hitter_at_max_stacks",
 				trigger = function (self, stat_data)
 					return set_to_max(self, stat_data, 1)
-				end
+				end,
 			},
 			{
 				id = "hook_ogryn_heavy_hitter_at_max_lost",
 				trigger = function (self, stat_data)
 					return set_to_min(self, stat_data, 0)
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_kills_during_max_stacks_heavy_hitter = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
@@ -5370,83 +5370,83 @@ do
 					if track_status and is_heavy_attack then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.kills_achieved_group_barrage_threshold = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
 			{
 				id = "hook_ogryn_barrage_end",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_feel_no_pain_kills_at_max = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.always_log
+			StatFlags.always_log,
 		},
 		data = {},
 		triggers = {
 			{
 				id = "hook_ogryn_feel_no_pain_kills_at_max",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_leadbelcher_free_shot = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
 			{
 				id = "hook_ogryn_leadbelcher_free_shot",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_team_heavy_aura_kills = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
 			{
 				id = "hook_ogryn_heavy_aura_kills",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_team_suppressed_aura_kills = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {},
 		triggers = {
 			{
 				id = "hook_ogryn_suppressed_aura_kills",
-				trigger = StatMacros.increment
-			}
+				trigger = StatMacros.increment,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_team_toughness_restored_aura = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			cap = 40000
+			cap = 40000,
 		},
 		triggers = {
 			{
@@ -5461,17 +5461,17 @@ do
 
 						return id, stat_data[id]
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_bullrushed_group_of_ranged_enemies = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 3
+			difficulty = 3,
 		},
 		triggers = {
 			{
@@ -5480,17 +5480,17 @@ do
 					if ranged_units_hit >= 3 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_killed_multiple_enemies_with_sweep = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
-			difficulty = 3
+			difficulty = 3,
 		},
 		triggers = {
 			{
@@ -5499,18 +5499,18 @@ do
 					if num_killed_enemies >= 2 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_number_of_missions_with_no_deaths_and_all_revives_within_x_seconds = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
 			difficulty = 4,
-			max_time_in_captivity = 10
+			max_time_in_captivity = 10,
 		},
 		triggers = {
 			{
@@ -5523,17 +5523,17 @@ do
 					if team_deaths == 0 and longest_time_spent_in_captivity <= max_time_in_captivity then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_grenade_box_kills_without_missing_counter = {
 		flags = {
-			StatFlags.no_recover
+			StatFlags.no_recover,
 		},
 		data = {
-			difficulty = 4
+			difficulty = 4,
 		},
 		triggers = {
 			{
@@ -5553,18 +5553,18 @@ do
 					elseif current_value ~= default then
 						return set_to(self, stat_data, default)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 	StatDefinitions.ogryn_2_grenade_box_kills_without_missing = {
 		flags = {
-			StatFlags.backend
+			StatFlags.backend,
 		},
 		data = {
 			difficulty = 4,
-			number_of_hits = 4
+			number_of_hits = 4,
 		},
 		triggers = {
 			{
@@ -5575,10 +5575,10 @@ do
 					if hits_in_a_row > 0 and hits_in_a_row % number_of_hits == 0 then
 						return increment(self, stat_data)
 					end
-				end
-			}
+				end,
+			},
 		},
-		include_condition = include_condition
+		include_condition = include_condition,
 	}
 end
 
@@ -5595,18 +5595,18 @@ do
 		weapon_to_stat[template_name] = id
 		StatDefinitions[id] = {
 			flags = {
-				StatFlags.no_sync
-			}
+				StatFlags.no_sync,
+			},
 		}
 	end
 
 	StatDefinitions.weapon_kill_splitter = {
 		flags = {
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
-			weapon_to_stat = weapon_to_stat
+			weapon_to_stat = weapon_to_stat,
 		},
 		triggers = {
 			{
@@ -5616,9 +5616,9 @@ do
 					local id = self.data.weapon_to_stat[weapon_name]
 
 					return id, attack_data
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 
 	local triggers = {}
@@ -5633,7 +5633,7 @@ do
 				if breed_lookup[breed_name] then
 					return self.id, attack_data
 				end
-			end
+			end,
 		}
 	end
 
@@ -5641,12 +5641,12 @@ do
 		flags = {
 			StatFlags.team,
 			StatFlags.no_sync,
-			StatFlags.never_log
+			StatFlags.never_log,
 		},
 		data = {
-			breed_lookup = special_and_elite_breed_lookup
+			breed_lookup = special_and_elite_breed_lookup,
 		},
-		triggers = triggers
+		triggers = triggers,
 	}
 	StatDefinitions.session_new_weapon_kills = {
 		flags = {},
@@ -5654,9 +5654,9 @@ do
 		triggers = {
 			{
 				id = "_session_new_weapon_kills",
-				trigger = StatMacros.increment
-			}
-		}
+				trigger = StatMacros.increment,
+			},
+		},
 	}
 end
 
@@ -5669,60 +5669,60 @@ do
 		StatDefinitions[stat_name] = {
 			flags = {
 				StatFlags.backend,
-				StatFlags.no_sync
+				StatFlags.no_sync,
 			},
-			data = {}
+			data = {},
 		}
 	end
 
 	StatDefinitions.mastery_track_levels = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.expertise_reached_50_primary = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.expertise_reached_50_secondary = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.expertise_reached_30 = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.expertise_reached_40 = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.expertise_reached_50 = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 	StatDefinitions.crafting_unique_traits_seen = {
 		flags = {
 			StatFlags.backend,
-			StatFlags.no_sync
+			StatFlags.no_sync,
 		},
-		data = {}
+		data = {},
 	}
 end
 
@@ -5730,80 +5730,80 @@ StatDefinitions.live_event_darkness_twins_won = {
 	flags = {
 		StatFlags.team,
 		StatFlags.no_sync,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	triggers = {
 		{
 			id = "mission_won",
-			trigger = StatMacros.increment
-		}
+			trigger = StatMacros.increment,
+		},
 	},
 	include_condition = function (self, config)
 		local circumstance_name = config.circumstance_name
 
 		return circumstance_name == "darkness_twins_solo_01"
-	end
+	end,
 }
 StatDefinitions.live_event_moebian_21_deliveries = {
 	flags = {
 		StatFlags.team,
 		StatFlags.no_sync,
-		StatFlags.never_log
+		StatFlags.never_log,
 	},
 	data = {
 		circumstances = {
-			moebian_21st_05 = true,
-			moebian_21st_04 = true,
-			moebian_21st_06 = true,
-			moebian_21st_03 = true,
-			moebian_21st_07 = true,
+			moebian_21st_01 = true,
 			moebian_21st_02 = true,
-			moebian_21st_01 = true
-		}
+			moebian_21st_03 = true,
+			moebian_21st_04 = true,
+			moebian_21st_05 = true,
+			moebian_21st_06 = true,
+			moebian_21st_07 = true,
+		},
 	},
 	triggers = {
 		{
 			id = "grimoire_delivered",
-			trigger = StatMacros.increment_by
+			trigger = StatMacros.increment_by,
 		},
 		{
 			id = "scriptures_delivered",
-			trigger = StatMacros.increment_by
-		}
+			trigger = StatMacros.increment_by,
+		},
 	},
 	include_condition = function (self, config)
 		local circumstance_name = config.circumstance_name
 
 		return self.data.circumstances[circumstance_name]
-	end
+	end,
 }
 StatDefinitions.live_event_nurgle_explosion_won = {
 	flags = {
 		StatFlags.team,
-		StatFlags.no_sync
+		StatFlags.no_sync,
 	},
 	data = {
 		circumstances = {
-			nurgle_explosion_03 = true,
-			nurgle_explosion_05 = true,
-			nurgle_explosion_04 = true,
-			nurgle_explosion_06 = true,
 			nurgle_explosion_01 = true,
+			nurgle_explosion_02 = true,
+			nurgle_explosion_03 = true,
+			nurgle_explosion_04 = true,
+			nurgle_explosion_05 = true,
+			nurgle_explosion_06 = true,
 			nurgle_explosion_07 = true,
-			nurgle_explosion_02 = true
-		}
+		},
 	},
 	triggers = {
 		{
 			id = "mission_won",
-			trigger = StatMacros.increment
-		}
+			trigger = StatMacros.increment,
+		},
 	},
 	include_condition = function (self, config)
 		local circumstance_name = config.circumstance_name
 
 		return self.data.circumstances[circumstance_name]
-	end
+	end,
 }
 StatDefinitions = _stat_data
 

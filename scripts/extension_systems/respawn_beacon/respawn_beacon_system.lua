@@ -55,7 +55,7 @@ RespawnBeaconSystem._create_respawn_beacons = function (self)
 						unit = unit,
 						distance = distance,
 						percentage = percentage,
-						segment_index = segment_index
+						segment_index = segment_index,
 					}
 
 					self._beacon_main_path_distance_lookup[unit] = distance
@@ -63,7 +63,7 @@ RespawnBeaconSystem._create_respawn_beacons = function (self)
 					local sorted_beacons_entry = {
 						unit = unit,
 						distance = distance,
-						position = position
+						position = position,
 					}
 
 					sorted_beacons[#sorted_beacons + 1] = sorted_beacons_entry

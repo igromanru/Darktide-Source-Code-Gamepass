@@ -34,7 +34,7 @@ local function _fetch_all_backend_profiles(backend_interface)
 
 		if not characters or #characters == 0 then
 			return Promise.resolved({
-				profiles = {}
+				profiles = {},
 			})
 		end
 
@@ -58,7 +58,7 @@ local function _fetch_all_backend_profiles(backend_interface)
 		return Promise.resolved({
 			profiles = profiles,
 			selected_profile = selected_profile,
-			gear = gear_list
+			gear = gear_list,
 		})
 	end)
 end
@@ -175,7 +175,7 @@ ProfilesService.fetch_suggested_names_by_archetype = function (self, archetype_n
 			"Thomas",
 			"Jane",
 			"Niki",
-			"Marie"
+			"Marie",
 		})
 	end)
 end

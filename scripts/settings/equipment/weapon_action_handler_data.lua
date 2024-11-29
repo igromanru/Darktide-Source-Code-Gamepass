@@ -77,7 +77,7 @@ weapon_action_data.actions = {
 	vent_warp_charge = _require_weapon_action("action_vent_warp_charge"),
 	wield = _require_weapon_action("action_wield"),
 	windup = _require_weapon_action("action_windup"),
-	zealot_channel = _require_weapon_action("action_zealot_channel")
+	zealot_channel = _require_weapon_action("action_zealot_channel"),
 }
 
 local function _ammo_check(action_settings, condition_func_params)
@@ -412,7 +412,7 @@ weapon_action_data.action_kind_condition_funcs = {
 		local can_use = not validate_target_func or validate_target_func(target_unit)
 
 		return can_use
-	end
+	end,
 }
 
 local function _get_toggle_special_total_time(action_settings, action_params)
@@ -434,7 +434,7 @@ weapon_action_data.action_kind_total_time_funcs = {
 		return total_time
 	end,
 	toggle_special = _get_toggle_special_total_time,
-	toggle_special_with_block = _get_toggle_special_total_time
+	toggle_special_with_block = _get_toggle_special_total_time,
 }
 
 local DEFAULT_NO_AMMO_DELAY_TIME = 1
@@ -612,64 +612,64 @@ weapon_action_data.conditional_state_functions = {
 		if HAS_STEAM and Managers.steam:is_overlay_active() then
 			return true
 		end
-	end
+	end,
 }
 weapon_action_data.action_kind_to_running_action_chain_event = {
 	aim = {
-		has_charge = true
+		has_charge = true,
 	},
 	block = {
-		has_blocked = true
+		has_blocked = true,
 	},
 	chain_lightning = {
-		stop_time_reached = true,
 		charge_depleted = true,
-		force_vent = true
+		force_vent = true,
+		stop_time_reached = true,
 	},
 	charge = {
-		fully_charged = true
+		fully_charged = true,
 	},
 	charge_ammo = {
-		fully_charged = true
+		fully_charged = true,
 	},
 	flamer_gas = {
-		reserve_empty = true,
 		charge_depleted = true,
-		clip_empty = true
+		clip_empty = true,
+		reserve_empty = true,
 	},
 	overload_charge = {
 		fully_charged = true,
-		overheating = true
+		overheating = true,
 	},
 	overload_charge_position_finder = {
-		fully_charged = true
+		fully_charged = true,
 	},
 	overload_charge_target_finder = {
-		fully_charged = true
+		fully_charged = true,
 	},
 	reload_shotgun = {
-		reload_loop = true
+		reload_loop = true,
 	},
 	scan = {
-		no_mission_zone = true
+		no_mission_zone = true,
 	},
 	scan_confirm = {
+		no_mission_zone = true,
 		stop_scanning = true,
-		no_mission_zone = true
 	},
 	smite_targeting = {
-		fully_charged = true
+		fully_charged = true,
 	},
 	spawn_projectile = {
+		force_vent = true,
 		out_of_charges = true,
-		force_vent = true
 	},
 	vent_overheat = {
-		fully_vented = true
+		fully_vented = true,
 	},
 	vent_warp_charge = {
-		fully_vented = true
-	}
+		fully_vented = true,
+	},
 }
 
 for name, _ in pairs(weapon_action_data.action_kind_condition_funcs) do

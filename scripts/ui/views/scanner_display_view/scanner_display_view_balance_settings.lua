@@ -10,7 +10,7 @@ local center_offset_y = -40
 local scanner_display_view_balance_settings = {
 	cursor_widget_size = {
 		screen_ratio * cursor_widget_size,
-		cursor_widget_size
+		cursor_widget_size,
 	},
 	center_offset_x = center_offset_x,
 	center_offset_y = center_offset_y,
@@ -18,19 +18,19 @@ local scanner_display_view_balance_settings = {
 	board_height = board_size,
 	background_size = {
 		background_size * screen_ratio,
-		background_size
+		background_size,
 	},
 	background_position = {
 		(center_offset_x - background_size / 2) * screen_ratio,
 		center_offset_y - background_size / 2,
-		0
+		0,
 	},
 	progress_starting_offset_x = 260 * screen_ratio,
 	progress_starting_offset_y = center_offset_y - 225,
 	progress_widget_size = {
 		140 * screen_ratio,
-		450
-	}
+		450,
+	},
 }
 
 return settings("ScannerDisplayViewBalanceSettings", scanner_display_view_balance_settings)

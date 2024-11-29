@@ -8,7 +8,7 @@ local SOURCE_NAME = PlayerVoiceGrunts.SOURCE_NAME
 
 PlayerVoiceGrunts.create_voice = function (fx_extension, unit, node_name)
 	local attachments = {
-		unit
+		unit,
 	}
 
 	fx_extension:register_sound_source(SOURCE_NAME, unit, attachments, node_name)

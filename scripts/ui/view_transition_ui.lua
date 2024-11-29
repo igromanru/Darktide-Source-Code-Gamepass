@@ -5,10 +5,10 @@ local ViewTransitionUI = class("ViewTransitionUI", "ConstantElementBase")
 
 ViewTransitionUI.init = function (self, render_settings)
 	render_settings = render_settings or {
-		viewport_type = "overlay",
+		timer_name = "ui",
 		viewport_layer = 1,
+		viewport_type = "overlay",
 		world_layer = 990,
-		timer_name = "ui"
 	}
 	self._render_settings = render_settings
 end

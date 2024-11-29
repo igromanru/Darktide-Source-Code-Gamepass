@@ -8,10 +8,10 @@ local horde_compositions = {
 					name = "chaos_hound_mutator",
 					amount = {
 						2,
-						3
-					}
-				}
-			}
+						3,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -19,10 +19,10 @@ local horde_compositions = {
 					name = "chaos_hound_mutator",
 					amount = {
 						3,
-						5
-					}
-				}
-			}
+						5,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -30,10 +30,10 @@ local horde_compositions = {
 					name = "chaos_hound_mutator",
 					amount = {
 						7,
-						9
-					}
-				}
-			}
+						9,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -41,17 +41,17 @@ local horde_compositions = {
 					name = "chaos_hound_mutator",
 					amount = {
 						8,
-						10
-					}
+						10,
+					},
 				},
 				{
 					name = "chaos_hound",
 					amount = {
 						1,
-						2
-					}
-				}
-			}
+						2,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -59,18 +59,18 @@ local horde_compositions = {
 					name = "chaos_hound_mutator",
 					amount = {
 						10,
-						12
-					}
+						12,
+					},
 				},
 				{
 					name = "chaos_hound",
 					amount = {
 						1,
-						2
-					}
-				}
-			}
-		}
+						2,
+					},
+				},
+			},
+		},
 	},
 	mutator_snipers = {
 		{
@@ -79,10 +79,10 @@ local horde_compositions = {
 					name = "renegade_sniper",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -90,10 +90,10 @@ local horde_compositions = {
 					name = "renegade_sniper",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -101,10 +101,10 @@ local horde_compositions = {
 					name = "renegade_sniper",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -112,10 +112,10 @@ local horde_compositions = {
 					name = "renegade_sniper",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -123,11 +123,11 @@ local horde_compositions = {
 					name = "renegade_sniper",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	},
 	mutator_poxwalker_bombers = {
 		{
@@ -136,10 +136,10 @@ local horde_compositions = {
 					name = "chaos_poxwalker_bomber",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -147,10 +147,10 @@ local horde_compositions = {
 					name = "chaos_poxwalker_bomber",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -158,10 +158,10 @@ local horde_compositions = {
 					name = "chaos_poxwalker_bomber",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -169,10 +169,10 @@ local horde_compositions = {
 					name = "chaos_poxwalker_bomber",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -180,11 +180,11 @@ local horde_compositions = {
 					name = "chaos_poxwalker_bomber",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	},
 	mutator_mutants = {
 		{
@@ -193,10 +193,10 @@ local horde_compositions = {
 					name = "cultist_mutant_mutator",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -204,10 +204,10 @@ local horde_compositions = {
 					name = "cultist_mutant_mutator",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -215,10 +215,10 @@ local horde_compositions = {
 					name = "cultist_mutant_mutator",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -226,10 +226,10 @@ local horde_compositions = {
 					name = "cultist_mutant_mutator",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
+						1,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -237,11 +237,11 @@ local horde_compositions = {
 					name = "cultist_mutant_mutator",
 					amount = {
 						1,
-						1
-					}
-				}
-			}
-		}
+						1,
+					},
+				},
+			},
+		},
 	},
 	mutator_riflemen = {
 		{
@@ -250,10 +250,10 @@ local horde_compositions = {
 					name = "renegade_rifleman",
 					amount = {
 						10,
-						12
-					}
-				}
-			}
+						12,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -261,10 +261,10 @@ local horde_compositions = {
 					name = "renegade_rifleman",
 					amount = {
 						15,
-						17
-					}
-				}
-			}
+						17,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -272,10 +272,10 @@ local horde_compositions = {
 					name = "renegade_rifleman",
 					amount = {
 						18,
-						21
-					}
-				}
-			}
+						21,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -283,10 +283,10 @@ local horde_compositions = {
 					name = "renegade_rifleman",
 					amount = {
 						21,
-						24
-					}
-				}
-			}
+						24,
+					},
+				},
+			},
 		},
 		{
 			breeds = {
@@ -294,12 +294,12 @@ local horde_compositions = {
 					name = "renegade_rifleman",
 					amount = {
 						24,
-						26
-					}
-				}
-			}
-		}
-	}
+						26,
+					},
+				},
+			},
+		},
+	},
 }
 
 return horde_compositions

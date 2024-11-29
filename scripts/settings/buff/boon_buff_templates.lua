@@ -10,30 +10,30 @@ table.make_unique(templates)
 templates.boon_mission_xp_increase = {
 	meta_buff = true,
 	meta_stat_buffs = {
-		[meta_stat_buffs.mission_reward_xp_modifier] = 0.2
-	}
+		[meta_stat_buffs.mission_reward_xp_modifier] = 0.2,
+	},
 }
 templates.boon_mission_credits_increase = {
 	meta_buff = true,
 	meta_stat_buffs = {
-		[meta_stat_buffs.mission_reward_credit_modifier] = 0.2
-	}
+		[meta_stat_buffs.mission_reward_credit_modifier] = 0.2,
+	},
 }
 templates.boon_mission_drop_chance_increase = {
 	meta_buff = true,
 	meta_stat_buffs = {
-		[meta_stat_buffs.mission_reward_drop_chance_modifier] = 0.2
-	}
+		[meta_stat_buffs.mission_reward_drop_chance_modifier] = 0.2,
+	},
 }
 templates.boon_mission_weapon_drop_rarity_increase = {
 	meta_buff = true,
 	meta_stat_buffs = {
-		[meta_stat_buffs.mission_reward_weapon_drop_rarity_modifier] = 0.2
-	}
+		[meta_stat_buffs.mission_reward_weapon_drop_rarity_modifier] = 0.2,
+	},
 }
 templates.boon_increase_max_grenades = {
-	predicted = false,
 	class_name = "buff",
+	predicted = false,
 	start_func = function (template_data, template_context)
 		local unit = template_context.unit
 		local unit_data_extension = ScriptUnit.extension(unit, "unit_data_system")
@@ -54,15 +54,15 @@ templates.boon_increase_max_grenades = {
 		grenade_ability_component.num_charges = math.min(grenade_ability_component.num_charges, initial_num_charges)
 	end,
 	stat_buffs = {
-		[stat_buffs.extra_max_amount_of_grenades] = 2
-	}
+		[stat_buffs.extra_max_amount_of_grenades] = 2,
+	},
 }
 templates.boon_increase_wounds = {
-	predicted = false,
 	class_name = "buff",
+	predicted = false,
 	stat_buffs = {
-		[stat_buffs.extra_max_amount_of_wounds] = 1
-	}
+		[stat_buffs.extra_max_amount_of_wounds] = 1,
+	},
 }
 
 return templates

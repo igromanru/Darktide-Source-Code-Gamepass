@@ -110,7 +110,7 @@ local class_loadout = {
 	passives = {},
 	coherency = {},
 	special_rules = {},
-	buff_template_tiers = {}
+	buff_template_tiers = {},
 }
 
 PlayerUnitTalentExtension._apply_talents = function (self, archetype, talents, fixed_t)
@@ -170,7 +170,7 @@ PlayerUnitTalentExtension._apply_talents = function (self, archetype, talents, f
 
 		passive_buff_indices[#passive_buff_indices + 1] = {
 			local_index = local_index,
-			component_index = component_index
+			component_index = component_index,
 		}
 	end
 

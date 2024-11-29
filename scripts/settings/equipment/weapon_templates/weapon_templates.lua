@@ -48,12 +48,12 @@ local template_groups = {
 		"chainsword_p1_m1",
 		"chainsword_p1_m2",
 		"chainsword_2h_p1_m1",
-		"chainsword_2h_p1_m2"
+		"chainsword_2h_p1_m2",
 	},
 	{
 		"chain_axes",
 		"chainaxe_p1_m1",
-		"chainaxe_p1_m2"
+		"chainaxe_p1_m2",
 	},
 	{
 		"combat_axes",
@@ -65,18 +65,18 @@ local template_groups = {
 		"combataxe_p2_m3",
 		"combataxe_p3_m1",
 		"combataxe_p3_m2",
-		"combataxe_p3_m3"
+		"combataxe_p3_m3",
 	},
 	{
 		"combat_blades",
 		"ogryn_combatblade_p1_m1",
 		"ogryn_combatblade_p1_m2",
-		"ogryn_combatblade_p1_m3"
+		"ogryn_combatblade_p1_m3",
 	},
 	{
 		"combat_knives",
 		"combatknife_p1_m1",
-		"combatknife_p1_m2"
+		"combatknife_p1_m2",
 	},
 	{
 		"combat_swords",
@@ -88,13 +88,13 @@ local template_groups = {
 		"combatsword_p2_m3",
 		"combatsword_p3_m1",
 		"combatsword_p3_m2",
-		"combatsword_p3_m3"
+		"combatsword_p3_m3",
 	},
 	{
 		"force_swords",
 		"forcesword_p1_m1",
 		"forcesword_p1_m2",
-		"forcesword_p1_m3"
+		"forcesword_p1_m3",
 	},
 	{
 		"ogryn_clubs",
@@ -103,42 +103,42 @@ local template_groups = {
 		"ogryn_club_p1_m3",
 		"ogryn_club_p2_m1",
 		"ogryn_club_p2_m2",
-		"ogryn_club_p2_m3"
+		"ogryn_club_p2_m3",
 	},
 	{
 		"ogryn_power_mauls",
 		"ogryn_powermaul_p1_m1",
 		"ogryn_powermaul_p1_m2",
-		"ogryn_powermaul_p1_m3"
+		"ogryn_powermaul_p1_m3",
 	},
 	{
 		"ogryn_powermaul_slabshield",
-		"ogryn_powermaul_slabshield_p1_m1"
+		"ogryn_powermaul_slabshield_p1_m1",
 	},
 	{
 		"ogryn_axes_2h",
 		"ogryn_pickaxe_2h_p1_m1",
 		"ogryn_pickaxe_2h_p1_m2",
-		"ogryn_pickaxe_2h_p1_m3"
+		"ogryn_pickaxe_2h_p1_m3",
 	},
 	{
 		"power_mauls",
 		"powermaul_p1_m1",
-		"powermaul_p1_m2"
+		"powermaul_p1_m2",
 	},
 	{
 		"power_mauls_2h",
-		"powermaul_2h_p1_m1"
+		"powermaul_2h_p1_m1",
 	},
 	{
 		"power_swords",
 		"powersword_p1_m1",
-		"powersword_p1_m2"
+		"powersword_p1_m2",
 	},
 	{
 		"thunder_hammers",
 		"thunderhammer_2h_p1_m1",
-		"thunderhammer_2h_p1_m2"
+		"thunderhammer_2h_p1_m2",
 	},
 	{
 		"autoguns",
@@ -150,34 +150,34 @@ local template_groups = {
 		"autogun_p2_m3",
 		"autogun_p3_m1",
 		"autogun_p3_m2",
-		"autogun_p3_m3"
+		"autogun_p3_m3",
 	},
 	{
 		"autopistols",
-		"autopistol_p1_m1"
+		"autopistol_p1_m1",
 	},
 	{
 		"bolters",
-		"bolter_p1_m1"
+		"bolter_p1_m1",
 	},
 	{
 		"bolt_pistols",
-		"boltpistol_p1_m1"
+		"boltpistol_p1_m1",
 	},
 	{
 		"flamers",
-		"flamer_p1_m1"
+		"flamer_p1_m1",
 	},
 	{
 		"force_staffs",
 		"forcestaff_p1_m1",
 		"forcestaff_p2_m1",
 		"forcestaff_p3_m1",
-		"forcestaff_p4_m1"
+		"forcestaff_p4_m1",
 	},
 	{
 		"grenadier_gauntlets",
-		"ogryn_gauntlet_p1_m1"
+		"ogryn_gauntlet_p1_m1",
 	},
 	{
 		"lasguns",
@@ -189,51 +189,51 @@ local template_groups = {
 		"lasgun_p2_m3",
 		"lasgun_p3_m1",
 		"lasgun_p3_m2",
-		"lasgun_p3_m3"
+		"lasgun_p3_m3",
 	},
 	{
 		"laspistols",
 		"laspistol_p1_m1",
-		"laspistol_p1_m3"
+		"laspistol_p1_m3",
 	},
 	{
 		"ogryn_heavystubbers",
 		"ogryn_heavystubber_p1_m1",
 		"ogryn_heavystubber_p1_m2",
-		"ogryn_heavystubber_p1_m3"
+		"ogryn_heavystubber_p1_m3",
 	},
 	{
 		"plasma_rifles",
-		"plasmagun_p1_m1"
+		"plasmagun_p1_m1",
 	},
 	{
 		"ripperguns",
 		"ogryn_rippergun_p1_m1",
 		"ogryn_rippergun_p1_m2",
-		"ogryn_rippergun_p1_m3"
+		"ogryn_rippergun_p1_m3",
 	},
 	{
 		"thumpers",
 		"ogryn_thumper_p1_m1",
-		"ogryn_thumper_p1_m2"
+		"ogryn_thumper_p1_m2",
 	},
 	{
 		"shotguns",
 		"shotgun_p1_m1",
 		"shotgun_p1_m2",
 		"shotgun_p1_m3",
-		"shotgun_p2_m1"
+		"shotgun_p2_m1",
 	},
 	{
 		"stub_pistols",
 		"stubrevolver_p1_m1",
-		"stubrevolver_p1_m2"
+		"stubrevolver_p1_m2",
 	},
 	{
 		"combat_abilities",
 		"psyker_force_field",
 		"psyker_force_field_dome",
-		"zealot_relic"
+		"zealot_relic",
 	},
 	{
 		"devices",
@@ -242,7 +242,7 @@ local template_groups = {
 		"scanner_equip",
 		"servo_skull",
 		"skull_decoder",
-		"skull_decoder_02"
+		"skull_decoder_02",
 	},
 	{
 		"grenades",
@@ -258,12 +258,12 @@ local template_groups = {
 		"psyker_throwing_knives",
 		"shock_grenade",
 		"fire_grenade",
-		"zealot_throwing_knives"
+		"zealot_throwing_knives",
 	},
 	{
 		"luggables",
 		"luggable_mission",
-		"luggable"
+		"luggable",
 	},
 	{
 		"pocketables",
@@ -275,8 +275,8 @@ local template_groups = {
 		"ammo_cache_pocketable",
 		"grimoire_pocketable",
 		"medical_crate_pocketable",
-		"tome_pocketable"
-	}
+		"tome_pocketable",
+	},
 }
 local template_names = {
 	"bot_autogun_killshot",
@@ -293,7 +293,7 @@ local template_names = {
 	"unarmed_hub_veteran",
 	"unarmed_hub_zealot",
 	"unarmed_training_grounds",
-	"unarmed"
+	"unarmed",
 }
 local path_prefix = "scripts/settings/equipment/weapon_templates/%s"
 
@@ -315,7 +315,7 @@ local chain_attack_actions = {
 		"shoot_release_charged",
 		"shoot_charged",
 		"shoot_release",
-		"charged_enough"
+		"charged_enough",
 	},
 	{
 		"heavy_attack",
@@ -323,22 +323,22 @@ local chain_attack_actions = {
 		"charge",
 		"charge_flame",
 		"charge_explosion",
-		"brace"
-	}
+		"brace",
+	},
 }
 local action_names = {
 	{
 		"loc_weapon_action_title_primary",
-		"loc_tg_input_description_melee_light_attack"
+		"loc_tg_input_description_melee_light_attack",
 	},
 	{
 		"loc_weapon_action_title_secondary",
-		"loc_tg_input_description_melee_heavy_attack"
+		"loc_tg_input_description_melee_heavy_attack",
 	},
 	{
 		"loc_weapon_action_title_primary",
-		"loc_tg_input_description_melee_heavy_attack"
-	}
+		"loc_tg_input_description_melee_heavy_attack",
+	},
 }
 
 local function _generate_ui_stats_template(weapon_template, combos)
@@ -359,7 +359,7 @@ local function _generate_ui_stats_template(weapon_template, combos)
 			dropoff_scalar = 0,
 			target_index = 1,
 			display_name = is_ranged and action_names[i][1] or action_names[i][2],
-			action_name = action_name
+			action_name = action_name,
 		}
 	end
 
@@ -373,14 +373,14 @@ local function _generate_ui_stats_template(weapon_template, combos)
 			local action_name = combo[j]
 
 			combo_table[#combo_table + 1] = {
-				dropoff_scalar = 0,
 				charge_level = 1,
+				dropoff_scalar = 0,
 				target_index = 1,
 				action_name = action_name,
 				display_name = action_name,
 				attack = default_attack_settings,
 				damage_profile_stats = is_ranged and default_ranged_damage_profile_stats or {},
-				per_action_stats = is_ranged and default_ranged_per_action_stats or {}
+				per_action_stats = is_ranged and default_ranged_per_action_stats or {},
 			}
 		end
 
@@ -390,7 +390,7 @@ local function _generate_ui_stats_template(weapon_template, combos)
 	weapon_template.displayed_weapon_stats_table = {
 		stats = stats,
 		power_stats = power_stats,
-		damage = damage
+		damage = damage,
 	}
 end
 
@@ -409,7 +409,7 @@ local function _generate_special_ui_stats_action_template(weapon_template, speci
 		attack = default_attack_settings,
 		damage_profile_stats = is_ranged and default_ranged_damage_profile_stats or {},
 		per_action_stats = is_ranged and default_ranged_per_action_stats or {},
-		use_special_damage_profile = use_special_damage_profile
+		use_special_damage_profile = use_special_damage_profile,
 	}
 
 	return data
@@ -423,7 +423,7 @@ local function _generate_special_ui_stats_template(weapon_template)
 	if special_action_name then
 		local special_action_entry = _generate_special_ui_stats_action_template(weapon_template, special_action_name, false)
 		local damage_entry = {
-			special_action_entry
+			special_action_entry,
 		}
 
 		damage[#damage + 1] = damage_entry
@@ -447,25 +447,25 @@ end
 
 local start_input_templates = {
 	{
+		input = "action_one_pressed",
 		value = true,
-		input = "action_one_pressed"
 	},
 	{
+		input = "action_one_hold",
 		value = true,
-		input = "action_one_hold"
-	}
+	},
 }
 local charge_input_templates = {
 	{
-		value = true,
 		hold_input = "action_two_hold",
-		input = "action_one_pressed"
+		input = "action_one_pressed",
+		value = true,
 	},
 	{
-		value = true,
 		hold_input = "action_two_hold",
-		input = "action_one_hold"
-	}
+		input = "action_one_hold",
+		value = true,
+	},
 }
 
 local function _find_action_based_on_input(action_inputs, inputs_to_check)
@@ -592,9 +592,9 @@ local function _generate_chain_attack_info(weapon_template, working_templates, f
 end
 
 local unwield_action_kinds = {
-	unwield_to_specific = true,
 	unwield = true,
-	unwield_to_previous = true
+	unwield_to_previous = true,
+	unwield_to_specific = true,
 }
 local failed_templates = {}
 local working_templates = {}

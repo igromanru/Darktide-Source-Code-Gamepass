@@ -37,7 +37,7 @@ local chainsword_sawing = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -47,8 +47,8 @@ local chainsword_sawing = {
 		[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 local chain_sword_crit_mod = {
 	attack = {
@@ -59,7 +59,7 @@ local chain_sword_crit_mod = {
 		[armor_types.berserker] = 0,
 		[armor_types.super_armor] = 0.2,
 		[armor_types.disgustingly_resilient] = 0,
-		[armor_types.void_shield] = 0
+		[armor_types.void_shield] = 0,
 	},
 	impact = {
 		[armor_types.unarmored] = 0,
@@ -69,12 +69,12 @@ local chain_sword_crit_mod = {
 		[armor_types.berserker] = 0,
 		[armor_types.super_armor] = 0.5,
 		[armor_types.disgustingly_resilient] = 0,
-		[armor_types.void_shield] = 0
-	}
+		[armor_types.void_shield] = 0,
+	},
 }
 local just_one = {
 	0.75,
-	1.25
+	1.25,
 }
 local chain_sword_light_mod = {
 	attack = {
@@ -85,7 +85,7 @@ local chain_sword_light_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 		[armor_types.super_armor] = damage_lerp_values.no_damage,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1_25,
-		[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+		[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -95,8 +95,8 @@ local chain_sword_light_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1_5,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 local chain_sword_light_smiter_mod = {
 	attack = {
@@ -107,7 +107,7 @@ local chain_sword_light_smiter_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-		[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+		[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_0_75,
@@ -117,8 +117,8 @@ local chain_sword_light_smiter_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 local chain_sword_heavy_mod = {
 	attack = {
@@ -129,7 +129,7 @@ local chain_sword_heavy_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1_25,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -139,16 +139,16 @@ local chain_sword_heavy_mod = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1_75,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 
 damage_templates.heavy_chainsword = {
-	sticky_attack = false,
-	ragdoll_push_force = 600,
 	finesse_ability_damage_multiplier = 1.5,
 	ragdoll_only = true,
+	ragdoll_push_force = 600,
 	stagger_category = "melee",
+	sticky_attack = false,
 	crit_mod = chain_sword_crit_mod,
 	cleave_distribution = large_cleave,
 	damage_type = damage_types.sawing,
@@ -159,7 +159,7 @@ damage_templates.heavy_chainsword = {
 	wounds_template = WoundsTemplates.chainsword,
 	stagger_duration_modifier = {
 		0.1,
-		0.5
+		0.5,
 	},
 	armor_damage_modifier = chain_sword_heavy_mod,
 	targets = {
@@ -167,155 +167,155 @@ damage_templates.heavy_chainsword = {
 			armor_damage_modifier = {
 				attack = {
 					[armor_types.armored] = damage_lerp_values.lerp_0_6,
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_4
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_4,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_1
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					130,
-					260
+					260,
 				},
 				impact = {
 					9,
-					18
-				}
+					18,
+				},
 			},
 			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 			power_level_multiplier = {
 				0.6,
-				1.4
-			}
+				1.4,
+			},
 		},
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_1
+					[armor_types.armored] = damage_lerp_values.lerp_1,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_65
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_65,
+				},
 			},
 			power_distribution = {
 				attack = {
 					75,
-					150
+					150,
 				},
 				impact = {
 					8,
-					16
-				}
+					16,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_1
+					[armor_types.armored] = damage_lerp_values.lerp_1,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_65
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_65,
+				},
 			},
 			power_distribution = {
 				attack = {
 					65,
-					130
+					130,
 				},
 				impact = {
 					7,
-					14
-				}
+					14,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_1
+					[armor_types.armored] = damage_lerp_values.lerp_1,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_65
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_65,
+				},
 			},
 			power_distribution = {
 				attack = {
 					55,
-					110
+					110,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_1
+					[armor_types.armored] = damage_lerp_values.lerp_1,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_65
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_65,
+				},
 			},
 			power_distribution = {
 				attack = {
 					45,
-					90
+					90,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_1
+					[armor_types.armored] = damage_lerp_values.lerp_1,
 				},
 				impact = {
-					[armor_types.super_armor] = damage_lerp_values.lerp_0_65
-				}
+					[armor_types.super_armor] = damage_lerp_values.lerp_0_65,
+				},
 			},
 			power_distribution = {
 				attack = {
 					35,
-					70
+					70,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		default_target = {
 			armor_damage_modifier = chain_sword_heavy_mod,
 			power_distribution = {
 				attack = {
 					30,
-					60
+					60,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
-		}
-	}
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
+		},
+	},
 }
 overrides.heavy_chainsword_smiter = {
 	parent_template_name = "heavy_chainsword",
 	overrides = {
 		{
 			"cleave_distribution",
-			no_cleave
+			no_cleave,
 		},
 		{
 			"targets",
@@ -324,8 +324,8 @@ overrides.heavy_chainsword_smiter = {
 			"attack",
 			{
 				170,
-				340
-			}
+				340,
+			},
 		},
 		{
 			"targets",
@@ -333,7 +333,7 @@ overrides.heavy_chainsword_smiter = {
 			"armor_damage_modifier",
 			"attack",
 			"super_armor",
-			damage_lerp_values.lerp_0_5
+			damage_lerp_values.lerp_0_5,
 		},
 		{
 			"targets",
@@ -341,40 +341,40 @@ overrides.heavy_chainsword_smiter = {
 			"armor_damage_modifier",
 			"attack",
 			"armored",
-			damage_lerp_values.lerp_0_8
-		}
-	}
+			damage_lerp_values.lerp_0_8,
+		},
+	},
 }
 overrides.heavy_chainsword_active = {
 	parent_template_name = "heavy_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"stagger_override",
-			"light"
+			"light",
 		},
 		{
 			"shield_stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -383,8 +383,8 @@ overrides.heavy_chainsword_active = {
 			"attack",
 			{
 				100,
-				200
-			}
+				200,
+			},
 		},
 		{
 			"targets",
@@ -393,8 +393,8 @@ overrides.heavy_chainsword_active = {
 			"impact",
 			{
 				10,
-				20
-			}
+				20,
+			},
 		},
 		{
 			"targets",
@@ -402,8 +402,8 @@ overrides.heavy_chainsword_active = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -411,82 +411,82 @@ overrides.heavy_chainsword_active = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"cleave_distribution",
-			no_cleave
+			no_cleave,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.heavy
+			GibbingPower.heavy,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.heavy_chainsword_sticky = {
 	parent_template_name = "heavy_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"stagger_override",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.heavy
+			GibbingPower.heavy,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
-			"wounds_template"
+			"wounds_template",
 		},
 		{
 			"targets",
@@ -495,8 +495,8 @@ overrides.heavy_chainsword_sticky = {
 			"attack",
 			{
 				75,
-				150
-			}
+				150,
+			},
 		},
 		{
 			"targets",
@@ -505,8 +505,8 @@ overrides.heavy_chainsword_sticky = {
 			"impact",
 			{
 				10,
-				20
-			}
+				20,
+			},
 		},
 		{
 			"targets",
@@ -514,8 +514,8 @@ overrides.heavy_chainsword_sticky = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -523,63 +523,63 @@ overrides.heavy_chainsword_sticky = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.heavy_chainsword_sticky_last = {
 	parent_template_name = "heavy_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.heavy
+			GibbingPower.heavy,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -588,8 +588,8 @@ overrides.heavy_chainsword_sticky_last = {
 			"attack",
 			{
 				500,
-				1000
-			}
+				1000,
+			},
 		},
 		{
 			"targets",
@@ -598,8 +598,8 @@ overrides.heavy_chainsword_sticky_last = {
 			"impact",
 			{
 				0,
-				0
-			}
+				0,
+			},
 		},
 		{
 			"targets",
@@ -607,8 +607,8 @@ overrides.heavy_chainsword_sticky_last = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -616,63 +616,63 @@ overrides.heavy_chainsword_sticky_last = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			chainsword_sawing
+			chainsword_sawing,
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.heavy_chainsword_sticky_last_m2 = {
 	parent_template_name = "heavy_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.heavy
+			GibbingPower.heavy,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -681,8 +681,8 @@ overrides.heavy_chainsword_sticky_last_m2 = {
 			"attack",
 			{
 				625,
-				1250
-			}
+				1250,
+			},
 		},
 		{
 			"targets",
@@ -691,8 +691,8 @@ overrides.heavy_chainsword_sticky_last_m2 = {
 			"impact",
 			{
 				0,
-				0
-			}
+				0,
+			},
 		},
 		{
 			"targets",
@@ -700,8 +700,8 @@ overrides.heavy_chainsword_sticky_last_m2 = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -709,31 +709,31 @@ overrides.heavy_chainsword_sticky_last_m2 = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 damage_templates.default_light_chainsword = {
-	sticky_attack = false,
 	finesse_ability_damage_multiplier = 1.5,
 	ragdoll_only = true,
 	ragdoll_push_force = 150,
 	stagger_category = "melee",
+	sticky_attack = false,
 	crit_mod = chain_sword_crit_mod,
 	cleave_distribution = light_cleave,
 	damage_type = damage_types.sawing,
@@ -747,71 +747,71 @@ damage_templates.default_light_chainsword = {
 		{
 			armor_damage_modifier = {
 				attack = {
-					[armor_types.armored] = damage_lerp_values.lerp_0_75
+					[armor_types.armored] = damage_lerp_values.lerp_0_75,
 				},
 				impact = {
 					[armor_types.super_armor] = {
 						0.25,
-						0.375
-					}
-				}
+						0.375,
+					},
+				},
 			},
 			power_distribution = {
 				attack = {
 					100,
-					200
+					200,
 				},
 				impact = {
 					7,
-					14
-				}
+					14,
+				},
 			},
 			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 			power_level_multiplier = {
 				0.6,
-				1.4
-			}
+				1.4,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					60,
-					120
+					120,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		{
 			power_distribution = {
 				attack = {
 					50,
-					100
+					100,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					30,
-					60
+					60,
 				},
 				impact = {
 					3,
-					6
-				}
+					6,
+				},
 			},
-			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1
-		}
-	}
+			boost_curve_multiplier_finesse = damage_lerp_values.lerp_1,
+		},
+	},
 }
 overrides.light_chainsword_up = {
 	parent_template_name = "default_light_chainsword",
@@ -822,20 +822,20 @@ overrides.light_chainsword_up = {
 			"power_level_multiplier",
 			{
 				0.7,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
 			1,
 			"boost_curve_multiplier_finesse",
-			damage_lerp_values.lerp_1_1
+			damage_lerp_values.lerp_1_1,
 		},
 		{
 			"finesse_ability_damage_multiplier",
-			1.6
-		}
-	}
+			1.6,
+		},
+	},
 }
 overrides.light_chainsword_smiter = {
 	parent_template_name = "default_light_chainsword",
@@ -847,41 +847,41 @@ overrides.light_chainsword_smiter = {
 			"attack",
 			{
 				130,
-				260
-			}
+				260,
+			},
 		},
 		{
 			"cleave_distribution",
-			single_cleave
-		}
-	}
+			single_cleave,
+		},
+	},
 }
 overrides.light_chainsword_active = {
 	parent_template_name = "default_light_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"stagger_override",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -890,8 +890,8 @@ overrides.light_chainsword_active = {
 			"attack",
 			{
 				30,
-				50
-			}
+				50,
+			},
 		},
 		{
 			"targets",
@@ -900,8 +900,8 @@ overrides.light_chainsword_active = {
 			"impact",
 			{
 				2,
-				4
-			}
+				4,
+			},
 		},
 		{
 			"targets",
@@ -909,8 +909,8 @@ overrides.light_chainsword_active = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -918,75 +918,75 @@ overrides.light_chainsword_active = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"cleave_distribution",
-			no_cleave
+			no_cleave,
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
-		}
-	}
+			WoundsTemplates.chainsword_sawing,
+		},
+	},
 }
 overrides.light_chainsword_sticky = {
 	parent_template_name = "default_light_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"stagger_override",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.medium
+			GibbingPower.medium,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -995,8 +995,8 @@ overrides.light_chainsword_sticky = {
 			"attack",
 			{
 				75,
-				150
-			}
+				150,
+			},
 		},
 		{
 			"targets",
@@ -1005,8 +1005,8 @@ overrides.light_chainsword_sticky = {
 			"impact",
 			{
 				5,
-				10
-			}
+				10,
+			},
 		},
 		{
 			"targets",
@@ -1014,8 +1014,8 @@ overrides.light_chainsword_sticky = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1023,71 +1023,71 @@ overrides.light_chainsword_sticky = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			chainsword_sawing
+			chainsword_sawing,
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.light_chainsword_sticky_m2 = {
 	parent_template_name = "default_light_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"stagger_override",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.medium
+			GibbingPower.medium,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -1096,8 +1096,8 @@ overrides.light_chainsword_sticky_m2 = {
 			"attack",
 			{
 				100,
-				200
-			}
+				200,
+			},
 		},
 		{
 			"targets",
@@ -1106,8 +1106,8 @@ overrides.light_chainsword_sticky_m2 = {
 			"impact",
 			{
 				5,
-				10
-			}
+				10,
+			},
 		},
 		{
 			"targets",
@@ -1115,8 +1115,8 @@ overrides.light_chainsword_sticky_m2 = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1124,63 +1124,63 @@ overrides.light_chainsword_sticky_m2 = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			chainsword_sawing
+			chainsword_sawing,
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.light_chainsword_sticky_last = {
 	parent_template_name = "default_light_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"ragdoll_only",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.medium
+			GibbingPower.medium,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -1189,8 +1189,8 @@ overrides.light_chainsword_sticky_last = {
 			"attack",
 			{
 				300,
-				600
-			}
+				600,
+			},
 		},
 		{
 			"targets",
@@ -1199,8 +1199,8 @@ overrides.light_chainsword_sticky_last = {
 			"impact",
 			{
 				6,
-				7
-			}
+				7,
+			},
 		},
 		{
 			"targets",
@@ -1208,8 +1208,8 @@ overrides.light_chainsword_sticky_last = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1217,63 +1217,63 @@ overrides.light_chainsword_sticky_last = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.light_chainsword_sticky_last_m2 = {
 	parent_template_name = "default_light_chainsword",
 	overrides = {
 		{
 			"stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_shield",
-			true
+			true,
 		},
 		{
 			"ragdoll_only",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.medium
+			GibbingPower.medium,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -1282,8 +1282,8 @@ overrides.light_chainsword_sticky_last_m2 = {
 			"attack",
 			{
 				375,
-				750
-			}
+				750,
+			},
 		},
 		{
 			"targets",
@@ -1292,8 +1292,8 @@ overrides.light_chainsword_sticky_last_m2 = {
 			"impact",
 			{
 				6,
-				7
-			}
+				7,
+			},
 		},
 		{
 			"targets",
@@ -1301,8 +1301,8 @@ overrides.light_chainsword_sticky_last_m2 = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1310,31 +1310,31 @@ overrides.light_chainsword_sticky_last_m2 = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 damage_templates.default_light_chainsword_stab = {
-	sticky_attack = false,
-	ragdoll_only = true,
 	ignore_stagger_reduction = true,
+	ragdoll_only = true,
 	ragdoll_push_force = 300,
 	stagger_category = "killshot",
+	sticky_attack = false,
 	crit_mod = chain_sword_crit_mod,
 	cleave_distribution = single_cleave,
 	damage_type = damage_types.sawing,
@@ -1350,80 +1350,80 @@ damage_templates.default_light_chainsword_stab = {
 				attack = {
 					[armor_types.armored] = {
 						0.5,
-						0.8
-					}
+						0.8,
+					},
 				},
 				impact = {
 					[armor_types.super_armor] = {
 						0.25,
-						0.375
-					}
-				}
+						0.375,
+					},
+				},
 			},
 			power_distribution = {
 				attack = {
 					130,
-					260
+					260,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.6,
-				1.4
-			}
+				1.4,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					20,
-					35
+					35,
 				},
 				impact = {
 					3,
-					7
-				}
-			}
+					7,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					0,
-					0
+					0,
 				},
 				impact = {
 					2,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 overrides.light_chainsword_stab_active = {
 	parent_template_name = "default_light_chainsword_stab",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"ignore_hit_reacts",
-			true
+			true,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1432,8 +1432,8 @@ overrides.light_chainsword_stab_active = {
 			"attack",
 			{
 				30,
-				40
-			}
+				40,
+			},
 		},
 		{
 			"targets",
@@ -1441,8 +1441,8 @@ overrides.light_chainsword_stab_active = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1450,69 +1450,69 @@ overrides.light_chainsword_stab_active = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"cleave_distribution",
-			no_cleave
+			no_cleave,
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"ragdoll_push_force",
-			50
+			50,
 		},
 		{
 			"ragdoll_only",
-			false
-		}
-	}
+			false,
+		},
+	},
 }
 overrides.default_light_chainsword_stab_sticky = {
 	parent_template_name = "default_light_chainsword_stab",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"stagger_override",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"targets",
@@ -1521,8 +1521,8 @@ overrides.default_light_chainsword_stab_sticky = {
 			"attack",
 			{
 				75,
-				150
-			}
+				150,
+			},
 		},
 		{
 			"targets",
@@ -1531,8 +1531,8 @@ overrides.default_light_chainsword_stab_sticky = {
 			"impact",
 			{
 				10,
-				10
-			}
+				10,
+			},
 		},
 		{
 			"targets",
@@ -1540,8 +1540,8 @@ overrides.default_light_chainsword_stab_sticky = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1549,59 +1549,59 @@ overrides.default_light_chainsword_stab_sticky = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.2,
-				0.6
-			}
+				0.6,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"ragdoll_push_force",
-			50
+			50,
 		},
 		{
 			"ragdoll_only",
-			false
+			false,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 overrides.default_light_chainsword_stab_sticky_last = {
 	parent_template_name = "default_light_chainsword_stab",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"shield_stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"wounds_template",
-			WoundsTemplates.chainsword_sawing
+			WoundsTemplates.chainsword_sawing,
 		},
 		{
 			"sticky_attack",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1610,8 +1610,8 @@ overrides.default_light_chainsword_stab_sticky_last = {
 			"attack",
 			{
 				400,
-				800
-			}
+				800,
+			},
 		},
 		{
 			"targets",
@@ -1620,8 +1620,8 @@ overrides.default_light_chainsword_stab_sticky_last = {
 			"impact",
 			{
 				0,
-				0
-			}
+				0,
+			},
 		},
 		{
 			"targets",
@@ -1629,8 +1629,8 @@ overrides.default_light_chainsword_stab_sticky_last = {
 			"power_level_multiplier",
 			{
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			"targets",
@@ -1638,35 +1638,35 @@ overrides.default_light_chainsword_stab_sticky_last = {
 			"boost_curve_multiplier_finesse",
 			{
 				0.5,
-				1
-			}
+				1,
+			},
 		},
 		{
 			"targets",
 			1,
 			"armor_damage_modifier",
-			table.clone(chainsword_sawing)
+			table.clone(chainsword_sawing),
 		},
 		{
 			"weapon_special",
-			true
+			true,
 		},
 		{
 			"ragdoll_push_force",
-			50
+			50,
 		},
 		{
 			"ragdoll_only",
-			false
+			false,
 		},
 		{
 			"skip_on_hit_proc",
-			true
-		}
-	}
+			true,
+		},
+	},
 }
 
 return {
 	base_templates = damage_templates,
-	overrides = overrides
+	overrides = overrides,
 }

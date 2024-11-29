@@ -311,45 +311,45 @@ end
 
 LiquidSpawner.component_data = {
 	max_liquid = {
-		ui_type = "slider",
+		decimals = 0,
+		max = 400,
 		min = 0,
 		step = 1,
-		decimals = 0,
-		value = 130,
 		ui_name = "Max Liquid",
-		max = 400
+		ui_type = "slider",
+		value = 130,
 	},
 	use_template_max_liquid = {
+		ui_name = "Use Template Max Liquid",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Use Template Max Liquid"
 	},
 	liquid_area_template_name = {
+		ui_name = "Liquid Area Template Name",
 		ui_type = "text_box",
 		value = "prop_fire",
-		ui_name = "Liquid Area Template Name"
 	},
 	spawn_nodes = {
-		ui_type = "text_box_array",
 		is_optional = true,
-		ui_name = "Spawn Nodes"
+		ui_name = "Spawn Nodes",
+		ui_type = "text_box_array",
 	},
 	draw_liquid = {
+		category = "Debug",
+		ui_name = "Draw Liquid (Approx)",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Draw Liquid (Approx)",
-		category = "Debug"
 	},
 	inputs = {
 		spawn_liquid = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		despawn_liquid = {
 			accessibility = "public",
-			type = "event"
-		}
-	}
+			type = "event",
+		},
+	},
 }
 
 return LiquidSpawner

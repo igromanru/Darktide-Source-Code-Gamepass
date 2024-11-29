@@ -26,7 +26,7 @@ Annotation.update = function (self)
 	local options = {
 		text_size = font_size,
 		color = text_color,
-		rotation = Unit.world_rotation(unit, 1)
+		rotation = Unit.world_rotation(unit, 1),
 	}
 
 	return true
@@ -131,24 +131,24 @@ end
 
 Annotation.component_data = {
 	description = {
+		ui_name = "Description",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Description"
 	},
 	color = {
-		ui_type = "color",
 		ui_name = "Color",
-		value = QuaternionBox(1, 0.5, 0, 0.5)
+		ui_type = "color",
+		value = QuaternionBox(1, 0.5, 0, 0.5),
 	},
 	font_size = {
-		ui_type = "number",
+		decimals = 1,
+		max = 1.5,
 		min = 0.3,
 		step = 0.1,
-		decimals = 1,
-		value = 0.3,
 		ui_name = "Font Size",
-		max = 1.5
-	}
+		ui_type = "number",
+		value = 0.3,
+	},
 }
 
 return Annotation

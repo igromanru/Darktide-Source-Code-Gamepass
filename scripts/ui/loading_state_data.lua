@@ -5,11 +5,11 @@ local LoadingStateData = class("LoadingStateData")
 LoadingStateData.WAIT_REASON = table.index_lookup_table("read_disk", "backend", "store", "other_player", "dedicated_server", "platform")
 
 local REASON_LOOKUP = {
-	store = "loc_wait_reason_store",
-	read_disk = "loc_wait_reason_read_from_disk",
-	other_player = "loc_wait_reason_other_player",
+	backend = "loc_wait_reason_backend",
 	dedicated_server = "loc_wait_reason_dedicated_server",
-	backend = "loc_wait_reason_backend"
+	other_player = "loc_wait_reason_other_player",
+	read_disk = "loc_wait_reason_read_from_disk",
+	store = "loc_wait_reason_store",
 }
 
 if IS_GDK then

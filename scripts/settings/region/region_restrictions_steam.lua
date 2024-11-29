@@ -7,26 +7,26 @@ local RegionRestrictionsSteam = {
 		[restrictions.ragdoll_interaction] = true,
 		[restrictions.visible_minion_wounds] = true,
 		[restrictions.gibbing] = true,
-		[restrictions.blood_decals] = true
+		[restrictions.blood_decals] = true,
 	},
 	DE = {
 		[restrictions.ragdoll_interaction] = true,
 		[restrictions.visible_minion_wounds] = true,
 		[restrictions.gibbing] = true,
-		[restrictions.blood_decals] = true
+		[restrictions.blood_decals] = true,
 	},
 	JP = {
 		[restrictions.ragdoll_interaction] = true,
 		[restrictions.visible_minion_wounds] = true,
 		[restrictions.gibbing] = true,
-		[restrictions.blood_decals] = true
+		[restrictions.blood_decals] = true,
 	},
 	unknown = {
 		[restrictions.ragdoll_interaction] = true,
 		[restrictions.visible_minion_wounds] = true,
 		[restrictions.gibbing] = true,
-		[restrictions.blood_decals] = true
-	}
+		[restrictions.blood_decals] = true,
+	},
 }
 
 return settings("RegionRestrictionsSteam", RegionRestrictionsSteam)

@@ -14,7 +14,7 @@ local unit_alive = Unit.alive
 local PackageSynchronizerHost = class("PackageSynchronizerHost")
 local RPCS = {
 	"rpc_package_synchronizer_ready_peer",
-	"rpc_alias_loading_complete"
+	"rpc_alias_loading_complete",
 }
 
 PackageSynchronizerHost.DEBUG_TAG = "PackageSynchronizerHost"
@@ -226,7 +226,7 @@ PackageSynchronizerHost._player_profile_changed = function (self, sync_peer_id, 
 	local sync_data = {
 		handled_profile_changes = false,
 		notified_clients = false,
-		changed_profile_fields = changed_profile_fields
+		changed_profile_fields = changed_profile_fields,
 	}
 
 	syncs[sync_peer_id][sync_local_player_id] = sync_data
@@ -292,7 +292,7 @@ PackageSynchronizerHost._calculate_changed_inventory_items = function (self, pro
 
 			if not new_item then
 				changed_loadout_items[slot_name] = {
-					reason = "item_removed"
+					reason = "item_removed",
 				}
 
 				break
@@ -304,7 +304,7 @@ PackageSynchronizerHost._calculate_changed_inventory_items = function (self, pro
 			if item_gear_id ~= new_item_gear_id then
 				changed_loadout_items[slot_name] = {
 					reason = "item_replaced",
-					new_item = new_item
+					new_item = new_item,
 				}
 
 				break
@@ -337,7 +337,7 @@ PackageSynchronizerHost._calculate_changed_inventory_items = function (self, pro
 			if item_altered then
 				changed_loadout_items[slot_name] = {
 					reason = "item_altered",
-					new_item = new_item
+					new_item = new_item,
 				}
 			end
 
@@ -354,7 +354,7 @@ PackageSynchronizerHost._calculate_changed_inventory_items = function (self, pro
 					if not item then
 						changed_loadout_items[slot_name] = {
 							reason = "item_added",
-							new_item = new_item
+							new_item = new_item,
 						}
 					end
 
@@ -463,7 +463,7 @@ PackageSynchronizerHost._calculate_changed_talents = function (self, old_profile
 
 	if talents_changed then
 		local changes = {
-			talents = new_talents
+			talents = new_talents,
 		}
 
 		return changes
@@ -921,18 +921,18 @@ PackageSynchronizerHost.add_peer = function (self, new_peer_id)
 		local peer_states = data.peer_states
 
 		peer_states[new_peer_id] = {
-			player_states = {}
+			player_states = {},
 		}
 
 		for local_player_id, _ in pairs(players) do
 			peer_states[new_peer_id].player_states[local_player_id] = {
 				alias_version = 1,
-				alias_states = table.clone(alias_states)
+				alias_states = table.clone(alias_states),
 			}
 		end
 
 		new_peer_states[peer_id] = {
-			player_states = {}
+			player_states = {},
 		}
 
 		local player_states = peer_states[peer_id].player_states
@@ -940,20 +940,20 @@ PackageSynchronizerHost.add_peer = function (self, new_peer_id)
 		for local_player_id, _ in pairs(player_states) do
 			new_peer_states[peer_id].player_states[local_player_id] = {
 				alias_version = 1,
-				alias_states = table.clone(alias_states)
+				alias_states = table.clone(alias_states),
 			}
 		end
 	end
 
 	new_peer_states[new_peer_id] = {
-		player_states = {}
+		player_states = {},
 	}
 
 	if players then
 		for local_player_id, _ in pairs(players) do
 			new_peer_states[new_peer_id].player_states[local_player_id] = {
 				alias_version = 1,
-				alias_states = table.clone(alias_states)
+				alias_states = table.clone(alias_states),
 			}
 		end
 	end
@@ -961,7 +961,7 @@ PackageSynchronizerHost.add_peer = function (self, new_peer_id)
 	local data = {
 		enabled = false,
 		ready = false,
-		peer_states = new_peer_states
+		peer_states = new_peer_states,
 	}
 
 	self._sync_states[new_peer_id] = data
@@ -995,7 +995,7 @@ PackageSynchronizerHost.add_bot = function (self, local_player_id)
 
 		player_states[local_player_id] = {
 			alias_version = 1,
-			alias_states = table.clone(alias_states)
+			alias_states = table.clone(alias_states),
 		}
 	end
 

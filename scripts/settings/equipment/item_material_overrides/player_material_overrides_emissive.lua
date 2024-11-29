@@ -7,9 +7,9 @@ local material_overrides = {
 				1,
 				216,
 				17,
-				17
-			}
-		}
+				17,
+			},
+		},
 	},
 	emissive_red_02 = {
 		property_overrides = {
@@ -17,9 +17,9 @@ local material_overrides = {
 				0.08,
 				0.003,
 				0,
-				4
-			}
-		}
+				4,
+			},
+		},
 	},
 	emissive_green_01 = {
 		property_overrides = {
@@ -27,9 +27,9 @@ local material_overrides = {
 				1,
 				0,
 				1,
-				0
-			}
-		}
+				0,
+			},
+		},
 	},
 	emissive_blue_01 = {
 		property_overrides = {
@@ -37,9 +37,9 @@ local material_overrides = {
 				1,
 				0,
 				0,
-				1
-			}
-		}
+				1,
+			},
+		},
 	},
 	emissive_orange_01 = {
 		property_overrides = {
@@ -47,9 +47,9 @@ local material_overrides = {
 				1,
 				0.2,
 				0,
-				1
-			}
-		}
+				1,
+			},
+		},
 	},
 	emissive_orange_02 = {
 		property_overrides = {
@@ -57,9 +57,9 @@ local material_overrides = {
 				0.55,
 				0.2,
 				0.05,
-				0.75
-			}
-		}
+				0.75,
+			},
+		},
 	},
 	emissive_orange_03 = {
 		property_overrides = {
@@ -67,10 +67,10 @@ local material_overrides = {
 				1,
 				0.02,
 				0.003,
-				5
-			}
-		}
-	}
+				5,
+			},
+		},
+	},
 }
 
 return material_overrides

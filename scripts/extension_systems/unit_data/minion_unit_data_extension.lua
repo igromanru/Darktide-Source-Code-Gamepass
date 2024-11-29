@@ -3,7 +3,7 @@
 local HitZone = require("scripts/utilities/attack/hit_zone")
 local MinionUnitDataExtension = class("MinionUnitDataExtension")
 local CLIENT_RPCS = {
-	"rpc_destroy_hit_zone"
+	"rpc_destroy_hit_zone",
 }
 local NODE_TO_BIND_POSE_BY_BREED_NAME = {}
 

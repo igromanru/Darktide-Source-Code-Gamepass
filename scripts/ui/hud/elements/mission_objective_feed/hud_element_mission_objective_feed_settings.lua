@@ -7,28 +7,28 @@ local hud_element_mission_objective_feed_settings = {
 	scan_delay = 0.25,
 	header_size = {
 		460,
-		40
+		40,
 	},
 	events = {
 		event_add_mission_objective = "event_add_objective",
-		event_remove_mission_objective = "_remove_objective"
+		event_remove_mission_objective = "_remove_objective",
 	},
 	entry_spacing_by_category = {
 		default = 10,
+		overarching = 10,
 		side_mission = 0,
-		overarching = 10
 	},
 	entry_order_by_objective_category = {
 		default = 2,
+		overarching = 1,
 		side_mission = 3,
-		overarching = 1
 	},
 	base_color = UIHudSettings.color_tint_main_1,
 	alert_color = {
 		230,
 		255,
 		151,
-		29
+		29,
 	},
 	colors_by_category = {
 		overarching = {
@@ -37,7 +37,7 @@ local hud_element_mission_objective_feed_settings = {
 			bar_background = UIHudSettings.color_tint_0,
 			icon = UIHudSettings.color_tint_main_1,
 			header_text = UIHudSettings.color_tint_main_1,
-			counter_text = UIHudSettings.color_tint_main_1
+			counter_text = UIHudSettings.color_tint_main_1,
 		},
 		default = {
 			bar = UIHudSettings.color_tint_main_1,
@@ -45,7 +45,7 @@ local hud_element_mission_objective_feed_settings = {
 			bar_background = UIHudSettings.color_tint_0,
 			icon = UIHudSettings.color_tint_main_1,
 			header_text = UIHudSettings.color_tint_main_1,
-			counter_text = UIHudSettings.color_tint_main_1
+			counter_text = UIHudSettings.color_tint_main_1,
 		},
 		side_mission = {
 			bar = UIHudSettings.color_tint_6,
@@ -53,52 +53,52 @@ local hud_element_mission_objective_feed_settings = {
 			bar_background = UIHudSettings.color_tint_0,
 			icon = UIHudSettings.color_tint_6,
 			header_text = UIHudSettings.color_tint_6,
-			counter_text = UIHudSettings.color_tint_6
-		}
+			counter_text = UIHudSettings.color_tint_6,
+		},
 	},
 	size_by_category = {
 		overarching = {
 			icon = {
 				32,
-				32
-			}
+				32,
+			},
 		},
 		default = {
 			icon = {
 				32,
-				32
-			}
+				32,
+			},
 		},
 		side_mission = {
 			icon = {
 				20,
-				20
-			}
-		}
+				20,
+			},
+		},
 	},
 	offsets_by_category = {
 		overarching = {
 			icon = {
 				10,
 				0,
-				6
-			}
+				6,
+			},
 		},
 		default = {
 			icon = {
 				10,
 				0,
-				6
-			}
+				6,
+			},
 		},
 		side_mission = {
 			icon = {
 				16,
 				0,
-				6
-			}
-		}
-	}
+				6,
+			},
+		},
+	},
 }
 
 return settings("HudElementMissionObjectiveFeedSettings", hud_element_mission_objective_feed_settings)

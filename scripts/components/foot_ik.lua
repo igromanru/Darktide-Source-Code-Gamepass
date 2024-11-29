@@ -66,7 +66,7 @@ FootIk.editor_validate = function (self, unit)
 		"j_leftleg",
 		"j_rightleg",
 		"j_leftfoot",
-		"j_rightfoot"
+		"j_rightfoot",
 	}
 	local contains_empty = false
 
@@ -134,7 +134,7 @@ FootIk._instantiate_ik_data = function (self)
 	self._past_surface_sample = {
 		hips = {},
 		left = {},
-		right = {}
+		right = {},
 	}
 	self._past_leaning_sample = {}
 
@@ -310,7 +310,7 @@ FootIk._surface_sampling = function (self, unit_pose, left_ref_pose, right_ref_p
 	surface_sample.left = self:_get_foot_surface_data(unit_pose, left_ref_pose, feet_weights.x, self._left_orient_ref, self._left_orient_ref_parent, false)
 	surface_sample.right = self:_get_foot_surface_data(unit_pose, right_ref_pose, feet_weights.y, self._right_orient_ref, self._right_orient_ref_parent, true)
 	surface_sample.hips = {
-		move = Vector3.zero()
+		move = Vector3.zero(),
 	}
 
 	if surface_sample.left.hit_type == hit_types.down and surface_sample.right.hit_type == hit_types.down then
@@ -529,325 +529,325 @@ end
 
 FootIk.component_data = {
 	active_in_editor = {
+		category = "Settings",
+		ui_name = "Active in Editor",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Active in Editor",
-		category = "Settings"
 	},
 	detect_surface_enabled = {
+		category = "Settings",
+		ui_name = "Surface Detection",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Surface Detection",
-		category = "Settings"
 	},
 	lean_in_acceleration_enabled = {
+		category = "Settings",
+		ui_name = "Lean into Acceleration",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Lean into Acceleration",
-		category = "Settings"
 	},
 	distance_warp_enabled = {
+		category = "Settings",
+		ui_name = "Distance Warping",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Distance Warping",
-		category = "Settings"
 	},
 	warp_distance_hips = {
-		ui_type = "slider",
+		category = "Distance Warpnig",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		category = "Distance Warpnig",
-		value = 0.07,
-		decimals = 2,
 		ui_name = "Warp Distance Hips",
-		max = 1
+		ui_type = "slider",
+		value = 0.07,
 	},
 	warp_distance_test = {
-		ui_type = "slider",
+		category = "Distance Warpnig",
+		decimals = 2,
+		max = 1,
 		min = -1,
 		step = 0.01,
-		category = "Distance Warpnig",
-		value = 0,
-		decimals = 2,
 		ui_name = "Warp Distance Test",
-		max = 1
+		ui_type = "slider",
+		value = 0,
 	},
 	animation_speed_test = {
-		ui_type = "slider",
+		category = "Distance Warpnig",
+		decimals = 2,
+		max = 2,
 		min = 0,
 		step = 0.01,
-		category = "Distance Warpnig",
-		value = 1,
-		decimals = 2,
 		ui_name = "Animation Speed Test",
-		max = 2
+		ui_type = "slider",
+		value = 1,
 	},
 	hips_move_speed = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 50,
 		min = 0.1,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 10,
-		decimals = 2,
 		ui_name = "Hips Move Speed",
-		max = 50
+		ui_type = "slider",
+		value = 10,
 	},
 	feet_move_speed = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 50,
 		min = 0.1,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 20,
-		decimals = 2,
 		ui_name = "Feet Move Speed",
-		max = 50
+		ui_type = "slider",
+		value = 20,
 	},
 	feet_orient_speed = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 50,
 		min = 0.1,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 10,
-		decimals = 2,
 		ui_name = "Feet Orient Speed",
-		max = 50
+		ui_type = "slider",
+		value = 10,
 	},
 	feet_orient_factor = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 2,
 		min = 0,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 1,
-		decimals = 2,
 		ui_name = "Feet Orient Factor",
-		max = 2
+		ui_type = "slider",
+		value = 1,
 	},
 	raycast_distance = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 1,
 		min = 0.1,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 0.45,
-		decimals = 2,
 		ui_name = "Raycast Distance",
-		max = 1
+		ui_type = "slider",
+		value = 0.45,
 	},
 	foot_length = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 1,
 		min = 0.01,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 0.1,
-		decimals = 2,
 		ui_name = "Foot Length",
-		max = 1
+		ui_type = "slider",
+		value = 0.1,
 	},
 	foot_width = {
-		ui_type = "slider",
+		category = "Surface Detection",
+		decimals = 2,
+		max = 1,
 		min = 0.01,
 		step = 0.01,
-		category = "Surface Detection",
-		value = 0.06,
-		decimals = 2,
 		ui_name = "Foot Width",
-		max = 1
+		ui_type = "slider",
+		value = 0.06,
 	},
 	start_leaning_speed = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Start Leaning Speed",
-		max = 10
+		ui_type = "slider",
+		value = 0.5,
 	},
 	stop_leaning_speed = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Stop Leaning Speed",
-		max = 10
+		ui_type = "slider",
+		value = 0.5,
 	},
 	start_balance_speed = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Start Balance Speed",
-		max = 10
+		ui_type = "slider",
+		value = 0.5,
 	},
 	stop_balance_speed = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Stop Balance Speed",
-		max = 10
+		ui_type = "slider",
+		value = 0.5,
 	},
 	leaning = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 5,
-		decimals = 2,
 		ui_name = "Hips Leaning",
-		max = 10
+		ui_type = "slider",
+		value = 5,
 	},
 	leaning_descend = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Lean Descend",
-		max = 1
+		ui_type = "slider",
+		value = 0.5,
 	},
 	leaning_balance = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0.5,
-		decimals = 2,
 		ui_name = "Lean Balance",
-		max = 1
+		ui_type = "slider",
+		value = 0.5,
 	},
 	leaning_scale_min_vel = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 2,
-		decimals = 2,
 		ui_name = "Lean Scale Min Speed",
-		max = 10
+		ui_type = "slider",
+		value = 2,
 	},
 	leaning_scale_max_vel = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 10,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 5,
-		decimals = 2,
 		ui_name = "Lean Scale Max Speed",
-		max = 10
+		ui_type = "slider",
+		value = 5,
 	},
 	leaning_scale_min = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0,
-		decimals = 2,
 		ui_name = "Lean Scale Min",
-		max = 1
+		ui_type = "slider",
+		value = 0,
 	},
 	leaning_scale_max = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = 0,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 1,
-		decimals = 2,
 		ui_name = "Lean Scale Max",
-		max = 1
+		ui_type = "slider",
+		value = 1,
 	},
 	velocity_test_x = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = -1,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0,
-		decimals = 2,
 		ui_name = "Velocity Test X",
-		max = 1
+		ui_type = "slider",
+		value = 0,
 	},
 	velocity_test_y = {
-		ui_type = "slider",
+		category = "Leaning Into Velocity",
+		decimals = 2,
+		max = 1,
 		min = -1,
 		step = 0.01,
-		category = "Leaning Into Velocity",
-		value = 0,
-		decimals = 2,
 		ui_name = "Velocity Test Y",
-		max = 1
+		ui_type = "slider",
+		value = 0,
 	},
 	hips_handle = {
+		category = "Node Names",
+		ui_name = "Hips Handle",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Hips Handle",
-		category = "Node Names"
 	},
 	left_handle = {
+		category = "Node Names",
+		ui_name = "Left Handle",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Left Handle",
-		category = "Node Names"
 	},
 	right_handle = {
+		category = "Node Names",
+		ui_name = "Right Handle",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Right Handle",
-		category = "Node Names"
 	},
 	left_orient_handle = {
+		category = "Node Names",
+		ui_name = "Left Orient Handle",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Left Orient Handle",
-		category = "Node Names"
 	},
 	right_orient_handle = {
+		category = "Node Names",
+		ui_name = "Right Orient Handle",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Right Orient Handle",
-		category = "Node Names"
 	},
 	hips_handle_ref = {
+		category = "Node Names",
+		ui_name = "Hips Handle Ref",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Hips Handle Ref",
-		category = "Node Names"
 	},
 	left_handle_ref = {
+		category = "Node Names",
+		ui_name = "Left Handle Ref",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Left Handle Ref",
-		category = "Node Names"
 	},
 	right_handle_ref = {
+		category = "Node Names",
+		ui_name = "Right Handle Ref",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Right Handle Ref",
-		category = "Node Names"
 	},
 	left_orient_ref = {
+		category = "Node Names",
+		ui_name = "Left Orient Ref",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Left Orient Ref",
-		category = "Node Names"
 	},
 	right_orient_ref = {
+		category = "Node Names",
+		ui_name = "Right Orient Ref",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Right Orient Ref",
-		category = "Node Names"
 	},
 	grounded_node = {
+		category = "Node Names",
+		ui_name = "Grounded Node",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Grounded Node",
-		category = "Node Names"
-	}
+	},
 }
 
 return FootIk

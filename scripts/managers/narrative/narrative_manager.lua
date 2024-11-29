@@ -39,7 +39,7 @@ end
 local function _setup_backend_narrative_data(backend_data)
 	local data = {
 		stories = {},
-		events = {}
+		events = {},
 	}
 	local backend_stories = backend_data.stories
 

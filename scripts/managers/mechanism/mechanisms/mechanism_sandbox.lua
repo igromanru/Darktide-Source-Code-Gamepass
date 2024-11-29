@@ -63,7 +63,7 @@ MechanismSandbox.wanted_transition = function (self)
 			challenge = challenge,
 			resistance = resistance,
 			circumstance_name = circumstance,
-			side_mission = side_mission
+			side_mission = side_mission,
 		}
 
 		return false, StateLoading, {
@@ -73,8 +73,8 @@ MechanismSandbox.wanted_transition = function (self)
 			side_mission = side_mission,
 			next_state = StateGameplay,
 			next_state_params = {
-				mechanism_data = mechanism_data
-			}
+				mechanism_data = mechanism_data,
+			},
 		}
 	end
 

@@ -123,58 +123,58 @@ UIManager._setup_icon_renderers = function (self)
 	local item_icon_size = UISettings.item_icon_size
 	local cosmetics_icon_size = UISettings.item_icon_size
 	local portrait_render_settings = {
-		timer_name = "ui",
 		height = 160,
-		world_layer = 1,
-		shading_environment = "content/shading_environments/ui/portrait",
-		viewport_type = "default_with_alpha",
-		viewport_name = "portrait_viewport",
-		viewport_layer = 1,
 		level_name = "content/levels/ui/portrait/portrait",
+		shading_environment = "content/shading_environments/ui/portrait",
+		timer_name = "ui",
+		viewport_layer = 1,
+		viewport_name = "portrait_viewport",
+		viewport_type = "default_with_alpha",
 		width = 140,
+		world_layer = 1,
 		world_name = "portrait_world",
-		render_target_atlas_generator = self._render_target_atlas_generator
+		render_target_atlas_generator = self._render_target_atlas_generator,
 	}
 	local cosmetics_render_settings = {
-		timer_name = "ui",
-		world_layer = 900,
-		shading_environment = "content/shading_environments/ui/portrait",
-		viewport_type = "default_with_alpha",
-		viewport_name = "cosmetics_portrait_viewport",
-		viewport_layer = 900,
 		always_render = true,
 		level_name = "content/levels/ui/portrait/portrait",
+		shading_environment = "content/shading_environments/ui/portrait",
+		timer_name = "ui",
+		viewport_layer = 900,
+		viewport_name = "cosmetics_portrait_viewport",
+		viewport_type = "default_with_alpha",
+		world_layer = 900,
 		world_name = "cosmetics_portrait_world",
 		width = cosmetics_icon_size[1],
 		height = cosmetics_icon_size[2],
-		render_target_atlas_generator = self._render_target_atlas_generator
+		render_target_atlas_generator = self._render_target_atlas_generator,
 	}
 	local appearance_render_settings = {
-		timer_name = "ui",
-		height = 192,
-		world_layer = 900,
-		shading_environment = "content/shading_environments/ui/portrait",
-		viewport_type = "default_with_alpha",
-		viewport_name = "appearance_portrait_viewport",
-		viewport_layer = 900,
 		always_render = true,
+		height = 192,
 		level_name = "content/levels/ui/portrait/portrait",
+		shading_environment = "content/shading_environments/ui/portrait",
+		timer_name = "ui",
+		viewport_layer = 900,
+		viewport_name = "appearance_portrait_viewport",
+		viewport_type = "default_with_alpha",
 		width = 128,
+		world_layer = 900,
 		world_name = "appearance_portrait_world",
-		render_target_atlas_generator = self._render_target_atlas_generator
+		render_target_atlas_generator = self._render_target_atlas_generator,
 	}
 	local weapon_skins_render_settings = {
-		timer_name = "ui",
 		height = 128,
-		world_layer = 800,
-		shading_environment = "content/shading_environments/ui/weapon_icons",
-		viewport_type = "default_with_alpha",
-		viewport_name = "weapon_viewport",
-		viewport_layer = 900,
 		level_name = "content/levels/ui/weapon_icon/weapon_icon",
+		shading_environment = "content/shading_environments/ui/weapon_icons",
+		timer_name = "ui",
+		viewport_layer = 900,
+		viewport_name = "weapon_viewport",
+		viewport_type = "default_with_alpha",
 		width = 128,
+		world_layer = 800,
 		world_name = "weapon_skins_icon_world",
-		render_target_atlas_generator = self._render_target_atlas_generator
+		render_target_atlas_generator = self._render_target_atlas_generator,
 	}
 	local back_buffer_render_handlers = {}
 
@@ -276,7 +276,7 @@ UIManager.create_renderer = function (self, name, world, create_resource_target,
 
 	self._renderers[name] = {
 		renderer = renderer,
-		world = world
+		world = world,
 	}
 
 	return renderer
@@ -302,7 +302,7 @@ UIManager._load_ui_element_packages = function (self, element_definitions, refer
 		if package then
 			package_references[reference_name] = {
 				loaded = false,
-				package = package
+				package = package,
 			}
 			is_loading = true
 		end
@@ -406,7 +406,7 @@ UIManager.create_player_hud = function (self, peer_id, local_player_id, elements
 	local params = {
 		peer_id = peer_id,
 		local_player_id = local_player_id or 1,
-		enable_world_bloom = enable_world_bloom
+		enable_world_bloom = enable_world_bloom,
 	}
 
 	self._hud = UIHud:new(elements, visibility_groups, params)
@@ -423,7 +423,7 @@ UIManager.create_spectator_hud = function (self, world_viewport_name, peer_id, l
 		peer_id = peer_id,
 		local_player_id = local_player_id or 1,
 		world_viewport_name = world_viewport_name,
-		enable_world_bloom = enable_world_bloom
+		enable_world_bloom = enable_world_bloom,
 	}
 
 	self._spectator_hud = UIHud:new(elements, visibility_groups, params)
@@ -591,11 +591,11 @@ UIManager._show_error_popup = function (self, view_name)
 	popup_params.description_text = description
 	popup_params.options = {
 		{
-			text = "loc_popup_unavailable_view_button_confirm",
-			template_type = "terminal_button_small",
 			close_on_pressed = true,
-			hotkey = "back"
-		}
+			hotkey = "back",
+			template_type = "terminal_button_small",
+			text = "loc_popup_unavailable_view_button_confirm",
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", popup_params)
@@ -709,12 +709,12 @@ UIManager.create_world = function (self, world_name, optional_layer, optional_ti
 	local layer = optional_layer or 1
 	local parameters = {
 		layer = layer,
-		timer_name = optional_timer_name or self._timer_name
+		timer_name = optional_timer_name or self._timer_name,
 	}
 	local flags = optional_flags or {
 		Application.DISABLE_PHYSICS,
 		Application.ENABLE_VOLUMETRICS,
-		Application.ENABLE_RAY_TRACING
+		Application.ENABLE_RAY_TRACING,
 	}
 	local world_manager = Managers.world
 	local world = world_manager:create_world(world_name, parameters, unpack(flags))
@@ -1064,18 +1064,18 @@ UIManager._debug_draw_version_info = function (self, dt, t)
 	local font_height, font_min_y, font_max_y = UIFonts.font_height(gui, font_type, font_size)
 	local box_size = {
 		1000,
-		math.abs(font_max_y)
+		math.abs(font_max_y),
 	}
 	local text_color_table = {
 		255,
 		255,
 		255,
-		255
+		255,
 	}
 	local text_options = {
 		shadow = true,
 		horizontal_alignment = Gui.HorizontalAlignRight,
-		vertical_alignment = Gui.VerticalAlignBottom
+		vertical_alignment = Gui.VerticalAlignBottom,
 	}
 	local draw_layer = 999
 
@@ -1312,7 +1312,7 @@ UIManager._debug_draw_version_info = function (self, dt, t)
 		"show_circumstances",
 		"show_selected_unit_info",
 		"show_vo_story_stage_info",
-		"show_cinematic_active"
+		"show_cinematic_active",
 	}
 	local texts = {
 		show_build_info = "Build: " .. (BUILD or "n/a"),
@@ -1346,7 +1346,7 @@ UIManager._debug_draw_version_info = function (self, dt, t)
 		show_circumstances = circumstance_info,
 		show_selected_unit_info = selected_unit_info,
 		show_vo_story_stage_info = vo_story_stage_info,
-		show_cinematic_active = "Cinematic: " .. cinematic_active .. " | Cutscene View: " .. cutscene_view_active .. " | Loading: " .. cinematic_loading
+		show_cinematic_active = "Cinematic: " .. cinematic_active .. " | Cutscene View: " .. cutscene_view_active .. " | Loading: " .. cinematic_loading,
 	}
 	local position = Vector3(w * inverse_scale - box_size[1] - 10, h * inverse_scale - box_size[2] - 300, draw_layer)
 
@@ -1401,74 +1401,74 @@ UIManager._debug_draw_feature_info = function (self, dt, t)
 	local feature_font_height, feature_font_min_y, feature_font_max_y = UIFonts.font_height(gui, feature_font_type, feature_font_size)
 	local feature_box_size = {
 		1000,
-		math.abs(feature_font_max_y)
+		math.abs(feature_font_max_y),
 	}
 	local feature_text_options = {
 		shadow = true,
 		horizontal_alignment = Gui.HorizontalAlignLeft,
-		vertical_alignment = Gui.VerticalAlignBottom
+		vertical_alignment = Gui.VerticalAlignBottom,
 	}
 	local features = {
 		{
 			"clustered",
-			Application.render_config("settings", "clustered_shading_enabled", false)
+			Application.render_config("settings", "clustered_shading_enabled", false),
 		},
 		{
 			"conservative",
-			Application.render_config("render_caps", "conservative_raster", false)
+			Application.render_config("render_caps", "conservative_raster", false),
 		},
 		{
 			"cluster_v2",
-			Application.render_config("settings", "cluster_v2", false)
+			Application.render_config("settings", "cluster_v2", false),
 		},
 		{
 			"dxr",
-			Application.render_config("render_caps", "dxr", false) and Application.render_config("settings", "dxr", false)
+			Application.render_config("render_caps", "dxr", false) and Application.render_config("settings", "dxr", false),
 		},
 		{
 			"reflections",
-			Application.render_config("settings", "rt_reflections_enabled", false)
+			Application.render_config("settings", "rt_reflections_enabled", false),
 		},
 		{
 			"rtxgi",
-			Application.render_config("settings", "rtxgi_enabled", false)
+			Application.render_config("settings", "rtxgi_enabled", false),
 		},
 		{
 			"dlss",
-			Application.render_config("render_caps", "dlss_supported", false) and Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "dlss"
+			Application.render_config("render_caps", "dlss_supported", false) and Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "dlss",
 		},
 		{
 			"fsr2",
-			Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "fsr2"
+			Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "fsr2",
 		},
 		{
 			"xess",
-			Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "xess"
+			Application.render_config("settings", "upscaling_enabled", false) and Application.render_config("settings", "upscaling_mode", false) == "xess",
 		},
 		{
 			"d3d_debug",
-			Renderer.settings("d3d_debug")
+			Renderer.settings("d3d_debug"),
 		},
 		{
 			"gpu_validation",
-			Renderer.settings("d3d_gpu_validation")
+			Renderer.settings("d3d_gpu_validation"),
 		},
 		{
 			"gpu_crashdump",
-			Renderer.settings("gpu_crash_dumps")
-		}
+			Renderer.settings("gpu_crash_dumps"),
+		},
 	}
 	local feature_active_color = {
 		180,
 		0,
 		255,
-		0
+		0,
 	}
 	local feature_notactive_color = {
 		128,
 		0,
 		128,
-		0
+		0,
 	}
 	local feature_pos = Vector3(10, h * inverse_scale - feature_box_size[2], draw_layer)
 	local space_width = UIRenderer.text_size(ui_renderer, " ", feature_font_type, feature_font_size)
@@ -1498,7 +1498,7 @@ UIManager.load_view = function (self, view_name, reference_name, loaded_callback
 
 		packages_to_load_data[#packages_to_load_data + 1] = {
 			package_name = dynamic_package_name,
-			reference_name = package_reference_name
+			reference_name = package_reference_name,
 		}
 	end
 
@@ -1510,7 +1510,7 @@ UIManager.load_view = function (self, view_name, reference_name, loaded_callback
 
 		packages_to_load_data[#packages_to_load_data + 1] = {
 			package_name = package_name,
-			reference_name = package_reference_name
+			reference_name = package_reference_name,
 		}
 	end
 
@@ -1522,7 +1522,7 @@ UIManager.load_view = function (self, view_name, reference_name, loaded_callback
 			packages_to_load_data[#packages_to_load_data + 1] = {
 				is_level_package = true,
 				package_name = level_name,
-				reference_name = package_reference_name
+				reference_name = package_reference_name,
 			}
 		end
 	end
@@ -1543,7 +1543,7 @@ UIManager.load_view = function (self, view_name, reference_name, loaded_callback
 		local view_loading_data = {
 			packages_load_data = packages_to_load_data,
 			loaded_callback = loaded_callback,
-			reference_name = reference_name
+			reference_name = reference_name,
 		}
 
 		self._views_loading_data[view_name][reference_name] = view_loading_data
@@ -1564,7 +1564,7 @@ UIManager.load_view = function (self, view_name, reference_name, loaded_callback
 
 					depenency_package_load_data[#depenency_package_load_data + 1] = {
 						package_name = dependency_package_name,
-						reference_name = package_reference_name
+						reference_name = package_reference_name,
 					}
 				end
 
@@ -1638,7 +1638,7 @@ UIManager._unload_package = function (self, package_id, frame_delay_count)
 	if frame_delay_count then
 		self._package_unload_list[#self._package_unload_list + 1] = {
 			package_id = package_id,
-			frame_delay = frame_delay_count
+			frame_delay = frame_delay_count,
 		}
 		self._handle_package_unload_delay = true
 	else
@@ -1868,21 +1868,21 @@ UIManager.event_crossplay_change = function (self, enabled, category, id)
 	end
 
 	local context = {
-		title_text = "loc_popup_header_crossplay_changed",
 		description_text = "loc_popup_description_crossplay_changed",
 		priority_order = 1000,
+		title_text = "loc_popup_header_crossplay_changed",
 		options = {
 			{
-				text = "loc_popup_button_confirm",
 				close_on_pressed = true,
-				callback = callback(self, "_set_crossplay_and_return_to_title_screen", enabled)
+				text = "loc_popup_button_confirm",
+				callback = callback(self, "_set_crossplay_and_return_to_title_screen", enabled),
 			},
 			{
-				text = "loc_popup_button_close",
 				close_on_pressed = true,
-				callback = callback(self, "_unset_crossplay", enabled, category, id)
-			}
-		}
+				text = "loc_popup_button_close",
+				callback = callback(self, "_unset_crossplay", enabled, category, id),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context)
@@ -2012,7 +2012,7 @@ UIManager.load_item_icon = function (self, real_item, cb, render_context, dummy_
 				loadout = {},
 				archetype = archetype,
 				breed = breed,
-				gender = gender
+				gender = gender,
 			}
 		end
 
@@ -2261,7 +2261,7 @@ UIManager.event_cinematic_skip_state = function (self, show_skip, can_skip)
 
 	self._cinematic_skip_state = {
 		show_skip = show_skip,
-		can_skip = can_skip
+		can_skip = can_skip,
 	}
 end
 

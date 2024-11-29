@@ -157,13 +157,13 @@ PenanceOverviewView.on_enter = function (self)
 
 	if rumour_line then
 		local vo_event_rumour = {
-			"hub_interact_boon_vendor_rumour_politics_a"
+			"hub_interact_boon_vendor_rumour_politics_a",
 		}
 
 		self:play_vo_events(vo_event_rumour, "boon_vendor_a", nil, 0.8)
 	else
 		local vo_event_greeting = {
-			"hub_interact_penance_greeting_a"
+			"hub_interact_penance_greeting_a",
 		}
 
 		self:play_vo_events(vo_event_greeting, "boon_vendor_a", nil, 0.8)
@@ -307,7 +307,7 @@ PenanceOverviewView._setup_achievements = function (self)
 				parent = parent_name,
 				display_name = parent_category and parent_category.display_name or category_config.display_name,
 				icon = PenanceOverviewViewSettings.category_icons[category] or "content/ui/materials/icons/item_types/upper_bodies",
-				child_categories = {}
+				child_categories = {},
 			}
 
 			category_button_config[#category_button_config + 1] = data
@@ -665,35 +665,35 @@ end
 
 local layout_blueprint_names_by_grid = {
 	carousel = {
-		score = "carousel_penance_reward",
-		header = "carousel_penance_header",
 		body = "carousel_penance_body",
+		category = "carousel_penance_category",
+		completed = "carousel_penance_completed",
+		dynamic_spacing = "dynamic_spacing",
+		header = "carousel_penance_header",
+		penance_icon = "carousel_penance_icon",
+		penance_icon_and_name = "carousel_penance_icon_and_name",
 		penance_icon_small = "carousel_penance_icon_small",
+		progress_bar = "carousel_penance_progress_bar",
+		score = "carousel_penance_reward",
 		score_and_reward = "carousel_penance_score_and_reward",
 		stat = "carousel_penance_stat",
-		progress_bar = "carousel_penance_progress_bar",
 		tracked = "carousel_penance_tracked",
-		completed = "carousel_penance_completed",
-		category = "carousel_penance_category",
-		dynamic_spacing = "dynamic_spacing",
-		penance_icon_and_name = "carousel_penance_icon_and_name",
-		penance_icon = "carousel_penance_icon"
 	},
 	tooltip = {
-		score = "tooltip_penance_reward",
-		header = "tooltip_penance_header",
 		body = "tooltip_penance_body",
+		category = "tooltip_penance_category",
+		completed = "tooltip_penance_completed",
+		dynamic_spacing = "dynamic_spacing",
+		header = "tooltip_penance_header",
+		penance_icon = "tooltip_penance_icon",
+		penance_icon_and_name = "tooltip_penance_icon_and_name",
 		penance_icon_small = "tooltip_penance_icon_small",
+		progress_bar = "tooltip_penance_progress_bar",
+		score = "tooltip_penance_reward",
 		score_and_reward = "tooltip_penance_score_and_reward",
 		stat = "tooltip_penance_stat",
-		progress_bar = "tooltip_penance_progress_bar",
 		tracked = "tooltip_penance_tracked",
-		completed = "tooltip_penance_completed",
-		category = "tooltip_penance_category",
-		dynamic_spacing = "dynamic_spacing",
-		penance_icon_and_name = "tooltip_penance_icon_and_name",
-		penance_icon = "tooltip_penance_icon"
-	}
+	},
 }
 
 PenanceOverviewView._get_achievement_card_layout = function (self, achievement_id, is_tooltip)
@@ -719,8 +719,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 			widget_type = "claim_overlay",
 			size = {
 				grid_size[1],
-				grid_size[2]
-			}
+				grid_size[2],
+			},
 		}
 	end
 
@@ -728,24 +728,24 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.tracked,
 			achievement_id = achievement_id,
-			tracked = is_favorite
+			tracked = is_favorite,
 		}
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.completed,
 			achievement_id = achievement_id,
-			completed = is_complete
+			completed = is_complete,
 		}
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.category,
-			achievement = achievement
+			achievement = achievement,
 		}
 	else
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.dynamic_spacing,
 			size = {
 				grid_size[1],
-				20
-			}
+				20,
+			},
 		}
 	end
 
@@ -756,8 +756,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 			widget_type = layout_blueprint_names.dynamic_spacing,
 			size = {
 				grid_size[1],
-				10
-			}
+				10,
+			},
 		}
 		height_used = height_used + 10
 	end
@@ -767,7 +767,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 		texture = achievement.icon,
 		completed = is_complete,
 		can_claim = can_claim,
-		family_index = achievement_family_order
+		family_index = achievement_family_order,
 	}
 	height_used = height_used + blueprint[layout_blueprint_names.penance_icon].size[2]
 
@@ -776,8 +776,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 			widget_type = layout_blueprint_names.dynamic_spacing,
 			size = {
 				grid_size[1],
-				5
-			}
+				5,
+			},
 		}
 		height_used = height_used + 5
 	end
@@ -787,7 +787,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 	if title then
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.header,
-			text = title
+			text = title,
 		}
 		height_used = height_used + blueprint[layout_blueprint_names.header].size[2]
 	end
@@ -798,8 +798,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					grid_size[1],
-					10
-				}
+					10,
+				},
 			}
 			height_used = height_used + 10
 		end
@@ -810,7 +810,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 		layout[#layout + 1] = {
 			widget_type = layout_blueprint_names.progress_bar,
 			text = progress_text .. "/" .. tostring(goal),
-			progress = bar_progress
+			progress = bar_progress,
 		}
 		height_used = height_used + blueprint[layout_blueprint_names.progress_bar].size[2]
 
@@ -819,8 +819,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					grid_size[1],
-					10
-				}
+					10,
+				},
 			}
 			height_used = height_used + 10
 		end
@@ -834,7 +834,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 		description_layout_entry = {
 			widget_type = layout_blueprint_names.body,
 			text = description,
-			size = {}
+			size = {},
 		}
 		layout[#layout + 1] = description_layout_entry
 	end
@@ -848,13 +848,13 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 			widget_type = layout_blueprint_names.score_and_reward,
 			item = reward_item,
 			item_group = item_group,
-			score = achievement_score
+			score = achievement_score,
 		}
 		reward_layouts_height = reward_layouts_height + blueprint[layout_blueprint_names.score_and_reward].size[2]
 	else
 		reward_layouts[#reward_layouts + 1] = {
 			widget_type = layout_blueprint_names.score,
-			score = achievement_score
+			score = achievement_score,
 		}
 		reward_layouts_height = reward_layouts_height + blueprint[layout_blueprint_names.score].size[2]
 	end
@@ -875,7 +875,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 
 		local stat_size = {
 			blueprint[layout_blueprint_names.stat].size[1],
-			blueprint[layout_blueprint_names.stat].size[2]
+			blueprint[layout_blueprint_names.stat].size[2],
 		}
 		local max_amount_on_per_column = math.floor(allowed_stats_height / stat_size[2])
 
@@ -899,8 +899,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				value = progress_text,
 				size = {
 					stat_size[1],
-					stat_size[2]
-				}
+					stat_size[2],
+				},
 			}
 		end
 
@@ -925,8 +925,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					grid_size[1],
-					top_spacing
-				}
+					top_spacing,
+				},
 			}
 			height_used = height_used + top_spacing
 		end
@@ -946,12 +946,12 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.body,
 				text_color = Color.terminal_text_body_sub_header(255, true),
 				text = Localize("loc_penance_menu_additional_objectives_info", true, {
-					num_extra_objectives = tostring(#stats_layouts - max_stat_amount)
+					num_extra_objectives = tostring(#stats_layouts - max_stat_amount),
 				}),
 				size = {
 					nil,
-					20
-				}
+					20,
+				},
 			}
 			height_used = height_used + 20
 		end
@@ -961,8 +961,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					grid_size[1],
-					bottom_spacing
-				}
+					bottom_spacing,
+				},
 			}
 			height_used = height_used + bottom_spacing
 		end
@@ -994,7 +994,7 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 					texture = sub_achievement.icon,
 					completed = sub_achievement_is_complete,
 					text = sub_achievement_title,
-					family_index = sub_achievement_family_order
+					family_index = sub_achievement_family_order,
 				}
 			else
 				break
@@ -1015,8 +1015,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					side_spacing,
-					0
-				}
+					0,
+				},
 			}
 
 			for i = 1, #sub_achievement_entries do
@@ -1027,8 +1027,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 						widget_type = layout_blueprint_names.dynamic_spacing,
 						size = {
 							mid_spacing,
-							0
-						}
+							0,
+						},
 					}
 				end
 			end
@@ -1037,8 +1037,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					side_spacing,
-					0
-				}
+					0,
+				},
 			}
 
 			local total_width = entry_width * num_entries
@@ -1050,8 +1050,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 					widget_type = layout_blueprint_names.dynamic_spacing,
 					size = {
 						grid_size[1],
-						20
-					}
+						20,
+					},
 				}
 				height_used = height_used + 20
 			end
@@ -1064,8 +1064,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 						widget_type = layout_blueprint_names.dynamic_spacing,
 						size = {
 							grid_size[1],
-							10
-						}
+							10,
+						},
 					}
 					height_used = height_used + 10
 				end
@@ -1082,8 +1082,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 					widget_type = layout_blueprint_names.dynamic_spacing,
 					size = {
 						grid_size[1],
-						10
-					}
+						10,
+					},
 				}
 				height_added = height_added + 10
 			end
@@ -1093,12 +1093,12 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.body,
 				text_color = Color.terminal_text_body_sub_header(255, true),
 				text = Localize("loc_penance_menu_additional_objectives_info", true, {
-					num_extra_objectives = tostring(num_sub_achievements - max_entries)
+					num_extra_objectives = tostring(num_sub_achievements - max_entries),
 				}),
 				size = {
 					nil,
-					20
-				}
+					20,
+				},
 			}
 			height_added = height_added + 20
 
@@ -1107,8 +1107,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 					widget_type = layout_blueprint_names.dynamic_spacing,
 					size = {
 						grid_size[1],
-						10
-					}
+						10,
+					},
 				}
 				height_added = height_added + 10
 			end
@@ -1117,8 +1117,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 				widget_type = layout_blueprint_names.dynamic_spacing,
 				size = {
 					grid_size[1],
-					20
-				}
+					20,
+				},
 			}
 			height_added = height_added + 20
 		end
@@ -1135,8 +1135,8 @@ PenanceOverviewView._get_achievement_card_layout = function (self, achievement_i
 			widget_type = layout_blueprint_names.dynamic_spacing,
 			size = {
 				grid_size[1],
-				space_left
-			}
+				space_left,
+			},
 		}
 		height_used = height_used + space_left
 	end
@@ -1294,7 +1294,7 @@ end
 local _device_list = {
 	Keyboard,
 	Mouse,
-	Pad1
+	Pad1,
 }
 
 PenanceOverviewView._handle_input = function (self, input_service, dt, t)
@@ -1837,7 +1837,7 @@ PenanceOverviewView._setup_track_data = function (self, data)
 
 				rewards[i] = {
 					points_required = xp_limit,
-					items = items
+					items = items,
 				}
 			end
 		end
@@ -2069,7 +2069,7 @@ PenanceOverviewView.update = function (self, dt, t, input_service)
 		local reward_presentation_item = self._wintrack_reward_items[1]
 		local result_data = {
 			type = "item",
-			item = reward_presentation_item
+			item = reward_presentation_item,
 		}
 
 		self:_setup_result_overlay(result_data, RESULT_TYPES.wintrack)
@@ -2149,7 +2149,7 @@ PenanceOverviewView._claim_wintrack_reward = function (self, index)
 					rewarded_master_item.masterDataInstance = {
 						id = item_id,
 						overrides = {},
-						slots = rewarded_master_item.slots
+						slots = rewarded_master_item.slots,
 					}
 
 					local gear_id, gear = _penance_reward_item_to_gear(rewarded_master_item)
@@ -2260,24 +2260,24 @@ PenanceOverviewView._setup_tooltip_grid = function (self, layout)
 	if not self._penance_tooltip_grid then
 		local mask_padding_size = 0
 		local grid_settings = {
-			scrollbar_width = 7,
-			hide_dividers = false,
-			widget_icon_load_margin = 0,
 			enable_gamepad_scrolling = true,
-			ignore_divider_height = true,
-			use_terminal_background = true,
-			title_height = 0,
-			scrollbar_horizontal_offset = -8,
 			hide_background = false,
+			hide_dividers = false,
+			ignore_divider_height = true,
+			scrollbar_horizontal_offset = -8,
+			scrollbar_width = 7,
+			title_height = 0,
+			use_terminal_background = true,
+			widget_icon_load_margin = 0,
 			grid_spacing = {
 				0,
-				0
+				0,
 			},
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1],
-				grid_size[2] + mask_padding_size
-			}
+				grid_size[2] + mask_padding_size,
+			},
 		}
 		local layer = 10
 
@@ -2289,22 +2289,22 @@ PenanceOverviewView._setup_tooltip_grid = function (self, layout)
 		local top_divider_material = "content/ui/materials/frames/item_info_upper_dynamic"
 		local top_divider_size = {
 			grid_size[1] + 6,
-			36
+			36,
 		}
 		local top_divider_position = {
 			0,
 			-7,
-			0
+			0,
 		}
 		local bottom_divider_material = "content/ui/materials/frames/item_info_lower_dynamic"
 		local bottom_divider_size = {
 			grid_size[1] + 6,
-			36
+			36,
 		}
 		local bottom_divider_position = {
 			0,
 			1,
-			0
+			0,
 		}
 
 		self._penance_tooltip_grid:update_dividers(top_divider_material, top_divider_size, top_divider_position, bottom_divider_material, bottom_divider_size, bottom_divider_position)
@@ -2325,28 +2325,28 @@ PenanceOverviewView._setup_penance_grid = function (self, layout, optional_displ
 	if not self._penance_grid then
 		local mask_padding_size = 0
 		local grid_settings = {
-			scrollbar_width = 7,
-			scrollbar_vertical_offset = -28,
-			widget_icon_load_margin = 0,
-			hide_background = false,
-			top_padding = 80,
-			ignore_divider_height = true,
-			scrollbar_horizontal_offset = -8,
-			scroll_start_margin = 110,
-			scrollbar_vertical_margin = 80,
 			enable_gamepad_scrolling = false,
-			use_terminal_background = true,
+			hide_background = false,
+			ignore_divider_height = true,
+			scroll_start_margin = 110,
+			scrollbar_horizontal_offset = -8,
 			scrollbar_vertical_alignment = "bottom",
+			scrollbar_vertical_margin = 80,
+			scrollbar_vertical_offset = -28,
+			scrollbar_width = 7,
 			title_height = 30,
+			top_padding = 80,
+			use_terminal_background = true,
 			using_custom_gamepad_navigation = true,
+			widget_icon_load_margin = 0,
 			grid_spacing = PenanceOverviewViewSettings.penance_grid_spacing,
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1] + 40,
-				grid_size[2] + mask_padding_size
+				grid_size[2] + mask_padding_size,
 			},
 			edge_padding = background_size[1] - grid_size[1],
-			bottom_divider_passes = PenanceOverviewViewDefinitions.bottom_divider_passes
+			bottom_divider_passes = PenanceOverviewViewDefinitions.bottom_divider_passes,
 		}
 		local layer = 10
 
@@ -2358,22 +2358,22 @@ PenanceOverviewView._setup_penance_grid = function (self, layout, optional_displ
 		local top_divider_material = "content/ui/materials/frames/achievements/panel_main_top_frame"
 		local top_divider_size = {
 			grid_size[1] + 60,
-			66
+			66,
 		}
 		local top_divider_position = {
 			0,
 			0,
-			0
+			0,
 		}
 		local bottom_divider_material = "content/ui/materials/frames/achievements/panel_main_lower_frame"
 		local bottom_divider_size = {
 			grid_size[1] + 60,
-			84
+			84,
 		}
 		local bottom_divider_position = {
 			0,
 			0,
-			0
+			0,
 		}
 
 		self._penance_grid:update_dividers(top_divider_material, top_divider_size, top_divider_position, bottom_divider_material, bottom_divider_size, bottom_divider_position)
@@ -2469,7 +2469,7 @@ PenanceOverviewView._claim_penance = function (self, reward_bundle)
 					rewarded_master_item.masterDataInstance = {
 						id = master_id,
 						overrides = {},
-						slots = rewarded_master_item.slots
+						slots = rewarded_master_item.slots,
 					}
 
 					do
@@ -2486,7 +2486,7 @@ PenanceOverviewView._claim_penance = function (self, reward_bundle)
 
 					item_data = {
 						type = "item",
-						item = rewarded_master_item
+						item = rewarded_master_item,
 					}
 				end
 			end
@@ -2725,7 +2725,7 @@ PenanceOverviewView._get_penance_layout_entry_by_achievement_id = function (self
 		bar_values_text = bar_values_text,
 		can_claim = can_claim,
 		achievement_id = achievement_id,
-		family_index = achievement_family_order
+		family_index = achievement_family_order,
 	}
 end
 
@@ -2753,8 +2753,8 @@ PenanceOverviewView.on_category_button_pressed = function (self, index, option, 
 					widget_type = "dynamic_spacing",
 					size = {
 						grid_size[1],
-						10
-					}
+						10,
+					},
 				}
 			end
 
@@ -2778,12 +2778,12 @@ PenanceOverviewView.on_category_button_pressed = function (self, index, option, 
 						widget_type = "dynamic_spacing",
 						size = {
 							grid_size[1],
-							10
-						}
+							10,
+						},
 					}
 					layout[#layout + 1] = {
 						widget_type = "header",
-						text = Localize(child_category.display_name)
+						text = Localize(child_category.display_name),
 					}
 
 					for j = 1, #child_achievements do
@@ -2796,8 +2796,8 @@ PenanceOverviewView.on_category_button_pressed = function (self, index, option, 
 						widget_type = "dynamic_spacing",
 						size = {
 							grid_size[1],
-							10
-						}
+							10,
+						},
 					}
 				end
 			end
@@ -2807,8 +2807,8 @@ PenanceOverviewView.on_category_button_pressed = function (self, index, option, 
 			widget_type = "dynamic_spacing",
 			size = {
 				grid_size[1],
-				10
-			}
+				10,
+			},
 		}
 	end
 
@@ -2832,26 +2832,26 @@ PenanceOverviewView._create_carousel_entry = function (self, layout)
 	local grid_size = self:_get_scenegraph_size(scenegraph_id)
 	local mask_padding_size = 40
 	local grid_settings = {
-		scrollbar_width = 7,
-		hide_dividers = false,
-		widget_icon_load_margin = 0,
 		enable_gamepad_scrolling = false,
-		use_solid_terminal_background = true,
-		ignore_divider_height = true,
-		resource_renderer_background = true,
-		no_resource_rendering = true,
-		title_height = 0,
-		scrollbar_horizontal_offset = 5,
 		hide_background = false,
+		hide_dividers = false,
+		ignore_divider_height = true,
+		no_resource_rendering = true,
+		resource_renderer_background = true,
+		scrollbar_horizontal_offset = 5,
+		scrollbar_width = 7,
+		title_height = 0,
+		use_solid_terminal_background = true,
+		widget_icon_load_margin = 0,
 		grid_spacing = {
 			0,
-			0
+			0,
 		},
 		grid_size = grid_size,
 		mask_size = {
 			grid_size[1] + mask_padding_size,
-			grid_size[2] + mask_padding_size
-		}
+			grid_size[2] + mask_padding_size,
+		},
 	}
 	local layer = 10
 	local scale = self._ui_renderer.scale or RESOLUTION_LOOKUP.scale
@@ -2866,22 +2866,22 @@ PenanceOverviewView._create_carousel_entry = function (self, layout)
 	local top_divider_material = "content/ui/materials/frames/achievements/card_upper"
 	local top_divider_size = {
 		grid_size[1] + 12,
-		22
+		22,
 	}
 	local top_divider_position = {
 		0,
 		2,
-		10
+		10,
 	}
 	local bottom_divider_material = "content/ui/materials/frames/achievements/card_lower"
 	local bottom_divider_size = {
 		grid_size[1] + 12,
-		24
+		24,
 	}
 	local bottom_divider_position = {
 		0,
 		1,
-		10
+		10,
 	}
 
 	grid:update_dividers(top_divider_material, top_divider_size, top_divider_position, bottom_divider_material, bottom_divider_size, bottom_divider_position)
@@ -2889,7 +2889,7 @@ PenanceOverviewView._create_carousel_entry = function (self, layout)
 	return {
 		grid = grid,
 		achievement_id = layout.achievement_id,
-		layout = layout
+		layout = layout,
 	}
 end
 
@@ -2953,7 +2953,7 @@ PenanceOverviewView._on_carousel_card_pressed = function (self, index, entry)
 		local additional_widgets = {
 			divider_top = grid._widgets_by_name.grid_divider_top,
 			divider_bottom = grid._widgets_by_name.grid_divider_bottom,
-			background = grid._widgets_by_name.grid_background
+			background = grid._widgets_by_name.grid_background,
 		}
 		local start_height = grid:grid_height()
 		local start_pivot_offset = grid._pivot_offset[2]
@@ -2963,7 +2963,7 @@ PenanceOverviewView._on_carousel_card_pressed = function (self, index, entry)
 			additional_widgets = additional_widgets,
 			grid = grid,
 			start_height = start_height,
-			start_pivot_offset = start_pivot_offset
+			start_pivot_offset = start_pivot_offset,
 		})
 		self._destroyed_carousel_index = index
 	end
@@ -3011,19 +3011,19 @@ PenanceOverviewView._setup_penance_category_buttons = function (self, options)
 	local category_count = #options
 	local button_size = {
 		70,
-		60
+		60,
 	}
 	local button_spacing = 4
 	local settings = {
-		vertical_alignment = "top",
 		grow_vertically = false,
 		horizontal_alignment = "center",
+		vertical_alignment = "top",
 		button_size = button_size,
 		button_spacing = button_spacing,
 		input_label_offset = {
 			25,
-			15
-		}
+			15,
+		},
 	}
 	local categories_tab_bar = self:_add_element(ViewElementTabMenu, "categories_tab_bar", 40, settings)
 
@@ -3031,21 +3031,21 @@ PenanceOverviewView._setup_penance_category_buttons = function (self, options)
 
 	local button_template = {
 		{
-			style_id = "hotspot",
-			pass_type = "hotspot",
 			content_id = "hotspot",
+			pass_type = "hotspot",
+			style_id = "hotspot",
 			content = {
 				on_pressed_sound = UISoundEvents.tab_secondary_button_pressed,
-				on_hover_sound = UISoundEvents.default_mouse_hover
+				on_hover_sound = UISoundEvents.default_mouse_hover,
 			},
 			style = {
+				anim_focus_speed = 8,
 				anim_hover_speed = 8,
 				anim_input_speed = 8,
 				anim_select_speed = 8,
-				anim_focus_speed = 8,
 				on_hover_sound = UISoundEvents.default_mouse_hover,
-				on_pressed_sound = UISoundEvents.default_click
-			}
+				on_pressed_sound = UISoundEvents.default_click,
+			},
 		},
 		{
 			pass_type = "texture",
@@ -3053,110 +3053,110 @@ PenanceOverviewView._setup_penance_category_buttons = function (self, options)
 			value = "content/ui/materials/backgrounds/default_square",
 			style = {
 				default_color = Color.terminal_background(nil, true),
-				selected_color = Color.terminal_background_selected(nil, true)
+				selected_color = Color.terminal_background_selected(nil, true),
 			},
-			change_function = ButtonPassTemplates.terminal_button_change_function
+			change_function = ButtonPassTemplates.terminal_button_change_function,
 		},
 		{
 			pass_type = "texture",
 			style_id = "background_gradient",
 			value = "content/ui/materials/gradients/gradient_vertical",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				default_color = Color.terminal_background_gradient(nil, true),
 				selected_color = Color.terminal_frame_selected(nil, true),
 				disabled_color = Color.ui_grey_medium(255, true),
 				offset = {
 					0,
 					0,
-					1
-				}
+					1,
+				},
 			},
 			change_function = function (content, style)
 				ButtonPassTemplates.terminal_button_change_function(content, style)
 				ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-			end
+			end,
 		},
 		{
-			value = "content/ui/materials/frames/dropshadow_medium",
-			style_id = "outer_shadow",
 			pass_type = "texture",
+			style_id = "outer_shadow",
+			value = "content/ui/materials/frames/dropshadow_medium",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
 				scale_to_material = true,
+				vertical_alignment = "center",
 				color = Color.black(200, true),
 				size_addition = {
 					20,
-					20
+					20,
 				},
 				offset = {
 					0,
 					0,
-					3
-				}
-			}
+					3,
+				},
+			},
 		},
 		{
 			pass_type = "texture",
 			style_id = "frame",
 			value = "content/ui/materials/frames/frame_tile_2px",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				default_color = Color.terminal_frame(nil, true),
 				selected_color = Color.terminal_frame_selected(nil, true),
 				disabled_color = Color.ui_grey_medium(255, true),
 				offset = {
 					0,
 					0,
-					2
-				}
+					2,
+				},
 			},
-			change_function = ButtonPassTemplates.terminal_button_change_function
+			change_function = ButtonPassTemplates.terminal_button_change_function,
 		},
 		{
-			value = "content/ui/materials/backgrounds/default_square",
-			style_id = "text_bg",
 			pass_type = "texture",
+			style_id = "text_bg",
+			value = "content/ui/materials/backgrounds/default_square",
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				color = Color.black(150, true),
 				size = {
 					button_size[1] - 2,
-					18
+					18,
 				},
 				offset = {
 					0,
 					-1,
-					8
-				}
-			}
+					8,
+				},
+			},
 		},
 		{
-			value_id = "text_counter",
-			style_id = "text_counter",
 			pass_type = "text",
+			style_id = "text_counter",
 			value = "0/0",
+			value_id = "text_counter",
 			style = {
-				font_type = "proxima_nova_bold",
 				font_size = 16,
-				text_vertical_alignment = "bottom",
+				font_type = "proxima_nova_bold",
 				text_horizontal_alignment = "center",
+				text_vertical_alignment = "bottom",
 				text_color = Color.terminal_text_header(255, true),
 				offset = {
 					0,
 					0,
-					9
-				}
-			}
+					9,
+				},
+			},
 		},
 		{
 			pass_type = "texture",
-			value_id = "icon",
 			style_id = "icon",
+			value_id = "icon",
 			style = {
 				horizontal_alignment = "center",
 				vertical_alignment = "center",
@@ -3166,21 +3166,21 @@ PenanceOverviewView._setup_penance_category_buttons = function (self, options)
 				hover_color = Color.terminal_text_header_selected(255, true),
 				size = {
 					72,
-					52
+					52,
 				},
 				original_size_addition = {
 					-10,
-					-10
+					-10,
 				},
 				size_addition = {
 					0,
-					0
+					0,
 				},
 				offset = {
 					0,
 					-6,
-					6
-				}
+					6,
+				},
 			},
 			change_function = function (content, style)
 				local hotspot = content.hotspot
@@ -3193,35 +3193,35 @@ PenanceOverviewView._setup_penance_category_buttons = function (self, options)
 				style_size_addition[2] = original_size_addition[1] + size_addition * 2
 
 				ButtonPassTemplates.list_button_label_change_function(content, style)
-			end
+			end,
 		},
 		{
-			style_id = "new_indicator",
 			pass_type = "texture",
+			style_id = "new_indicator",
 			value = "content/ui/materials/symbols/new_item_indicator",
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				size = {
 					90,
-					90
+					90,
 				},
 				offset = {
 					23,
 					-5,
-					4
+					4,
 				},
-				color = Color.terminal_corner_selected(255, true)
+				color = Color.terminal_corner_selected(255, true),
 			},
 			visibility_function = function (content, style)
 				return content.has_unclaimed_penances
-			end
-		}
+			end,
+		},
 	}
 	local category_button = table.clone(button_template)
 
 	category_button[1].style = {
-		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed
+		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed,
 	}
 
 	for i = 1, category_count do
@@ -3397,21 +3397,21 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 		widget_type = "dynamic_spacing",
 		size = {
 			grid_size[1],
-			20
-		}
+			20,
+		},
 	}
 	layout[#layout + 1] = {
 		widget_type = "dynamic_spacing",
 		size = {
 			grid_size[1] - 140,
-			0
-		}
+			0,
+		},
 	}
 	layout[#layout + 1] = {
 		widget_type = "tooltip_penance",
 		texture = achievement.icon,
 		completed = is_complete,
-		can_claim = can_claim
+		can_claim = can_claim,
 	}
 
 	local title = AchievementUIHelper.localized_title(achievement_definition)
@@ -3419,7 +3419,7 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 	if title then
 		layout[#layout + 1] = {
 			widget_type = "tooltip_header",
-			text = title
+			text = title,
 		}
 	end
 
@@ -3427,8 +3427,8 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 		widget_type = "dynamic_spacing",
 		size = {
 			grid_size[1],
-			10
-		}
+			10,
+		},
 	}
 
 	if draw_progress_bar then
@@ -3436,8 +3436,8 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 			widget_type = "dynamic_spacing",
 			size = {
 				grid_size[1],
-				30
-			}
+				30,
+			},
 		}
 
 		local bar_progress, progress, goal = self:_get_achievement_bar_progress(achievement_definition)
@@ -3445,14 +3445,14 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 		layout[#layout + 1] = {
 			widget_type = "tooltip_progress_bar",
 			text = tostring(progress) .. "/" .. tostring(goal),
-			progress = bar_progress
+			progress = bar_progress,
 		}
 		layout[#layout + 1] = {
 			widget_type = "dynamic_spacing",
 			size = {
 				grid_size[1],
-				10
-			}
+				10,
+			},
 		}
 	end
 
@@ -3460,8 +3460,8 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 		widget_type = "dynamic_spacing",
 		size = {
 			grid_size[1],
-			10
-		}
+			10,
+		},
 	}
 
 	local description = AchievementUIHelper.localized_description(achievement_definition)
@@ -3469,7 +3469,7 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 	if description then
 		layout[#layout + 1] = {
 			widget_type = "tooltip_body",
-			text = description
+			text = description,
 		}
 	end
 
@@ -3488,7 +3488,7 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 			layout[#layout + 1] = {
 				widget_type = "tooltip_stat",
 				text = loc_stat_name,
-				value = progress
+				value = progress,
 			}
 		end
 	end
@@ -3500,20 +3500,20 @@ PenanceOverviewView._present_achievement_tooltip = function (self, achievement_i
 			text = "Rewards:",
 			widget_type = "tooltip_header",
 			size = {
-				grid_size[1]
-			}
+				grid_size[1],
+			},
 		}
 		layout[#layout + 1] = {
 			widget_type = "dynamic_spacing",
 			size = {
 				grid_size[1],
-				10
-			}
+				10,
+			},
 		}
 		layout[#layout + 1] = {
 			widget_type = "tooltip_reward_item",
 			item = reward_item,
-			item_group = item_group
+			item_group = item_group,
 		}
 	end
 
@@ -3533,27 +3533,27 @@ PenanceOverviewView._setup_top_panel = function (self)
 	self._top_panel = self:_add_element(ViewElementMenuPanel, reference_name, layer)
 	self._panel_options = {
 		{
-			key = "carousel",
 			display_name = "loc_penance_menu_panel_option_highlights",
+			key = "carousel",
 			update = function (content, style, dt)
 				content.hotspot.disabled = false
 
 				local has_new_items = false
 
 				content.show_alert = has_new_items
-			end
+			end,
 		},
 		{
-			key = "browser",
 			display_name = "loc_penance_menu_panel_option_browser",
+			key = "browser",
 			update = function (content, style, dt)
 				content.hotspot.disabled = false
 
 				local has_new_items = false
 
 				content.show_alert = has_new_items
-			end
-		}
+			end,
+		},
 	}
 
 	local panel_options = self._panel_options
@@ -3836,7 +3836,7 @@ PenanceOverviewView.play_vo_events = function (self, events, voice_profile, opti
 			voice_profile = voice_profile,
 			optional_route_key = optional_route_key,
 			delay = optional_delay,
-			is_opinion_vo = is_opinion_vo
+			is_opinion_vo = is_opinion_vo,
 		}
 	else
 		local wwise_route_key = optional_route_key or 40

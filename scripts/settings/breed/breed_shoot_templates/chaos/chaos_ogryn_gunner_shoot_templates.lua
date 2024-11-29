@@ -11,10 +11,10 @@ local chaos_ogryn_gunner = {
 	spread = math.degrees_to_radians(1.5),
 	effect_template = EffectTemplates.chaos_ogryn_gunner_heavy_stubber,
 	damage_type = damage_types.minion_large_caliber,
-	line_effect = LineEffects.renegade_heavy_stubber_bullet
+	line_effect = LineEffects.renegade_heavy_stubber_bullet,
 }
 local shoot_templates = {
-	chaos_ogryn_gunner = chaos_ogryn_gunner
+	chaos_ogryn_gunner = chaos_ogryn_gunner,
 }
 
 return shoot_templates

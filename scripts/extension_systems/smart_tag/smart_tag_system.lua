@@ -13,13 +13,13 @@ local REMOVE_TAG_REASONS_LOOKUP = table.mirror_array_inplace(table.keys(REMOVE_T
 local SERVER_RPCS = {
 	"rpc_request_set_smart_tag",
 	"rpc_request_cancel_smart_tag",
-	"rpc_request_smart_tag_reply"
+	"rpc_request_smart_tag_reply",
 }
 local CLIENT_RPCS = {
 	"rpc_set_smart_tag",
 	"rpc_set_smart_tag_hot_join",
 	"rpc_remove_smart_tag",
-	"rpc_smart_tag_reply"
+	"rpc_smart_tag_reply",
 }
 
 local function _warning(...)

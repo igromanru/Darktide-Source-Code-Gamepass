@@ -11,7 +11,7 @@ local renegade_gunner_default = {
 	spread = math.degrees_to_radians(1.5),
 	effect_template = EffectTemplates.renegade_gunner_hellgun,
 	damage_type = damage_types.minion_laser,
-	line_effect = LineEffects.renegade_gunner_lasbeam
+	line_effect = LineEffects.renegade_gunner_lasbeam,
 }
 local renegade_gunner_sweep = table.clone(renegade_gunner_default)
 
@@ -38,7 +38,7 @@ local shoot_templates = {
 	renegade_gunner_sweep = renegade_gunner_sweep,
 	renegade_gunner_aimed = renegade_gunner_aimed,
 	renegade_gunner_shoot_close = renegade_gunner_shoot_close,
-	renegade_gunner_shoot_spray_n_pray = renegade_gunner_shoot_spray_n_pray
+	renegade_gunner_shoot_spray_n_pray = renegade_gunner_shoot_spray_n_pray,
 }
 
 return shoot_templates

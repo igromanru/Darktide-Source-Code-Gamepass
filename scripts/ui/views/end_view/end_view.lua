@@ -665,7 +665,7 @@ EndView._setup_spawn_slots = function (self, players)
 			index = player_index,
 			profile_spawner = profile_spawner,
 			ogryn_spawn_point_unit = self._ogryn_spawn_point_units[player_index],
-			human_spawn_point_unit = self._human_spawn_point_units[player_index]
+			human_spawn_point_unit = self._human_spawn_point_units[player_index],
 		}
 
 		spawn_slots[player_index] = spawn_slot
@@ -925,7 +925,7 @@ EndView._set_mission_key = function (self, mission_key, session_report, render_s
 			total_deaths = team_session_report.total_deaths,
 			mission_time = TextUtilities.format_time_span_long_form_localized(mission_time_in_sec),
 			font_size = mission_sub_header_style.stats_font_size * render_scale,
-			font_color = string.format("%d,%d,%d", stats_text_color[2], stats_text_color[3], stats_text_color[4])
+			font_color = string.format("%d,%d,%d", stats_text_color[2], stats_text_color[3], stats_text_color[4]),
 		}
 
 		widget_content.mission_sub_header = Localize("loc_end_view_mission_sub_header_victory", true, text_params)

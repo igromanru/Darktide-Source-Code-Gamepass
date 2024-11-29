@@ -80,7 +80,7 @@ Attack.execute = function (attacked_unit, damage_profile, ...)
 end
 
 local damage_types_no_proc = {
-	grimoire = true
+	grimoire = true,
 }
 local min_power_level = PowerLevelSettings.min_power_level
 local max_power_level = PowerLevelSettings.max_power_level
@@ -88,76 +88,76 @@ local max_power_level = PowerLevelSettings.max_power_level
 ARGS = {
 	{
 		default = 0,
-		name = "target_index"
+		name = "target_index",
 	},
 	{
 		default = 0,
-		name = "target_number"
+		name = "target_number",
 	},
 	{
 		name = "power_level",
 		default = min_power_level,
 		min = min_power_level,
-		max = max_power_level
+		max = max_power_level,
 	},
 	{
-		name = "charge_level"
+		name = "charge_level",
 	},
 	{
 		default = false,
-		name = "is_critical_strike"
+		name = "is_critical_strike",
 	},
 	{
-		name = "dropoff_scalar"
+		name = "dropoff_scalar",
 	},
 	{
 		default = "Vector3",
-		name = "attack_direction"
+		name = "attack_direction",
 	},
 	{
 		default = false,
-		name = "instakill"
+		name = "instakill",
 	},
 	{
-		name = "hit_zone_name"
+		name = "hit_zone_name",
 	},
 	{
-		name = "hit_world_position"
+		name = "hit_world_position",
 	},
 	{
-		name = "hit_actor"
+		name = "hit_actor",
 	},
 	{
-		name = "attacking_unit"
+		name = "attacking_unit",
 	},
 	{
-		name = "attacking_unit_owner_unit"
+		name = "attacking_unit_owner_unit",
 	},
 	{
 		default = false,
-		name = "apply_owner_buffs"
+		name = "apply_owner_buffs",
 	},
 	{
-		name = "attack_type"
+		name = "attack_type",
 	},
 	{
-		name = "herding_template"
+		name = "herding_template",
 	},
 	{
-		name = "damage_type"
+		name = "damage_type",
 	},
 	{
-		name = "auto_completed_action"
+		name = "auto_completed_action",
 	},
 	{
-		name = "item"
+		name = "item",
 	},
 	{
-		name = "wounds_shape"
+		name = "wounds_shape",
 	},
 	{
-		name = "triggered_proc_events"
-	}
+		name = "triggered_proc_events",
+	},
 }
 NUM_ARGS = #ARGS
 
@@ -734,8 +734,8 @@ function _record_telemetry(attacking_unit, attacked_unit, attack_result, attack_
 	local attack_weapon_name = attack_weapon and _format_weapon_name(attack_weapon.name)
 	local attacked_player = attacked_unit and Managers.state.player_unit_spawn:owner(attacked_unit)
 	local data = {
-		reason = "damage",
 		is_boss = false,
+		reason = "damage",
 		attack_type = attack_type,
 		weapon = attack_weapon_name,
 		damage_profile = damage_profile.name,
@@ -743,7 +743,7 @@ function _record_telemetry(attacking_unit, attacked_unit, attack_result, attack_
 		damage = damage,
 		permanent_damage = permanent_damage,
 		actual_damage = actual_damage_dealt or 0,
-		damage_absorbed = damage_absorbed
+		damage_absorbed = damage_absorbed,
 	}
 
 	if attacking_player then

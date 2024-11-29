@@ -153,7 +153,7 @@ local sound_events = {
 	"wwise/events/world/play_event_twins_arena_gas_wave_ambisonics",
 	"wwise/events/world/play_hunting_grounds_occasionals",
 	"wwise/events/world/play_int_battery_pick_up",
-	"wwise/events/world/stop_hunting_grounds_occasionals"
+	"wwise/events/world/stop_hunting_grounds_occasionals",
 }
 
 return sound_events

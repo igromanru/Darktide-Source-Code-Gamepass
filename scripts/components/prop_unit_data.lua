@@ -71,9 +71,9 @@ end
 
 PropUnitData.component_data = {
 	armor_data_name = {
-		value = "hazard_prop",
-		ui_type = "combo_box",
 		ui_name = "Prop Data",
+		ui_type = "combo_box",
+		value = "hazard_prop",
 		options_keys = {
 			"corruptor_body",
 			"corruptor_pustule",
@@ -84,7 +84,7 @@ PropUnitData.component_data = {
 			"hazard_sphere",
 			"ice_chunk",
 			"icicle",
-			"train_cogitator"
+			"train_cogitator",
 		},
 		options_values = {
 			"corruptor_body",
@@ -96,12 +96,12 @@ PropUnitData.component_data = {
 			"hazard_sphere",
 			"ice_chunk",
 			"icicle",
-			"train_cogitator"
-		}
+			"train_cogitator",
+		},
 	},
 	extensions = {
-		"PropUnitDataExtension"
-	}
+		"PropUnitDataExtension",
+	},
 }
 
 return PropUnitData

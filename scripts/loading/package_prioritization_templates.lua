@@ -37,8 +37,8 @@ package_prioritization_templates.default = {
 		"slot_unarmed",
 		"slot_combat_ability",
 		"slot_grenade_ability",
-		"slot_net"
-	}
+		"slot_net",
+	},
 }
 package_prioritization_templates.hub = {
 	required_package_aliases = {
@@ -47,8 +47,8 @@ package_prioritization_templates.hub = {
 		"sound_dependencies",
 		"particle_dependencies",
 		"slot_grenade_ability",
-		"slot_combat_ability"
-	}
+		"slot_combat_ability",
+	},
 }
 
 local template_names = table.keys(package_prioritization_templates)

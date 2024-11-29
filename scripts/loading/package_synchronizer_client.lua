@@ -20,7 +20,7 @@ local RPCS = {
 	"rpc_reevaluate_all_profile_packages",
 	"rpc_package_synchronizer_set_mission_name",
 	"rpc_set_alias_version",
-	"rpc_cache_player_profile"
+	"rpc_cache_player_profile",
 }
 local PACKAGE_MANAGER_REFERENCE = "PackageSynchronizer"
 
@@ -100,7 +100,7 @@ PackageSynchronizerClient.add_peer = function (self, peer_id)
 
 	local data = {
 		enabled = false,
-		peer_packages = packages
+		peer_packages = packages,
 	}
 
 	self._packages[peer_id] = data
@@ -130,7 +130,7 @@ PackageSynchronizerClient.add_bot = function (self, peer_id, local_player_id)
 	if not data then
 		self:add_peer(peer_id)
 		self:enable_peers({
-			peer_id
+			peer_id,
 		})
 	else
 		local player = Managers.player:player(peer_id, local_player_id)
@@ -191,7 +191,7 @@ PackageSynchronizerClient.resolve_profile_packages = function (self, profile)
 
 		profile_packages[alias] = {
 			dependencies = {},
-			state = LOADING_STATES.ready_to_load
+			state = LOADING_STATES.ready_to_load,
 		}
 	end
 
@@ -722,7 +722,7 @@ PackageSynchronizerClient._add_to_unload_delayer = function (self, package_ids)
 
 	unload_delayer[#unload_delayer + 1] = {
 		time = UNLOAD_DELAY,
-		package_ids = package_ids
+		package_ids = package_ids,
 	}
 end
 

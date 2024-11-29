@@ -285,7 +285,7 @@ MissionIntroView._setup_spawn_slots = function (self)
 			boxed_rotation = QuaternionBox(initial_rotation),
 			boxed_position = Vector3.to_array(initial_position),
 			profile_spawner = profile_spawner,
-			spawn_point_unit = spawn_point_unit
+			spawn_point_unit = spawn_point_unit,
 		}
 
 		spawn_slots[i] = spawn_slot

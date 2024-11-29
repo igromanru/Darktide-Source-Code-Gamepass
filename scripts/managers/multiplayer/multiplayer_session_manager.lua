@@ -171,7 +171,7 @@ MultiplayerSessionManager.start_singleplayer_session = function (self, mission_n
 
 	mechanism_manager:change_mechanism(mechanism_name, {
 		mission_name = mission_name,
-		singleplay_type = singeplay_type
+		singleplay_type = singeplay_type,
 	})
 
 	return mechanism_manager:wanted_transition()
@@ -211,7 +211,7 @@ MultiplayerSessionManager._handle_session_error = function (self, session)
 
 	local params = {
 		left_session_reason = disconnection_info.reason,
-		session_was_booting = disconnection_info.session_was_booting
+		session_was_booting = disconnection_info.session_was_booting,
 	}
 	local session_errors = (self._session_errors or 0) + 1
 
@@ -269,7 +269,7 @@ MultiplayerSessionManager.update = function (self, dt)
 					ViewLoader:new(),
 					LevelLoader:new(),
 					self._breed_loader,
-					HudLoader:new()
+					HudLoader:new(),
 				}
 				local loading_host = LoadingHost:new(Managers.connection:network_event_delegate(), loaders, connection_class_name)
 
@@ -283,7 +283,7 @@ MultiplayerSessionManager.update = function (self, dt)
 					ViewLoader:new(),
 					LevelLoader:new(),
 					self._breed_loader,
-					HudLoader:new()
+					HudLoader:new(),
 				}
 				local loading_host = LoadingHost:new(Managers.connection:network_event_delegate(), loaders, connection_class_name)
 
@@ -304,7 +304,7 @@ MultiplayerSessionManager.update = function (self, dt)
 					ViewLoader:new(),
 					LevelLoader:new(),
 					self._breed_loader,
-					HudLoader:new()
+					HudLoader:new(),
 				}
 				local loading_client = LoadingClient:new(Managers.connection:network_event_delegate(), host_channel_id, loaders)
 

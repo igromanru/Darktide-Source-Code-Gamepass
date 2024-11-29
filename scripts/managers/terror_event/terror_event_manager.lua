@@ -8,7 +8,7 @@ local TerrorEventTemplates = require("scripts/settings/terror_event/terror_event
 local TerrorTrickleTemplates = require("scripts/managers/terror_event/terror_trickle_templates")
 local HORDE_TYPES = HordeSettings.horde_types
 local CLIENT_RPCS = {
-	"rpc_terror_event_trigger_level_flow"
+	"rpc_terror_event_trigger_level_flow",
 }
 local TerrorEventManager = class("TerrorEventManager")
 
@@ -20,7 +20,7 @@ TerrorEventManager.init = function (self, world, is_server, network_event_delega
 	self._level = nil
 	self._point_modifier = 1
 	self._terror_trickle_data = {
-		spawned_minion_data = {}
+		spawned_minion_data = {},
 	}
 
 	local event_templates, random_event_templates = self:_load_mission_event_templates(mission)
@@ -112,7 +112,7 @@ TerrorEventManager._calculate_random_event_probabilities = function (self, rando
 
 		random_event_probabilities[event_chunk_name] = {
 			p,
-			a
+			a,
 		}
 	end
 
@@ -129,8 +129,8 @@ TerrorEventManager.start_event = function (self, event_name, optional_seed)
 	start_events[#start_events + 1] = {
 		name = event_name,
 		data = {
-			seed = optional_seed
-		}
+			seed = optional_seed,
+		},
 	}
 
 	Managers.event:trigger("terror_event_started")
@@ -444,7 +444,7 @@ TerrorEventManager._start_event = function (self, event_name, data)
 		nodes = nodes,
 		data = data,
 		scratchpad = {},
-		spawned_minion_data = {}
+		spawned_minion_data = {},
 	}
 	local active_events = self._active_events
 

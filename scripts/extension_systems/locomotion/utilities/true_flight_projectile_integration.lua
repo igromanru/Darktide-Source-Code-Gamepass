@@ -11,7 +11,7 @@ local _function_defaults = {
 	legitimate_target_func = TrueFlightFunctions.legitimate_always,
 	impact_validate = TrueFlightFunctions.hit_is_awlays_valid,
 	on_impact = TrueFlightFunctions.on_hit_do_nothing,
-	retry_target = TrueFlightFunctions.retry_if_no_target
+	retry_target = TrueFlightFunctions.retry_if_no_target,
 }
 
 local function _find_true_flight_function(true_flight_template, function_name)

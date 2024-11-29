@@ -10,7 +10,7 @@ local SIGNIN_STATES = {
 	fetching_privileges = "loc_signin_fetch_privileges",
 	fetching_sandbox_id = "loc_signin_fetch_sandbox_id",
 	idle = "",
-	signin_profile = "loc_signin_acquiring_user_profile"
+	signin_profile = "loc_signin_acquiring_user_profile",
 }
 
 AccountManagerWinGDK.init = function (self)
@@ -422,11 +422,11 @@ AccountManagerWinGDK._show_fatal_error = function (self, title_text, description
 		description_text = description_text,
 		options = {
 			{
-				text = "loc_popup_button_close",
 				close_on_pressed = true,
-				callback = callback(self, "_return_to_title_screen")
-			}
-		}
+				text = "loc_popup_button_close",
+				callback = callback(self, "_return_to_title_screen"),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -440,13 +440,13 @@ AccountManagerWinGDK._show_store_account_error = function (self, title_text, des
 		description_text = description_text,
 		options = {
 			{
-				text = "loc_popup_button_close",
 				close_on_pressed = true,
+				text = "loc_popup_button_close",
 				callback = optional_callback or function ()
 					return
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context)

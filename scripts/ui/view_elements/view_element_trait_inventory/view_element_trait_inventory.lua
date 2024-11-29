@@ -324,7 +324,7 @@ end
 
 ViewElementTraitInventory._setup_tabs = function (self)
 	local tab_settings = {
-		num_tabs = RankSettings.max_trait_rank
+		num_tabs = RankSettings.max_trait_rank,
 	}
 	local widget_definitions = ViewElementTraitInventoryDefinitions.create_tab_widgets(tab_settings)
 	local widgets_by_name = self._widgets_by_name
@@ -425,7 +425,7 @@ ViewElementTraitInventory._present = function (self, first_presentation)
 	local layout = {}
 
 	layout[#layout + 1] = {
-		widget_type = "spacing_vertical_small"
+		widget_type = "spacing_vertical_small",
 	}
 
 	for trait_name, seen_status in pairs(self._sticker_book) do
@@ -438,12 +438,12 @@ ViewElementTraitInventory._present = function (self, first_presentation)
 				masterDataInstance = {
 					id = trait_name,
 					overrides = {
-						rarity = rank
-					}
+						rarity = rank,
+					},
 				},
 				trait_name = trait_name,
 				uuid = math.uuid(),
-				weapon = string.match(trait_name, "^content/items/traits/([%w_]+)/")
+				weapon = string.match(trait_name, "^content/items/traits/([%w_]+)/"),
 			}
 			local MasterItems = require("scripts/backend/master_items")
 			local trait_stack_item = MasterItems.get_item_instance(fake_trait, fake_trait.uuid)
@@ -454,14 +454,14 @@ ViewElementTraitInventory._present = function (self, first_presentation)
 					widget_type = "trait",
 					trait_item = trait_stack_item,
 					trait_rarity = rank,
-					status = status
+					status = status,
 				}
 			end
 		end
 	end
 
 	layout[#layout + 1] = {
-		widget_type = "spacing_vertical"
+		widget_type = "spacing_vertical",
 	}
 
 	local left_click_callback = callback(self, "cb_on_grid_entry_left_pressed")

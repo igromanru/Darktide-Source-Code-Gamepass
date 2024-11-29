@@ -39,12 +39,12 @@ MainPathManager.init = function (self, world, nav_world, level_name, level_seed,
 
 		for i = 1, num_sides do
 			side_progress_on_path[i] = {
-				furthest_worst_travel_distance = 0,
-				forward_travel_changed_t = 0,
 				behind_travel_changed_t = 0,
+				forward_travel_changed_t = 0,
 				furthest_travel_distance = 0,
+				furthest_worst_travel_distance = 0,
 				ahead_path_position = Vector3Box(invalid_vector),
-				behind_path_position = Vector3Box(invalid_vector)
+				behind_path_position = Vector3Box(invalid_vector),
 			}
 		end
 
@@ -58,9 +58,9 @@ MainPathManager.init = function (self, world, nav_world, level_name, level_seed,
 
 		if use_nav_point_time_slice then
 			local spawn_points_time_slice_data = {
-				ready = false,
 				last_index = 0,
-				parameters = {}
+				ready = false,
+				parameters = {},
 			}
 
 			self._spawn_points_time_slice_data = spawn_points_time_slice_data
@@ -90,7 +90,7 @@ MainPathManager._calculate_travel_distances = function (self, main_path_segments
 		total_travel_distance = total_travel_distance + Vector3_distance(p1, p2)
 
 		local travel_distances = {
-			total_travel_distance
+			total_travel_distance,
 		}
 		local num_nodes = #nodes
 

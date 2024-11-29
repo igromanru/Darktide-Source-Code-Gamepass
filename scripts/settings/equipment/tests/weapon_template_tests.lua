@@ -79,7 +79,7 @@ function _template_settings_test(weapon_template)
 end
 
 local MANDATORY_ACTIONS = {
-	action_wield = true
+	action_wield = true,
 }
 
 function _action_settings_test(weapon_template)
@@ -202,10 +202,10 @@ function _validate_hit_zone_priority(weapon_template, action_settings)
 end
 
 local _skip_ability_check_action_kinds = {
-	unwield_to_specific = true,
-	unwield = true,
+	inspect = true,
 	toggle_special = true,
-	inspect = true
+	unwield = true,
+	unwield_to_specific = true,
 }
 
 function _validate_chain_actions(weapon_template, action_settings)

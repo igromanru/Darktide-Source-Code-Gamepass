@@ -16,7 +16,7 @@ Mastery.get_trait_costs = function ()
 
 	return {
 		trait_costs = trait_costs.tierCosts,
-		trait_unlock_threshold = trait_costs.tierThresholds
+		trait_unlock_threshold = trait_costs.tierThresholds,
 	}
 end
 
@@ -242,7 +242,7 @@ Mastery.get_mastery_rewards_by_id = function (mastery_data, reward_type_id)
 					if string.find(id, reward_type_id) then
 						rewards[#rewards + 1] = {
 							level = milestone.level,
-							reward = reward
+							reward = reward,
 						}
 					end
 				end
@@ -290,11 +290,11 @@ Mastery.get_reward_ui_data = function (id, reward)
 
 		reward_data.icon = RankSettings[reward_rarity].perk_icon
 		reward_data.display_name = Localize("loc_mastery_reward_perk_unlock", true, {
-			rarity = reward_rarity
+			rarity = reward_rarity,
 		})
 		reward_data.icon_size = {
 			32,
-			32
+			32,
 		}
 
 		return reward_data
@@ -303,14 +303,14 @@ Mastery.get_reward_ui_data = function (id, reward)
 
 		reward_data.icon = "content/ui/materials/icons/traits/traits_container"
 		reward_data.icon_material_values = {
-			frame = RankSettings[reward_rarity].trait_frame_texture
+			frame = RankSettings[reward_rarity].trait_frame_texture,
 		}
 		reward_data.display_name = Localize("loc_mastery_reward_blessing_unlock", true, {
-			rarity = reward_rarity
+			rarity = reward_rarity,
 		})
 		reward_data.icon_size = {
 			100,
-			100
+			100,
 		}
 		reward_data.icon_color = Color.terminal_text_body(255, true)
 
@@ -338,7 +338,7 @@ Mastery.get_reward_ui_data = function (id, reward)
 		reward_data.display_name = Localize(currency_data.display_name)
 		reward_data.icon_size = {
 			84,
-			60
+			60,
 		}
 		reward_data.text = reward.value
 
@@ -348,7 +348,7 @@ Mastery.get_reward_ui_data = function (id, reward)
 		reward_data.display_name = reward_type
 		reward_data.icon_size = {
 			300,
-			128
+			128,
 		}
 
 		return reward_data
@@ -364,7 +364,7 @@ Mastery.get_reward_ui_data = function (id, reward)
 			reward_data.display_name = display_name
 			reward_data.icon_size = {
 				300,
-				128
+				128,
 			}
 
 			return reward_data
@@ -483,19 +483,19 @@ end
 local mark_diff_texts = {
 	melee = {
 		"Stagger",
-		"Combo"
+		"Combo",
 	},
 	ranged = {
 		"Recoil",
-		"Ammunition"
+		"Ammunition",
 	},
 	common = {
 		"Damage",
 		"Speed",
 		"Weight",
 		"Boost",
-		"Chad"
-	}
+		"Chad",
+	},
 }
 local mark_higher_text = "+ Higher"
 local mark_lower_text = "- Lower"
@@ -552,9 +552,9 @@ Mastery.get_all_mastery_marks = function (mastery_data)
 					item = master_item,
 					mark_attributes = {
 						positive_text,
-						negative_text
+						negative_text,
 					},
-					comparison_text = mark_data and mark_data.comparison_text or ""
+					comparison_text = mark_data and mark_data.comparison_text or "",
 				}
 			end
 		end

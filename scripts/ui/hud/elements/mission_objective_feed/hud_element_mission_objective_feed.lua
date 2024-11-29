@@ -57,7 +57,7 @@ local ALERT_COLOR = {
 	255,
 	0,
 	0,
-	0
+	0,
 }
 
 HudElementMissionObjectiveFeed._update_widgets = function (self, dt, t)
@@ -163,7 +163,7 @@ end
 HudElementMissionObjectiveFeed.event_add_objective = function (self, objective, locally_added)
 	self._event_objectives_to_add[#self._event_objectives_to_add + 1] = {
 		objective = objective,
-		locally_added = locally_added
+		locally_added = locally_added,
 	}
 end
 
@@ -196,7 +196,7 @@ HudElementMissionObjectiveFeed._add_objective = function (self, objective, ui_re
 	if header_text_style then
 		local text_size = {
 			header_text_style.size[1],
-			1000
+			1000,
 		}
 		local text_options = UIFonts.get_font_options_by_style(header_text_style)
 		local _, text_height = UIRenderer.text_size(ui_renderer, header_text, header_text_style.font_type, header_text_style.font_size, text_size, text_options)

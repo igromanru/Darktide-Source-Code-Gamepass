@@ -40,7 +40,7 @@ ConnectionLocalStateMachine.init = function (self, event_delegate, engine_lobby,
 		profile_synchronizer_client = profile_synchronizer_client,
 		jwt_ticket = jwt_ticket,
 		ready_to_claim_slots = slots_to_reserve == nil,
-		event_list = {}
+		event_list = {},
 	}
 
 	self._shared_state = shared_state
@@ -122,7 +122,7 @@ end
 
 ConnectionLocalStateMachine.disconnect = function (self, optional_game_reason)
 	self._state_machine:event("disconnected", {
-		game_reason = optional_game_reason or "game_request"
+		game_reason = optional_game_reason or "game_request",
 	})
 end
 

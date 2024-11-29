@@ -34,7 +34,7 @@ RespawnBeaconExtension.setup_from_component = function (self, side, debug_ignore
 
 	for i = 1, num_valid_spawn_positions do
 		self._valid_spawn_positions[#self._valid_spawn_positions + 1] = {
-			position = Vector3Box(valid_spawn_positions[i])
+			position = Vector3Box(valid_spawn_positions[i]),
 		}
 	end
 end

@@ -481,7 +481,7 @@ end
 local bot_teleport_location_node_names = {
 	"bot_teleport_location_01",
 	"bot_teleport_location_02",
-	"bot_teleport_location_03"
+	"bot_teleport_location_03",
 }
 
 DoorExtension.teleport_bots = function (self)

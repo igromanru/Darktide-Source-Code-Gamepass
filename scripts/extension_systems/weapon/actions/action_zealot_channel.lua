@@ -158,7 +158,7 @@ end
 local SUPPRESSION_DECAY_DELAY = {
 	3.2,
 	3,
-	5
+	5,
 }
 
 ActionZealotChannel._on_channel_tick = function (self, dt, in_coherence_units, t, time_in_action)

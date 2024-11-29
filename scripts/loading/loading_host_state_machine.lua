@@ -23,7 +23,7 @@ LoadingHostStateMachine.init = function (self, mission_name, level_editor_level,
 		done_loading_level_func = done_loading_level_func,
 		loaders = loaders,
 		themes = {},
-		single_player = single_player
+		single_player = single_player,
 	}
 
 	self._shared_state = shared_state

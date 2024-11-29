@@ -14,7 +14,7 @@ local BASE_LAYER_EMPTY_EVENT = "base_layer_to_empty"
 local IMPACT_HIT_MASS_MODIFIERS = {
 	0.9,
 	0.75,
-	0.5
+	0.5,
 }
 
 BtStaggerAction.enter = function (self, unit, breed, blackboard, scratchpad, action_data, t)

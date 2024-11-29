@@ -103,21 +103,21 @@ MinigameDefuseView.draw_widgets = function (self, dt, t, input_service, ui_rende
 					255,
 					0,
 					255,
-					0
+					0,
 				}
 			elseif i < current_stage then
 				widget.style.highlight.color = {
 					128,
 					0,
 					128,
-					0
+					0,
 				}
 			else
 				widget.style.highlight.color = {
 					64,
 					0,
 					64,
-					0
+					0,
 				}
 			end
 
@@ -157,10 +157,10 @@ MinigameDefuseView._create_option_widgets = function (self)
 								255,
 								0,
 								255,
-								0
-							}
-						}
-					}
+								0,
+							},
+						},
+					},
 				}, scenegraph_id, nil, widget_size)
 				local widget = UIWidget.init(widget_name, widget_definition)
 
@@ -206,10 +206,10 @@ MinigameDefuseView._create_target_widgets = function (self)
 							255,
 							0,
 							255,
-							0
-						}
-					}
-				}
+							0,
+						},
+					},
+				},
 			}, scenegraph_id, nil, widget_size)
 			local widget = UIWidget.init(widget_name, widget_definition)
 			local offset = widget.offset
@@ -235,19 +235,19 @@ MinigameDefuseView._create_stage_widgets = function (self)
 		local spacing = ScannerDisplayViewDefuseSettings.stage_spacing
 		local pass_definitions = {
 			{
-				value = "content/ui/materials/backgrounds/default_square",
-				style_id = "highlight",
 				pass_type = "texture",
+				style_id = "highlight",
+				value = "content/ui/materials/backgrounds/default_square",
 				style = {
 					hdr = true,
 					color = {
 						255,
 						0,
 						255,
-						0
-					}
-				}
-			}
+						0,
+					},
+				},
+			},
 		}
 		local stage_widgets = {}
 
@@ -289,14 +289,14 @@ MinigameDefuseView._update_cursor = function (self, widgets_by_name, success, hi
 				255,
 				255,
 				255,
-				255
+				255,
 			}
 		else
 			widget_target.style.frame.color = {
 				255,
 				255,
 				0,
-				0
+				0,
 			}
 		end
 	else
@@ -304,7 +304,7 @@ MinigameDefuseView._update_cursor = function (self, widgets_by_name, success, hi
 			255,
 			255,
 			165,
-			0
+			0,
 		}
 	end
 end

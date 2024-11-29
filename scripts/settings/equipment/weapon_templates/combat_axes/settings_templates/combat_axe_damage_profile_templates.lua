@@ -38,7 +38,7 @@ local cutting_am = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.lerp_0_075,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+		[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_0_5,
@@ -48,8 +48,8 @@ local cutting_am = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.lerp_1,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_5,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 local shovel_am = {
 	attack = {
@@ -60,7 +60,7 @@ local shovel_am = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.no_damage,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+		[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 	},
 	impact = {
 		[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -70,13 +70,13 @@ local shovel_am = {
 		[armor_types.berserker] = damage_lerp_values.lerp_1,
 		[armor_types.super_armor] = damage_lerp_values.lerp_1,
 		[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-		[armor_types.void_shield] = damage_lerp_values.lerp_1
-	}
+		[armor_types.void_shield] = damage_lerp_values.lerp_1,
+	},
 }
 
 damage_templates.heavy_axe = {
-	ragdoll_only = true,
 	finesse_ability_damage_multiplier = 2,
+	ragdoll_only = true,
 	ragdoll_push_force = 500,
 	stagger_category = "uppercut",
 	cleave_distribution = single_cleave,
@@ -99,7 +99,7 @@ damage_templates.heavy_axe = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_75,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -109,60 +109,60 @@ damage_templates.heavy_axe = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					150,
-					300
+					300,
 				},
 				impact = {
 					10,
-					20
-				}
+					20,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.7,
-				1.4
+				1.4,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.5,
 			power_distribution = {
 				attack = {
 					50,
-					75
+					75,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					10,
-					15
+					15,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.heavy_axe_spike = {
-	ragdoll_only = true,
 	finesse_ability_damage_multiplier = 1.75,
+	ragdoll_only = true,
 	ragdoll_push_force = 200,
 	stagger_category = "melee",
 	cleave_distribution = no_cleave,
@@ -185,7 +185,7 @@ damage_templates.heavy_axe_spike = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_8,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -195,90 +195,90 @@ damage_templates.heavy_axe_spike = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					150,
-					300
+					300,
 				},
 				impact = {
 					8,
-					16
-				}
+					16,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.7,
-				1.4
+				1.4,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					125,
-					200
+					200,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.6,
-				1.2
-			}
+				1.2,
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					10,
-					15
+					15,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
 			boost_curve = PowerLevelSettings.boost_curves.default,
 			boost_curve_multiplier_finesse = {
 				0.6,
-				1.2
-			}
-		}
-	}
+				1.2,
+			},
+		},
+	},
 }
 overrides.heavy_axe_sticky = {
 	parent_template_name = "heavy_axe",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.axe_light
+			damage_types.axe_light,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"attack",
-			1
-		}
-	}
+			1,
+		},
+	},
 }
 damage_templates.heavy_axe_linesman = {
-	ragdoll_only = true,
 	finesse_ability_damage_multiplier = 1.75,
+	ragdoll_only = true,
 	ragdoll_push_force = 500,
 	stagger_category = "melee",
 	cleave_distribution = double_cleave,
@@ -301,7 +301,7 @@ damage_templates.heavy_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_75,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -311,60 +311,60 @@ damage_templates.heavy_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					100,
-					250
+					250,
 				},
 				impact = {
 					7,
-					15
-				}
+					15,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.2,
-				0.8
+				0.8,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					50,
-					75
+					75,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					10,
-					15
+					15,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.default_light_axe = {
-	ragdoll_only = true,
 	finesse_ability_damage_multiplier = 2,
+	ragdoll_only = true,
 	ragdoll_push_force = 250,
 	stagger_category = "melee",
 	cleave_distribution = single_cleave,
@@ -387,7 +387,7 @@ damage_templates.default_light_axe = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_2,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -397,111 +397,111 @@ damage_templates.default_light_axe = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					140,
-					280
+					280,
 				},
 				impact = {
 					8,
-					16
-				}
+					16,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.4,
-				1
+				1,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					100,
-					200
+					200,
 				},
 				impact = {
 					7,
-					14
-				}
+					14,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.4,
-				1
-			}
+				1,
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.5,
 			power_distribution = {
 				attack = {
 					80,
-					160
+					160,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 overrides.light_axe_smiter = {
 	parent_template_name = "default_light_axe",
 	overrides = {
 		{
 			"cleave_distribution",
-			no_cleave
-		}
-	}
+			no_cleave,
+		},
+	},
 }
 overrides.light_axe_sticky = {
 	parent_template_name = "default_light_axe",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"damage_type",
-			damage_types.axe_light
+			damage_types.axe_light,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			GibbingPower.heavy
+			GibbingPower.heavy,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"melee_attack_strength",
-			melee_attack_strengths.light
+			melee_attack_strengths.light,
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"attack",
-			2
-		}
-	}
+			2,
+		},
+	},
 }
 damage_templates.medium_axe_tank = {
 	finesse_ability_damage_multiplier = 2,
 	ignore_gib_push = true,
+	ignore_stagger_reduction = true,
 	ragdoll_only = true,
 	ragdoll_push_force = 500,
-	ignore_stagger_reduction = true,
 	stagger_category = "melee",
 	cleave_distribution = large_cleave,
 	gibbing_power = GibbingPower.light,
@@ -522,7 +522,7 @@ damage_templates.medium_axe_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_05,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -532,75 +532,75 @@ damage_templates.medium_axe_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					55,
-					105
+					105,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.2,
-				0.8
+				0.8,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					35,
-					65
+					65,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					15,
-					30
+					30,
 				},
 				impact = {
 					4,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					10,
-					20
+					20,
 				},
 				impact = {
 					3,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.medium_axe_linesman = {
 	finesse_ability_damage_multiplier = 2,
 	ignore_gib_push = true,
+	ignore_stagger_reduction = true,
 	ragdoll_only = true,
 	ragdoll_push_force = 500,
-	ignore_stagger_reduction = true,
 	stagger_category = "melee",
 	cleave_distribution = large_cleave,
 	gibbing_power = GibbingPower.light,
@@ -621,7 +621,7 @@ damage_templates.medium_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_05,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -631,68 +631,68 @@ damage_templates.medium_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					80,
-					160
+					160,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.2,
-				0.8
+				0.8,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					60,
-					120
+					120,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					40,
-					80
+					80,
 				},
 				impact = {
 					4,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					10,
-					20
+					20,
 				},
 				impact = {
 					3,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.light_axe_linesman = {
 	finesse_ability_damage_multiplier = 2,
@@ -716,7 +716,7 @@ damage_templates.light_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_75,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -726,23 +726,23 @@ damage_templates.light_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
+				},
 			},
 			power_distribution = {
 				attack = 0.3,
-				impact = 0.5
+				impact = 0.5,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = 0.1,
-				impact = 0.25
-			}
+				impact = 0.25,
+			},
 		},
 		default_target = {
 			armor_damage_modifier = {
@@ -754,7 +754,7 @@ damage_templates.light_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_5,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_5
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_5,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -764,24 +764,24 @@ damage_templates.light_axe_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_5,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_5
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_5,
+				},
 			},
 			power_distribution = {
 				attack = 0.07,
-				impact = 0.2
+				impact = 0.2,
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.axe_uppercut = {
-	ragdoll_only = true,
-	weapon_special = true,
-	ignore_stagger_reduction = true,
 	finesse_ability_damage_multiplier = 2,
+	ignore_stagger_reduction = true,
+	ragdoll_only = true,
 	ragdoll_push_force = 250,
 	stagger_category = "melee",
+	weapon_special = true,
 	cleave_distribution = single_cleave,
 	damage_type = damage_types.axe_light,
 	gibbing_power = GibbingPower.light,
@@ -802,7 +802,7 @@ damage_templates.axe_uppercut = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -812,27 +812,27 @@ damage_templates.axe_uppercut = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					60,
-					100
+					100,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.2,
-				0.8
+				0.8,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
@@ -845,7 +845,7 @@ damage_templates.axe_uppercut = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -855,31 +855,31 @@ damage_templates.axe_uppercut = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.axe_stab = {
-	ignore_stagger_reduction = true,
-	weapon_special = true,
 	finesse_ability_damage_multiplier = 2,
+	ignore_stagger_reduction = true,
 	ragdoll_only = true,
-	weakspot_stagger_resistance_modifier = 0.0001,
-	stagger_category = "uppercut",
 	ragdoll_push_force = 250,
+	stagger_category = "uppercut",
+	weakspot_stagger_resistance_modifier = 0.0001,
+	weapon_special = true,
 	cleave_distribution = single_cleave,
 	damage_type = damage_types.axe_light,
 	gibbing_power = GibbingPower.always,
@@ -900,7 +900,7 @@ damage_templates.axe_stab = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -910,27 +910,27 @@ damage_templates.axe_stab = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					30,
-					60
+					60,
 				},
 				impact = {
 					10,
-					20
-				}
+					20,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
@@ -943,7 +943,7 @@ damage_templates.axe_stab = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -953,28 +953,28 @@ damage_templates.axe_stab = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.default_light_hatchet = {
-	ragdoll_push_force = 150,
 	finesse_ability_damage_multiplier = 2,
-	ragdoll_only = true,
 	gibbing_power = 0,
+	ragdoll_only = true,
+	ragdoll_push_force = 150,
 	stagger_category = "melee",
 	cleave_distribution = double_cleave,
 	damage_type = damage_types.axe_light,
@@ -994,7 +994,7 @@ damage_templates.default_light_hatchet = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_4,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1004,62 +1004,62 @@ damage_templates.default_light_hatchet = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					60,
-					120
+					120,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					40,
-					80
+					80,
 				},
 				impact = {
 					3,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					3,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.default_light_hatchet_smiter = {
-	ragdoll_push_force = 150,
 	finesse_ability_damage_multiplier = 2,
-	ragdoll_only = true,
 	gibbing_power = 0,
+	ragdoll_only = true,
+	ragdoll_push_force = 150,
 	stagger_category = "melee",
 	cleave_distribution = single_cleave,
 	damage_type = damage_types.axe_light,
@@ -1079,7 +1079,7 @@ damage_templates.default_light_hatchet_smiter = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_4,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1089,68 +1089,68 @@ damage_templates.default_light_hatchet_smiter = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					70,
-					140
+					140,
 				},
 				impact = {
 					3,
-					6
-				}
+					6,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					35,
-					50
+					50,
 				},
 				impact = {
 					3,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					3,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.medium_hatchet = {
-	ignore_gib_push = true,
 	finesse_ability_damage_multiplier = 2,
+	ignore_gib_push = true,
+	ignore_stagger_reduction = true,
 	ragdoll_only = true,
 	ragdoll_push_force = 250,
-	ignore_stagger_reduction = true,
 	stagger_category = "melee",
 	cleave_distribution = double_cleave,
 	critical_strike = {
 		gibbing_power = GibbingPower.light,
-		gibbing_type = GibbingTypes.sawing
+		gibbing_type = GibbingTypes.sawing,
 	},
 	gibbing_power = GibbingPower.always,
 	gibbing_type = GibbingTypes.sawing,
@@ -1169,7 +1169,7 @@ damage_templates.medium_hatchet = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1179,91 +1179,91 @@ damage_templates.medium_hatchet = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					100,
-					200
+					200,
 				},
 				impact = {
 					6,
-					12
-				}
+					12,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					60,
-					120
+					120,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					40,
-					80
+					80,
 				},
 				impact = {
 					4,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					0,
-					0
+					0,
 				},
 				impact = {
 					3,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 overrides.light_axe_p2_special = {
 	parent_template_name = "axe_stab",
 	overrides = {
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"stagger_category",
-			"hatchet"
+			"hatchet",
 		},
 		{
 			"damage_type",
-			damage_types.blunt
+			damage_types.blunt,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"melee_attack_strength",
-			melee_attack_strengths.light
+			melee_attack_strengths.light,
 		},
 		{
 			"targets",
@@ -1272,8 +1272,8 @@ overrides.light_axe_p2_special = {
 			"attack",
 			{
 				25,
-				50
-			}
+				50,
+			},
 		},
 		{
 			"targets",
@@ -1282,41 +1282,41 @@ overrides.light_axe_p2_special = {
 			"impact",
 			{
 				8,
-				16
-			}
-		}
-	}
+				16,
+			},
+		},
+	},
 }
 overrides.light_axe_p2_special_2 = {
 	parent_template_name = "axe_stab",
 	overrides = {
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"stagger_category",
-			"hatchet"
+			"hatchet",
 		},
 		{
 			"damage_type",
-			damage_types.blunt
+			damage_types.blunt,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"gibbing_power",
-			0
+			0,
 		},
 		{
 			"gibbing_type",
-			GibbingTypes.sawing
+			GibbingTypes.sawing,
 		},
 		{
 			"melee_attack_strength",
-			melee_attack_strengths.light
+			melee_attack_strengths.light,
 		},
 		{
 			"targets",
@@ -1325,8 +1325,8 @@ overrides.light_axe_p2_special_2 = {
 			"attack",
 			{
 				25,
-				50
-			}
+				50,
+			},
 		},
 		{
 			"targets",
@@ -1335,14 +1335,14 @@ overrides.light_axe_p2_special_2 = {
 			"impact",
 			{
 				8,
-				16
-			}
-		}
-	}
+				16,
+			},
+		},
+	},
 }
 damage_templates.heavy_shovel_tank = {
-	ragdoll_only = true,
 	finesse_ability_damage_multiplier = 2,
+	ragdoll_only = true,
 	ragdoll_push_force = 250,
 	stagger_category = "melee",
 	cleave_distribution = big_cleave,
@@ -1366,7 +1366,7 @@ damage_templates.heavy_shovel_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_4,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1376,105 +1376,105 @@ damage_templates.heavy_shovel_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_1,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					110,
-					225
+					225,
 				},
 				impact = {
 					10,
-					20
-				}
+					20,
+				},
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					75,
-					150
+					150,
 				},
 				impact = {
 					7,
-					14
-				}
-			}
+					14,
+				},
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					40,
-					80
+					80,
 				},
 				impact = {
 					6,
-					12
-				}
-			}
+					12,
+				},
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					35,
-					70
+					70,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					40,
-					80
+					80,
 				},
 				impact = {
 					5,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					5,
-					10
-				}
+					10,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 overrides.heavy_shovel_special = {
 	parent_template_name = "heavy_shovel_tank",
 	overrides = {
 		{
 			"stagger_category",
-			"sticky"
+			"sticky",
 		},
 		{
 			"cleave_distribution",
-			fold_cleave
+			fold_cleave,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1483,8 +1483,8 @@ overrides.heavy_shovel_special = {
 			"attack",
 			{
 				250,
-				550
-			}
+				550,
+			},
 		},
 		{
 			"targets",
@@ -1492,7 +1492,7 @@ overrides.heavy_shovel_special = {
 			"armor_damage_modifier",
 			"attack",
 			"super_armor",
-			damage_lerp_values.lerp_1
+			damage_lerp_values.lerp_1,
 		},
 		{
 			"targets",
@@ -1500,35 +1500,35 @@ overrides.heavy_shovel_special = {
 			"armor_damage_modifier",
 			"attack",
 			"berserker",
-			damage_lerp_values.lerp_1_33
+			damage_lerp_values.lerp_1_33,
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"impact",
-			30
-		}
-	}
+			30,
+		},
+	},
 }
 overrides.heavy_shovel_sticky = {
 	parent_template_name = "heavy_shovel_tank",
 	overrides = {
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"stagger_override",
-			"medium"
+			"medium",
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"ignore_stagger_reduction",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1537,8 +1537,8 @@ overrides.heavy_shovel_sticky = {
 			"attack",
 			{
 				100,
-				350
-			}
+				350,
+			},
 		},
 		{
 			"targets",
@@ -1546,23 +1546,23 @@ overrides.heavy_shovel_sticky = {
 			"armor_damage_modifier",
 			"attack",
 			"super_armor",
-			damage_lerp_values.lerp_0_5
+			damage_lerp_values.lerp_0_5,
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"impact",
-			15
-		}
-	}
+			15,
+		},
+	},
 }
 overrides.heavy_shovel_smite = {
 	parent_template_name = "heavy_shovel_tank",
 	overrides = {
 		{
 			"cleave_distribution",
-			double_cleave
+			double_cleave,
 		},
 		{
 			"targets",
@@ -1571,22 +1571,22 @@ overrides.heavy_shovel_smite = {
 			"attack",
 			{
 				125,
-				275
-			}
+				275,
+			},
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"impact",
-			15
-		}
-	}
+			15,
+		},
+	},
 }
 damage_templates.default_light_shovel = {
 	finesse_ability_damage_multiplier = 2,
-	ragdoll_push_force = 250,
 	ragdoll_only = true,
+	ragdoll_push_force = 250,
 	stagger_category = "melee",
 	cleave_distribution = double_cleave,
 	gibbing_power = GibbingPower.light,
@@ -1607,7 +1607,7 @@ damage_templates.default_light_shovel = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1_1,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1617,56 +1617,56 @@ damage_templates.default_light_shovel = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					80,
-					160
+					160,
 				},
 				impact = {
 					3,
-					6
-				}
+					6,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.4,
-				1.3
+				1.3,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					50,
-					100
+					100,
 				},
 				impact = {
 					2.5,
-					5
-				}
-			}
+					5,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					2,
-					4
-				}
+					4,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 overrides.light_shovel_marks_single_target = {
 	parent_template_name = "default_light_shovel",
@@ -1678,33 +1678,33 @@ overrides.light_shovel_marks_single_target = {
 			"attack",
 			{
 				95,
-				180
-			}
-		}
-	}
+				180,
+			},
+		},
+	},
 }
 overrides.light_shovel_special = {
 	parent_template_name = "default_light_shovel",
 	overrides = {
 		{
 			"stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"stagger_override",
-			"light"
+			"light",
 		},
 		{
 			"cleave_distribution",
-			no_cleave
+			no_cleave,
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1713,15 +1713,15 @@ overrides.light_shovel_special = {
 			"attack",
 			{
 				150,
-				470
-			}
+				470,
+			},
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"impact",
-			10
+			10,
 		},
 		{
 			"targets",
@@ -1729,28 +1729,28 @@ overrides.light_shovel_special = {
 			"armor_damage_modifier",
 			"attack",
 			"super_armor",
-			damage_lerp_values.lerp_0_4
-		}
-	}
+			damage_lerp_values.lerp_0_4,
+		},
+	},
 }
 overrides.light_shovel_sticky = {
 	parent_template_name = "default_light_shovel",
 	overrides = {
 		{
 			"stagger_category",
-			"melee"
+			"melee",
 		},
 		{
 			"stagger_override",
-			"light"
+			"light",
 		},
 		{
 			"damage_type",
-			damage_types.sawing_stuck
+			damage_types.sawing_stuck,
 		},
 		{
 			"ignore_instant_ragdoll_chance",
-			true
+			true,
 		},
 		{
 			"targets",
@@ -1759,15 +1759,15 @@ overrides.light_shovel_sticky = {
 			"attack",
 			{
 				25,
-				75
-			}
+				75,
+			},
 		},
 		{
 			"targets",
 			1,
 			"power_distribution",
 			"impact",
-			20
+			20,
 		},
 		{
 			"targets",
@@ -1775,9 +1775,9 @@ overrides.light_shovel_sticky = {
 			"armor_damage_modifier",
 			"attack",
 			"super_armor",
-			damage_lerp_values.lerp_0_4
-		}
-	}
+			damage_lerp_values.lerp_0_4,
+		},
+	},
 }
 damage_templates.light_shovel_linesman = {
 	finesse_ability_damage_multiplier = 2,
@@ -1801,7 +1801,7 @@ damage_templates.light_shovel_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_75,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1811,23 +1811,23 @@ damage_templates.light_shovel_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_75
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
+				},
 			},
 			power_distribution = {
 				attack = 0.3,
-				impact = 0.5
+				impact = 0.5,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = 0.1,
-				impact = 0.25
-			}
+				impact = 0.25,
+			},
 		},
 		default_target = {
 			armor_damage_modifier = {
@@ -1839,7 +1839,7 @@ damage_templates.light_shovel_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_5,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_5
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_5,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1849,16 +1849,16 @@ damage_templates.light_shovel_linesman = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_5,
-					[armor_types.void_shield] = damage_lerp_values.lerp_0_5
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_0_5,
+				},
 			},
 			power_distribution = {
 				attack = 0.07,
-				impact = 0.2
+				impact = 0.2,
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.default_light_shovel_smack = {
 	finesse_ability_damage_multiplier = 2,
@@ -1883,7 +1883,7 @@ damage_templates.default_light_shovel_smack = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_25,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1893,59 +1893,59 @@ damage_templates.default_light_shovel_smack = {
 					[armor_types.berserker] = damage_lerp_values.lerp_0_5,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					110,
-					250
+					250,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				1,
-				2
+				2,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			power_distribution = {
 				attack = {
 					50,
-					100
+					100,
 				},
 				impact = {
 					4,
-					8
-				}
-			}
+					8,
+				},
+			},
 		},
 		default_target = {
 			power_distribution = {
 				attack = {
 					30,
-					60
+					60,
 				},
 				impact = {
 					4,
-					8
-				}
+					8,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 damage_templates.default_light_shovel_tank = {
 	finesse_ability_damage_multiplier = 2,
-	ragdoll_push_force = 250,
 	ragdoll_only = true,
+	ragdoll_push_force = 250,
 	stagger_category = "melee",
 	cleave_distribution = large_cleave,
 	gibbing_power = GibbingPower.light,
@@ -1966,7 +1966,7 @@ damage_templates.default_light_shovel_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.no_damage,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
 				},
 				impact = {
 					[armor_types.unarmored] = damage_lerp_values.lerp_1,
@@ -1976,85 +1976,85 @@ damage_templates.default_light_shovel_tank = {
 					[armor_types.berserker] = damage_lerp_values.lerp_1,
 					[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 					[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1,
-					[armor_types.void_shield] = damage_lerp_values.lerp_1
-				}
+					[armor_types.void_shield] = damage_lerp_values.lerp_1,
+				},
 			},
 			power_distribution = {
 				attack = {
 					55,
-					120
+					120,
 				},
 				impact = {
 					8,
-					14
-				}
+					14,
+				},
 			},
 			boost_curve_multiplier_finesse = {
 				0.4,
-				1
+				1,
 			},
 			power_level_multiplier = {
 				0.5,
-				1.5
-			}
+				1.5,
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					30,
-					80
+					80,
 				},
 				impact = {
 					6,
-					10
-				}
-			}
+					10,
+				},
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					30,
-					50
+					50,
 				},
 				impact = {
 					5,
-					6
-				}
-			}
+					6,
+				},
+			},
 		},
 		{
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					20,
-					40
+					40,
 				},
 				impact = {
 					5,
-					5
-				}
-			}
+					5,
+				},
+			},
 		},
 		default_target = {
 			boost_curve_multiplier_finesse = 0.25,
 			power_distribution = {
 				attack = {
 					0,
-					0
+					0,
 				},
 				impact = {
 					2,
-					5
-				}
+					5,
+				},
 			},
-			boost_curve = PowerLevelSettings.boost_curves.default
-		}
-	}
+			boost_curve = PowerLevelSettings.boost_curves.default,
+		},
+	},
 }
 
 return {
 	base_templates = damage_templates,
-	overrides = overrides
+	overrides = overrides,
 }

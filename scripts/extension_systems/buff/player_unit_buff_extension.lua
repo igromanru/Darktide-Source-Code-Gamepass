@@ -500,7 +500,7 @@ PlayerUnitBuffExtension._add_rpc_synced_buff = function (self, template, t, ...)
 				optional_lerp_value = optional_lerp_value,
 				optional_slot_id = optional_slot_id,
 				optional_parent_buff_template_id = optional_parent_buff_template_id,
-				from_talent = from_talent
+				from_talent = from_talent,
 			}
 			local buffs_added_before_game_object_creation = self._buffs_added_before_game_object_creation
 
@@ -638,7 +638,7 @@ PlayerUnitBuffExtension.start_on_screen_effect = function (self, index, on_scree
 
 	on_screen_effects[#on_screen_effects + 1] = {
 		particle_id = on_screen_effect_id,
-		stop_type = stop_type
+		stop_type = stop_type,
 	}
 end
 

@@ -10,7 +10,7 @@ local DEFAULT_RESPAWN_TIME = 30
 local GameModeCoopCompleteObjective = class("GameModeCoopCompleteObjective", "GameModeBase")
 local CLIENT_RPCS = {
 	"rpc_set_player_respawn_time",
-	"rpc_fetch_session_report"
+	"rpc_fetch_session_report",
 }
 
 local function _log(...)
@@ -368,7 +368,7 @@ GameModeCoopCompleteObjective._store_persistent_player_data = function (self, pl
 		permanent_damage_percent = permanent_damage_percent,
 		character_state_name = character_state_name,
 		weapon_slot_data = weapon_slot_data,
-		grenades_percent = grenades_percent
+		grenades_percent = grenades_percent,
 	}
 
 	if player:is_human_controlled() then

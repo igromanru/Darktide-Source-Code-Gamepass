@@ -121,69 +121,69 @@ end
 
 AmmoBelt.component_data = {
 	ammo_in_unit = {
-		ui_type = "slider",
-		min = 1,
-		max = 150,
 		decimals = 0,
-		value = 53,
-		ui_name = "Ammo in Unit",
-		step = 1
-	},
-	max_ammo = {
-		ui_type = "slider",
-		min = 1,
 		max = 150,
-		decimals = 0,
-		value = 50,
-		ui_name = "Max Ammo",
-		step = 1
-	},
-	ammo = {
-		ui_type = "slider",
-		min = 0,
-		max = 150,
-		decimals = 0,
-		value = 50,
-		ui_name = "Ammo",
-		step = 1
-	},
-	anim_speed = {
-		ui_type = "slider",
-		min = 0.1,
-		step = 0.1,
-		decimals = 1,
-		value = 2,
-		ui_name = "Animation Speed",
-		max = 10
-	},
-	use_simple_animation_length = {
-		ui_type = "check_box",
-		value = false,
-		ui_name = "Use Anim Length"
-	},
-	num_belts = {
-		ui_type = "slider",
 		min = 1,
 		step = 1,
-		decimals = 0,
-		value = 1,
-		ui_name = "Number of Ammo Belts",
-		max = 4
+		ui_name = "Ammo in Unit",
+		ui_type = "slider",
+		value = 53,
 	},
-	dismantled = {
+	max_ammo = {
+		decimals = 0,
+		max = 150,
+		min = 1,
+		step = 1,
+		ui_name = "Max Ammo",
+		ui_type = "slider",
+		value = 50,
+	},
+	ammo = {
+		decimals = 0,
+		max = 150,
+		min = 0,
+		step = 1,
+		ui_name = "Ammo",
+		ui_type = "slider",
+		value = 50,
+	},
+	anim_speed = {
+		decimals = 1,
+		max = 10,
+		min = 0.1,
+		step = 0.1,
+		ui_name = "Animation Speed",
+		ui_type = "slider",
+		value = 2,
+	},
+	use_simple_animation_length = {
+		ui_name = "Use Anim Length",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Dismantled"
+	},
+	num_belts = {
+		decimals = 0,
+		max = 4,
+		min = 1,
+		step = 1,
+		ui_name = "Number of Ammo Belts",
+		ui_type = "slider",
+		value = 1,
+	},
+	dismantled = {
+		ui_name = "Dismantled",
+		ui_type = "check_box",
+		value = false,
 	},
 	dismantled_ammo_mask = {
-		ui_type = "slider",
+		decimals = 3,
+		max = 1,
 		min = 0,
 		step = 0.001,
-		decimals = 3,
-		value = 1,
 		ui_name = "Dismantled Mask",
-		max = 1
-	}
+		ui_type = "slider",
+		value = 1,
+	},
 }
 
 return AmmoBelt

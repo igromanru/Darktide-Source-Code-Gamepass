@@ -50,25 +50,25 @@ end
 
 WwiseEmitterOcclusion.component_data = {
 	occlusion_value = {
-		ui_type = "slider",
-		min = 0,
 		decimals = 2,
 		max = 1,
-		value = 0.5,
+		min = 0,
+		step = 0.01,
 		ui_name = "Blocked Time (in %)",
-		step = 0.01
+		ui_type = "slider",
+		value = 0.5,
 	},
 	acoustic_texture = {
-		value = "brick",
-		ui_type = "combo_box",
 		ui_name = "Type",
+		ui_type = "combo_box",
+		value = "brick",
 		options_keys = {
-			"brick"
+			"brick",
 		},
 		options_values = {
-			"brick"
-		}
-	}
+			"brick",
+		},
+	},
 }
 
 return WwiseEmitterOcclusion

@@ -15,7 +15,7 @@ local function _require_ability_templates(path_prefix, template_names)
 	setmetatable(ability_templates, {
 		__index = function (table, template_name)
 			ferror("Archetype ability %q does not exist. Has it been added to ability_templates.lua?", template_name)
-		end
+		end,
 	})
 end
 
@@ -30,7 +30,7 @@ local template_names = {
 	"veteran_combat_ability",
 	"veteran_stealth_combat_ability",
 	"zealot_dash",
-	"zealot_invisibility"
+	"zealot_invisibility",
 }
 
 _require_ability_templates(path_prefix, template_names)

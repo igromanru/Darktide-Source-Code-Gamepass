@@ -46,9 +46,9 @@ PlayerUnitAttackIntensityExtension._setup_intensities = function (self)
 		local difficulty_settings = Managers.state.difficulty:get_table_entry_by_challenge(settings)
 
 		intensity_data[intensity_type] = {
-			intensity = 0,
-			decay_grace_timer = 0,
 			attack_allowed = true,
+			decay_grace_timer = 0,
+			intensity = 0,
 			threshold = difficulty_settings.threshold,
 			decay_grace = difficulty_settings.decay_grace,
 			decay = difficulty_settings.decay,
@@ -56,16 +56,16 @@ PlayerUnitAttackIntensityExtension._setup_intensities = function (self)
 			attack_allowed_decay_multiplier = difficulty_settings.attack_allowed_decay_multiplier,
 			ignored_movement_states = difficulty_settings.ignored_movement_states,
 			locked_in_melee_check = difficulty_settings.locked_in_melee_check,
-			attack_intensity_clamp = difficulty_settings.attack_intensity_clamp
+			attack_intensity_clamp = difficulty_settings.attack_intensity_clamp,
 		}
 	end
 end
 
 local DISALLOWED_CHARACTER_STATES = {
+	consumed = true,
 	grabbed = true,
 	mutant_charged = true,
 	pounced = true,
-	consumed = true
 }
 
 PlayerUnitAttackIntensityExtension.update = function (self, unit, dt, t, context)

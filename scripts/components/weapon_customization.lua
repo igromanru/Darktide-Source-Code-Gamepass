@@ -47,7 +47,7 @@ WeaponCustomization._construct_attach_settings = function (self, unit, world, in
 		character_unit = unit,
 		in_editor = in_editor,
 		lod_group = Unit.has_lod_group(unit, "lod") and Unit.lod_group(unit, "lod"),
-		lod_shadow_group = Unit.has_lod_group(unit, "lod_shadow") and Unit.lod_group(unit, "lod_shadow")
+		lod_shadow_group = Unit.has_lod_group(unit, "lod_shadow") and Unit.lod_group(unit, "lod_shadow"),
 	}
 
 	if not in_editor then
@@ -233,32 +233,32 @@ end
 WeaponCustomization.component_config = {
 	disable_event_public = false,
 	enable_event_public = false,
-	starts_enabled_default = true
+	starts_enabled_default = true,
 }
 WeaponCustomization.component_data = {
 	editor_only = {
+		ui_name = "Editor Only",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Editor Only"
 	},
 	item = {
+		filter = "item",
+		ui_name = "Item",
 		ui_type = "resource",
 		value = "",
-		ui_name = "Item",
-		filter = "item"
 	},
 	weapon_skin_item = {
+		filter = "item",
+		ui_name = "Weapon Skin Item",
 		ui_type = "resource",
 		value = "",
-		ui_name = "Weapon Skin Item",
-		filter = "item"
 	},
 	material_override = {
-		ui_type = "text_box_array",
 		size = 1,
 		ui_name = "Material Override",
-		validator = "contentpathsallowed"
-	}
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
+	},
 }
 
 return WeaponCustomization

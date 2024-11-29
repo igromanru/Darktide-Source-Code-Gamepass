@@ -38,133 +38,133 @@ base_template_settings.action_inputs = {
 		clear_input_queue = true,
 		input_sequence = {
 			{
+				input = "combat_ability_pressed",
 				value = true,
-				input = "combat_ability_pressed"
-			}
-		}
+			},
+		},
 	},
 	grenade_ability = {
 		buffer_time = 0,
 		clear_input_queue = true,
 		input_sequence = {
 			{
+				input = "grenade_ability_pressed",
 				value = true,
-				input = "grenade_ability_pressed"
-			}
-		}
+			},
+		},
 	},
 	inspect_start = {
 		buffer_time = 0,
 		input_sequence = {
 			{
+				input = "weapon_inspect_hold",
 				value = true,
-				input = "weapon_inspect_hold"
 			},
 			{
-				value = true,
 				duration = 0.2,
-				input = "weapon_inspect_hold"
-			}
-		}
+				input = "weapon_inspect_hold",
+				value = true,
+			},
+		},
 	},
 	inspect_stop = {
 		buffer_time = 0.02,
 		input_sequence = {
 			{
-				value = false,
 				input = "weapon_inspect_hold",
-				time_window = math.huge
-			}
-		}
+				value = false,
+				time_window = math.huge,
+			},
+		},
 	},
 	wield = {
 		buffer_time = 0,
 		clear_input_queue = true,
 		input_sequence = {
 			{
-				inputs = wield_inputs
-			}
-		}
-	}
+				inputs = wield_inputs,
+			},
+		},
+	},
 }
 base_template_settings.actions = {
 	combat_ability = {
-		slot_to_wield = "slot_combat_ability",
-		start_input = "combat_ability",
-		uninterruptible = true,
 		kind = "unwield_to_specific",
+		slot_to_wield = "slot_combat_ability",
 		sprint_ready_up_time = 0,
+		start_input = "combat_ability",
 		total_time = 0,
-		allowed_chain_actions = {}
+		uninterruptible = true,
+		allowed_chain_actions = {},
 	},
 	grenade_ability = {
+		action_priority = 1,
 		allowed_during_sprint = true,
+		kind = "unwield_to_specific",
 		slot_to_wield = "slot_grenade_ability",
 		start_input = "grenade_ability",
-		kind = "unwield_to_specific",
-		action_priority = 1,
-		uninterruptible = true,
 		total_time = 0,
+		uninterruptible = true,
 		allowed_chain_actions = {},
 		action_condition_func = function (action_settings, condition_func_params, used_input)
 			return not _quick_throw_allowed(action_settings, condition_func_params, used_input)
-		end
+		end,
 	},
 	grenade_ability_quick_throw = {
-		uninterruptible = true,
+		ability_type = "grenade_ability",
+		action_priority = 2,
+		allowed_during_sprint = true,
+		anim_event = "ability_knife_throw",
+		anim_time_scale = 1.25,
+		fire_time = 0.25,
+		kind = "spawn_projectile",
+		override_origin_slot = "slot_grenade_ability",
+		sprint_requires_press_to_interrupt = false,
 		start_input = "grenade_ability",
 		stop_alternate_fire = true,
-		kind = "spawn_projectile",
-		sprint_requires_press_to_interrupt = false,
-		action_priority = 2,
-		use_ability_charge = true,
-		allowed_during_sprint = true,
-		ability_type = "grenade_ability",
-		anim_time_scale = 1.25,
 		time_scale_stat_buffs = false,
-		fire_time = 0.25,
-		override_origin_slot = "slot_grenade_ability",
-		anim_event = "ability_knife_throw",
 		total_time = 0.55,
+		uninterruptible = true,
+		use_ability_charge = true,
 		action_movement_curve = {
 			{
 				modifier = 0.5,
-				t = 0.2
+				t = 0.2,
 			},
 			{
 				modifier = 0.4,
-				t = 0.3
+				t = 0.3,
 			},
 			{
 				modifier = 1,
-				t = 0.5
+				t = 0.5,
 			},
-			start_modifier = 0.8
+			start_modifier = 0.8,
 		},
 		projectile_template = ProjectileTemplates.zealot_throwing_knives,
 		action_condition_func = function (action_settings, condition_func_params, used_input)
 			return _quick_throw_allowed(action_settings, condition_func_params, used_input)
-		end
-	}
+		end,
+	},
 }
 base_template_settings.action_input_hierarchy = {
 	{
+		input = "combat_ability",
 		transition = "stay",
-		input = "combat_ability"
 	},
 	{
+		input = "grenade_ability",
 		transition = "stay",
-		input = "grenade_ability"
 	},
 	{
 		input = "inspect_start",
 		transition = {
 			{
+				input = "inspect_stop",
 				transition = "base",
-				input = "inspect_stop"
-			}
-		}
-	}
+			},
+		},
+	},
 }
 
 return base_template_settings

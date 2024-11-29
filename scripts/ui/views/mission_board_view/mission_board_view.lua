@@ -31,7 +31,7 @@ local WalletSettings = require("scripts/settings/wallet_settings")
 local MissionBoardView = class("MissionBoardView", "BaseView")
 local mission_types = {
 	"normal",
-	"auric"
+	"auric",
 }
 local mission_type_by_id = {}
 
@@ -54,15 +54,15 @@ mission_type_auric_font.material = "content/ui/materials/font_gradients/slug_fon
 
 local mission_type_data = {
 	normal = {
-		title = "loc_mission_board_view_header_tertium_hive",
 		display_name = "loc_mission_board_type_normal",
-		display_style = mission_type_font
+		title = "loc_mission_board_view_header_tertium_hive",
+		display_style = mission_type_font,
 	},
 	auric = {
-		title = "loc_mission_board_view_header_tertium_hive_auric",
 		display_name = "loc_mission_board_type_auric",
-		display_style = mission_type_auric_font
-	}
+		title = "loc_mission_board_view_header_tertium_hive_auric",
+		display_style = mission_type_auric_font,
+	},
 }
 local service_type = "View"
 local gamepad_action_navigate_secondary_left = "navigate_secondary_left_pressed"
@@ -289,12 +289,12 @@ MissionBoardView._generate_mission_type_selection = function (self)
 	local max_text_size = 200
 	local size = {
 		max_text_size + 100,
-		40
+		40,
 	}
 	local selection_margin = 6
 	local selection_size = {
 		30,
-		selection_margin
+		selection_margin,
 	}
 	local level_requirement_font = table.clone(UIFontSettings.body)
 
@@ -303,99 +303,99 @@ MissionBoardView._generate_mission_type_selection = function (self)
 	level_requirement_font.offset = {
 		0,
 		50,
-		0
+		0,
 	}
 	level_requirement_font.text_color = Color.ui_orange_light(255, true)
 	level_requirement_font.font_size = 18
 
 	local pass_definitions = {
 		{
-			style_id = "background",
 			pass_type = "rect",
+			style_id = "background",
 			style = {
-				color = Color.black(170, true)
-			}
+				color = Color.black(170, true),
+			},
 		},
 		{
-			value = "content/ui/materials/frames/dropshadow_medium",
-			style_id = "outer_shadow",
 			pass_type = "texture",
+			style_id = "outer_shadow",
+			value = "content/ui/materials/frames/dropshadow_medium",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
 				scale_to_material = true,
+				vertical_alignment = "center",
 				color = Color.black(200, true),
 				size_addition = {
 					20,
-					20
+					20,
 				},
 				offset = {
 					0,
 					0,
-					3
-				}
-			}
+					3,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/frames/frame_tile_2px",
-			style_id = "frame",
 			pass_type = "texture",
+			style_id = "frame",
+			value = "content/ui/materials/frames/frame_tile_2px",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				color = Color.terminal_frame(nil, true),
 				offset = {
 					0,
 					0,
-					3
-				}
-			}
+					3,
+				},
+			},
 		},
 		{
-			value_id = "level_requirement",
 			pass_type = "text",
-			value = "",
 			style_id = "level_requirement",
+			value = "",
+			value_id = "level_requirement",
 			style = level_requirement_font,
 			visibility_function = function (content)
 				return content.level and content.level > self._player_level
 			end,
 			change_function = function (content, style)
 				content.level_requirement = content.level and Localize("loc_mission_board_mission_mode_level_requirement", true, {
-					player_level = content.level
+					player_level = content.level,
 				}) or ""
-			end
+			end,
 		},
 		{
-			style_id = "hotspot_arrow_left",
-			pass_type = "hotspot",
 			content_id = "hotspot_arrow_left",
+			pass_type = "hotspot",
+			style_id = "hotspot_arrow_left",
 			content = {
 				on_hover_sound = UISoundEvents.default_mouse_hover,
 				on_pressed_sound = UISoundEvents.default_click,
-				on_select_sound = UISoundEvents.default_click
+				on_select_sound = UISoundEvents.default_click,
 			},
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "left",
+				vertical_alignment = "center",
 				size = {
-					30
+					30,
 				},
 				offset = {
 					0,
 					0,
-					1
-				}
-			}
+					1,
+				},
+			},
 		},
 		{
-			style_id = "arrow_background_left",
 			pass_type = "rect",
+			style_id = "arrow_background_left",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "left",
+				vertical_alignment = "center",
 				size = {
-					30
+					30,
 				},
 				default_color = Color.terminal_frame(127.5, true),
 				color = Color.terminal_frame(127.5, true),
@@ -403,8 +403,8 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				offset = {
 					0,
 					0,
-					1
-				}
+					1,
+				},
 			},
 			visibility_function = function (parent, content)
 				return Managers.ui:using_cursor_navigation()
@@ -419,37 +419,37 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and disabled_color or is_hover and style.hover_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.color, true)
-			end
+			end,
 		},
 		{
-			value_id = "arrow_left",
 			pass_type = "texture_uv",
-			value = "content/ui/materials/buttons/arrow_01",
 			style_id = "arrow_left",
+			value = "content/ui/materials/buttons/arrow_01",
+			value_id = "arrow_left",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "left",
+				vertical_alignment = "center",
 				size = {
 					16,
-					20
+					20,
 				},
 				uvs = {
 					{
 						1,
-						0
+						0,
 					},
 					{
 						0,
-						1
-					}
+						1,
+					},
 				},
 				offset = {
 					6,
 					0,
-					2
+					2,
 				},
 				default_color = Color.terminal_text_header(255, true),
-				disabled_color = Color.terminal_text_header_disabled(255, true)
+				disabled_color = Color.terminal_text_header_disabled(255, true),
 			},
 			visibility_function = function (parent, content)
 				return Managers.ui:using_cursor_navigation()
@@ -459,25 +459,25 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and style.disabled_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.color, true)
-			end
+			end,
 		},
 		{
-			value_id = "arrow_left_text",
 			pass_type = "text",
 			style_id = "arrow_left_text",
+			value_id = "arrow_left_text",
 			value = input_text_navigate_secondary_left,
 			style = {
 				font_size = 24,
-				text_vertical_alignment = "center",
 				text_horizontal_alignment = "left",
+				text_vertical_alignment = "center",
 				offset = {
 					10,
 					0,
-					1
+					1,
 				},
 				text_color = Color.terminal_text_header(255, true),
 				default_color = Color.terminal_text_header(255, true),
-				disabled_color = Color.terminal_text_header_disabled(255, true)
+				disabled_color = Color.terminal_text_header_disabled(255, true),
 			},
 			visibility_function = function (parent, content)
 				return not Managers.ui:using_cursor_navigation()
@@ -487,25 +487,25 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and style.disabled_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.text_color, true)
-			end
+			end,
 		},
 		{
-			value_id = "arrow_right_text",
 			pass_type = "text",
 			style_id = "arrow_right_text",
+			value_id = "arrow_right_text",
 			value = input_text_navigate_secondary_right,
 			style = {
 				font_size = 24,
-				text_vertical_alignment = "center",
 				text_horizontal_alignment = "right",
+				text_vertical_alignment = "center",
 				offset = {
 					-10,
 					0,
-					1
+					1,
 				},
 				text_color = Color.terminal_text_header(255, true),
 				default_color = Color.terminal_text_header(255, true),
-				disabled_color = Color.terminal_text_header_disabled(255, true)
+				disabled_color = Color.terminal_text_header_disabled(255, true),
 			},
 			visibility_function = function (parent, content)
 				return not Managers.ui:using_cursor_navigation()
@@ -515,38 +515,38 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and style.disabled_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.text_color, true)
-			end
+			end,
 		},
 		{
-			style_id = "hotspot_arrow_right",
-			pass_type = "hotspot",
 			content_id = "hotspot_arrow_right",
+			pass_type = "hotspot",
+			style_id = "hotspot_arrow_right",
 			content = {
 				on_hover_sound = UISoundEvents.default_mouse_hover,
 				on_pressed_sound = UISoundEvents.default_click,
-				on_select_sound = UISoundEvents.default_click
+				on_select_sound = UISoundEvents.default_click,
 			},
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "right",
+				vertical_alignment = "center",
 				size = {
-					30
+					30,
 				},
 				offset = {
 					-0,
 					0,
-					1
-				}
-			}
+					1,
+				},
+			},
 		},
 		{
-			style_id = "arrow_background_right",
 			pass_type = "rect",
+			style_id = "arrow_background_right",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "right",
+				vertical_alignment = "center",
 				size = {
-					30
+					30,
 				},
 				default_color = Color.terminal_frame(127.5, true),
 				color = Color.terminal_frame(127.5, true),
@@ -554,8 +554,8 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				offset = {
 					0,
 					0,
-					1
-				}
+					1,
+				},
 			},
 			visibility_function = function (parent, content)
 				return Managers.ui:using_cursor_navigation()
@@ -570,27 +570,27 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and disabled_color or is_hover and style.hover_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.color, true)
-			end
+			end,
 		},
 		{
-			value_id = "arrow_right",
 			pass_type = "texture",
-			value = "content/ui/materials/buttons/arrow_01",
 			style_id = "arrow_right",
+			value = "content/ui/materials/buttons/arrow_01",
+			value_id = "arrow_right",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "right",
+				vertical_alignment = "center",
 				size = {
 					16,
-					20
+					20,
 				},
 				offset = {
 					-6,
 					0,
-					2
+					2,
 				},
 				default_color = Color.terminal_text_header(255, true),
-				disabled_color = Color.terminal_text_header_disabled(255, true)
+				disabled_color = Color.terminal_text_header_disabled(255, true),
 			},
 			visibility_function = function (parent, content)
 				return Managers.ui:using_cursor_navigation()
@@ -600,8 +600,8 @@ MissionBoardView._generate_mission_type_selection = function (self)
 				local color = is_disabled and style.disabled_color or style.default_color
 
 				ColorUtilities.color_copy(color, style.color, true)
-			end
-		}
+			end,
+		},
 	}
 
 	for i = 1, #mission_types do
@@ -615,7 +615,7 @@ MissionBoardView._generate_mission_type_selection = function (self)
 			style_id = "title_" .. i,
 			value = Localize(data.display_name),
 			value_id = "title_" .. i,
-			style = data.display_style
+			style = data.display_style,
 		}
 		pass_definitions[#pass_definitions + 1] = {
 			pass_type = "hotspot",
@@ -624,31 +624,31 @@ MissionBoardView._generate_mission_type_selection = function (self)
 			content = {
 				on_hover_sound = UISoundEvents.default_mouse_hover,
 				on_pressed_sound = UISoundEvents.default_click,
-				on_select_sound = UISoundEvents.default_click
+				on_select_sound = UISoundEvents.default_click,
 			},
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				size = selection_size,
 				offset = {
 					selection_offset,
-					selection_size[2] + selection_margin
-				}
-			}
+					selection_size[2] + selection_margin,
+				},
+			},
 		}
 		pass_definitions[#pass_definitions + 1] = {
 			pass_type = "rect",
 			style_id = "selection_" .. i,
 			style = {
-				vertical_alignment = "bottom",
 				horizontal_alignment = "center",
+				vertical_alignment = "bottom",
 				color = Color.terminal_text_header(255, true),
 				size = selection_size,
 				offset = {
 					selection_offset,
-					selection_size[2] + selection_margin
-				}
-			}
+					selection_size[2] + selection_margin,
+				},
+			},
 		}
 	end
 
@@ -794,7 +794,7 @@ local story_mission_frame_anims = {
 	"story_mission_button_anim_1",
 	"story_mission_button_anim_2",
 	"story_mission_button_anim_3",
-	"story_mission_button_anim_4"
+	"story_mission_button_anim_4",
 }
 
 MissionBoardView._update_story_mission_button_anim = function (self, dt)
@@ -1059,7 +1059,7 @@ MissionBoardView._handle_input = function (self, input_service, dt, t)
 end
 
 local _required_level_loc_table = {
-	required_level = -1
+	required_level = -1,
 }
 
 MissionBoardView._update_can_start_mission = function (self)
@@ -1245,7 +1245,7 @@ MissionBoardView._set_selected_quickplay = function (self, move_gamepad_cursor)
 				widget.offset = {
 					20,
 					start_offset + 32 * count,
-					2
+					2,
 				}
 				count = count + 1
 				bonus_widgets[#bonus_widgets + 1] = widget
@@ -1282,12 +1282,12 @@ MissionBoardView._set_selected_quickplay = function (self, move_gamepad_cursor)
 		local max_width = self._ui_scenegraph.objective.size[1] - margin * 2
 		local description_width, description_height = UIRenderer.text_size(self._ui_renderer, content.body_text, style.body_text.font_type, style.body_text.font_size, {
 			max_width,
-			1080
+			1080,
 		}, description_style_options)
 
 		widget.content.size = {
 			self._ui_scenegraph.objective.size[1],
-			self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing
+			self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing,
 		}
 		widget.style.reward_background.offset[2] = widget.content.size[2]
 		widget.style.reward_gradient.offset[2] = widget.content.size[2]
@@ -1375,17 +1375,17 @@ MissionBoardView._set_selected_mission = function (self, mission, move_gamepad_c
 				local default_height = 100
 				local description_text_box_size = {
 					self._ui_scenegraph.detail_circumstance.size[1],
-					default_height
+					default_height,
 				}
 				local title_style_options = UIFonts.get_font_options_by_style(style.circumstance_name)
 				local description_style_options = UIFonts.get_font_options_by_style(style.circumstance_description)
 				local title_size = {
 					description_text_box_size[1] + style.circumstance_name.size_addition[1],
-					description_text_box_size[2] + style.circumstance_name.size_addition[2]
+					description_text_box_size[2] + style.circumstance_name.size_addition[2],
 				}
 				local description_size = {
 					description_text_box_size[1] + style.circumstance_description.size_addition[1],
-					description_text_box_size[2] + style.circumstance_description.size_addition[2]
+					description_text_box_size[2] + style.circumstance_description.size_addition[2],
 				}
 				local circumstance_name_width, circumstance_name_height = UIRenderer.text_size(self._ui_renderer, content.circumstance_name, style.circumstance_name.font_type, style.circumstance_name.font_size, title_size, title_style_options)
 				local circumstance_description_width, circumstance_description_height = UIRenderer.text_size(self._ui_renderer, content.circumstance_description, style.circumstance_description.font_type, style.circumstance_description.font_size, description_size, description_style_options)
@@ -1394,12 +1394,12 @@ MissionBoardView._set_selected_mission = function (self, mission, move_gamepad_c
 
 				style.circumstance_name.size = {
 					title_size[1] - style.circumstance_name.size_addition[1],
-					title_height
+					title_height,
 				}
 				style.circumstance_description.offset[2] = style.circumstance_name.offset[2] + title_height + description_margin
 				style.circumstance_description.size = {
 					description_size[1] - style.circumstance_description.size_addition[1],
-					description_height
+					description_height,
 				}
 
 				local text_height = style.circumstance_description.offset[2] + style.circumstance_description.size[2]
@@ -1464,12 +1464,12 @@ MissionBoardView._set_selected_mission = function (self, mission, move_gamepad_c
 		local max_width = self._ui_scenegraph.objective.size[1] - margin * 2
 		local description_width, description_height = UIRenderer.text_size(self._ui_renderer, content.body_text, style.body_text.font_type, style.body_text.font_size, {
 			max_width,
-			1080
+			1080,
 		}, description_style_options)
 
 		widget.content.size = {
 			self._ui_scenegraph.objective.size[1],
-			self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing
+			self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing,
 		}
 		widget.style.reward_background.offset[2] = widget.content.size[2]
 		widget.style.reward_gradient.offset[2] = widget.content.size[2]
@@ -1510,12 +1510,12 @@ MissionBoardView._set_selected_mission = function (self, mission, move_gamepad_c
 			local max_width = self._ui_scenegraph.objective.size[1] - margin * 2
 			local description_width, description_height = UIRenderer.text_size(self._ui_renderer, content.body_text, style.body_text.font_type, style.body_text.font_size, {
 				max_width,
-				1080
+				1080,
 			}, description_style_options)
 
 			widget.content.size = {
 				self._ui_scenegraph.objective.size[1],
-				self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing
+				self._ui_scenegraph.objective_header.size[2] + description_height + margin * 2 + bottom_spacing,
 			}
 			widget.style.reward_background.offset[2] = widget.content.size[2]
 			widget.style.reward_gradient.offset[2] = widget.content.size[2]
@@ -1718,7 +1718,7 @@ MissionBoardView._join_mission_data = function (self)
 					self._has_queued_missions = true
 					earliest_queued_mission_show_time = math.min(mission.start_game_time, earliest_queued_mission_show_time)
 
-					goto label_47_0
+					goto label_1_0
 				end
 
 				if mission.flags.flash and not has_flash_mission_changed then
@@ -1767,7 +1767,7 @@ MissionBoardView._join_mission_data = function (self)
 			end
 		end
 
-		::label_47_0::
+		::label_1_0::
 	end
 
 	self._queued_mission_show_time = earliest_queued_mission_show_time
@@ -1978,7 +1978,7 @@ MissionBoardView._fetch_success = function (self, data)
 		self._widgets_by_name.story_mission_view_button_frame.style.char.material_values.main_texture = speaker_settings.icon
 		self._widgets_by_name.story_mission_view_button_frame.style.char.size = {
 			120,
-			120
+			120,
 		}
 	end
 
@@ -2025,14 +2025,14 @@ MissionBoardView._add_bonus_data = function (self)
 
 			if min_bonus == max_bonus then
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = tostring(max_bonus)
+					bonus_text = tostring(max_bonus),
 				})
 
 				self._quickplay_widget.content.bonus = localized_bonus
 			else
 				local bonus_range_text = string.format("%d-%d", min_bonus, max_bonus)
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = bonus_range_text
+					bonus_text = bonus_range_text,
 				})
 
 				self._quickplay_widget.content.bonus = localized_bonus
@@ -2050,14 +2050,14 @@ MissionBoardView._add_bonus_data = function (self)
 
 			if min_bonus == max_bonus then
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = tostring(max_bonus)
+					bonus_text = tostring(max_bonus),
 				})
 
 				self._flash_mission_widget.content.bonus = localized_bonus
 			else
 				local bonus_range_text = string.format("%d-%d", min_bonus, max_bonus)
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = bonus_range_text
+					bonus_text = bonus_range_text,
 				})
 
 				self._flash_mission_widget.content.bonus = localized_bonus
@@ -2075,14 +2075,14 @@ MissionBoardView._add_bonus_data = function (self)
 
 			if min_bonus == max_bonus then
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = tostring(max_bonus)
+					bonus_text = tostring(max_bonus),
 				})
 
 				self._story_mission_widget.content.bonus = localized_bonus
 			else
 				local bonus_range_text = string.format("%d-%d", min_bonus, max_bonus)
 				local localized_bonus = Localize("loc_mission_board_card_bonus_text", true, {
-					bonus_text = bonus_range_text
+					bonus_text = bonus_range_text,
 				})
 
 				self._story_mission_widget.content.bonus = localized_bonus
@@ -2125,16 +2125,16 @@ end
 
 MissionBoardView._callback_open_options = function (self, region_data)
 	self._mission_board_options = self:_add_element(ViewElementMissionBoardOptions, "mission_board_options_element", 200, {
-		on_destroy_callback = callback(self, "_callback_close_options")
+		on_destroy_callback = callback(self, "_callback_close_options"),
 	})
 
 	local regions_latency = self._regions_latency
 	local presentation_data = {
 		{
-			widget_type = "dropdown",
 			display_name = "loc_mission_board_view_options_Matchmaking_Location",
 			id = "region_matchmaking",
 			tooltip_text = "loc_matchmaking_change_region_confirmation_desc",
+			widget_type = "dropdown",
 			validation_function = function ()
 				return
 			end,
@@ -2173,7 +2173,7 @@ MissionBoardView._callback_open_options = function (self, region_data)
 						display_name = region_display_name,
 						ignore_localization = ignore_localization,
 						value = region_name,
-						latency_order = latency_data.min_latency
+						latency_order = latency_data.min_latency,
 					}
 				end
 
@@ -2185,11 +2185,11 @@ MissionBoardView._callback_open_options = function (self, region_data)
 			end,
 			on_changed = function (value)
 				BackendUtilities.prefered_mission_region = value
-			end
+			end,
 		},
 		{
-			id = "private_match",
 			display_name = "loc_private_tag_name",
+			id = "private_match",
 			tooltip_text = "loc_mission_board_view_options_private_game_desc",
 			widget_type = "checkbox",
 			start_value = self._private_match,
@@ -2201,8 +2201,8 @@ MissionBoardView._callback_open_options = function (self, region_data)
 			end,
 			on_changed = function (value)
 				self:_callback_toggle_private_matchmaking()
-			end
-		}
+			end,
+		},
 	}
 
 	self._mission_board_options:present(presentation_data)

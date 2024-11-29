@@ -70,7 +70,7 @@ UIWeaponSpawner.start_presentation = function (self, item, position, rotation, s
 		rotation = rotation and QuaternionBox(rotation),
 		scale = scale and Vector3.to_array(scale),
 		item = item,
-		force_highest_mip = force_highest_mip
+		force_highest_mip = force_highest_mip,
 	}
 
 	single_item_loader:load_slot_item(slot_id, item, on_loaded_callback)
@@ -212,24 +212,24 @@ UIWeaponSpawner._spawn_weapon = function (self, item, link_unit_name, loader, po
 
 	local extension_manager = self._extension_manager
 	local attach_settings = {
-		from_script_component = false,
 		force_highest_lod_step = true,
+		from_script_component = false,
 		world = world,
 		unit_spawner = self._unit_spawner,
 		item_definitions = self._item_definitions,
 		extension_manager = extension_manager,
-		spawn_with_extensions = extension_manager ~= nil
+		spawn_with_extensions = extension_manager ~= nil,
 	}
 	local item_unit_3p, attachment_units_3p = VisualLoadoutCustomization.spawn_item(item, attach_settings, link_unit, nil, nil, nil)
 	local spawn_data = {
-		visible = false,
 		streaming_complete = false,
+		visible = false,
 		loader = loader,
 		rotation = rotation and QuaternionBox(rotation),
 		item = item,
 		link_unit = link_unit,
 		item_unit_3p = item_unit_3p,
-		attachment_units_3p = attachment_units_3p
+		attachment_units_3p = attachment_units_3p,
 	}
 
 	self._weapon_spawn_data = spawn_data

@@ -65,7 +65,7 @@ TrainingGroundsOptionsView._load_reward_item_icons = function (self)
 	local loadout = profile.loadout
 	local slot_name = "slot_primary"
 	local render_context = {
-		camera_focus_slot_name = slot_name
+		camera_focus_slot_name = slot_name,
 	}
 	local primary_item = loadout.slot_primary
 	local reward_1 = self._widgets_by_name.reward_1
@@ -231,7 +231,7 @@ TrainingGroundsOptionsView._resize_background = function (self, new_size)
 
 	style.background.size = {
 		new_size[1] - 40,
-		new_size[2] + 136
+		new_size[2] + 136,
 	}
 	background_widget.dirty = true
 end

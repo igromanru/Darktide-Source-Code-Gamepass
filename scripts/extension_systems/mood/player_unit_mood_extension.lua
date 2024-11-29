@@ -10,7 +10,7 @@ local mood_types = MoodSettings.mood_types
 local mood_status = MoodSettings.status
 local num_moods = MoodSettings.num_moods
 local CLIENT_RPCS = {
-	"rpc_trigger_timed_mood"
+	"rpc_trigger_timed_mood",
 }
 local PlayerUnitMoodExtension = class("PlayerUnitMoodExtension")
 
@@ -49,7 +49,7 @@ PlayerUnitMoodExtension.init = function (self, extension_init_context, unit, ext
 		moods_data[mood_type] = {
 			entered_t = math.huge,
 			removed_t = math.huge,
-			status = mood_status.inactive
+			status = mood_status.inactive,
 		}
 	end
 

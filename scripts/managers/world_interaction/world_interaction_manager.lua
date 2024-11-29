@@ -17,10 +17,10 @@ end
 
 WorldInteractionManager._setup_gui = function (self)
 	self._gui = World.create_gui(self._world, {
-		use_custom_dimension = true,
 		height = 512,
+		immediate = true,
+		use_custom_dimension = true,
 		width = 512,
-		immediate = true
 	})
 end
 
@@ -52,7 +52,7 @@ WorldInteractionManager._add_water_ripple = function (self, pos, angle, material
 		stretch_multiplier = stretch_multiplier,
 		ref_time = ref_time,
 		default_size = size,
-		multiplier = multiplier
+		multiplier = multiplier,
 	}
 end
 

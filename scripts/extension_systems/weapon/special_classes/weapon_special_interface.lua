@@ -7,7 +7,7 @@ local WeaponSpecialInterface = {
 	"on_special_deactivation",
 	"on_sweep_action_start",
 	"on_sweep_action_finish",
-	"on_exit_damage_window"
+	"on_exit_damage_window",
 }
 
 return WeaponSpecialInterface

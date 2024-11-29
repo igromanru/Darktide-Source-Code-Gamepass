@@ -18,7 +18,7 @@ PacingManager.init = function (self, world, nav_world, level_seed, pacing_contro
 	self._ramp_up_enabled = true
 	self._switch_state_conditions = {
 		back = {},
-		next = {}
+		next = {},
 	}
 	self._world = world
 
@@ -418,32 +418,32 @@ local MAX_OUT_TENSION_BY_CHALLENGE = {
 		true,
 		true,
 		true,
-		false
+		false,
 	},
 	{
 		true,
 		true,
 		true,
-		false
+		false,
 	},
 	{
 		true,
 		true,
 		true,
-		false
+		false,
 	},
 	{
 		true,
 		true,
 		false,
-		false
+		false,
 	},
 	{
 		false,
 		false,
 		false,
-		false
-	}
+		false,
+	},
 }
 
 PacingManager.player_died = function (self, player_unit)

@@ -98,7 +98,7 @@ local BtEnterHooks = {
 			death_component.damage_profile_name = "default"
 			death_component.herding_template_name = nil
 		end
-	end
+	end,
 }
 
 return BtEnterHooks

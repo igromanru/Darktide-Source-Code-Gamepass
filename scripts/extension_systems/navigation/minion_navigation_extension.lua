@@ -60,37 +60,37 @@ end
 
 local DEFAULT_RANDOMIZED_NAV_TAG_COSTS = {
 	{
-		layer_name = "teleporters",
 		chance_to_pick_first_index = 0.5,
+		layer_name = "teleporters",
 		costs = {
 			0.5,
-			2
-		}
+			2,
+		},
 	},
 	{
+		chance_to_pick_first_index = 0.25,
 		layer_name = "ledges",
-		chance_to_pick_first_index = 0.25,
 		costs = {
 			1,
-			5
-		}
+			5,
+		},
 	},
 	{
+		chance_to_pick_first_index = 0.25,
 		layer_name = "ledges_with_fence",
-		chance_to_pick_first_index = 0.25,
 		costs = {
 			1,
-			5
-		}
+			5,
+		},
 	},
 	{
-		layer_name = "cover_ledges",
 		chance_to_pick_first_index = 0.25,
+		layer_name = "cover_ledges",
 		costs = {
 			1,
-			5
-		}
-	}
+			5,
+		},
+	},
 }
 
 MinionNavigationExtension._set_randomized_nav_tag_costs = function (self, nav_tag_cost_table, optional_randomized_nav_tag_costs)
@@ -115,29 +115,29 @@ local FROM_OUTSIDE_NAV_MESH_DISTANCE = 1.5
 local TO_OUTSIDE_NAV_MESH_DISTANCE = 0.2
 local DEFAULT_PROPAGATION_BOX_EXTENT = 30
 local DEFAULT_NAVIGATION_PATH_SPLINE_CONFIG = {
-	spline_distance_to_borders = 1,
-	spline_recomputation_ratio = 1,
-	navigation_channel_radius = 4,
-	turn_sampling_angle = 30,
-	spline_length = 100,
 	channel_smoothing_angle = 30,
-	max_distance_to_spline_position = 5,
 	max_distance_between_gates = 10,
-	min_distance_between_gates = 0.5
+	max_distance_to_spline_position = 5,
+	min_distance_between_gates = 0.5,
+	navigation_channel_radius = 4,
+	spline_distance_to_borders = 1,
+	spline_length = 100,
+	spline_recomputation_ratio = 1,
+	turn_sampling_angle = 30,
 }
 local DEFAULT_AVOIDANCE_CONFIG = {
+	angle_span = 75,
+	enable_forcing = true,
+	enable_slowing = true,
+	enable_stop = false,
+	forcing_time_s = 1,
+	forcing_wait_time_s = 0.2,
+	frame_delay = 45,
 	half_height = 0.5,
 	radius = 4,
-	frame_delay = 45,
-	enable_forcing = true,
 	sample_count = 20,
-	enable_stop = false,
 	stop_wait_time_s = 1,
-	enable_slowing = true,
-	forcing_time_s = 1,
-	angle_span = 75,
 	time_to_collision = 1.25,
-	forcing_wait_time_s = 0.2
 }
 
 MinionNavigationExtension._create_nav_bot = function (self, position, breed, traverse_logic, nav_world)

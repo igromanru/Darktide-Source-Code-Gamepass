@@ -44,7 +44,7 @@ StoreItemDetailView.init = function (self, settings, context)
 
 	self._pass_draw = false
 	self._wallet_type = {
-		"aquilas"
+		"aquilas",
 	}
 	self._using_cursor_navigation = Managers.ui:using_cursor_navigation()
 
@@ -196,7 +196,7 @@ StoreItemDetailView.on_enter = function (self)
 	self:_update_element_position("wallet_element_pivot", self._wallet_element, true)
 	self._wallet_element:_generate_currencies(self._wallet_type, {
 		nil,
-		30
+		30,
 	})
 
 	self._items = context.parent:_extract_items(offer)
@@ -248,26 +248,26 @@ StoreItemDetailView._create_loading_widget = function (self)
 		{
 			pass_type = "rect",
 			style = {
-				color = Color.black(127.5, true)
-			}
+				color = Color.black(127.5, true),
+			},
 		},
 		{
-			value = "content/ui/materials/loading/loading_icon",
 			pass_type = "texture",
+			value = "content/ui/materials/loading/loading_icon",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				size = {
 					256,
-					256
+					256,
 				},
 				offset = {
 					0,
 					0,
-					1
-				}
-			}
-		}
+					1,
+				},
+			},
+		},
 	}, "loading")
 
 	self._loading_widget = self:_create_widget("loading", widget_definition)
@@ -305,10 +305,10 @@ StoreItemDetailView._generate_element_from_item = function (self, entry)
 
 	return {
 		slot = {
-			name = real_item.slots and real_item.slots[1]
+			name = real_item.slots and real_item.slots[1],
 		},
 		item = real_item,
-		visual_item = item
+		visual_item = item,
 	}
 end
 
@@ -353,7 +353,7 @@ StoreItemDetailView._setup_item_presentation = function (self)
 		local title_text = offer.sku.name or ""
 		local item_type_lookup = offer.description.type
 		local item_type_display_name_localized = ItemUtils.type_display_name({
-			item_type = item_type_lookup
+			item_type = item_type_lookup,
 		})
 
 		self:_setup_details(title_text, item_type_display_name_localized)
@@ -396,11 +396,11 @@ StoreItemDetailView._setup_details = function (self, title, type)
 	local max_width = self._ui_scenegraph.title.size[1]
 	local title_width, title_height = self:_text_size(self._widgets_by_name.title.content.text, title_style.font_type, title_style.font_size, {
 		max_width,
-		math.huge
+		math.huge,
 	}, title_options)
 	local sub_title_width, sub_title_height = self:_text_size(self._widgets_by_name.title.content.sub_text, sub_title_style.font_type, sub_title_style.font_size, {
 		max_width,
-		math.huge
+		math.huge,
 	}, sub_title_options)
 	local sub_title_margin = 10
 
@@ -455,18 +455,18 @@ StoreItemDetailView._setup_item_price = function (self)
 		owned_item_text_style.offset = {
 			0,
 			0,
-			2
+			2,
 		}
 		owned_item_text_style.text_color = Color.terminal_text_header(255, true)
 
 		local owned_pass = {
 			{
-				style_id = "text",
 				pass_type = "text",
+				style_id = "text",
 				value_id = "text",
 				style = owned_item_text_style,
-				value = string.format("%s ", Localize("loc_premium_store_owned_note"))
-			}
+				value = string.format("%s ", Localize("loc_premium_store_owned_note")),
+			},
 		}
 		local owned_definition = UIWidget.create_definition(owned_pass, "details_pivot")
 		local owned_widget = self:_create_widget("detail_widget", owned_definition)
@@ -475,13 +475,13 @@ StoreItemDetailView._setup_item_price = function (self)
 		local text_options = UIFonts.get_font_options_by_style(style.text)
 		local text_width, text_height = self:_text_size(owned_widget.content.text, style.text.font_type, style.text.font_size, {
 			1920,
-			1080
+			1080,
 		}, text_options)
 		local extra_width = 10
 
 		content.size = {
 			text_width + extra_width,
-			text_height
+			text_height,
 		}
 		self._details_widget = owned_widget
 
@@ -490,7 +490,7 @@ StoreItemDetailView._setup_item_price = function (self)
 		local price_pass = Definitions.price_text_definition
 		local price_definition = UIWidget.create_definition(price_pass, "details_pivot", nil, {
 			560,
-			80
+			80,
 		})
 		local price_widget = self:_create_widget("detail_widget", price_definition)
 		local price_data = offer.price.amount
@@ -508,14 +508,14 @@ StoreItemDetailView._setup_item_price = function (self)
 		local text_options = UIFonts.get_font_options_by_style(style.price_text)
 		local text_width, text_height = self:_text_size(price_text, style.price_text.font_type, style.price_text.font_size, {
 			1920,
-			1080
+			1080,
 		}, text_options)
 		local margin = 5
 		local total_width = text_width + margin + style.texture.size[1]
 
 		content.size = {
 			total_width,
-			text_height
+			text_height,
 		}
 		self._details_widget = price_widget
 
@@ -529,7 +529,7 @@ StoreItemDetailView._setup_bundle_button = function (self)
 	local bundle_pass = Definitions.bundle_button_definition
 	local size = {
 		542,
-		160
+		160,
 	}
 	local bundle_definition = UIWidget.create_definition(bundle_pass, "details_pivot", nil, size)
 	local bundle_widget = self:_create_widget("detail_widget", bundle_definition)
@@ -546,7 +546,7 @@ StoreItemDetailView._setup_bundle_button = function (self)
 
 	local image_size = {
 		1720,
-		1580
+		1580,
 	}
 	local image_ratio = image_size[2] / image_size[1]
 	local bundle_image_height = image_ratio * size[1]
@@ -595,7 +595,7 @@ StoreItemDetailView._setup_bundle_button = function (self)
 	local price_style_options = UIFonts.get_font_options_by_style(price_text_style)
 	local text_width, _ = self:_text_size(content.price_text, price_text_style.font_type, price_text_style.font_size, {
 		1920,
-		1080
+		1080,
 	}, price_style_options)
 
 	price_text_style.offset[1] = -texture_width - icon_margin
@@ -619,12 +619,12 @@ StoreItemDetailView._setup_bundle_button = function (self)
 	local title_style_options = UIFonts.get_font_options_by_style(title_style)
 	local title_width, title_height = self:_text_size(content.title, title_style.font_type, title_style.font_size, {
 		title_max_width,
-		1080
+		1080,
 	}, title_style_options)
 	local description_style_options = UIFonts.get_font_options_by_style(style.description)
 	local description_width, description_height = self:_text_size(content.description, style.description.font_type, style.description.font_size, {
 		description_max_width,
-		1080
+		1080,
 	}, description_style_options)
 	local description_margin = 5
 	local total_size = title_height + description_margin + description_height
@@ -676,7 +676,7 @@ StoreItemDetailView._setup_description_grid = function (self, item)
 	local function _add_text_widget(pass_template, text)
 		local widget_definition = UIWidget.create_definition(pass_template, scenegraph_id, nil, {
 			max_width,
-			0
+			0,
 		})
 		local widget = self:_create_widget(string.format("description_grid_widget_%d", #widgets), widget_definition)
 
@@ -686,7 +686,7 @@ StoreItemDetailView._setup_description_grid = function (self, item)
 		local text_options = UIFonts.get_font_options_by_style(widget.style.text)
 		local _, text_height = self:_text_size(text, widget_text_style.font_type, widget_text_style.font_size, {
 			max_width,
-			math.huge
+			math.huge,
 		}, text_options)
 
 		widget.content.size[2] = text_height
@@ -699,8 +699,8 @@ StoreItemDetailView._setup_description_grid = function (self, item)
 		alignment_widgets[#alignment_widgets + 1] = {
 			size = {
 				max_width,
-				height
-			}
+				height,
+			},
 		}
 	end
 
@@ -751,7 +751,7 @@ StoreItemDetailView._setup_description_grid = function (self, item)
 	local grid_pivot_scenegraph_id = "description_content_pivot"
 	local grid_spacing = {
 		0,
-		0
+		0,
 	}
 	local grid_direction = "down"
 	local use_is_focused_for_navigation = true
@@ -825,15 +825,15 @@ StoreItemDetailView._setup_item_grid = function (self)
 			if widget then
 				widgets[#widgets + 1] = widget
 				alignment_widgets[#alignment_widgets + 1] = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					size = size,
-					name = widget.name
+					name = widget.name,
 				}
 			else
 				widgets[#widgets + 1] = nil
 				alignment_widgets[#alignment_widgets + 1] = {
-					size = size
+					size = size,
 				}
 			end
 		end
@@ -850,7 +850,7 @@ StoreItemDetailView._setup_item_grid = function (self)
 	local grid_pivot_scenegraph_id = "grid_content_pivot"
 	local grid_spacing = {
 		10,
-		10
+		10,
 	}
 	local grid_direction = "down"
 	local use_is_focused_for_navigation = true
@@ -930,11 +930,11 @@ StoreItemDetailView._present_bundle = function (self, offer)
 
 	local item_type_lookup = offer.description.type
 	local item_type_display_name_localized = ItemUtils.type_display_name({
-		item_type = item_type_lookup
+		item_type = item_type_lookup,
 	})
 	local item_size = {
 		700,
-		60
+		60,
 	}
 	local ui_renderer = self._ui_forward_renderer
 	local scenegraph_id = "item_name_pivot"
@@ -942,15 +942,15 @@ StoreItemDetailView._present_bundle = function (self, offer)
 	local template = self._content_blueprints[widget_type]
 	local title_item = {
 		display_name = offer.sku.name or "",
-		item_type = item_type_display_name_localized
+		item_type = item_type_display_name_localized,
 	}
 	local config = {
-		vertical_alignment = "bottom",
+		horizontal_alignment = "right",
 		ignore_localization = true,
 		use_store_appearance = true,
-		horizontal_alignment = "right",
+		vertical_alignment = "bottom",
 		size = item_size,
-		item = title_item
+		item = title_item,
 	}
 	local size = template.size_function and template.size_function(self, config, ui_renderer) or template.size
 	local pass_template = template.pass_template_function and template.pass_template_function(self, config, ui_renderer) or template.pass_template
@@ -1042,7 +1042,7 @@ StoreItemDetailView._present_item = function (self, item, visual_item)
 
 	local item_size = {
 		700,
-		60
+		60,
 	}
 	local ui_renderer = self._ui_forward_renderer
 	local scenegraph_id = "item_name_pivot"
@@ -1052,15 +1052,15 @@ StoreItemDetailView._present_item = function (self, item, visual_item)
 	local sub_type = ItemUtils.type_display_name(item)
 	local title_item = {
 		display_name = title,
-		item_type = sub_type
+		item_type = sub_type,
 	}
 	local config = {
-		vertical_alignment = "bottom",
+		horizontal_alignment = "right",
 		ignore_localization = true,
 		use_store_appearance = true,
-		horizontal_alignment = "right",
+		vertical_alignment = "bottom",
 		size = item_size,
-		item = title_item
+		item = title_item,
 	}
 	local size = template.size_function and template.size_function(self, config, ui_renderer) or template.size
 	local pass_template = template.pass_template_function and template.pass_template_function(self, config, ui_renderer) or template.pass_template
@@ -1109,7 +1109,7 @@ StoreItemDetailView._setup_side_panel = function (self, element)
 	local function _add_text_widget(pass_template, text)
 		local widget_definition = UIWidget.create_definition(pass_template, scenegraph_id, nil, {
 			max_width,
-			0
+			0,
 		})
 		local widget = self:_create_widget(string.format("side_panel_widget_%d", #widgets), widget_definition)
 
@@ -1120,7 +1120,7 @@ StoreItemDetailView._setup_side_panel = function (self, element)
 		local text_options = UIFonts.get_font_options_by_style(widget.style.text)
 		local _, text_height = self:_text_size(text, widget_text_style.font_type, widget_text_style.font_size, {
 			max_width,
-			math.huge
+			math.huge,
 		}, text_options)
 
 		y_offset = y_offset + text_height
@@ -1187,11 +1187,11 @@ local _inspect_on_multiple = {
 	"GEAR_EXTRA_COSMETIC",
 	"GEAR_HEAD",
 	"GEAR_LOWERBODY",
-	"GEAR_UPPERBODY"
+	"GEAR_UPPERBODY",
 }
 local _inspect_on_single = {
 	"WEAPON_SKIN",
-	"GEAR_EXTRA_COSMETIC"
+	"GEAR_EXTRA_COSMETIC",
 }
 
 StoreItemDetailView._should_show_inspect = function (self, element)
@@ -1348,7 +1348,7 @@ StoreItemDetailView._get_generic_profile_from_item = function (self, item)
 			loadout = {},
 			archetype = archetype,
 			breed = breed,
-			gender = gender
+			gender = gender,
 		}
 	end
 
@@ -1473,7 +1473,7 @@ StoreItemDetailView._setup_background_world = function (self)
 				breeds_default_camera_settings[breed_name] = {
 					camera_unit = camera_unit,
 					original_position_boxed = Vector3Box(camera_position),
-					original_rotation_boxed = QuaternionBox(camera_rotation)
+					original_rotation_boxed = QuaternionBox(camera_rotation),
 				}
 
 				self:_unregister_event(default_camera_event_id)
@@ -1971,7 +1971,7 @@ StoreItemDetailView.update = function (self, dt, t, input_service)
 
 			corner_right.content.original_size = {
 				corner_width,
-				corner_height
+				corner_height,
 			}
 		end
 
@@ -2308,7 +2308,7 @@ StoreItemDetailView._draw_render_target = function (self)
 	local position = self:_scenegraph_world_position("canvas")
 	local size = {
 		width,
-		height
+		height,
 	}
 	local gui_position = Vector3(position[1] * scale, position[2] * scale, position[3] or 0)
 	local gui_size = Vector3(size[1] * scale, size[2] * scale, size[3] or 0)
@@ -2383,8 +2383,8 @@ StoreItemDetailView._setup_weapon_preview = function (self)
 	local layer = 1
 
 	self._weapon_preview = self:_add_element(ViewElementInventoryWeaponPreview, reference_name, layer, {
+		draw_background = true,
 		ignore_blur = true,
-		draw_background = true
 	})
 
 	self:_update_weapon_preview_viewport()
@@ -2444,7 +2444,7 @@ StoreItemDetailView._present_weapon = function (self, item)
 	weapon_preview:center_align(0, {
 		-0.5,
 		-2,
-		-0.2
+		-0.2,
 	})
 	weapon_preview:set_force_allow_rotation(true)
 end
@@ -2505,11 +2505,11 @@ StoreItemDetailView._update_price_presentation = function (self)
 	local price_style_options = UIFonts.get_font_options_by_style(style.price)
 	local discount_width, _ = self:_text_size(content.discount_price, style.discount_price.font_type, style.discount_price.font_size, {
 		1920,
-		1080
+		1080,
 	}, discount_style_options)
 	local text_width, _ = self:_text_size(content.price, style.price.font_type, style.price.font_size, {
 		1920,
-		1080
+		1080,
 	}, price_style_options)
 	local total_width = 0
 	local icon_margin = 0
@@ -2648,7 +2648,7 @@ StoreItemDetailView._update_purchase_buttons = function (self)
 	local purchase_item_button_style_options = UIFonts.get_font_options_by_style(purchase_item_button.style.text)
 	local purchase_item_button_width, purchase_item_button_height = self:_text_size(purchase_button_text, purchase_item_button.style.text.font_type, purchase_item_button.style.text.font_size, {
 		1920,
-		ButtonPassTemplates.default_button.size[2]
+		ButtonPassTemplates.default_button.size[2],
 	}, purchase_item_button_style_options)
 
 	self:_set_scenegraph_size("purchase_button", math.max(ButtonPassTemplates.default_button.size[1], purchase_item_button_width + 100), nil)
@@ -2718,7 +2718,7 @@ StoreItemDetailView._make_purchase = function (self, is_bundle, offer, wallet_da
 
 			if condense_notifications then
 				local message = Localize("loc_premium_store_notification_success_bundle", true, {
-					item = offer.sku.name
+					item = offer.sku.name,
 				})
 
 				Managers.event:trigger("event_add_notification_message", "default", message, nil, UISoundEvents.notification_item_received_rarity_6)
@@ -2759,7 +2759,7 @@ StoreItemDetailView._make_purchase = function (self, is_bundle, offer, wallet_da
 		local notification_string = Localize("loc_premium_store_notification_fail")
 
 		Managers.event:trigger("event_add_notification_message", "alert", {
-			text = notification_string
+			text = notification_string,
 		})
 
 		self._popup_id = nil
@@ -2778,7 +2778,7 @@ StoreItemDetailView.cb_on_purchase_pressed = function (self)
 	if not is_bundle then
 		local sub_type = selected_element.item.item_type
 		local item_type_display_name_localized = ItemUtils.type_display_name({
-			item_type = sub_type
+			item_type = sub_type,
 		})
 
 		item_name = Localize(selected_element.item.display_name)
@@ -2788,7 +2788,7 @@ StoreItemDetailView.cb_on_purchase_pressed = function (self)
 		item_type = get_item_type(offer.description.type)
 
 		local num_items_text = Localize("loc_premium_store_num_items", true, {
-			count = #offer.bundleInfo
+			count = #offer.bundleInfo,
 		})
 
 		if item_type then
@@ -2821,7 +2821,7 @@ StoreItemDetailView.cb_on_purchase_pressed = function (self)
 
 	if not is_bundle and #purchased_items > 1 then
 		purchased_items = {
-			selected_element
+			selected_element,
 		}
 	end
 
@@ -2847,37 +2847,37 @@ StoreItemDetailView.cb_on_purchase_pressed = function (self)
 	local new_balance = current_balance - item_cost
 	local wallet_data = self._wallet_element:get_wallet_by_type(wallet_type)
 	local context = {
-		type = "offer",
-		title_text = "loc_premium_store_confirm_purchase_title",
 		description_text = "loc_premium_store_confirm_purchase_description",
+		title_text = "loc_premium_store_confirm_purchase_title",
+		type = "offer",
 		description_text_params = {
 			item_name = item_name,
 			item_cost = item_cost,
 			current_balance = current_balance,
-			new_balance = new_balance
+			new_balance = new_balance,
 		},
 		offer = offer,
 		offer_name = item_name,
 		offer_type = item_type,
 		options = {
 			{
-				text = "loc_popup_button_confirm",
 				close_on_pressed = true,
-				callback = callback(self, "_make_purchase", is_bundle, offer, wallet_data, items_not_owned)
+				text = "loc_popup_button_confirm",
+				callback = callback(self, "_make_purchase", is_bundle, offer, wallet_data, items_not_owned),
 			},
 			{
-				text = "loc_popup_button_cancel",
-				template_type = "terminal_button_small",
 				close_on_pressed = true,
 				hotkey = "back",
+				template_type = "terminal_button_small",
+				text = "loc_popup_button_cancel",
 				callback = callback(function ()
 					purchase_button_widget.content.hotspot.disabled = false
 					self._popup_id = nil
 
 					self:_update_purchase_buttons()
-				end)
-			}
-		}
+				end),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -2893,23 +2893,23 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 	local template = ContentBlueprints.aquila_button
 	local size_addition = {
 		20,
-		20
+		20,
 	}
 	local spacing = {
 		20,
-		25
+		25,
 	}
 	local large_size = {
 		260,
-		350
+		350,
 	}
 	local small_size = {
 		260,
-		250
+		250,
 	}
 	local medium_size = {
 		260,
-		300
+		300,
 	}
 	local size_per_row = {}
 	local pass_template = template.pass_template
@@ -2989,7 +2989,7 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 				local aquilas = aquila_offer.value.amount
 				local aquila_minus_bonus = aquilas - bonus_aquila
 				local bonus_text = Localize("loc_premium_store_credits_bonus", true, {
-					amount = bonus_aquila
+					amount = bonus_aquila,
 				})
 
 				description = string.format("%d\n%s", aquila_minus_bonus, bonus_text)
@@ -2998,7 +2998,7 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 			element.description = description
 			element.offer = aquila_offer
 			element.item_types = {
-				"currency"
+				"currency",
 			}
 
 			local size, max_allowed_items_per_row, total_elements_in_row
@@ -3037,7 +3037,7 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 			widget.offset = {
 				element_position * (size[1] + spacing[1]),
 				0,
-				0
+				0,
 			}
 
 			local init = template.init
@@ -3065,22 +3065,22 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 			local description_style_options = UIFonts.get_font_options_by_style(widget.style.bonus_description)
 			local description_width, description_height = self:_text_size(widget.content.bonus_description, widget.style.bonus_description.font_type, widget.style.bonus_description.font_size, {
 				1920,
-				1080
+				1080,
 			}, description_style_options)
 
 			widget.style.bonus_description_background.size = {
 				description_width,
-				description_height
+				description_height,
 			}
 			widget.style.bonus_description_background_line.size = {
 				description_width,
-				description_height
+				description_height,
 			}
 			widgets[offerIdx] = widget
 			widget_grid_position_by_index[#widget_grid_position_by_index + 1] = {
 				row = row,
 				element_position_in_row = total_elements_in_row - element_position,
-				grid_index = start_row + element_position + 1
+				grid_index = start_row + element_position + 1,
 			}
 			widgets_count_per_row[row] = widgets_count_per_row[row] and widgets_count_per_row[row] + 1 or 1
 		end
@@ -3124,7 +3124,7 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 			widgets_position_by_index = widget_grid_position_by_index,
 			num_rows = needed_rows,
 			widgets_count_per_row = widgets_count_per_row,
-			total_widgets = #widgets
+			total_widgets = #widgets,
 		}
 
 		if not self._using_cursor_navigation then
@@ -3140,14 +3140,14 @@ StoreItemDetailView._create_aquilas_presentation = function (self, offer, item_n
 		widgets_by_name.required_aquilas_text.content.visible = true
 		widgets_by_name.required_aquilas_text.content.text = string.format("%s ", Localize("loc_premium_store_required_credits", true, {
 			offer = item_name,
-			value = money_required
+			value = money_required,
 		}))
 
 		if IS_PLAYSTATION then
 			local POSITION = {
-				RIGHT = 2,
 				CENTER = 0,
-				LEFT = 1
+				LEFT = 1,
+				RIGHT = 2,
 			}
 
 			if not self._ps_store_icon_showing then
@@ -3183,14 +3183,14 @@ StoreItemDetailView.cb_on_aquila_pressed = function (self, widget, element)
 		self:_play_sound(UISoundEvents.aquilas_vendor_purchase_aquilas)
 		Managers.event:trigger("event_add_notification_message", "currency", {
 			currency = currency,
-			amount = amount
+			amount = amount,
 		})
 		self:cb_on_close_pressed()
 	end):catch(function (error)
 		local notification_string = Localize("loc_premium_store_notification_fail")
 
 		Managers.event:trigger("event_add_notification_message", "alert", {
-			text = notification_string
+			text = notification_string,
 		})
 
 		self._purchase_promise = nil
@@ -3310,8 +3310,8 @@ StoreItemDetailView.cb_on_inspect_pressed = function (self)
 				image = self._bundle_image,
 				title = offer.sku.name,
 				description = offer.sku.description,
-				type = offer.description.type
-			}
+				type = offer.description.type,
+			},
 		}
 	elseif previewed_item then
 		local item_type = previewed_item.item_type
@@ -3340,7 +3340,7 @@ StoreItemDetailView.cb_on_inspect_pressed = function (self)
 			use_store_appearance = true,
 			profile = profile,
 			preview_with_gear = is_item_supported_on_played_character,
-			preview_item = item
+			preview_item = item,
 		}
 
 		if item_type == "WEAPON_SKIN" then

@@ -68,10 +68,10 @@ end
 
 Dialogue.component_data = {
 	dialogue_class = {
-		value = "none",
-		ui_type = "combo_box",
 		category = "Dialogue",
 		ui_name = "Class",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Archive Servitor",
@@ -107,7 +107,7 @@ Dialogue.component_data = {
 			"Captain Twin Female",
 			"Captain Twin Male",
 			"Reject NPC",
-			"Travelling Salesman"
+			"Travelling Salesman",
 		},
 		options_values = {
 			"none",
@@ -144,14 +144,14 @@ Dialogue.component_data = {
 			"captain_twin_female",
 			"captain_twin_male",
 			"reject_npc",
-			"travelling_salesman"
-		}
+			"travelling_salesman",
+		},
 	},
 	dialogue_profile = {
-		value = "none",
-		ui_type = "combo_box",
 		category = "Dialogue",
 		ui_name = "Character Voice",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Archive Servitor A",
@@ -223,7 +223,7 @@ Dialogue.component_data = {
 			"Reject NPC Servitor",
 			"Travelling Salesman A",
 			"Travelling Salesman B",
-			"Travelling Salesman C"
+			"Travelling Salesman C",
 		},
 		options_values = {
 			"none",
@@ -296,41 +296,41 @@ Dialogue.component_data = {
 			"reject_npc_servitor_a",
 			"travelling_salesman_a",
 			"travelling_salesman_b",
-			"travelling_salesman_c"
-		}
+			"travelling_salesman_c",
+		},
 	},
 	faction_memory_name = {
-		value = "none",
-		ui_type = "combo_box",
 		category = "Dialogue",
 		ui_name = "Dialogue Faction Name",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Enemy",
 			"NPC",
-			"Player"
+			"Player",
 		},
 		options_values = {
 			"none",
 			"enemy",
 			"npc",
-			"player"
-		}
+			"player",
+		},
 	},
 	player_selected_voice = {
+		category = "Dialogue",
+		ui_name = "Use Local Player Voice",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Use Local Player Voice",
-		category = "Dialogue"
 	},
 	enabled = {
+		ui_name = "Enabled",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Enabled"
 	},
 	extensions = {
-		"DialogueExtension"
-	}
+		"DialogueExtension",
+	},
 }
 
 return Dialogue

@@ -6,65 +6,65 @@ local mission_objective_templates = {
 	side_mission = {
 		objectives = {
 			side_mission_test_one = {
-				description = "loc_objective_side_mission_test_one_desc",
-				side_objective_type = "collect",
 				collect_amount = 3,
+				description = "loc_objective_side_mission_test_one_desc",
 				header = "loc_objective_side_mission_test_one_header",
+				icon = "content/ui/materials/icons/mission_types/mission_type_side",
 				is_testable = false,
 				mission_objective_type = "side",
-				unit_name = "consumable",
 				objective_category = "side_mission",
-				icon = "content/ui/materials/icons/mission_types/mission_type_side"
+				side_objective_type = "collect",
+				unit_name = "consumable",
 			},
 			side_mission_consumable = {
-				description = "loc_objective_side_mission_consumable_desc",
-				side_objective_type = "collect",
 				collect_amount = 9,
-				header = "loc_objective_side_mission_consumable_header",
+				description = "loc_objective_side_mission_consumable_desc",
 				evaluate_at_level_end = true,
+				header = "loc_objective_side_mission_consumable_header",
+				icon = "content/ui/materials/icons/mission_types/mission_type_side",
 				is_testable = true,
 				mission_objective_type = "side",
-				unit_name = "consumable",
 				objective_category = "side_mission",
-				icon = "content/ui/materials/icons/mission_types/mission_type_side"
+				side_objective_type = "collect",
+				unit_name = "consumable",
 			},
 			side_mission_grimoire = {
-				description = "loc_objective_side_mission_grimoire_desc",
-				side_objective_type = "collect",
 				collect_amount = 2,
-				header = "loc_objective_side_mission_grimoire_header",
+				description = "loc_objective_side_mission_grimoire_desc",
 				evaluate_at_level_end = true,
+				header = "loc_objective_side_mission_grimoire_header",
+				icon = "content/ui/materials/icons/mission_types/mission_type_side",
 				is_testable = true,
 				mission_objective_type = "side",
-				unit_name = "grimoire",
 				objective_category = "side_mission",
-				icon = "content/ui/materials/icons/mission_types/mission_type_side",
-				proc_event_at_max_progression = proc_events.on_all_grimoires_picked_up
+				side_objective_type = "collect",
+				unit_name = "grimoire",
+				proc_event_at_max_progression = proc_events.on_all_grimoires_picked_up,
 			},
 			side_mission_tome = {
-				description = "loc_objective_side_mission_tome_desc",
-				side_objective_type = "collect",
 				collect_amount = 3,
-				header = "loc_objective_side_mission_tome_header",
+				description = "loc_objective_side_mission_tome_desc",
 				evaluate_at_level_end = true,
+				header = "loc_objective_side_mission_tome_header",
+				icon = "content/ui/materials/icons/mission_types/mission_type_side",
 				is_testable = true,
 				mission_objective_type = "side",
-				unit_name = "tome",
 				objective_category = "side_mission",
-				icon = "content/ui/materials/icons/mission_types/mission_type_side"
+				side_objective_type = "collect",
+				unit_name = "tome",
 			},
 			side_mission_luggables = {
 				description = "loc_objective_side_mission_luggables_desc",
-				side_objective_type = "luggable",
 				header = "loc_objective_side_mission_luggables_header",
-				objective_category = "side_mission",
-				unit_name = "battery_01_luggable",
 				icon = "content/ui/materials/icons/mission_types/mission_type_side",
+				is_testable = false,
 				mission_objective_type = "side",
-				is_testable = false
-			}
-		}
-	}
+				objective_category = "side_mission",
+				side_objective_type = "luggable",
+				unit_name = "battery_01_luggable",
+			},
+		},
+	},
 }
 
 return mission_objective_templates

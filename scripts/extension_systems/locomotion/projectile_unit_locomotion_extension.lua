@@ -75,7 +75,7 @@ ProjectileUnitLocomotionExtension.init = function (self, extension_init_context,
 	self._snapshot_game_object_data = {
 		snapshot_id = 0,
 		position = {},
-		rotation = {}
+		rotation = {},
 	}
 
 	local level_id = Managers.state.unit_spawner:level_index(unit)
@@ -126,7 +126,7 @@ ProjectileUnitLocomotionExtension.init = function (self, extension_init_context,
 	game_object_data.projectile_locomotion_state_id = NetworkLookup.projectile_locomotion_states[self._current_state]
 
 	local gameplay_safe_extents = {
-		Vector3.to_elements(Managers.state.out_of_bounds:soft_cap_extents())
+		Vector3.to_elements(Managers.state.out_of_bounds:soft_cap_extents()),
 	}
 
 	self._gameplay_safe_extents = gameplay_safe_extents

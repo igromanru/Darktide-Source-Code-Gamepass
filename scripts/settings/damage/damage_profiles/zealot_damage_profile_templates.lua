@@ -34,7 +34,7 @@ damage_templates.zealot_throwing_knives = {
 			[armor_types.berserker] = damage_lerp_values.lerp_1_5,
 			[armor_types.super_armor] = damage_lerp_values.no_damage,
 			[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_1_5,
-			[armor_types.void_shield] = damage_lerp_values.lerp_0_75
+			[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
 		},
 		impact = {
 			[armor_types.unarmored] = damage_lerp_values.lerp_0_75,
@@ -44,16 +44,16 @@ damage_templates.zealot_throwing_knives = {
 			[armor_types.berserker] = damage_lerp_values.lerp_0_75,
 			[armor_types.super_armor] = damage_lerp_values.lerp_0_5,
 			[armor_types.disgustingly_resilient] = damage_lerp_values.lerp_0_75,
-			[armor_types.void_shield] = damage_lerp_values.lerp_0_75
-		}
+			[armor_types.void_shield] = damage_lerp_values.lerp_0_75,
+		},
 	},
 	cleave_distribution = {
 		attack = 2,
-		impact = 1.25
+		impact = 1.25,
 	},
 	power_distribution = {
 		attack = 585,
-		impact = 5
+		impact = 5,
 	},
 	gibbing_power = GIBBING_POWER.always,
 	gibbing_type = GIBBING_TYPES.ballistic,
@@ -63,13 +63,13 @@ damage_templates.zealot_throwing_knives = {
 			boost_curve = PowerLevelSettings.boost_curves.default,
 			finesse_boost = {
 				[armor_types.unarmored] = 0.75,
-				[armor_types.armored] = 0.75
-			}
-		}
-	}
+				[armor_types.armored] = 0.75,
+			},
+		},
+	},
 }
 
 return {
 	base_templates = damage_templates,
-	overrides = overrides
+	overrides = overrides,
 }

@@ -46,7 +46,7 @@ HudElementBossHealth._setup_widget_groups = function (self)
 	self._widget_groups = {
 		single_target_widgets,
 		left_double_target_widgets,
-		right_double_target_widgets
+		right_double_target_widgets,
 	}
 end
 
@@ -89,7 +89,7 @@ HudElementBossHealth.event_boss_encounter_start = function (self, unit, boss_ext
 
 		if max_health < initial_max_health then
 			localized_display_name = Localize("loc_weakened_monster_prefix", true, {
-				breed = localized_display_name
+				breed = localized_display_name,
 			})
 		end
 	end
@@ -106,7 +106,7 @@ HudElementBossHealth.event_boss_encounter_start = function (self, unit, boss_ext
 		localized_display_name = " " .. localized_display_name,
 		health_bar_logic = health_bar_logic,
 		toughness_bar_logic = toughness_bar_logic,
-		breed = breed
+		breed = breed,
 	}
 
 	active_targets_by_unit[unit] = target

@@ -179,7 +179,7 @@ PickupSpawnerExtension.register_spawn_locations = function (self, node_list, dis
 			node_list[#node_list + 1] = {
 				extension = self,
 				index = i,
-				chest = not not self._chest_extension
+				chest = not not self._chest_extension,
 			}
 		end
 	end

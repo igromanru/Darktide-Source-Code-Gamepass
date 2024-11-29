@@ -32,7 +32,7 @@ StoreService.init = function (self, backend_interface)
 		marks = GameParameters.wallet_cap_marks,
 		plasteel = GameParameters.wallet_cap_plasteel,
 		diamantine = GameParameters.wallet_cap_diamantine,
-		aquilas = GameParameters.wallet_cap_aquilas
+		aquilas = GameParameters.wallet_cap_aquilas,
 	}
 	self._current_store_id = nil
 	self._store_cache = {}
@@ -190,7 +190,7 @@ StoreService._get_archetype_store_catalogue = function (self, store_by_archetype
 
 		return {
 			offers = offers or {},
-			current_rotation_end = current_rotation_end
+			current_rotation_end = current_rotation_end,
 		}
 	end)
 
@@ -200,10 +200,10 @@ StoreService._get_archetype_store_catalogue = function (self, store_by_archetype
 end
 
 StoreService.credit_store_archetypes = {
-	veteran = "get_veteran_credits_store",
+	ogryn = "get_ogryn_credits_store",
 	psyker = "get_psyker_credits_store",
+	veteran = "get_veteran_credits_store",
 	zealot = "get_zealot_credits_store",
-	ogryn = "get_ogryn_credits_store"
 }
 
 StoreService.get_credits_store = function (self, ignore_event_trigger)
@@ -211,10 +211,10 @@ StoreService.get_credits_store = function (self, ignore_event_trigger)
 end
 
 StoreService.credit_goods_store_archetypes = {
-	veteran = "get_veteran_credits_goods_store",
+	ogryn = "get_ogryn_credits_goods_store",
 	psyker = "get_psyker_credits_goods_store",
+	veteran = "get_veteran_credits_goods_store",
 	zealot = "get_zealot_credits_goods_store",
-	ogryn = "get_ogryn_credits_goods_store"
 }
 
 StoreService.get_credits_goods_store = function (self, ignore_event_trigger)
@@ -222,10 +222,10 @@ StoreService.get_credits_goods_store = function (self, ignore_event_trigger)
 end
 
 StoreService.credit_cosmetics_store_archetypes = {
-	veteran = "get_veteran_credits_cosmetics_store",
+	ogryn = "get_ogryn_credits_cosmetics_store",
 	psyker = "get_psyker_credits_cosmetics_store",
+	veteran = "get_veteran_credits_cosmetics_store",
 	zealot = "get_zealot_credits_cosmetics_store",
-	ogryn = "get_ogryn_credits_cosmetics_store"
 }
 
 StoreService.get_credits_cosmetics_store = function (self, archetype_name)
@@ -233,10 +233,10 @@ StoreService.get_credits_cosmetics_store = function (self, archetype_name)
 end
 
 StoreService.credit_weapon_cosmetics_store_archetypes = {
-	veteran = "get_veteran_credits_weapon_cosmetics_store",
+	ogryn = "get_ogryn_credits_weapon_cosmetics_store",
 	psyker = "get_psyker_credits_weapon_cosmetics_store",
+	veteran = "get_veteran_credits_weapon_cosmetics_store",
 	zealot = "get_zealot_credits_weapon_cosmetics_store",
-	ogryn = "get_ogryn_credits_weapon_cosmetics_store"
 }
 
 StoreService.get_credits_weapon_cosmetics_store = function (self, archetype_name)
@@ -244,10 +244,10 @@ StoreService.get_credits_weapon_cosmetics_store = function (self, archetype_name
 end
 
 StoreService.mark_store_archetypes = {
-	veteran = "get_veteran_marks_store",
+	ogryn = "get_ogryn_marks_store",
 	psyker = "get_psyker_marks_store",
+	veteran = "get_veteran_marks_store",
 	zealot = "get_zealot_marks_store",
-	ogryn = "get_ogryn_marks_store"
 }
 
 StoreService.get_marks_store = function (self)
@@ -365,7 +365,7 @@ end
 StoreService._decorate_wallets = function (self, wallets)
 	local decorated_wallets = {
 		wallets = wallets,
-		by_type = _get_wallet_by_type
+		by_type = _get_wallet_by_type,
 	}
 
 	return decorated_wallets
@@ -582,13 +582,13 @@ StoreService.get_premium_store = function (self, storefront_key)
 					self._block_aquila_acquisition = true
 
 					return Promise.rejected({
-						error = error.error
+						error = error.error,
 					})
 				end)
 			end
 
 			local show_error = error and (not type(error) == "table" and {
-				error = error
+				error = error,
 			} or error) or {}
 
 			self._block_aquila_acquisition = false
@@ -646,7 +646,7 @@ StoreService.get_premium_store = function (self, storefront_key)
 			layout_config = layout_config or {},
 			current_rotation_end = current_rotation_end,
 			catalog_validity = catalog_validity,
-			bundle_rules = bundle_rules
+			bundle_rules = bundle_rules,
 		}
 	end):catch(function (error)
 		Log.error("StoreService", "Failed to fetch premium storefront %s %s", storefront_key, error)

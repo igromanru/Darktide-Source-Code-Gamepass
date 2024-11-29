@@ -72,7 +72,7 @@ local function _fetch_client_data()
 				Managers.event:trigger("event_add_notification_message", "currency", {
 					reason = reason,
 					currency = reward.type,
-					amount = reward.amount
+					amount = reward.amount,
 				})
 
 				return contract_service:complete_contract(character_id)
@@ -174,7 +174,7 @@ MechanismHub.wanted_transition = function (self)
 			challenge = challenge,
 			resistance = resistance,
 			circumstance_name = self._hub_circumstance_name,
-			side_mission = side_mission
+			side_mission = side_mission,
 		}
 
 		return false, StateLoading, {
@@ -184,8 +184,8 @@ MechanismHub.wanted_transition = function (self)
 			side_mission = side_mission,
 			next_state = StateGameplay,
 			next_state_params = {
-				mechanism_data = mechanism_data
-			}
+				mechanism_data = mechanism_data,
+			},
 		}
 	elseif state == "in_hub" then
 		local party_immaterium = Managers.party_immaterium
@@ -250,29 +250,29 @@ end
 
 MechanismHub._show_retry_popup = function (self)
 	local context = {
-		title_text = "loc_popup_header_reconnect_to_session",
 		description_text = "loc_popup_description_reconnect_to_session",
+		title_text = "loc_popup_header_reconnect_to_session",
 		options = {
 			{
-				text = "loc_popup_reconnect_to_session_reconnect_button",
 				close_on_pressed = true,
+				text = "loc_popup_reconnect_to_session_reconnect_button",
 				callback = function ()
 					self._retry_popup_id = nil
 
 					self:_retry_join()
-				end
+				end,
 			},
 			{
-				text = "loc_popup_reconnect_to_session_leave_button",
 				close_on_pressed = true,
 				hotkey = "back",
+				text = "loc_popup_reconnect_to_session_leave_button",
 				callback = function ()
 					self._retry_popup_id = nil
 
 					Managers.party_immaterium:leave_party()
-				end
-			}
-		}
+				end,
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)

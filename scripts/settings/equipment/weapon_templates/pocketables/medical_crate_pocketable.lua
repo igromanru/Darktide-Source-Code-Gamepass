@@ -18,38 +18,38 @@ ActionInputHierarchyUtils.add_missing_ordered(weapon_template.action_input_hiera
 weapon_template.actions = {
 	action_place_complete = {
 		allowed_during_sprint = true,
-		start_input = "place",
-		remove_item_from_inventory = true,
-		kind = "place_deployable",
-		use_aim_date = false,
 		anim_cancel_event = "action_finished",
-		uninterruptible = true,
 		anim_event = "drop",
+		kind = "place_deployable",
+		remove_item_from_inventory = true,
+		start_input = "place",
 		total_time = 0.54,
+		uninterruptible = true,
+		use_aim_date = false,
 		deployable_settings = Deployables.medical_crate,
 		place_configuration = {
-			distance = 2
-		}
-	}
+			distance = 2,
+		},
+	},
 }
 
 table.add_missing(weapon_template.actions, PocketablesTemplateSettings.actions)
 
 weapon_template.keywords = {
-	"pocketable"
+	"pocketable",
 }
 weapon_template.ammo_template = "no_ammo"
 weapon_template.hud_configuration = {
+	uses_ammunition = false,
 	uses_overheat = false,
-	uses_ammunition = false
 }
 weapon_template.breed_anim_state_machine_3p = {
 	human = "content/characters/player/human/third_person/animations/pocketables",
-	ogryn = "content/characters/player/ogryn/third_person/animations/pocketables"
+	ogryn = "content/characters/player/ogryn/third_person/animations/pocketables",
 }
 weapon_template.breed_anim_state_machine_1p = {
 	human = "content/characters/player/human/first_person/animations/pocketables",
-	ogryn = "content/characters/player/ogryn/first_person/animations/pocketables"
+	ogryn = "content/characters/player/ogryn/first_person/animations/pocketables",
 }
 weapon_template.smart_targeting_template = SmartTargetingTemplates.default_melee
 weapon_template.fx_sources = {}

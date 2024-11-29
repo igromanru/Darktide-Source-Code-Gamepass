@@ -5,14 +5,14 @@ local NavQueries = require("scripts/utilities/nav_queries")
 local PerceptionSettings = require("scripts/settings/perception/perception_settings")
 local aggro_states = PerceptionSettings.aggro_states
 local horde_template = {
+	chance_spawning_ahead = 0.67,
 	euclidean_distance_from_targets = 20,
 	name = "far_vector_horde",
 	requires_main_path = true,
-	chance_spawning_ahead = 0.67,
 	main_path_distance_from_targets = {
 		60,
-		80
-	}
+		80,
+	},
 }
 
 local function _try_find_spawn_position(nav_world, traverse_logic, center_position, index, num_columns, max_attempts)
@@ -225,7 +225,7 @@ horde_template.execute = function (physics_world, nav_world, side, target_side, 
 		template_name = horde_template.name,
 		side = side,
 		target_side = target_side,
-		group_id = group_id
+		group_id = group_id,
 	}
 	local spawn_rotation = Quaternion.look(Vector3(horde_direction.x, horde_direction.y, 0))
 	local side_id = side.side_id

@@ -9,132 +9,132 @@ local health_bar_size = HudElementObjectiveProgressBarSettings.size
 local health_bar_position = {
 	0,
 	HudElementObjectiveProgressBarSettings.edge_offset,
-	0
+	0,
 }
 local name_text_style = table.clone(HudElementObjectiveTextSettings.style)
 
 name_text_style.offset = {
 	0,
 	15,
-	2
+	2,
 }
 
 local scenegraph_definition = {
 	screen = UIWorkspaceSettings.screen,
 	background = {
-		vertical_alignment = "top",
-		parent = "screen",
 		horizontal_alignment = "center",
+		parent = "screen",
+		vertical_alignment = "top",
 		size = {
 			748,
-			130
+			130,
 		},
-		position = health_bar_position
+		position = health_bar_position,
 	},
 	health_bar = {
-		vertical_alignment = "center",
-		parent = "background",
 		horizontal_alignment = "center",
+		parent = "background",
+		vertical_alignment = "center",
 		size = health_bar_size,
 		position = {
 			0,
 			0,
-			1
-		}
-	}
+			1,
+		},
+	},
 }
 local widget_definitions = {}
 local single_target_widget_definitions = {
 	health = UIWidget.create_definition({
 		{
-			value = "content/ui/materials/hud/backgrounds/boss_health_fill",
-			style_id = "bar",
 			pass_type = "texture_uv",
+			style_id = "bar",
+			value = "content/ui/materials/hud/backgrounds/boss_health_fill",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "left",
+				vertical_alignment = "center",
 				offset = {
 					0,
 					-13,
-					4
+					4,
 				},
 				size = health_bar_size,
-				color = UIHudSettings.color_tint_main_1
-			}
+				color = UIHudSettings.color_tint_main_1,
+			},
 		},
 		{
-			value = "content/ui/materials/hud/backgrounds/boss_health_fill",
-			style_id = "ghost",
 			pass_type = "texture_uv",
+			style_id = "ghost",
+			value = "content/ui/materials/hud/backgrounds/boss_health_fill",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "left",
+				vertical_alignment = "center",
 				offset = {
 					0,
 					-13,
-					3
+					3,
 				},
 				size = health_bar_size,
 				color = {
 					25,
 					255,
 					255,
-					255
-				}
-			}
+					255,
+				},
+			},
 		},
 		{
-			value = "content/ui/materials/backgrounds/default_square",
-			style_id = "max",
 			pass_type = "texture_uv",
+			style_id = "max",
+			value = "content/ui/materials/backgrounds/default_square",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "right",
+				vertical_alignment = "center",
 				offset = {
 					0,
 					-13,
-					2
+					2,
 				},
 				size = health_bar_size,
-				color = UIHudSettings.color_tint_8
-			}
+				color = UIHudSettings.color_tint_8,
+			},
 		},
 		{
-			value = "content/ui/materials/backgrounds/default_square",
-			style_id = "background",
 			pass_type = "texture",
+			style_id = "background",
+			value = "content/ui/materials/backgrounds/default_square",
 			style = {
-				vertical_alignment = "center",
 				horizontal_alignment = "center",
+				vertical_alignment = "center",
 				offset = {
 					0,
 					-13,
-					1
+					1,
 				},
 				size = {
 					health_bar_size[1] + 4,
-					health_bar_size[2] + 4
+					health_bar_size[2] + 4,
 				},
 				color = {
 					255,
 					0,
 					0,
-					0
-				}
-			}
+					0,
+				},
+			},
 		},
 		{
-			value_id = "text",
-			style_id = "text",
 			pass_type = "text",
+			style_id = "text",
 			value = "<N/A>",
-			style = name_text_style
-		}
-	}, "health_bar")
+			value_id = "text",
+			style = name_text_style,
+		},
+	}, "health_bar"),
 }
 
 return {
 	single_target_widget_definitions = single_target_widget_definitions,
 	widget_definitions = widget_definitions,
-	scenegraph_definition = scenegraph_definition
+	scenegraph_definition = scenegraph_definition,
 }

@@ -17,7 +17,7 @@ local INVENTORY_SLOT_TO_WIELD_ON_ENTER = "slot_unarmed"
 local INVENTORY_SLOT_TO_WIELD_ON_EXIT = "slot_primary"
 local STINGER_EXIT_ALIAS = "disabled_exit"
 local STINGER_PROPERTIES = {
-	stinger_type = "hogtied"
+	stinger_type = "hogtied",
 }
 
 PlayerCharacterStateHogtied.init = function (self, character_state_init_context, ...)

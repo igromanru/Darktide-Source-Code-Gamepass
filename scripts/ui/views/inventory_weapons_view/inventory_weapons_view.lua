@@ -113,7 +113,7 @@ InventoryWeaponsView._setup_item_grid_materials = function (self)
 	grid_divider_top.content.texture = "content/ui/materials/frames/item_list_top"
 	grid_divider_top.style.texture.size = {
 		652,
-		118
+		118,
 	}
 
 	local grid_divider_bottom = self:_grid_widget_by_name("grid_divider_bottom")
@@ -121,7 +121,7 @@ InventoryWeaponsView._setup_item_grid_materials = function (self)
 	grid_divider_bottom.content.texture = "content/ui/materials/frames/item_list_lower"
 	grid_divider_bottom.style.texture.size = {
 		640,
-		36
+		36,
 	}
 
 	local grid_divider_title = self:_grid_widget_by_name("grid_divider_title")
@@ -147,24 +147,24 @@ InventoryWeaponsView._setup_weapon_actions = function (self)
 		local grid_height = 840
 		local grid_size = {
 			grid_width - edge_padding,
-			grid_height
+			grid_height,
 		}
 		local grid_spacing = {
 			0,
-			0
+			0,
 		}
 		local mask_size = {
 			grid_width + 40,
-			grid_height
+			grid_height,
 		}
 		local context = {
-			scrollbar_width = 7,
 			ignore_blur = true,
+			scrollbar_width = 7,
 			grid_spacing = grid_spacing,
 			grid_size = grid_size,
 			mask_size = mask_size,
 			title_height = title_height,
-			edge_padding = edge_padding
+			edge_padding = edge_padding,
 		}
 
 		self._weapon_actions = self:_add_element(ViewElementWeaponActions, reference_name, layer, context)
@@ -309,7 +309,7 @@ InventoryWeaponsView.cb_on_discard_pressed = function (self)
 		self._discard_items_element = self:_add_element(ViewElementDiscardItems, "discard_items", 1, {
 			items = filtered_items,
 			selection_callback = callback(self, "_mark_items_to_sell"),
-			unselection_callback = callback(self, "_unmark_items_to_sell")
+			unselection_callback = callback(self, "_unmark_items_to_sell"),
 		})
 
 		local discard_items_position = self:_scenegraph_world_position("weapon_discard_pivot")
@@ -749,7 +749,7 @@ InventoryWeaponsView.cb_on_customize_pressed = function (self)
 			player = self._preview_player,
 			preview_item = self._previewed_item,
 			parent = self._parent,
-			new_items_gear_ids = self._parent and self._parent._new_items_gear_ids
+			new_items_gear_ids = self._parent and self._parent._new_items_gear_ids,
 		})
 	end
 end
@@ -815,7 +815,7 @@ InventoryWeaponsView.cb_on_inspect_pressed = function (self)
 
 		Managers.ui:open_view("inventory_weapon_details_view", nil, nil, nil, nil, {
 			player = self._preview_player,
-			preview_item = self._previewed_item
+			preview_item = self._previewed_item,
 		})
 	end
 end
@@ -828,7 +828,7 @@ InventoryWeaponsView.cb_on_marks_pressed = function (self)
 			player = self._preview_player,
 			preview_item = self._previewed_item,
 			parent = self._parent,
-			new_items_gear_ids = self._parent and self._parent._new_items_gear_ids
+			new_items_gear_ids = self._parent and self._parent._new_items_gear_ids,
 		})
 	end
 end
@@ -949,7 +949,7 @@ InventoryWeaponsView._fetch_inventory_items = function (self, selected_slot)
 	local character_id = player:character_id()
 	local slot_name = selected_slot.name
 	local slot_filter = {
-		slot_name
+		slot_name,
 	}
 
 	Managers.data_service.gear:fetch_inventory(character_id, slot_filter):next(function (items)
@@ -991,7 +991,7 @@ InventoryWeaponsView._fetch_inventory_items = function (self, selected_slot)
 								slot = selected_slot,
 								widget_type = widget_type,
 								new_item_marker = is_new,
-								remove_new_marker_callback = remove_new_marker_callback
+								remove_new_marker_callback = remove_new_marker_callback,
 							}
 						end
 					end
@@ -1036,25 +1036,25 @@ InventoryWeaponsView._setup_weapon_options = function (self)
 		local top_padding = 30
 		local grid_size = {
 			button_size[1],
-			(button_size[2] + 20) * 3 + top_padding
+			(button_size[2] + 20) * 3 + top_padding,
 		}
 		local grid_options = {
-			scrollbar_width = 7,
 			edge_padding = 40,
-			use_select_on_focused = true,
-			use_is_focused_for_navigation = false,
-			use_terminal_background = true,
+			scrollbar_width = 7,
 			title_height = 0,
+			use_is_focused_for_navigation = false,
+			use_select_on_focused = true,
+			use_terminal_background = true,
 			grid_spacing = {
 				10,
-				10
+				10,
 			},
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1] + 40,
-				grid_size[2] + 40
+				grid_size[2] + 40,
 			},
-			top_padding = top_padding
+			top_padding = top_padding,
 		}
 
 		self._weapon_options_element = self:_add_element(ViewElementGrid, "weapon_options", 10, grid_options)
@@ -1064,29 +1064,29 @@ InventoryWeaponsView._setup_weapon_options = function (self)
 				display_icon = "",
 				widget_type = "button",
 				display_name = Localize("loc_inventory_weapon_button_marks"),
-				callback = callback(self, "cb_on_marks_pressed")
+				callback = callback(self, "cb_on_marks_pressed"),
 			},
 			{
 				display_icon = "",
 				widget_type = "button",
 				display_name = Localize("loc_inventory_weapon_button_cosmetics"),
-				callback = callback(self, "cb_on_customize_pressed")
+				callback = callback(self, "cb_on_customize_pressed"),
 			},
 			{
 				display_icon = "",
 				widget_type = "button",
 				display_name = Localize("loc_inventory_weapon_button_inspect"),
-				callback = callback(self, "cb_on_inspect_pressed")
-			}
+				callback = callback(self, "cb_on_inspect_pressed"),
+			},
 		}
 
 		self._weapon_options_element:update_dividers("content/ui/materials/frames/marks_top", {
 			413.28,
-			58.8
+			58.8,
 		}, {
 			0,
 			-20,
-			20
+			20,
 		})
 		self._weapon_options_element:present_grid_layout(layout, self._definitions.blueprints)
 		self._weapon_options_element:disable_input(true)
@@ -1099,7 +1099,7 @@ InventoryWeaponsView._calc_text_size = function (self, widget, text_and_style_id
 	local text_style = widget.style[text_and_style_id]
 	local text_options = UIFonts.get_font_options_by_style(text_style)
 	local size = text_style.size or widget.content.size or {
-		self:_scenegraph_size(widget.scenegraph_id)
+		self:_scenegraph_size(widget.scenegraph_id),
 	}
 
 	return UIRenderer.text_size(self._ui_renderer, text, text_style.font_type, text_style.font_size, size, text_options)

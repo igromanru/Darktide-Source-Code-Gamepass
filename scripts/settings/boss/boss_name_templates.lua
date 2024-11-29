@@ -215,7 +215,7 @@ boss_name_templates.renegade_captain = {
 	"loc_renegade_captain_male_name_210",
 	"loc_renegade_captain_male_name_211",
 	"loc_renegade_captain_male_name_212",
-	"loc_renegade_captain_male_name_213"
+	"loc_renegade_captain_male_name_213",
 }
 boss_name_templates.cultist_captain = {
 	"loc_cultist_captain_male_name_001",
@@ -242,7 +242,7 @@ boss_name_templates.cultist_captain = {
 	"loc_cultist_captain_male_name_022",
 	"loc_cultist_captain_male_name_023",
 	"loc_cultist_captain_male_name_024",
-	"loc_cultist_captain_male_name_025"
+	"loc_cultist_captain_male_name_025",
 }
 boss_name_templates.plague_ogryn = "loc_plague_ogryn_name"
 boss_name_templates.daemonhost = "loc_daemonhost_name"

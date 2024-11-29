@@ -219,7 +219,7 @@ ToxicGasFog.editor_init = function (self, unit)
 
 	ToxicGasFog._fog_clouds[#ToxicGasFog._fog_clouds + 1] = {
 		unit = unit,
-		component = self
+		component = self,
 	}
 
 	local world = Application.main_world()
@@ -423,100 +423,100 @@ end
 
 ToxicGasFog.component_data = {
 	id = {
-		ui_type = "number",
+		category = "Circumstance Gameplay Data",
+		max = 100,
 		min = 1,
 		step = 1,
-		category = "Circumstance Gameplay Data",
-		value = 1,
 		ui_name = "ID",
-		max = 100
+		ui_type = "number",
+		value = 1,
 	},
 	section = {
-		ui_type = "number",
+		category = "Circumstance Gameplay Data",
+		max = 50,
 		min = 1,
 		step = 1,
-		category = "Circumstance Gameplay Data",
-		value = 1,
 		ui_name = "Section ID",
-		max = 50
+		ui_type = "number",
+		value = 1,
 	},
 	max_liquid = {
-		ui_type = "slider",
+		category = "Circumstance Gameplay Data",
+		decimals = 0,
+		max = 400,
 		min = 0,
 		step = 1,
-		category = "Circumstance Gameplay Data",
-		value = 130,
-		decimals = 0,
 		ui_name = "Max Liquid",
-		max = 400
+		ui_type = "slider",
+		value = 130,
 	},
 	draw_liquid = {
+		category = "Circumstance Gameplay Data",
+		ui_name = "Draw Liquid",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Draw Liquid",
-		category = "Circumstance Gameplay Data"
 	},
 	trigger_clouds = {
+		category = "Circumstance Gameplay Data",
+		ui_name = "Trigger Clouds",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Trigger Clouds",
-		category = "Circumstance Gameplay Data"
 	},
 	dont_trigger_this_cloud = {
+		category = "Circumstance Gameplay Data",
+		ui_name = "Don't trigger this cloud",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Don't trigger this cloud",
-		category = "Circumstance Gameplay Data"
 	},
 	alternating_min_range = {
-		ui_type = "number",
-		min = 0,
-		decimals = 1,
 		category = "Circumstance Gameplay Data",
-		value = 16,
+		decimals = 1,
+		min = 0,
+		step = 0.1,
 		ui_name = "Alternating Min Range",
-		step = 0.1
+		ui_type = "number",
+		value = 16,
 	},
 	alternating_max_range = {
-		ui_type = "number",
-		min = 0,
-		decimals = 1,
 		category = "Circumstance Gameplay Data",
-		value = 20,
+		decimals = 1,
+		min = 0,
+		step = 0.1,
 		ui_name = "Alternating Max Range",
-		step = 0.1
+		ui_type = "number",
+		value = 20,
 	},
 	albedo = {
-		ui_type = "vector",
-		ui_name = "Albedo",
 		category = "Fog Properties",
-		value = Vector3Box(0.1, 0.1, 0.1)
+		ui_name = "Albedo",
+		ui_type = "vector",
+		value = Vector3Box(0.1, 0.1, 0.1),
 	},
 	falloff = {
-		ui_type = "vector",
-		ui_name = "Falloff",
 		category = "Fog Properties",
-		value = Vector3Box(0, 0, 0)
+		ui_name = "Falloff",
+		ui_type = "vector",
+		value = Vector3Box(0, 0, 0),
 	},
 	extinction = {
-		ui_type = "number",
+		category = "Fog Properties",
+		decimals = 3,
+		max = 1,
 		min = 0,
 		step = 0.001,
-		category = "Fog Properties",
-		value = 0.01,
-		decimals = 3,
 		ui_name = "Extinction",
-		max = 1
+		ui_type = "number",
+		value = 0.01,
 	},
 	phase = {
-		ui_type = "number",
-		min = 0,
-		decimals = 1,
 		category = "Fog Properties",
-		value = 0,
+		decimals = 1,
+		min = 0,
+		step = 0.1,
 		ui_name = "Phase",
-		step = 0.1
-	}
+		ui_type = "number",
+		value = 0,
+	},
 }
 
 return ToxicGasFog

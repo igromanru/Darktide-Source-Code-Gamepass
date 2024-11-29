@@ -55,7 +55,7 @@ local function calculate_costs(start_costs, item, item_crafting_costs, cost_mult
 
 		final_costs[i] = {
 			type = cost.type,
-			amount = amount
+			amount = amount,
 		}
 	end
 
@@ -64,13 +64,13 @@ end
 
 CraftingSettings.recipes = {}
 CraftingSettings.recipes.upgrade_item = {
-	view_name = "crafting_mechanicus_upgrade_item_view",
-	display_name = "loc_crafting_upgrade_option",
-	name = "crafting_mechanicus_upgrade_item",
 	button_text = "loc_crafting_upgrade_button",
-	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_04",
-	icon = "content/ui/materials/icons/crafting/upgrade_item",
 	description_text = "loc_crafting_upgrade_description",
+	display_name = "loc_crafting_upgrade_option",
+	icon = "content/ui/materials/icons/crafting/upgrade_item",
+	name = "crafting_mechanicus_upgrade_item",
+	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_04",
+	view_name = "crafting_mechanicus_upgrade_item_view",
 	sound_event = UISoundEvents.crafting_view_on_upgrade_item,
 	validation_function = function (item)
 		return item and is_valid_crafting_item(item)
@@ -147,9 +147,9 @@ CraftingSettings.recipes.upgrade_item = {
 		if num_traits < new_num_traits then
 			for i = num_traits + 1, new_num_traits do
 				item.traits[i] = {
-					value = 1,
+					id = "content/items/traits/unknown_trait",
 					is_fake = true,
-					id = "content/items/traits/unknown_trait"
+					value = 1,
 				}
 			end
 
@@ -173,8 +173,8 @@ CraftingSettings.recipes.upgrade_item = {
 			for i = num_perks + 1, new_num_perks do
 				item.perks[i] = {
 					id = "content/items/perks/unknown_perk",
+					is_fake = true,
 					rarity = 1,
-					is_fake = true
 				}
 			end
 
@@ -190,17 +190,17 @@ CraftingSettings.recipes.upgrade_item = {
 		end
 
 		return item
-	end
+	end,
 }
 CraftingSettings.recipes.upgrade_expertise = {
-	view_name = "crafting_mechanicus_upgrade_expertise_view",
-	display_name = "loc_expertise_crafting_title",
-	name = "upgrade_expertise",
 	button_text = "loc_expertise_crafting_button_upgrade",
-	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_06",
-	icon = "content/ui/materials/icons/crafting/enhance_item",
 	description_text = "loc_expertise_crafting_description",
+	display_name = "loc_expertise_crafting_title",
+	icon = "content/ui/materials/icons/crafting/enhance_item",
+	name = "upgrade_expertise",
+	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_06",
 	success_text = "loc_crafting_increase_expertise_success",
+	view_name = "crafting_mechanicus_upgrade_expertise_view",
 	sound_event = UISoundEvents.mastery_empower_weapon,
 	sound_event_max = UISoundEvents.mastery_empower_weapon_max,
 	validation_function = function (item)
@@ -267,7 +267,7 @@ CraftingSettings.recipes.upgrade_expertise = {
 			for type, cost in pairs(costs_count) do
 				costs[#costs + 1] = {
 					type = type,
-					amount = cost
+					amount = cost,
 				}
 			end
 
@@ -299,21 +299,21 @@ CraftingSettings.recipes.upgrade_expertise = {
 	end,
 	get_bogus_result = function (ingredients)
 		return true
-	end
+	end,
 }
 CraftingSettings.recipes.replace_trait = {
-	name = "replace_trait",
-	display_name = "loc_crafting_replace_option",
-	requires_trait_selection = true,
-	view_name = "crafting_mechanicus_replace_trait_view",
-	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_02",
-	icon = "content/ui/materials/icons/crafting/replace_trait",
-	description_text = "loc_crafting_replace_description",
-	success_text = "loc_crafting_replace_success",
-	ui_hidden = false,
 	button_text = "loc_crafting_replace_option",
+	description_text = "loc_crafting_replace_description",
+	display_name = "loc_crafting_replace_option",
+	icon = "content/ui/materials/icons/crafting/replace_trait",
 	modification_warning = "loc_crafting_warning_replace",
+	name = "replace_trait",
+	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_02",
+	requires_trait_selection = true,
+	success_text = "loc_crafting_replace_success",
 	ui_disabled = false,
+	ui_hidden = false,
+	view_name = "crafting_mechanicus_replace_trait_view",
 	sound_event = UISoundEvents.crafting_view_on_replace_trait,
 	validation_function = function (item)
 		return item and is_valid_crafting_item(item) and (item.item_type == "WEAPON_MELEE" or item.item_type == "WEAPON_RANGED")
@@ -405,20 +405,20 @@ CraftingSettings.recipes.replace_trait = {
 		local promise = Managers.data_service.crafting:replace_trait_in_weapon(item.gear_id, ingredients.existing_trait_index, ingredients.trait_master_ids[1], ingredients.tiers[1], costs)
 
 		return promise
-	end
+	end,
 }
 CraftingSettings.recipes.replace_perk = {
-	name = "replace_perk",
-	display_name = "loc_crafting_reroll_perk_option",
-	view_name = "crafting_mechanicus_replace_perk_view",
-	requires_perk_selection = true,
-	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_03",
-	icon = "content/ui/materials/icons/crafting/reroll_perk",
-	description_text = "loc_crafting_replace_perk_description",
-	success_text = "loc_crafting_reroll_success",
-	ui_hidden = false,
 	button_text = "loc_crafting_reroll_perk_button",
+	description_text = "loc_crafting_replace_perk_description",
+	display_name = "loc_crafting_reroll_perk_option",
+	icon = "content/ui/materials/icons/crafting/reroll_perk",
+	name = "replace_perk",
+	overlay_texture = "content/ui/textures/effects/crafting/recipe_background_overlay_03",
+	requires_perk_selection = true,
+	success_text = "loc_crafting_reroll_success",
 	ui_disabled = false,
+	ui_hidden = false,
+	view_name = "crafting_mechanicus_replace_perk_view",
 	sound_event = UISoundEvents.crafting_view_on_reroll_perk,
 	validation_function = function (item)
 		return item and is_valid_crafting_item(item)
@@ -476,7 +476,7 @@ CraftingSettings.recipes.replace_perk = {
 		if additional_context.max_rank and new_perk_item.rarity > additional_context.max_rank then
 			return false, Localize("loc_crafting_level_locked", true, {
 				required_level = new_perk_item.rarity,
-				current_level = additional_context.max_rank
+				current_level = additional_context.max_rank,
 			})
 		end
 
@@ -488,14 +488,14 @@ CraftingSettings.recipes.replace_perk = {
 		local promise = Managers.data_service.crafting:replace_perk_in_weapon(item.gear_id, ingredients.existing_perk_index, ingredients.perk_master_ids[1], costs, ingredients.tiers[1])
 
 		return promise
-	end
+	end,
 }
 CraftingSettings.type = "crafting_mechanicus"
 CraftingSettings.recipes_ui_order = {
 	CraftingSettings.recipes.upgrade_item,
 	CraftingSettings.recipes.upgrade_expertise,
 	CraftingSettings.recipes.replace_perk,
-	CraftingSettings.recipes.replace_trait
+	CraftingSettings.recipes.replace_trait,
 }
 CraftingSettings.trait_sticker_book_enum = table.enum("invalid", "unseen", "seen")
 
@@ -506,15 +506,15 @@ do
 	local grid_height = 920
 	local grid_size = {
 		grid_width - edge_padding,
-		grid_height
+		grid_height,
 	}
 	local grid_spacing = {
 		0,
-		0
+		0,
 	}
 	local mask_size = {
 		grid_width + 40,
-		grid_height
+		grid_height,
 	}
 
 	CraftingSettings.weapon_stats_context = {
@@ -523,7 +523,7 @@ do
 		grid_size = grid_size,
 		mask_size = mask_size,
 		title_height = title_height,
-		edge_padding = edge_padding
+		edge_padding = edge_padding,
 	}
 end
 
@@ -533,24 +533,24 @@ do
 	local grid_height = 900
 
 	CraftingSettings.crafting_recipe_context = {
-		scrollbar_width = 7,
-		use_select_on_focused = true,
-		reset_selection_on_navigation_change = false,
 		refresh_on_grid_pressed = true,
+		reset_selection_on_navigation_change = false,
+		scrollbar_width = 7,
 		title_height = 0,
+		use_select_on_focused = true,
 		grid_spacing = {
 			0,
-			10
+			10,
 		},
 		grid_size = {
 			grid_width,
-			grid_height
+			grid_height,
 		},
 		mask_size = {
 			grid_width + edge_padding,
-			grid_height
+			grid_height,
 		},
-		edge_padding = edge_padding
+		edge_padding = edge_padding,
 	}
 end
 

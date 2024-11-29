@@ -18,8 +18,8 @@ UISequenceAnimator.start_animation = function (self, parent, animation_sequence_
 
 	self._animation_id = animation_id
 	self._active_animations[animation_id] = {
-		time = 0,
 		completed = false,
+		time = 0,
 		parent = parent,
 		animation_sequence_name = animation_sequence_name,
 		widgets = widgets,
@@ -27,7 +27,7 @@ UISequenceAnimator.start_animation = function (self, parent, animation_sequence_
 		running_animations = {},
 		completed_animations = {},
 		params = params or {},
-		times = {}
+		times = {},
 	}
 
 	local times = self._active_animations[animation_id].times

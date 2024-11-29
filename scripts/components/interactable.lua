@@ -117,12 +117,12 @@ Interactable._setup_animation = function (self, interaction_length)
 		local anim_data = {
 			[states.forward] = {
 				time = anim_length,
-				speed = speed
+				speed = speed,
 			},
 			[states.backward] = {
 				time = 0,
-				speed = speed
-			}
+				speed = speed,
+			},
 		}
 
 		self._states = states
@@ -311,13 +311,13 @@ end
 Interactable.component_config = {
 	disable_event_public = false,
 	enable_event_public = false,
-	starts_enabled_default = true
+	starts_enabled_default = true,
 }
 Interactable.component_data = {
 	interaction_type = {
-		value = "default",
-		ui_type = "combo_box",
 		ui_name = "Interaction Type",
+		ui_type = "combo_box",
+		value = "default",
 		options_keys = {
 			"ammunition",
 			"body_shop",
@@ -350,7 +350,7 @@ Interactable.component_data = {
 			"setup_decoding",
 			"training_ground",
 			"vendor",
-			"scripted_scenario"
+			"scripted_scenario",
 		},
 		options_values = {
 			"ammunition",
@@ -384,14 +384,14 @@ Interactable.component_data = {
 			"setup_decoding",
 			"training_ground",
 			"vendor",
-			"scripted_scenario"
-		}
+			"scripted_scenario",
+		},
 	},
 	ui_interaction_type = {
-		value = "default",
-		ui_type = "combo_box",
 		category = "UI",
 		ui_name = "UI Interaction Type",
+		ui_type = "combo_box",
+		value = "default",
 		options_keys = {
 			"critical",
 			"default",
@@ -399,7 +399,7 @@ Interactable.component_data = {
 			"pickup",
 			"point_of_interest",
 			"puzzle",
-			"use_template"
+			"use_template",
 		},
 		options_values = {
 			"critical",
@@ -408,14 +408,14 @@ Interactable.component_data = {
 			"pickup",
 			"point_of_interest",
 			"puzzle",
-			"use_template"
-		}
+			"use_template",
+		},
 	},
 	interaction_icon = {
-		value = "use_template",
-		ui_type = "combo_box",
 		category = "UI",
 		ui_name = "Interaction Icon",
+		ui_type = "combo_box",
+		value = "use_template",
 		options_keys = {
 			"ammunition",
 			"default",
@@ -427,7 +427,7 @@ Interactable.component_data = {
 			"objective_secondary",
 			"objective_side",
 			"speak",
-			"use_template"
+			"use_template",
 		},
 		options_values = {
 			"content/ui/materials/hud/interactions/icons/ammunition",
@@ -440,113 +440,113 @@ Interactable.component_data = {
 			"content/ui/materials/hud/interactions/icons/objective_secondary",
 			"content/ui/materials/hud/interactions/icons/objective_side",
 			"content/ui/materials/hud/interactions/icons/speak",
-			"use_template"
-		}
+			"use_template",
+		},
 	},
 	start_enabled = {
+		ui_name = "Start Enabled",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Start Enabled"
 	},
 	interaction_length = {
+		step = 0.5,
+		ui_name = "Interaction Length (in sec.)",
 		ui_type = "number",
 		value = 1,
-		ui_name = "Interaction Length (in sec.)",
-		step = 0.5
 	},
 	shared_interaction = {
+		ui_name = "Shared Interaction",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Shared Interaction"
 	},
 	only_once = {
+		ui_name = "Only Once",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Only Once"
 	},
 	start_active = {
+		ui_name = "Start Active (don't touch)",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Start Active (don't touch)"
 	},
 	interactor_item_to_equip = {
+		filter = "item",
+		ui_name = "Interactor Item to Equip (scanner, decoder, ...)",
 		ui_type = "resource",
 		value = "",
-		ui_name = "Interactor Item to Equip (scanner, decoder, ...)",
-		filter = "item"
 	},
 	require_all_players = {
+		category = "UI",
+		ui_name = "Show 'Require All Players'",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Show 'Require All Players'",
-		category = "UI"
 	},
 	display_start_event = {
+		category = "UI",
+		ui_name = "Show 'Start Event'",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Show 'Start Event'",
-		category = "UI"
 	},
 	hud_description = {
+		category = "UI",
+		ui_name = "Override Description",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Override Description",
-		category = "UI"
 	},
 	sub_description = {
+		category = "UI",
+		ui_name = "Override Action Text",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Override Action Text",
-		category = "UI"
 	},
 	support_simple_animation = {
+		category = "Animation",
+		ui_name = "Support Simple Animation",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Support Simple Animation",
-		category = "Animation"
 	},
 	support_prop_animation = {
+		category = "Animation",
+		ui_name = "Support State Machine",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Support State Machine",
-		category = "Animation"
 	},
 	animation_back_speed_modifier = {
-		ui_type = "number",
-		decimals = 1,
 		category = "Animation",
-		value = 1,
+		decimals = 1,
+		step = 0.5,
 		ui_name = "Animation Back Speed Modifier",
-		step = 0.5
+		ui_type = "number",
+		value = 1,
 	},
 	emissive_material = {
+		category = "Emissive",
+		ui_name = "Emissive Material",
 		ui_type = "text_box",
 		value = "emissive_interactable_01",
-		ui_name = "Emissive Material",
-		category = "Emissive"
 	},
 	inputs = {
 		interactable_enable = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		interactable_disable = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		interactable_clear_block = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		interactable_missing_players = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		disable_display_start_event = {
 			accessibility = "public",
-			type = "event"
-		}
-	}
+			type = "event",
+		},
+	},
 }
 
 return Interactable

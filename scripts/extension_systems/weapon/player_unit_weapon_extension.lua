@@ -164,7 +164,7 @@ PlayerUnitWeaponExtension.init = function (self, extension_init_context, unit, e
 		weapon_tweak_templates_component = self._weapon_tweak_templates_component,
 		is_server = is_server,
 		world = world,
-		physics_world = physics_world
+		physics_world = physics_world,
 	}
 	self._action_handler = ActionHandler:new(unit, WeaponActionHandlerData)
 
@@ -506,7 +506,7 @@ PlayerUnitWeaponExtension.on_wieldable_slot_equipped = function (self, item, slo
 		item = item,
 		weapon_special_context = self._weapon_special_context,
 		optional_weapon_unit = weapon_unit,
-		player_unit = self._unit
+		player_unit = self._unit,
 	}
 	local weapon = Weapon:new(weapon_init_data)
 	local weapons = self._weapons
@@ -1267,12 +1267,12 @@ PlayerUnitWeaponExtension._update_ammo = function (self)
 end
 
 local CHARGE_ACTIONS = {
-	charge_ammo = true,
 	chain_lightning = true,
 	charge = true,
-	overload_charge_target_finder = true,
+	charge_ammo = true,
+	overload_charge = true,
 	overload_charge_position_finder = true,
-	overload_charge = true
+	overload_charge_target_finder = true,
 }
 
 PlayerUnitWeaponExtension.move_speed_modifier = function (self, t)

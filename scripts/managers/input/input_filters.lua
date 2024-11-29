@@ -55,7 +55,7 @@ local _response_curve_funcs = {
 		end
 
 		return mod
-	end
+	end,
 }
 
 InputFilters.vector3_default = function (default_value)
@@ -89,39 +89,39 @@ InputFilters.virtual_axis = {
 			"up",
 			"keymap",
 			"soft_button",
-			"input_mappings"
+			"input_mappings",
 		},
 		{
 			"down",
 			"keymap",
 			"soft_button",
-			"input_mappings"
+			"input_mappings",
 		},
 		{
 			"left",
 			"keymap",
 			"soft_button",
-			"input_mappings"
+			"input_mappings",
 		},
 		{
 			"right",
 			"keymap",
 			"soft_button",
-			"input_mappings"
+			"input_mappings",
 		},
 		{
 			"forward",
 			"keymap",
 			"soft_button",
-			"input_mappings"
+			"input_mappings",
 		},
 		{
 			"back",
 			"keymap",
 			"soft_button",
-			"input_mappings"
-		}
-	}
+			"input_mappings",
+		},
+	},
 }
 InputFilters.scale_vector3 = {
 	init = function (filter_data)
@@ -142,9 +142,9 @@ InputFilters.scale_vector3 = {
 	edit_types = {
 		{
 			"multiplier",
-			"number"
-		}
-	}
+			"number",
+		},
+	},
 }
 InputFilters.scale_vector3_xy_accelerated_x = {
 	init = function (filter_data)
@@ -256,13 +256,13 @@ InputFilters.scale_vector3_xy_accelerated_x = {
 	edit_types = {
 		{
 			"multiplier_x",
-			"number"
+			"number",
 		},
 		{
 			"multiplier_y",
-			"number"
-		}
-	}
+			"number",
+		},
+	},
 }
 InputFilters.vector_y = {
 	init = function (filter_data)
@@ -276,7 +276,7 @@ InputFilters.vector_y = {
 		local input = input_service:get(filter_data.input_mappings)
 
 		return input.y * filter_data.scale
-	end
+	end,
 }
 InputFilters.vector_x = {
 	init = function (filter_data)
@@ -290,7 +290,7 @@ InputFilters.vector_x = {
 		local input = input_service:get(filter_data.input_mappings)
 
 		return input.x * filter_data.scale
-	end
+	end,
 }
 InputFilters["or"] = {
 	init = function (filter_data)
@@ -304,7 +304,7 @@ InputFilters["or"] = {
 		end
 
 		return false
-	end
+	end,
 }
 InputFilters["and"] = {
 	init = function (filter_data)
@@ -318,7 +318,7 @@ InputFilters["and"] = {
 		end
 
 		return true
-	end
+	end,
 }
 InputFilters["not"] = {
 	init = function (filter_data)
@@ -330,7 +330,7 @@ InputFilters["not"] = {
 				return true
 			end
 		end
-	end
+	end,
 }
 InputFilters.scalar_combine = {
 	init = function (filter_data)
@@ -356,7 +356,7 @@ InputFilters.scalar_combine = {
 		end
 
 		return return_value
-	end
+	end,
 }
 InputFilters.axis_combine = {
 	init = function (filter_data)
@@ -374,7 +374,7 @@ InputFilters.axis_combine = {
 		end
 
 		return return_vector
-	end
+	end,
 }
 InputFilters.navigate_filter_continuous = {
 	init = function (filter_data)
@@ -449,7 +449,7 @@ InputFilters.navigate_filter_continuous = {
 		end
 
 		return false
-	end
+	end,
 }
 InputFilters.navigate_filter_continuous_fast = {
 	init = function (filter_data)
@@ -524,7 +524,7 @@ InputFilters.navigate_filter_continuous_fast = {
 		end
 
 		return false
-	end
+	end,
 }
 InputFilters.navigate_axis_filter_continuous = {
 	init = function (filter_data)
@@ -574,7 +574,7 @@ InputFilters.navigate_axis_filter_continuous = {
 		end
 
 		return input_vector
-	end
+	end,
 }
 InputFilters.mouse_angle_constrained = {
 	init = function (filter_data)
@@ -593,7 +593,7 @@ InputFilters.mouse_angle_constrained = {
 		filter_data.current_pos = Vector3Box(current_pos)
 
 		return math.atan2(current_pos.y, current_pos.x)
-	end
+	end,
 }
 
 return InputFilters

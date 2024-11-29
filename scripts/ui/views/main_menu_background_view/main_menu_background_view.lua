@@ -220,7 +220,7 @@ MainMenuBackgroundView._load_profile = function (self, profile)
 	self._profiles_loading_data[#self._profiles_loading_data + 1] = {
 		profile = profile,
 		loader = profile_loader,
-		loader_index = self._profile_loader_index
+		loader_index = self._profile_loader_index,
 	}
 end
 

@@ -8,13 +8,13 @@ local OutlineSystem = class("OutlineSystem", "ExtensionSystemBase")
 OutlineSystem.system_extensions = {
 	"MinionOutlineExtension",
 	"PropOutlineExtension",
-	"PlayerUnitOutlineExtension"
+	"PlayerUnitOutlineExtension",
 }
 
 local RPCS = {
 	"rpc_add_outline_to_unit",
 	"rpc_remove_outline_from_unit",
-	"rpc_remove_all_outlines_from_unit"
+	"rpc_remove_all_outlines_from_unit",
 }
 
 OutlineSystem.init = function (self, context, system_init_data, system_name, _, ...)
@@ -139,7 +139,7 @@ OutlineSystem.add_outline = function (self, unit, outline_name)
 		name = outline_name,
 		priority = setting.priority,
 		material_layers = setting.material_layers,
-		visibility_check = setting.visibility_check
+		visibility_check = setting.visibility_check,
 	}
 
 	outlines[#outlines + 1] = outline

@@ -13,7 +13,7 @@ local blueprint_styles = ViewStyles.blueprints
 local ITEM_TYPES = UISettings.ITEM_TYPES
 local folded_card_size = {
 	ViewStyles.card_width,
-	ViewStyles.card_folded_height
+	ViewStyles.card_folded_height,
 }
 local end_player_view_blueprints = {}
 
@@ -24,42 +24,42 @@ end
 local function _get_card_default_frame_pass_template()
 	local card_frame_pass_template = {
 		{
-			value_id = "frame_default_top",
+			pass_type = "texture",
 			style_id = "frame_default_top",
-			pass_type = "texture",
 			value = "content/ui/materials/frames/end_of_round/reward_default_upper",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_default_top",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
-			value_id = "frame_default_middle",
+			pass_type = "texture",
 			style_id = "frame_default_middle",
-			pass_type = "texture",
 			value = "content/ui/materials/frames/end_of_round/reward_default_middle",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_default_middle",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
-			value_id = "frame_default_bottom",
-			style_id = "frame_default_bottom",
 			pass_type = "texture",
+			style_id = "frame_default_bottom",
 			value = "content/ui/materials/frames/end_of_round/reward_default_lower",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_default_bottom",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
 			pass_type = "rect",
-			style_id = "background_rect"
+			style_id = "background_rect",
 		},
 		{
+			pass_type = "texture",
+			style_id = "background",
 			value = "content/ui/materials/backgrounds/terminal_basic",
 			value_id = "background",
-			pass_type = "texture",
-			style_id = "background"
 		},
 		{
+			pass_type = "text",
+			style_id = "label",
 			value = "",
 			value_id = "label",
-			pass_type = "text",
-			style_id = "label"
-		}
+		},
 	}
 
 	return card_frame_pass_template
@@ -84,38 +84,38 @@ local function _get_card_levelup_frame_pass_template()
 	local card_frame_pass_template = _get_card_default_frame_pass_template()
 	local levelup_frame_pass_template = {
 		{
-			value_id = "frame_levelup_top",
+			pass_type = "texture",
 			style_id = "frame_levelup_top",
-			pass_type = "texture",
 			value = "content/ui/materials/frames/end_of_round/reward_levelup_upper",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_levelup_top",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
-			value_id = "frame_levelup_bottom",
+			pass_type = "texture",
 			style_id = "frame_levelup_bottom",
-			pass_type = "texture",
 			value = "content/ui/materials/frames/end_of_round/reward_levelup_lower",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_levelup_bottom",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
-			value_id = "frame_levelup_effect",
-			style_id = "frame_levelup_effect",
 			pass_type = "texture",
+			style_id = "frame_levelup_effect",
 			value = "content/ui/materials/effects/end_of_round/level_up_frame",
-			visibility_function = _card_default_frame_visibility_function
+			value_id = "frame_levelup_effect",
+			visibility_function = _card_default_frame_visibility_function,
 		},
 		{
+			pass_type = "texture",
+			style_id = "spires",
 			value = "content/ui/materials/frames/end_of_round/reward_levelup_upper_spikes",
 			value_id = "spires",
-			pass_type = "texture",
-			style_id = "spires"
 		},
 		{
+			pass_type = "texture",
+			style_id = "frame_detail",
 			value = "content/ui/materials/frames/end_of_round/reward_levelup_upper_skull",
 			value_id = "frame_detail",
-			pass_type = "texture",
-			style_id = "frame_detail"
-		}
+		},
 	}
 
 	table.append(card_frame_pass_template, levelup_frame_pass_template)
@@ -156,16 +156,16 @@ local function _get_currency_icon(pass_template, currency)
 	end
 
 	pass_template[#pass_template + 1] = {
+		pass_type = "texture",
 		value = "content/ui/materials/effects/end_of_round/reward_background",
 		value_id = "icon_background",
-		pass_type = "texture",
-		style_id = background_id
+		style_id = background_id,
 	}
 	pass_template[#pass_template + 1] = {
 		pass_type = "texture",
 		value_id = icon_id,
 		style_id = icon_id,
-		value = icon_material
+		value = icon_material,
 	}
 end
 
@@ -188,7 +188,7 @@ local function _get_stat_pass_template(pass_template, stat, label, row_type, off
 		value_id = stat .. "_label",
 		style_id = stat .. "_label",
 		value = Localize(label),
-		style = label_style
+		style = label_style,
 	}
 
 	local value_style = table.clone(label_style)
@@ -200,7 +200,7 @@ local function _get_stat_pass_template(pass_template, stat, label, row_type, off
 		value = "0",
 		value_id = stat .. "_text",
 		style_id = stat,
-		style = value_style
+		style = value_style,
 	}
 end
 
@@ -216,33 +216,33 @@ local function _get_item_pass_templates(pass_template, item_data)
 
 	table.append(pass_template, {
 		{
+			pass_type = "text",
 			style_id = "item_display_name",
 			value_id = "item_display_name",
-			pass_type = "text"
 		},
 		{
+			pass_type = "texture",
+			style_id = "item_icon",
 			value = "content/ui/materials/icons/items/containers/item_container_landscape",
 			value_id = "item_icon",
-			pass_type = "texture",
-			style_id = "item_icon"
 		},
 		{
+			pass_type = "text",
 			style_id = "item_sub_display_name",
 			value_id = "item_sub_display_name",
-			pass_type = "text"
 		},
 		{
+			pass_type = "text",
+			style_id = "item_level",
 			value = "",
 			value_id = "item_level",
-			pass_type = "text",
-			style_id = "item_level"
 		},
 		{
-			value_id = "added_to_inventory_text",
 			pass_type = "text",
 			style_id = "added_to_inventory_text",
-			value = Localize("loc_notification_desc_added_to_inventory")
-		}
+			value_id = "added_to_inventory_text",
+			value = Localize("loc_notification_desc_added_to_inventory"),
+		},
 	})
 end
 
@@ -408,7 +408,7 @@ local function _reward_load_icon_func(parent, widget, config, optional_icon_size
 			camera_focus_slot_name = slot_name,
 			state_machine = item_state_machine,
 			animation_event = item_animation_event,
-			size = optional_icon_size
+			size = optional_icon_size,
 		}
 		local item_group = content.item_group
 		local cb
@@ -434,16 +434,16 @@ end
 
 local function _get_level_up_label_pass_template(pass_template)
 	pass_template[#pass_template + 1] = {
+		pass_type = "text",
+		style_id = "level_up_label",
 		value = "",
 		value_id = "level_up_label",
-		pass_type = "text",
-		style_id = "level_up_label"
 	}
 	pass_template[#pass_template + 1] = {
+		pass_type = "texture",
+		style_id = "level_up_label_divider",
 		value = "content/ui/materials/dividers/skull_center_02",
 		value_id = "level_up_label_divider",
-		pass_type = "texture",
-		style_id = "level_up_label_divider"
 	}
 end
 
@@ -451,7 +451,7 @@ local function _insert_empty_row(pass_template)
 	local previous_row_style = pass_template[#pass_template].style
 	local offset_y = previous_row_style.offset[2] + previous_row_style.size[2]
 	local size = {
-		[2] = ViewStyles.card_content_empty_row_height
+		[2] = ViewStyles.card_content_empty_row_height,
 	}
 	local pass_type = "rect"
 
@@ -462,16 +462,16 @@ local function _insert_empty_row(pass_template)
 			offset = {
 				0,
 				offset_y,
-				0
+				0,
 			},
 			size = size,
 			color = {
 				0,
 				0,
 				0,
-				0
-			}
-		}
+				0,
+			},
+		},
 	}
 end
 
@@ -518,7 +518,7 @@ end_player_view_blueprints.experience = {
 		content.total_xp_gained = total_xp_gained
 		content.content_animation = "experience_card_show_content"
 		content.dim_out_animation = "experience_card_dim_out_content"
-	end
+	end,
 }
 
 local function _add_currency_passes(pass_template, currency, rewards, optional_offset_y)
@@ -605,7 +605,7 @@ end_player_view_blueprints.salary = {
 		content.update_progress_func = callback(parent, "belate_wallet_update")
 		content.content_animation = "salary_card_show_content"
 		content.dim_out_animation = "salary_card_dim_out_content"
-	end
+	end,
 }
 end_player_view_blueprints.level_up = {
 	pass_template_function = function (parent, config)
@@ -648,7 +648,7 @@ end_player_view_blueprints.level_up = {
 
 			content.icon_load_id = nil
 		end
-	end
+	end,
 }
 end_player_view_blueprints.weapon_unlock = {
 	pass_template_function = function (parent, config)
@@ -657,33 +657,33 @@ end_player_view_blueprints.weapon_unlock = {
 		_get_level_up_label_pass_template(pass_template)
 		table.append(pass_template, {
 			{
+				pass_type = "text",
 				style_id = "item_display_name",
 				value_id = "item_display_name",
-				pass_type = "text"
 			},
 			{
+				pass_type = "rect",
 				style_id = "item_icon_background",
 				value_id = "item_icon_background",
-				pass_type = "rect"
 			},
 			{
+				pass_type = "texture",
+				style_id = "item_icon_frame",
 				value = "content/ui/materials/frames/eor_weapon_frame",
 				value_id = "item_icon_frame",
-				pass_type = "texture",
-				style_id = "item_icon_frame"
 			},
 			{
+				pass_type = "texture",
+				style_id = "item_icon",
 				value = "content/ui/materials/icons/items/containers/item_container_landscape",
 				value_id = "item_icon",
-				pass_type = "texture",
-				style_id = "item_icon"
 			},
 			{
-				value_id = "weapon_unlocked_text",
 				pass_type = "text",
 				style_id = "weapon_unlocked_text",
-				value = Localize("loc_eor_weapon_unlocked_desc")
-			}
+				value_id = "weapon_unlocked_text",
+				value = Localize("loc_eor_weapon_unlocked_desc"),
+			},
 		})
 
 		return pass_template
@@ -723,48 +723,48 @@ end_player_view_blueprints.weapon_unlock = {
 
 			content.icon_load_id = nil
 		end
-	end
+	end,
 }
 end_player_view_blueprints.item_reward = {
 	pass_template_function = function (parent, config)
 		local pass_template = {
 			{
-				value_id = "frame_top",
+				pass_type = "texture",
 				style_id = "frame_top",
-				pass_type = "texture",
 				value = "content/ui/materials/frames/end_of_round/reward_random_item_upper",
-				visibility_function = _card_default_frame_visibility_function
+				value_id = "frame_top",
+				visibility_function = _card_default_frame_visibility_function,
 			},
 			{
-				value_id = "frame_middle",
+				pass_type = "texture",
 				style_id = "frame_middle",
-				pass_type = "texture",
 				value = "content/ui/materials/frames/end_of_round/reward_random_item_middle",
-				visibility_function = _card_default_frame_visibility_function
+				value_id = "frame_middle",
+				visibility_function = _card_default_frame_visibility_function,
 			},
 			{
-				value_id = "frame_bottom",
-				style_id = "frame_bottom",
 				pass_type = "texture",
+				style_id = "frame_bottom",
 				value = "content/ui/materials/frames/end_of_round/reward_random_item_lower",
-				visibility_function = _card_default_frame_visibility_function
+				value_id = "frame_bottom",
+				visibility_function = _card_default_frame_visibility_function,
 			},
 			{
 				pass_type = "rect",
-				style_id = "background"
+				style_id = "background",
 			},
 			{
+				pass_type = "texture",
+				style_id = "rarity_background",
 				value = "content/ui/materials/gradients/gradient_vertical",
 				value_id = "rarity_background",
-				pass_type = "texture",
-				style_id = "rarity_background"
 			},
 			{
+				pass_type = "text",
+				style_id = "label",
 				value = "",
 				value_id = "label",
-				pass_type = "text",
-				style_id = "label"
-			}
+			},
 		}
 
 		_get_item_pass_templates(pass_template, config)
@@ -825,7 +825,7 @@ end_player_view_blueprints.item_reward = {
 
 			content.icon_load_id = nil
 		end
-	end
+	end,
 }
 end_player_view_blueprints.empty_test_card = {
 	pass_template_function = function (parent, config)
@@ -843,7 +843,7 @@ end_player_view_blueprints.empty_test_card = {
 		content.label = config.label or "Test"
 		content.content_animation = "test"
 		content.dim_out_animation = "test"
-	end
+	end,
 }
 
 local weapon_size = folded_card_size
@@ -854,19 +854,19 @@ end_player_view_blueprints.weapon = {
 		local card_size = folded_card_size
 		local area_size = {
 			folded_card_size[1],
-			folded_card_size[2] * 0.5
+			folded_card_size[2] * 0.5,
 		}
 		local icon_size = {
 			150,
-			50
+			50,
 		}
 		local bar_width = area_size[1] * 0.7
 		local weapon_pass_template = {
 			{
-				value_id = "title",
-				style_id = "title",
 				pass_type = "text",
+				style_id = "title",
 				value = "",
+				value_id = "title",
 				style = {
 					text_horizontal_alignment = "center",
 					text_color = Color.terminal_text_body(0, true),
@@ -874,15 +874,15 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						30,
-						0
-					}
-				}
+						0,
+					},
+				},
 			},
 			{
-				value_id = "level",
-				style_id = "level",
 				pass_type = "text",
+				style_id = "level",
 				value = "",
+				value_id = "level",
 				style = {
 					default_font_size = 18,
 					font_size = 18,
@@ -894,15 +894,15 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						55,
-						0
-					}
-				}
+						0,
+					},
+				},
 			},
 			{
-				value_id = "icon",
-				style_id = "icon",
 				pass_type = "texture",
+				style_id = "icon",
 				value = "content/ui/materials/icons/weapons/hud/combat_blade_01",
+				value_id = "icon",
 				style = {
 					horizontal_alignment = "center",
 					color = Color.terminal_text_body(0, true),
@@ -911,18 +911,18 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						95,
-						5
+						5,
 					},
 					size = {
 						icon_size[1] * 0.8,
-						icon_size[2] * 0.8
-					}
-				}
+						icon_size[2] * 0.8,
+					},
+				},
 			},
 			{
-				value = "content/ui/materials/backgrounds/default_square",
-				style_id = "background",
 				pass_type = "texture",
+				style_id = "background",
+				value = "content/ui/materials/backgrounds/default_square",
 				style = {
 					horizontal_alignment = "center",
 					in_focus_color = Color.terminal_background_dark(nil, true),
@@ -930,47 +930,47 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						90,
-						0
+						0,
 					},
-					size = icon_size
-				}
+					size = icon_size,
+				},
 			},
 			{
-				value = "content/ui/materials/gradients/gradient_vertical",
-				style_id = "background_gradient",
 				pass_type = "texture",
+				style_id = "background_gradient",
+				value = "content/ui/materials/gradients/gradient_vertical",
 				style = {
 					horizontal_alignment = "center",
 					default_color = {
 						100,
 						33,
 						35,
-						37
+						37,
 					},
 					in_focus_color = {
 						100,
 						33,
 						35,
-						37
+						37,
 					},
 					color = {
 						0,
 						33,
 						35,
-						37
+						37,
 					},
 					offset = {
 						0,
 						90,
-						1
+						1,
 					},
-					size = icon_size
-				}
+					size = icon_size,
+				},
 			},
 			{
-				value = "content/ui/materials/gradients/gradient_diagonal_down_right",
-				style_id = "button_gradient",
 				pass_type = "texture",
+				style_id = "button_gradient",
+				value = "content/ui/materials/gradients/gradient_diagonal_down_right",
 				style = {
 					horizontal_alignment = "center",
 					color = Color.terminal_background_gradient(0, true),
@@ -978,15 +978,15 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						90,
-						1
+						1,
 					},
-					size = icon_size
-				}
+					size = icon_size,
+				},
 			},
 			{
-				value = "content/ui/materials/frames/frame_tile_2px",
-				style_id = "frame",
 				pass_type = "texture",
+				style_id = "frame",
+				value = "content/ui/materials/frames/frame_tile_2px",
 				style = {
 					horizontal_alignment = "center",
 					color = Color.terminal_frame(0, true),
@@ -995,15 +995,15 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						90,
-						6
+						6,
 					},
-					size = icon_size
-				}
+					size = icon_size,
+				},
 			},
 			{
-				value = "content/ui/materials/frames/frame_corner_2px",
-				style_id = "corner",
 				pass_type = "texture",
+				style_id = "corner",
+				value = "content/ui/materials/frames/frame_corner_2px",
 				style = {
 					horizontal_alignment = "center",
 					color = Color.terminal_corner(0, true),
@@ -1012,34 +1012,34 @@ end_player_view_blueprints.weapon = {
 					offset = {
 						0,
 						90,
-						7
+						7,
 					},
-					size = icon_size
-				}
+					size = icon_size,
+				},
 			},
 			{
-				value_id = "total_exp",
-				style_id = "total_exp",
 				pass_type = "text",
+				style_id = "total_exp",
 				value = "",
+				value_id = "total_exp",
 				style = {
 					horizontal_alignment = "center",
 					text_horizontal_alignment = "right",
 					in_focus_color = Color.terminal_text_body(255, true),
 					text_color = Color.terminal_text_body(0, true),
 					size = {
-						bar_width
+						bar_width,
 					},
 					offset = {
 						0,
 						140,
-						0
-					}
-				}
+						0,
+					},
+				},
 			},
 			{
-				style_id = "experience_bar",
 				pass_type = "rect",
+				style_id = "experience_bar",
 				style = {
 					horizontal_alignment = "left",
 					color = Color.terminal_icon(0, true),
@@ -1047,80 +1047,80 @@ end_player_view_blueprints.weapon = {
 					default_color = Color.terminal_icon(255, true),
 					size = {
 						0,
-						10
+						10,
 					},
 					offset = {
 						(area_size[1] - bar_width) * 0.5,
 						170,
-						4
-					}
-				}
+						4,
+					},
+				},
 			},
 			{
-				style_id = "experience_bar_background",
 				pass_type = "rect",
+				style_id = "experience_bar_background",
 				style = {
 					horizontal_alignment = "left",
 					color = Color.black(0, true),
 					in_focus_color = Color.black(255, true),
 					size = {
 						bar_width,
-						10
+						10,
 					},
 					offset = {
 						(area_size[1] - bar_width) * 0.5,
 						170,
-						3
-					}
-				}
+						3,
+					},
+				},
 			},
 			{
-				style_id = "experience_bar_line",
 				pass_type = "rect",
+				style_id = "experience_bar_line",
 				style = {
 					horizontal_alignment = "left",
 					in_focus_color = Color.terminal_text_body(255, true),
 					color = Color.terminal_text_body(0, true),
 					size = {
 						bar_width,
-						10
+						10,
 					},
 					offset = {
 						(area_size[1] - bar_width) * 0.5 - 2,
 						168,
-						2
+						2,
 					},
 					size_addition = {
 						4,
-						4
-					}
-				}
+						4,
+					},
+				},
 			},
 			{
-				value_id = "added_exp_text",
-				style_id = "added_exp_text",
 				pass_type = "text",
+				style_id = "added_exp_text",
 				value = "",
+				value_id = "added_exp_text",
 				style = {
 					horizontal_alignment = "center",
 					text_horizontal_alignment = "center",
 					text_color = Color.terminal_text_body(0, true),
 					in_focus_color = Color.terminal_text_body(255, true),
 					size = {
-						bar_width
+						bar_width,
 					},
 					offset = {
 						0,
 						185,
-						0
-					}
-				}
-			}
+						0,
+					},
+				},
+			},
 		}
 		local full_pass = _get_card_default_frame_pass_template()
 		local slots = {
 			"slot_primary",
-			"slot_secondary"
+			"slot_secondary",
 		}
 
 		for i = 1, #slots do
@@ -1143,7 +1143,7 @@ end_player_view_blueprints.weapon = {
 				pass.style.offset = pass.style.offset or {
 					0,
 					0,
-					0
+					0,
 				}
 				pass.style.offset[2] = pass.style.offset[2] + offset * (i - 1)
 				pass.style.offset[3] = pass.style.offset[3] + 7
@@ -1171,7 +1171,7 @@ end_player_view_blueprints.weapon = {
 
 		local slots = {
 			"slot_primary",
-			"slot_secondary"
+			"slot_secondary",
 		}
 
 		for f = 1, #slots do
@@ -1218,14 +1218,14 @@ end_player_view_blueprints.weapon = {
 
 				widget.content["weapon_total_exp_" .. slot] = Localize("loc_mastery_exp_current_next", true, {
 					current = diff_exp_level,
-					next = diff_exp_level
+					next = diff_exp_level,
 				})
 
 				local style = widget.style["weapon_experience_bar_" .. slot]
 				local background_style = widget.style["weapon_experience_bar_background_" .. slot]
 
 				widget.content["weapon_level_" .. slot] = Localize("loc_mastery_level_current", true, {
-					level = max_level
+					level = max_level,
 				})
 				style.size[1] = background_style.size[1]
 			else
@@ -1237,12 +1237,12 @@ end_player_view_blueprints.weapon = {
 
 				widget.content["weapon_total_exp_" .. slot] = Localize("loc_mastery_exp_current_next", true, {
 					current = new_exp,
-					next = diff_exp_level
+					next = diff_exp_level,
 				})
 				widget.content["weapon_current_exp_level_" .. slot] = new_exp or 0
 				widget.content["weapon_current_mastery_level_" .. slot] = current_mastery_level or 0
 				widget.content["weapon_level_" .. slot] = Localize("loc_mastery_level_current", true, {
-					level = current_mastery_level
+					level = current_mastery_level,
 				})
 
 				local bar_style = widget.style["weapon_experience_bar_" .. slot]
@@ -1254,7 +1254,7 @@ end_player_view_blueprints.weapon = {
 				bar_style.size[1] = bar_background_style.size[1] * bar_progress
 			end
 		end
-	end
+	end,
 }
 
 return settings("EndPlayerViewBlueprints", end_player_view_blueprints)

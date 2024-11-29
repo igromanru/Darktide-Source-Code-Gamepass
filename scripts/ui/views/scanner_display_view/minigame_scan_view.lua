@@ -202,7 +202,7 @@ MinigameScanView._create_wallet_widgets = function (self, material_name, widget_
 			local widget_offset = {
 				start_offset[1] + j * widget_size[1] + spacing[1] * j,
 				start_offset[2] + i * widget_size[2] + spacing[2] * i,
-				start_offset[3]
+				start_offset[3],
 			}
 			local widget_definition = UIWidget.create_definition({
 				{
@@ -215,11 +215,11 @@ MinigameScanView._create_wallet_widgets = function (self, material_name, widget_
 							255,
 							0,
 							255,
-							0
+							0,
 						},
-						offset = widget_offset
-					}
-				}
+						offset = widget_offset,
+					},
+				},
 			}, scenegraph_id, nil, widget_size)
 			local widget = UIWidget.init(widget_name, widget_definition)
 
@@ -246,13 +246,13 @@ MinigameScanView._create_segment_widgets = function (self)
 		local widget_name = widget_name_prefix .. tostring(i)
 		local widget_definition = UIWidget.create_definition({
 			{
-				style_id = "segment",
 				pass_type = "rotated_texture",
+				style_id = "segment",
 				value = material_path,
 				style = {
-					vertical_alignment = "bottom",
-					horizontal_alignment = "center",
 					hdr = true,
+					horizontal_alignment = "center",
+					vertical_alignment = "bottom",
 					offset = widget_offset,
 					size = widget_size,
 					angle = angle,
@@ -260,11 +260,11 @@ MinigameScanView._create_segment_widgets = function (self)
 						255,
 						0,
 						255,
-						0
+						0,
 					},
-					pivot = widget_pivot
-				}
-			}
+					pivot = widget_pivot,
+				},
+			},
 		}, scenegraph_id, nil, widget_size)
 		local widget = UIWidget.init(widget_name, widget_definition)
 

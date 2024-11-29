@@ -223,33 +223,33 @@ local section_colors = {
 	{
 		0,
 		255,
-		255
+		255,
 	},
 	{
 		0,
 		255,
-		0
+		0,
 	},
 	{
 		255,
 		255,
-		255
+		255,
 	},
 	{
 		255,
 		125,
-		0
+		0,
 	},
 	{
 		255,
 		20,
-		147
+		147,
 	},
 	{
 		93,
 		0,
-		9
-	}
+		9,
+	},
 }
 
 MonsterSpawner._editor_debug_draw = function (self, unit, show_main_path_connection)
@@ -384,31 +384,31 @@ end
 
 MonsterSpawner.component_data = {
 	section = {
-		ui_type = "number",
+		max = 20,
 		min = 1,
 		step = 1,
-		value = 1,
 		ui_name = "Section Id",
-		max = 20
+		ui_type = "number",
+		value = 1,
 	},
 	show_main_path_connection = {
+		ui_name = "Show Main Path Connection",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Show Main Path Connection"
 	},
 	spawn_type = {
-		value = "monsters",
-		ui_type = "combo_box",
 		ui_name = "Spawn Type",
+		ui_type = "combo_box",
+		value = "monsters",
 		options_keys = {
 			"monsters",
-			"witches"
+			"witches",
 		},
 		options_values = {
 			"monsters",
-			"witches"
-		}
-	}
+			"witches",
+		},
+	},
 }
 
 return MonsterSpawner

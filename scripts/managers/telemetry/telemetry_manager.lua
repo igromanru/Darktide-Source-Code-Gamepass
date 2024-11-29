@@ -64,7 +64,7 @@ TelemetryManager._convert_userdata = function (self, data)
 				data[key] = {
 					x = value.x,
 					y = value.y,
-					z = value.z
+					z = value.z,
 				}
 			elseif type(value) == "function" then
 				data[key] = nil
@@ -106,7 +106,7 @@ TelemetryManager.post_batch = function (self)
 	self._batch_post_time = math.floor(self._t)
 
 	local headers = {
-		["x-reference-time"] = tostring(self._t)
+		["x-reference-time"] = tostring(self._t),
 	}
 	local compress = true
 

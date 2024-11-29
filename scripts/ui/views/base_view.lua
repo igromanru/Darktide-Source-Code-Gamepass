@@ -595,7 +595,7 @@ end
 
 local _temp_optional_size = {
 	0,
-	0
+	0,
 }
 
 BaseView._text_size_for_style = function (self, text, text_style, optional_size)

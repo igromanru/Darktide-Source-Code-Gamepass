@@ -14,7 +14,7 @@ local PlayerHuskVisualLoadoutExtension = class("PlayerHuskVisualLoadoutExtension
 local RPCS = {
 	"rpc_player_equip_item_to_slot",
 	"rpc_player_equip_item_from_profile_to_slot",
-	"rpc_player_unequip_item_from_slot"
+	"rpc_player_unequip_item_from_slot",
 }
 
 local function _register_fx_sources(fx_extension, unit_1p, unit_3p, attachments_1p, attachments_3p, source_config, slot_name, is_in_first_person_mode)
@@ -91,7 +91,7 @@ PlayerHuskVisualLoadoutExtension.init = function (self, extension_init_context, 
 
 	local item_streaming_settings = {
 		package_synchronizer_client = self._package_synchronizer_client,
-		player = self._player
+		player = self._player,
 	}
 
 	self._item_definitions = MasterItems.get_cached()
@@ -132,9 +132,9 @@ PlayerHuskVisualLoadoutExtension.init = function (self, extension_init_context, 
 
 	self._wieldable_slot_scripts = wieldable_slot_scripts
 	self._wieldable_slot_scripts_context = {
+		is_husk = true,
 		is_local_unit = false,
 		is_server = false,
-		is_husk = true,
 		owner_unit = unit,
 		equipment_component = equipment_component,
 		game_session = game_session,
@@ -145,7 +145,7 @@ PlayerHuskVisualLoadoutExtension.init = function (self, extension_init_context, 
 		visual_loadout_extension = self,
 		unit_data_extension = ScriptUnit.extension(unit, "unit_data_system"),
 		fx_extension = fx_extension,
-		player_particle_group_id = Managers.state.extension:system("fx_system").unit_to_particle_group_lookup[unit]
+		player_particle_group_id = Managers.state.extension:system("fx_system").unit_to_particle_group_lookup[unit],
 	}
 	self._mission = extension_init_data.mission
 	self._archetype_property = extension_init_data.archetype.name

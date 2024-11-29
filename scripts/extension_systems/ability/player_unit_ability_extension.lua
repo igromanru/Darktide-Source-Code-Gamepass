@@ -75,7 +75,7 @@ PlayerUnitAbilityExtension.init = function (self, extension_init_context, unit, 
 		unit = unit,
 		unit_data_extension = unit_data_extension,
 		is_local_unit = is_local_unit,
-		is_server = is_server
+		is_server = is_server,
 	}
 
 	if is_server then
@@ -105,7 +105,7 @@ PlayerUnitAbilityExtension._init_action_components = function (self, unit_data_e
 	grenade_ability_component.cooldown_paused = false
 	self._ability_components = {
 		combat_ability = combat_ability_component,
-		grenade_ability = grenade_ability_component
+		grenade_ability = grenade_ability_component,
 	}
 end
 
@@ -179,7 +179,7 @@ PlayerUnitAbilityExtension.extensions_ready = function (self, world, unit)
 		unit_data_extension = unit_data_extension,
 		inventory_component = unit_data_extension:read_component("inventory"),
 		talent_extension = talent_extension,
-		buff_extension = ScriptUnit.extension(unit, "buff_system")
+		buff_extension = ScriptUnit.extension(unit, "buff_system"),
 	}
 end
 
@@ -249,7 +249,7 @@ PlayerUnitAbilityExtension._equip_ability = function (self, ability_type, abilit
 		self._abilities[component_name] = {
 			ability_template = ability_template,
 			ability = ability,
-			actions = {}
+			actions = {},
 		}
 
 		local equipped_ability_effect_scripts = {}

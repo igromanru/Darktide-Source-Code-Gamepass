@@ -10,69 +10,69 @@ local TextUtilities = require("scripts/utilities/ui/text")
 local UISoundEvents = require("scripts/settings/ui/ui_sound_events")
 local UIFontSettings = require("scripts/managers/ui/ui_font_settings")
 local tag_text_style = {
-	horizontal_alignment = "center",
 	font_size = 28,
-	text_vertical_alignment = "center",
-	text_horizontal_alignment = "left",
-	vertical_alignment = "center",
 	font_type = "proxima_nova_bold",
+	horizontal_alignment = "center",
+	text_horizontal_alignment = "left",
+	text_vertical_alignment = "center",
+	vertical_alignment = "center",
 	text_color = Color.terminal_text_header(255, true),
 	offset = {
 		0,
 		0,
-		3
+		3,
 	},
 	size_addition = {
 		-60,
-		0
-	}
+		0,
+	},
 }
 local tag_slot_header_text_style = {
-	horizontal_alignment = "center",
 	font_size = 28,
-	text_vertical_alignment = "center",
-	text_horizontal_alignment = "left",
-	vertical_alignment = "center",
 	font_type = "proxima_nova_bold",
+	horizontal_alignment = "center",
+	text_horizontal_alignment = "left",
+	text_vertical_alignment = "center",
+	vertical_alignment = "center",
 	text_color = Color.terminal_text_header(255, true),
 	offset = {
 		0,
 		-15,
-		3
+		3,
 	},
 	size_addition = {
 		-60,
-		0
-	}
+		0,
+	},
 }
 local tag_slot_sub_header_text_style = {
-	horizontal_alignment = "center",
 	font_size = 24,
-	text_vertical_alignment = "center",
-	text_horizontal_alignment = "left",
-	vertical_alignment = "center",
 	font_type = "proxima_nova_bold",
+	horizontal_alignment = "center",
+	text_horizontal_alignment = "left",
+	text_vertical_alignment = "center",
+	vertical_alignment = "center",
 	text_color = Color.terminal_text_body_sub_header(255, true),
 	offset = {
 		0,
 		15,
-		3
+		3,
 	},
 	size_addition = {
 		-60,
-		0
-	}
+		0,
+	},
 }
 local terminal_button_text_style = table.clone(UIFontSettings.button_primary)
 
 terminal_button_text_style.offset = {
 	70,
 	0,
-	6
+	6,
 }
 terminal_button_text_style.size_addition = {
 	-90,
-	0
+	0,
 }
 terminal_button_text_style.text_horizontal_alignment = "left"
 terminal_button_text_style.text_vertical_alignment = "center"
@@ -80,36 +80,36 @@ terminal_button_text_style.text_color = {
 	255,
 	216,
 	229,
-	207
+	207,
 }
 terminal_button_text_style.default_color = {
 	255,
 	216,
 	229,
-	207
+	207,
 }
 
 local function generate_blueprints_func(grid_size)
 	local tag_default = {
 		size = {
 			grid_size[1],
-			60
+			60,
 		},
 		size_function = function (parent, element, ui_renderer)
 			local size = element.size
 
 			return {
 				size and size[1] or grid_size[1],
-				size and size[2] or 60
+				size and size[2] or 60,
 			}
 		end,
 		pass_template = {
 			{
-				pass_type = "hotspot",
 				content_id = "hotspot",
+				pass_type = "hotspot",
 				content = {
 					on_hover_sound = UISoundEvents.default_mouse_hover,
-					on_pressed_sound = UISoundEvents.default_click
+					on_pressed_sound = UISoundEvents.default_click,
 				},
 				change_function = function (content, style, _, dt)
 					local checked = content.parent.checked
@@ -126,55 +126,55 @@ local function generate_blueprints_func(grid_size)
 
 						content.anim_checked_progress = anim_checked_progress
 					end
-				end
+				end,
 			},
 			{
-				style_id = "checkbox_background",
 				pass_type = "rect",
+				style_id = "checkbox_background",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "left",
+					vertical_alignment = "center",
 					color = {
 						180,
 						28,
 						31,
-						28
+						28,
 					},
 					size = {
-						50
+						50,
 					},
 					offset = {
 						0,
 						0,
-						2
-					}
+						2,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.is_preview
-				end
+				end,
 			},
 			{
-				style_id = "checkbox_shadow",
 				pass_type = "texture",
+				style_id = "checkbox_shadow",
 				value = "content/ui/materials/frames/dropshadow_medium",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "right",
 					scale_to_material = true,
+					vertical_alignment = "center",
 					color = Color.black(150, true),
 					size_addition = {
 						-30,
-						20
+						20,
 					},
 					offset = {
 						10,
 						0,
-						3
-					}
+						3,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.is_preview
-				end
+				end,
 			},
 			{
 				pass_type = "texture",
@@ -182,132 +182,132 @@ local function generate_blueprints_func(grid_size)
 				value = "content/ui/materials/backgrounds/default_square",
 				style = {
 					default_color = Color.terminal_background(nil, true),
-					selected_color = Color.terminal_background_selected(nil, true)
+					selected_color = Color.terminal_background_selected(nil, true),
 				},
-				change_function = ButtonPassTemplates.terminal_button_change_function
+				change_function = ButtonPassTemplates.terminal_button_change_function,
 			},
 			{
 				pass_type = "texture",
 				style_id = "background_gradient",
 				value = "content/ui/materials/gradients/gradient_vertical",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "right",
+					vertical_alignment = "center",
 					default_color = Color.terminal_frame(nil, true),
 					selected_color = Color.terminal_frame_selected(nil, true),
 					disabled_color = Color.ui_grey_medium(255, true),
 					size_addition = {
 						-50,
-						0
+						0,
 					},
 					offset = {
 						0,
 						0,
-						1
-					}
+						1,
+					},
 				},
 				change_function = function (content, style)
 					ButtonPassTemplates.terminal_button_change_function(content, style)
 					ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-				end
+				end,
 			},
 			{
-				value_id = "checkbox",
-				style_id = "checkbox_text_default",
 				pass_type = "text",
+				style_id = "checkbox_text_default",
 				value = "",
+				value_id = "checkbox",
 				style = {
+					drop_shadow = false,
 					font_size = 28,
-					text_vertical_alignment = "center",
+					font_type = "proxima_nova_bold",
 					horizontal_alignment = "left",
 					text_horizontal_alignment = "center",
+					text_vertical_alignment = "center",
 					vertical_alignment = "center",
-					drop_shadow = false,
-					font_type = "proxima_nova_bold",
 					size = {
-						50
+						50,
 					},
 					text_color = {
 						255,
 						10,
 						10,
-						10
+						10,
 					},
 					offset = {
 						0,
 						0,
-						5
-					}
+						5,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.checked and not content.element.is_preview and not content.hotspot.disabled
-				end
+				end,
 			},
 			{
-				value_id = "checkbox",
-				style_id = "checkbox_text_checked",
 				pass_type = "text",
+				style_id = "checkbox_text_checked",
 				value = "",
+				value_id = "checkbox",
 				style = {
+					drop_shadow = true,
 					font_size = 28,
-					text_vertical_alignment = "center",
+					font_type = "proxima_nova_bold",
 					horizontal_alignment = "left",
 					text_horizontal_alignment = "center",
+					text_vertical_alignment = "center",
 					vertical_alignment = "center",
-					drop_shadow = true,
-					font_type = "proxima_nova_bold",
 					size = {
-						50
+						50,
 					},
 					text_color = Color.terminal_corner_selected(nil, true),
 					offset = {
 						0,
 						0,
-						5
-					}
+						5,
+					},
 				},
 				visibility_function = function (content, style)
 					return content.checked and not content.element.is_preview and not content.hotspot.disabled
-				end
+				end,
 			},
 			{
-				value = "content/ui/materials/frames/dropshadow_medium",
-				style_id = "outer_shadow",
 				pass_type = "texture",
+				style_id = "outer_shadow",
+				value = "content/ui/materials/frames/dropshadow_medium",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
 					scale_to_material = true,
+					vertical_alignment = "center",
 					color = Color.black(200, true),
 					size_addition = {
 						20,
-						20
+						20,
 					},
 					offset = {
 						0,
 						0,
-						3
-					}
-				}
+						3,
+					},
+				},
 			},
 			{
 				pass_type = "texture",
 				style_id = "outer_highlight",
 				value = "content/ui/materials/frames/dropshadow_heavy",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
 					scale_to_material = true,
+					vertical_alignment = "center",
 					color = Color.terminal_text_body(200, true),
 					size_addition = {
 						20,
-						20
+						20,
 					},
 					offset = {
 						0,
 						0,
-						4
-					}
+						4,
+					},
 				},
 				change_function = function (content, style, _, dt)
 					local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -332,177 +332,177 @@ local function generate_blueprints_func(grid_size)
 				end,
 				visibility_function = function (content, style)
 					return not content.element.is_preview and not content.hotspot.disabled
-				end
+				end,
 			},
 			{
-				value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 				pass_type = "texture",
+				value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 				style = {
 					offset = {
 						0,
 						0,
-						7
+						7,
 					},
 					color = {
 						105,
 						45,
 						45,
-						45
-					}
+						45,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.level_requirement_met
-				end
+				end,
 			},
 			{
-				style_id = "required_level_background",
 				pass_type = "rect",
+				style_id = "required_level_background",
 				style = {
 					offset = {
 						0,
 						0,
-						6
+						6,
 					},
 					color = {
 						150,
 						35,
 						0,
-						0
-					}
+						0,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.level_requirement_met
-				end
+				end,
 			},
 			{
-				value_id = "required_level_text",
-				style_id = "required_level_text",
 				pass_type = "text",
+				style_id = "required_level_text",
 				value = "",
+				value_id = "required_level_text",
 				style = {
-					text_vertical_alignment = "center",
+					drop_shadow = true,
 					font_size = 22,
+					font_type = "proxima_nova_bold",
 					horizontal_alignment = "center",
 					text_horizontal_alignment = "right",
+					text_vertical_alignment = "center",
 					vertical_alignment = "center",
-					drop_shadow = true,
-					font_type = "proxima_nova_bold",
 					size_addition = {
 						-40,
-						-20
+						-20,
 					},
 					text_color = {
 						255,
 						159,
 						67,
-						67
+						67,
 					},
 					offset = {
 						0,
 						0,
-						8
-					}
+						8,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.level_requirement_met
-				end
+				end,
 			},
 			{
-				value = "",
 				pass_type = "text",
+				value = "",
 				style = {
+					drop_shadow = true,
 					font_size = 28,
-					text_vertical_alignment = "center",
+					font_type = "proxima_nova_bold",
 					horizontal_alignment = "left",
 					text_horizontal_alignment = "center",
+					text_vertical_alignment = "center",
 					vertical_alignment = "center",
-					drop_shadow = true,
-					font_type = "proxima_nova_bold",
 					size = {
-						50
+						50,
 					},
 					text_color = {
 						255,
 						159,
 						67,
-						67
+						67,
 					},
 					offset = {
 						0,
 						0,
-						8
-					}
+						8,
+					},
 				},
 				visibility_function = function (content, style)
 					return not content.element.level_requirement_met
-				end
+				end,
 			},
 			{
-				value = "",
 				pass_type = "text",
+				value = "",
 				style = {
+					drop_shadow = true,
 					font_size = 28,
-					text_vertical_alignment = "center",
+					font_type = "proxima_nova_bold",
 					horizontal_alignment = "left",
 					text_horizontal_alignment = "center",
+					text_vertical_alignment = "center",
 					vertical_alignment = "center",
-					drop_shadow = true,
-					font_type = "proxima_nova_bold",
 					size = {
-						50
+						50,
 					},
 					text_color = Color.ui_grey_medium(255, true),
 					offset = {
 						0,
 						0,
-						8
-					}
+						8,
+					},
 				},
 				visibility_function = function (content, style)
 					return content.hotspot.disabled and content.element.level_requirement_met
-				end
+				end,
 			},
 			{
 				pass_type = "texture",
 				style_id = "frame",
 				value = "content/ui/materials/frames/frame_tile_2px",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					offset = {
 						0,
 						0,
-						9
+						9,
 					},
 					default_color = Color.terminal_frame(nil, true),
 					selected_color = Color.terminal_frame_selected(nil, true),
 					disabled_color = Color.ui_grey_medium(255, true),
-					hover_color = Color.terminal_frame_hover(nil, true)
+					hover_color = Color.terminal_frame_hover(nil, true),
 				},
-				change_function = ButtonPassTemplates.terminal_button_change_function
+				change_function = ButtonPassTemplates.terminal_button_change_function,
 			},
 			{
 				pass_type = "texture",
 				style_id = "corner",
 				value = "content/ui/materials/frames/frame_corner_2px",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					offset = {
 						0,
 						0,
-						10
+						10,
 					},
 					default_color = Color.terminal_corner(nil, true),
 					selected_color = Color.terminal_corner_selected(nil, true),
 					disabled_color = Color.ui_grey_light(255, true),
-					hover_color = Color.terminal_corner_hover(nil, true)
+					hover_color = Color.terminal_corner_hover(nil, true),
 				},
-				change_function = ButtonPassTemplates.terminal_button_change_function
+				change_function = ButtonPassTemplates.terminal_button_change_function,
 			},
 			{
-				style_id = "text",
 				pass_type = "text",
+				style_id = "text",
 				value_id = "text",
 				style = terminal_button_text_style,
 				change_function = function (content, style)
@@ -516,8 +516,8 @@ local function generate_blueprints_func(grid_size)
 					if color and default_color and hover_color then
 						ColorUtilities.color_lerp(default_color, hover_color, progress, color)
 					end
-				end
-			}
+				end,
+			},
 		},
 		init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 			local style = widget.style
@@ -537,11 +537,11 @@ local function generate_blueprints_func(grid_size)
 
 				if required_level then
 					content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-						level = required_level
+						level = required_level,
 					})
 				end
 			end
-		end
+		end,
 	}
 	local tag_checkbox = table.clone_instance(tag_default)
 
@@ -553,23 +553,23 @@ local function generate_blueprints_func(grid_size)
 		tag_radio_button = {
 			size = {
 				grid_size[1],
-				60
+				60,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 60
+					size and size[2] or 60,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
+					pass_type = "hotspot",
 					content = {
 						on_hover_sound = UISoundEvents.default_mouse_hover,
-						on_pressed_sound = UISoundEvents.default_click
+						on_pressed_sound = UISoundEvents.default_click,
 					},
 					change_function = function (content, style, _, dt)
 						local checked = content.parent.checked
@@ -586,55 +586,55 @@ local function generate_blueprints_func(grid_size)
 
 							content.anim_checked_progress = anim_checked_progress
 						end
-					end
+					end,
 				},
 				{
-					style_id = "checkbox_background",
 					pass_type = "rect",
+					style_id = "checkbox_background",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "left",
+						vertical_alignment = "center",
 						color = {
 							180,
 							28,
 							31,
-							28
+							28,
 						},
 						size = {
-							50
+							50,
 						},
 						offset = {
 							0,
 							0,
-							2
-						}
+							2,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
-					style_id = "checkbox_shadow",
 					pass_type = "texture",
+					style_id = "checkbox_shadow",
 					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(150, true),
 						size_addition = {
 							-30,
-							20
+							20,
 						},
 						offset = {
 							10,
 							0,
-							3
-						}
+							3,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
@@ -642,132 +642,132 @@ local function generate_blueprints_func(grid_size)
 					value = "content/ui/materials/backgrounds/default_square",
 					style = {
 						default_color = Color.terminal_background(nil, true),
-						selected_color = Color.terminal_background_selected(nil, true)
+						selected_color = Color.terminal_background_selected(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
 						size_addition = {
 							-50,
-							0
+							0,
 						},
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_default",
 					pass_type = "text",
+					style_id = "checkbox_text_default",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							10,
 							10,
-							10
+							10,
 						},
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.checked and not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_checked",
 					pass_type = "text",
+					style_id = "checkbox_text_checked",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.terminal_corner_selected(nil, true),
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.checked and not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "outer_highlight",
 					value = "content/ui/materials/frames/dropshadow_heavy",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.terminal_text_body(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
+							4,
+						},
 					},
 					change_function = function (content, style, _, dt)
 						local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -792,177 +792,177 @@ local function generate_blueprints_func(grid_size)
 					end,
 					visibility_function = function (content, style)
 						return not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					pass_type = "texture",
+					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					style = {
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						color = {
 							105,
 							45,
 							45,
-							45
-						}
+							45,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "required_level_background",
 					pass_type = "rect",
+					style_id = "required_level_background",
 					style = {
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						color = {
 							150,
 							35,
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value_id = "required_level_text",
-					style_id = "required_level_text",
 					pass_type = "text",
+					style_id = "required_level_text",
 					value = "",
+					value_id = "required_level_text",
 					style = {
-						text_vertical_alignment = "center",
+						drop_shadow = true,
 						font_size = 22,
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "center",
 						text_horizontal_alignment = "right",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size_addition = {
 							-40,
-							-20
+							-20,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.hotspot.disabled and content.element.level_requirement_met
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.ui_grey_light(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					style_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value_id = "text",
 					style = terminal_button_text_style,
 					change_function = function (content, style)
@@ -976,8 +976,8 @@ local function generate_blueprints_func(grid_size)
 						if color and default_color and hover_color then
 							ColorUtilities.color_lerp(default_color, hover_color, progress, color)
 						end
-					end
-				}
+					end,
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -997,32 +997,32 @@ local function generate_blueprints_func(grid_size)
 
 					if required_level then
 						content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-							level = required_level
+							level = required_level,
 						})
 					end
 				end
-			end
+			end,
 		},
 		tag_game_mode = {
 			size = {
 				grid_size[1],
-				60
+				60,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 60
+					size and size[2] or 60,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
+					pass_type = "hotspot",
 					content = {
 						on_hover_sound = UISoundEvents.default_mouse_hover,
-						on_pressed_sound = UISoundEvents.default_click
+						on_pressed_sound = UISoundEvents.default_click,
 					},
 					change_function = function (content, style, _, dt)
 						local checked = content.parent.checked
@@ -1039,55 +1039,55 @@ local function generate_blueprints_func(grid_size)
 
 							content.anim_checked_progress = anim_checked_progress
 						end
-					end
+					end,
 				},
 				{
-					style_id = "heckbox_background",
 					pass_type = "rect",
+					style_id = "heckbox_background",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "left",
+						vertical_alignment = "center",
 						color = {
 							180,
 							28,
 							31,
-							28
+							28,
 						},
 						size = {
-							50
+							50,
 						},
 						offset = {
 							0,
 							0,
-							2
-						}
+							2,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
-					style_id = "checkbox_shadow",
 					pass_type = "texture",
+					style_id = "checkbox_shadow",
 					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(150, true),
 						size_addition = {
 							-30,
-							20
+							20,
 						},
 						offset = {
 							10,
 							0,
-							3
-						}
+							3,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
@@ -1095,132 +1095,132 @@ local function generate_blueprints_func(grid_size)
 					value = "content/ui/materials/backgrounds/default_square",
 					style = {
 						default_color = Color.terminal_background(nil, true),
-						selected_color = Color.terminal_background_selected(nil, true)
+						selected_color = Color.terminal_background_selected(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
 						size_addition = {
 							-50,
-							0
+							0,
 						},
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_default",
 					pass_type = "text",
+					style_id = "checkbox_text_default",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							10,
 							10,
-							10
+							10,
 						},
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.checked and not content.element.is_preview
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_checked",
 					pass_type = "text",
+					style_id = "checkbox_text_checked",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.terminal_corner_selected(nil, true),
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.checked and not content.element.is_preview
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "outer_highlight",
 					value = "content/ui/materials/frames/dropshadow_heavy",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.terminal_text_body(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
+							4,
+						},
 					},
 					change_function = function (content, style, _, dt)
 						local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -1245,177 +1245,177 @@ local function generate_blueprints_func(grid_size)
 					end,
 					visibility_function = function (content, style)
 						return not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					pass_type = "texture",
+					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					style = {
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						color = {
 							105,
 							45,
 							45,
-							45
-						}
+							45,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "required_level_background",
 					pass_type = "rect",
+					style_id = "required_level_background",
 					style = {
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						color = {
 							150,
 							35,
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value_id = "required_level_text",
-					style_id = "required_level_text",
 					pass_type = "text",
+					style_id = "required_level_text",
 					value = "",
+					value_id = "required_level_text",
 					style = {
-						text_vertical_alignment = "center",
+						drop_shadow = true,
 						font_size = 22,
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "center",
 						text_horizontal_alignment = "right",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size_addition = {
 							-40,
-							-20
+							-20,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.hotspot.disabled and content.element.level_requirement_met
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.ui_grey_light(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					style_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value_id = "text",
 					style = terminal_button_text_style,
 					change_function = function (content, style)
@@ -1429,52 +1429,52 @@ local function generate_blueprints_func(grid_size)
 						if color and default_color and hover_color then
 							ColorUtilities.color_lerp(default_color, hover_color, progress, color)
 						end
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/base/ui_default_base",
-					style_id = "background_texture",
 					pass_type = "texture_uv",
+					style_id = "background_texture",
+					value = "content/ui/materials/base/ui_default_base",
 					style = {
-						scale_to_material = true,
 						horizontal_alignment = "right",
+						scale_to_material = true,
 						vertical_alignment = "center",
 						material_values = {
-							texture_map = "content/ui/textures/missions/lm_scavenge_big"
+							texture_map = "content/ui/textures/missions/lm_scavenge_big",
 						},
 						offset = {
 							0,
 							0,
-							2
+							2,
 						},
 						size_addition = {
 							-50,
-							0
+							0,
 						},
 						color = {
 							200,
 							200,
 							200,
-							200
+							200,
 						},
 						selected_color = {
 							200,
 							200,
 							200,
-							200
+							200,
 						},
 						uvs = {
 							{
 								0,
-								1
+								1,
 							},
 							{
 								1,
-								1
-							}
-						}
-					}
-				}
+								1,
+							},
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -1489,7 +1489,7 @@ local function generate_blueprints_func(grid_size)
 
 					if required_level then
 						content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-							level = required_level
+							level = required_level,
 						})
 					end
 				end
@@ -1516,157 +1516,157 @@ local function generate_blueprints_func(grid_size)
 					uvs[1][2] = (image_width - element_width) * 0.5 / image_width
 					uvs[2][2] = 1 - (image_height - element_height) * 0.5 / image_height
 				end
-			end
+			end,
 		},
 		tag_slot_button = {
 			size = {
 				grid_size[1],
-				80
+				80,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 80
+					size and size[2] or 80,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
-					content = {}
+					pass_type = "hotspot",
+					content = {},
 				},
 				{
-					style_id = "rect",
 					pass_type = "rect",
+					style_id = "rect",
 					style = {
-						color = Color.black(200, true)
-					}
+						color = Color.black(200, true),
+					},
 				},
 				{
-					value = "content/ui/materials/buttons/arrow_01",
-					style_id = "arrow",
 					pass_type = "texture",
+					style_id = "arrow",
+					value = "content/ui/materials/buttons/arrow_01",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						size = {
 							11.5,
-							17
+							17,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						offset = {
 							-10,
 							0,
-							2
-						}
-					}
+							2,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/buttons/arrow_01",
 					pass_type = "texture",
+					value = "content/ui/materials/buttons/arrow_01",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						size = {
 							11.5,
-							17
+							17,
 						},
 						color = {
 							255,
 							0,
 							0,
-							0
+							0,
 						},
 						offset = {
 							-9,
 							1,
-							1
-						}
-					}
+							1,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							8
+							8,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.ui_grey_light(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
-					}
+							4,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "outer_highlight",
 					value = "content/ui/materials/frames/dropshadow_heavy",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.terminal_text_body(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
+							4,
+						},
 					},
 					change_function = function (content, style, _, dt)
 						local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -1691,125 +1691,125 @@ local function generate_blueprints_func(grid_size)
 					end,
 					visibility_function = function (content, style)
 						return not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					style_id = "text",
-					value_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value = "n/a",
-					style = tag_slot_header_text_style
+					value_id = "text",
+					style = tag_slot_header_text_style,
 				},
 				{
+					pass_type = "text",
 					style_id = "sub_header_filled",
 					value_id = "sub_header_filled",
-					pass_type = "text",
 					style = tag_slot_sub_header_text_style,
 					value = Localize("loc_group_finder_slot_tag_button_default_value"),
 					visibility_function = function (content)
 						return content.slot_filled
-					end
+					end,
 				},
 				{
+					pass_type = "text",
 					style_id = "sub_header",
 					value_id = "sub_header",
-					pass_type = "text",
 					style = tag_slot_sub_header_text_style,
 					value = Localize("loc_group_finder_slot_tag_button_default_value"),
 					visibility_function = function (content)
 						return not content.slot_filled
-					end
+					end,
 				},
 				{
-					style_id = "difficulty_text",
-					value_id = "difficulty_text",
 					pass_type = "text",
+					style_id = "difficulty_text",
 					value = "",
+					value_id = "difficulty_text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "center",
 						text_color = Color.black(255, true),
 						offset = {
 							405,
 							0,
-							3
+							3,
 						},
 						size_addition = {
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content)
 						return content.slot_filled
-					end
+					end,
 				},
 				{
-					style_id = "difficulty_text_overlay",
-					value_id = "difficulty_text_overlay",
 					pass_type = "text",
+					style_id = "difficulty_text_overlay",
 					value = "",
+					value_id = "difficulty_text_overlay",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "center",
 						text_color = Color.terminal_text_key_value(255, true),
 						offset = {
 							405,
 							0,
-							4
+							4,
 						},
 						size_addition = {
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content)
 						return content.slot_filled
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/gradients/gradient_texture_diagonal",
-					style_id = "background_texture",
 					pass_type = "texture",
+					style_id = "background_texture",
+					value = "content/ui/materials/gradients/gradient_texture_diagonal",
 					style = {
 						scale_to_material = true,
 						material_values = {
-							texture_map = "content/ui/textures/missions/lm_scavenge_big"
+							texture_map = "content/ui/textures/missions/lm_scavenge_big",
 						},
 						offset = {
 							0,
 							0,
-							2
+							2,
 						},
 						default_color = Color.white(nil, true),
 						selected_color = Color.white(nil, true),
-						change_function = ButtonPassTemplates.terminal_button_change_function
-					}
-				}
+						change_function = ButtonPassTemplates.terminal_button_change_function,
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -1840,7 +1840,7 @@ local function generate_blueprints_func(grid_size)
 
 						if #selected_tags > 1 then
 							sub_header_text = Localize("loc_group_finder_slot_tag_multiple_selected_tags_text", true, {
-								num_tags = tostring(#selected_tags)
+								num_tags = tostring(#selected_tags),
 							})
 						else
 							local first_selected_tag = selected_tags[1]
@@ -1881,285 +1881,285 @@ local function generate_blueprints_func(grid_size)
 						content.sub_header_filled = TextUtilities.apply_color_to_text(sub_header_text, Color.terminal_text_key_value(200, true))
 					end
 				end
-			end
+			end,
 		},
 		tag_category_button = {
 			size = {
 				grid_size[1],
-				60
+				60,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 60
+					size and size[2] or 60,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
-					content = {}
+					pass_type = "hotspot",
+					content = {},
 				},
 				{
-					style_id = "rect",
 					pass_type = "rect",
+					style_id = "rect",
 					style = {
-						color = Color.black(200, true)
-					}
+						color = Color.black(200, true),
+					},
 				},
 				{
-					value = "content/ui/materials/buttons/arrow_01",
-					style_id = "arrow",
 					pass_type = "texture",
+					style_id = "arrow",
+					value = "content/ui/materials/buttons/arrow_01",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						size = {
 							11.5,
-							17
+							17,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						offset = {
 							-10,
 							0,
-							2
-						}
-					}
+							2,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/buttons/arrow_01",
 					pass_type = "texture",
+					value = "content/ui/materials/buttons/arrow_01",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						size = {
 							11.5,
-							17
+							17,
 						},
 						color = {
 							255,
 							0,
 							0,
-							0
+							0,
 						},
 						offset = {
 							-9,
 							1,
-							1
-						}
-					}
+							1,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					pass_type = "texture",
+					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					style = {
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						color = {
 							105,
 							45,
 							45,
-							45
-						}
+							45,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "required_level_background",
 					pass_type = "rect",
+					style_id = "required_level_background",
 					style = {
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						color = {
 							150,
 							35,
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value_id = "required_level_text",
-					style_id = "required_level_text",
 					pass_type = "text",
+					style_id = "required_level_text",
 					value = "",
+					value_id = "required_level_text",
 					style = {
-						text_vertical_alignment = "center",
+						drop_shadow = true,
 						font_size = 22,
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "center",
 						text_horizontal_alignment = "right",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size_addition = {
 							-40,
-							-20
+							-20,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.hotspot.disabled and content.element.level_requirement_met
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.ui_grey_light(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
-					}
+							4,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "outer_highlight",
 					value = "content/ui/materials/frames/dropshadow_heavy",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.terminal_text_body(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
+							4,
+						},
 					},
 					change_function = function (content, style, _, dt)
 						local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -2184,36 +2184,36 @@ local function generate_blueprints_func(grid_size)
 					end,
 					visibility_function = function (content, style)
 						return not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					style_id = "text",
-					value_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value = "n/a",
-					style = tag_text_style
-				}
+					value_id = "text",
+					style = tag_text_style,
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -2230,32 +2230,32 @@ local function generate_blueprints_func(grid_size)
 
 					if required_level then
 						content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-							level = required_level
+							level = required_level,
 						})
 					end
 				end
-			end
+			end,
 		},
 		tag_difficulty = {
 			size = {
 				grid_size[1],
-				60
+				60,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 60
+					size and size[2] or 60,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
+					pass_type = "hotspot",
 					content = {
 						on_hover_sound = UISoundEvents.default_mouse_hover,
-						on_pressed_sound = UISoundEvents.default_click
+						on_pressed_sound = UISoundEvents.default_click,
 					},
 					change_function = function (content, style, _, dt)
 						local checked = content.parent.checked
@@ -2272,55 +2272,55 @@ local function generate_blueprints_func(grid_size)
 
 							content.anim_checked_progress = anim_checked_progress
 						end
-					end
+					end,
 				},
 				{
-					style_id = "checkbox_background",
 					pass_type = "rect",
+					style_id = "checkbox_background",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "left",
+						vertical_alignment = "center",
 						color = {
 							180,
 							28,
 							31,
-							28
+							28,
 						},
 						size = {
-							50
+							50,
 						},
 						offset = {
 							0,
 							0,
-							2
-						}
+							2,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
-					style_id = "checkbox_shadow",
 					pass_type = "texture",
+					style_id = "checkbox_shadow",
 					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(150, true),
 						size_addition = {
 							-30,
-							20
+							20,
 						},
 						offset = {
 							10,
 							0,
-							3
-						}
+							3,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.is_preview
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
@@ -2328,132 +2328,132 @@ local function generate_blueprints_func(grid_size)
 					value = "content/ui/materials/backgrounds/default_square",
 					style = {
 						default_color = Color.terminal_background(nil, true),
-						selected_color = Color.terminal_background_selected(nil, true)
+						selected_color = Color.terminal_background_selected(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
 						size_addition = {
 							-50,
-							0
+							0,
 						},
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_default",
 					pass_type = "text",
+					style_id = "checkbox_text_default",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							10,
 							10,
-							10
+							10,
 						},
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.checked and not content.element.is_preview
-					end
+					end,
 				},
 				{
-					value_id = "checkbox",
-					style_id = "checkbox_text_checked",
 					pass_type = "text",
+					style_id = "checkbox_text_checked",
 					value = "•",
+					value_id = "checkbox",
 					style = {
+						drop_shadow = false,
 						font_size = 72,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = false,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.terminal_corner_selected(nil, true),
 						offset = {
 							0,
 							-5,
-							5
-						}
+							5,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.checked and not content.element.is_preview
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "outer_highlight",
 					value = "content/ui/materials/frames/dropshadow_heavy",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.terminal_text_body(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							4
-						}
+							4,
+						},
 					},
 					change_function = function (content, style, _, dt)
 						local any_visible_tag_selected_last_frame = content.any_visible_tag_selected_last_frame
@@ -2478,177 +2478,177 @@ local function generate_blueprints_func(grid_size)
 					end,
 					visibility_function = function (content, style)
 						return not content.element.is_preview and not content.hotspot.disabled
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					pass_type = "texture",
+					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					style = {
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						color = {
 							105,
 							45,
 							45,
-							45
-						}
+							45,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "required_level_background",
 					pass_type = "rect",
+					style_id = "required_level_background",
 					style = {
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						color = {
 							150,
 							35,
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value_id = "required_level_text",
-					style_id = "required_level_text",
 					pass_type = "text",
+					style_id = "required_level_text",
 					value = "",
+					value_id = "required_level_text",
 					style = {
-						text_vertical_alignment = "center",
+						drop_shadow = true,
 						font_size = 22,
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "center",
 						text_horizontal_alignment = "right",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size_addition = {
 							-40,
-							-20
+							-20,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "",
 					pass_type = "text",
+					value = "",
 					style = {
+						drop_shadow = true,
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size = {
-							50
+							50,
 						},
 						text_color = Color.ui_grey_medium(255, true),
 						offset = {
 							0,
 							0,
-							8
-						}
+							8,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.hotspot.disabled and content.element.level_requirement_met
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.ui_grey_medium(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.ui_grey_light(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					style_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value_id = "text",
 					style = terminal_button_text_style,
 					change_function = function (content, style)
@@ -2662,58 +2662,58 @@ local function generate_blueprints_func(grid_size)
 						if color and default_color and hover_color then
 							ColorUtilities.color_lerp(default_color, hover_color, progress, color)
 						end
-					end
+					end,
 				},
 				{
-					style_id = "difficulty_text",
-					value_id = "difficulty_text",
 					pass_type = "text",
+					style_id = "difficulty_text",
 					value = "",
+					value_id = "difficulty_text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "center",
 						text_color = Color.black(255, true),
 						offset = {
 							405,
 							0,
-							3
+							3,
 						},
 						size_addition = {
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "difficulty_text_overlay",
-					value_id = "difficulty_text_overlay",
 					pass_type = "text",
+					style_id = "difficulty_text_overlay",
 					value = "",
+					value_id = "difficulty_text_overlay",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "center",
 						text_color = Color.terminal_text_key_value(255, true),
 						offset = {
 							405,
 							0,
-							4
+							4,
 						},
 						size_addition = {
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.element.level_requirement_met
-					end
-				}
+					end,
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -2728,7 +2728,7 @@ local function generate_blueprints_func(grid_size)
 
 					if required_level then
 						content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-							level = required_level
+							level = required_level,
 						})
 					end
 				end
@@ -2764,130 +2764,130 @@ local function generate_blueprints_func(grid_size)
 						content.difficulty_text_overlay = ""
 					end
 				end
-			end
+			end,
 		},
 		tag_preview = {
 			size = {
 				grid_size[1],
-				30
+				30,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return {
 					size and size[1] or grid_size[1],
-					size and size[2] or 30
+					size and size[2] or 30,
 				}
 			end,
 			pass_template = {
 				{
-					value = "content/ui/materials/backgrounds/default_square",
-					style_id = "background",
 					pass_type = "texture",
+					style_id = "background",
+					value = "content/ui/materials/backgrounds/default_square",
 					style = {
-						color = Color.terminal_background(nil, true)
-					}
+						color = Color.terminal_background(nil, true),
+					},
 				},
 				{
-					value = "content/ui/materials/gradients/gradient_vertical",
-					style_id = "background_gradient",
 					pass_type = "texture",
+					style_id = "background_gradient",
+					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						color = Color.terminal_frame(nil, true),
 						offset = {
 							0,
 							0,
-							1
-						}
-					}
+							1,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/frames/frame_tile_2px",
+					pass_type = "texture",
 					style_id = "frame",
-					pass_type = "texture",
+					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
-						color = Color.terminal_frame(nil, true)
-					}
+						color = Color.terminal_frame(nil, true),
+					},
 				},
 				{
-					value = "content/ui/materials/frames/frame_corner_2px",
+					pass_type = "texture",
 					style_id = "corner",
-					pass_type = "texture",
+					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
-						color = Color.terminal_corner(nil, true)
-					}
+						color = Color.terminal_corner(nil, true),
+					},
 				},
 				{
-					value_id = "text",
 					pass_type = "text",
 					style_id = "text",
+					value_id = "text",
 					style = {
-						text_vertical_alignment = "center",
-						horizontal_alignment = "center",
 						font_size = 24,
-						text_horizontal_alignment = "center",
-						line_spacing = 1,
 						font_type = "proxima_nova_bold",
+						horizontal_alignment = "center",
+						line_spacing = 1,
+						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						size_addition = {
 							-20,
-							0
+							0,
 						},
 						text_color = {
 							255,
 							216,
 							229,
-							207
-						}
-					}
-				}
+							207,
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local content = widget.content
 
 				content.element = element
 				content.text = element.text or "n/a"
-			end
+			end,
 		},
 		dynamic_spacing = {
 			size_function = function (parent, element, ui_renderer)
@@ -2895,564 +2895,564 @@ local function generate_blueprints_func(grid_size)
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					225,
-					20
+					20,
 				}
-			end
+			end,
 		},
 		group = {
 			size = {
 				grid_size[1] * 0.5 - 5,
-				120
+				120,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					grid_size[1] * 0.5 - 5,
-					120
+					120,
 				}
 			end,
 			pass_template = {
 				{
-					pass_type = "hotspot",
 					content_id = "hotspot",
-					content = {}
+					pass_type = "hotspot",
+					content = {},
 				},
 				{
-					style_id = "rect",
 					pass_type = "rect",
+					style_id = "rect",
 					style = {
-						color = Color.black(200, true)
-					}
+						color = Color.black(200, true),
+					},
 				},
 				{
-					style_id = "background_texture",
 					pass_type = "texture",
+					style_id = "background_texture",
 					value = "content/ui/materials/base/ui_default_base",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "right",
+						vertical_alignment = "center",
 						material_values = {
-							texture_map = "content/ui/textures/backgrounds/group_finder/group_finder_generic_bg"
+							texture_map = "content/ui/textures/backgrounds/group_finder/group_finder_generic_bg",
 						},
 						offset = {
 							0,
 							0,
-							2
+							2,
 						},
 						color = {
 							150,
 							200,
 							200,
-							200
-						}
+							200,
+						},
 					},
 					visibility_function = function (content, style)
 						return style.material_values.texture_map ~= nil
-					end
+					end,
 				},
 				{
 					pass_type = "texture",
 					style_id = "frame",
 					value = "content/ui/materials/frames/frame_tile_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							9
+							9,
 						},
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.terminal_frame(255, true),
-						hover_color = Color.terminal_frame_hover(nil, true)
+						hover_color = Color.terminal_frame_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
 					pass_type = "texture",
 					style_id = "corner",
 					value = "content/ui/materials/frames/frame_corner_2px",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						offset = {
 							0,
 							0,
-							10
+							10,
 						},
 						default_color = Color.terminal_corner(nil, true),
 						selected_color = Color.terminal_corner_selected(nil, true),
 						disabled_color = Color.terminal_corner(255, true),
-						hover_color = Color.terminal_corner_hover(nil, true)
+						hover_color = Color.terminal_corner_hover(nil, true),
 					},
-					change_function = ButtonPassTemplates.terminal_button_change_function
+					change_function = ButtonPassTemplates.terminal_button_change_function,
 				},
 				{
-					value = "content/ui/materials/frames/dropshadow_medium",
-					style_id = "outer_shadow",
 					pass_type = "texture",
+					style_id = "outer_shadow",
+					value = "content/ui/materials/frames/dropshadow_medium",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
 						scale_to_material = true,
+						vertical_alignment = "center",
 						color = Color.black(200, true),
 						size_addition = {
 							20,
-							20
+							20,
 						},
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
 					pass_type = "texture",
 					style_id = "background_gradient",
 					value = "content/ui/materials/gradients/gradient_vertical",
 					style = {
-						vertical_alignment = "center",
 						horizontal_alignment = "center",
+						vertical_alignment = "center",
 						default_color = Color.terminal_frame(nil, true),
 						selected_color = Color.terminal_frame_selected(nil, true),
 						disabled_color = Color.terminal_frame(255, true),
 						offset = {
 							0,
 							0,
-							1
-						}
+							1,
+						},
 					},
 					change_function = function (content, style)
 						ButtonPassTemplates.terminal_button_change_function(content, style)
 						ButtonPassTemplates.terminal_button_hover_change_function(content, style)
-					end
+					end,
 				},
 				{
-					style_id = "description",
-					value_id = "description",
 					pass_type = "text",
+					style_id = "description",
 					value = "",
+					value_id = "description",
 					style = {
-						horizontal_alignment = "center",
 						font_size = 20,
-						text_vertical_alignment = "top",
-						text_horizontal_alignment = "left",
-						vertical_alignment = "center",
 						font_type = "proxima_nova_bold",
+						horizontal_alignment = "center",
+						text_horizontal_alignment = "left",
+						text_vertical_alignment = "top",
+						vertical_alignment = "center",
 						text_color = Color.terminal_text_header(255, true),
 						offset = {
 							0,
 							10,
-							3
+							3,
 						},
 						size_addition = {
 							-20,
-							0
-						}
-					}
+							0,
+						},
+					},
 				},
 				{
-					style_id = "difficulty_text",
-					value_id = "difficulty_text",
 					pass_type = "text",
+					style_id = "difficulty_text",
 					value = "",
+					value_id = "difficulty_text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "bottom",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "bottom",
 						text_color = Color.terminal_frame(255, true),
 						offset = {
 							350,
 							-5,
-							4
+							4,
 						},
 						size_addition = {
 							0,
-							0
-						}
-					}
+							0,
+						},
+					},
 				},
 				{
-					style_id = "difficulty_text_overlay",
-					value_id = "difficulty_text_overlay",
 					pass_type = "text",
+					style_id = "difficulty_text_overlay",
 					value = "",
+					value_id = "difficulty_text_overlay",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 32,
-						text_vertical_alignment = "bottom",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "bottom",
 						text_color = Color.terminal_text_key_value(255, true),
 						offset = {
 							350,
 							-5,
-							5
+							5,
 						},
 						size_addition = {
 							0,
-							0
-						}
-					}
+							0,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/gradients/gradient_horizontal",
 					pass_type = "texture",
+					value = "content/ui/materials/gradients/gradient_horizontal",
 					style = {
-						vertical_alignment = "bottom",
 						horizontal_alignment = "right",
+						vertical_alignment = "bottom",
 						size = {
 							200,
-							45
+							45,
 						},
 						color = Color.black(255, true),
 						offset = {
 							0,
 							0,
-							3
-						}
+							3,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.difficulty_text ~= ""
-					end
+					end,
 				},
 				{
-					style_id = "team_counter",
-					value_id = "team_counter",
 					pass_type = "text",
+					style_id = "team_counter",
 					value = "-",
+					value_id = "team_counter",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 16,
-						text_vertical_alignment = "bottom",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "bottom",
 						text_color = Color.terminal_text_body_sub_header(255, true),
 						offset = {
 							10,
 							-48,
-							4
+							4,
 						},
 						size_addition = {
 							0,
-							0
-						}
-					}
+							0,
+						},
+					},
 				},
 				{
-					style_id = "team_member_icon_4",
-					value_id = "team_member_icon_4",
 					pass_type = "text",
+					style_id = "team_member_icon_4",
 					value = "",
+					value_id = "team_member_icon_4",
 					style = {
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "bottom",
-						font_type = "proxima_nova_bold",
 						text_color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						size = {
 							40,
-							40
+							40,
 						},
 						offset = {
 							121,
 							-5,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
-					style_id = "team_member_icon_3",
-					value_id = "team_member_icon_3",
 					pass_type = "text",
+					style_id = "team_member_icon_3",
 					value = "",
+					value_id = "team_member_icon_3",
 					style = {
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "bottom",
-						font_type = "proxima_nova_bold",
 						text_color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						size = {
 							40,
-							40
+							40,
 						},
 						offset = {
 							84,
 							-5,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
-					style_id = "team_member_icon_2",
-					value_id = "team_member_icon_2",
 					pass_type = "text",
+					style_id = "team_member_icon_2",
 					value = "",
+					value_id = "team_member_icon_2",
 					style = {
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "bottom",
-						font_type = "proxima_nova_bold",
 						text_color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						size = {
 							40,
-							40
+							40,
 						},
 						offset = {
 							47,
 							-5,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
-					style_id = "team_member_icon_1",
-					value_id = "team_member_icon_1",
 					pass_type = "text",
+					style_id = "team_member_icon_1",
 					value = "",
+					value_id = "team_member_icon_1",
 					style = {
 						font_size = 32,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "left",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						vertical_alignment = "bottom",
-						font_type = "proxima_nova_bold",
 						text_color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						color = {
 							255,
 							255,
 							255,
-							255
+							255,
 						},
 						size = {
 							40,
-							40
+							40,
 						},
 						offset = {
 							10,
 							-5,
-							3
-						}
-					}
+							3,
+						},
+					},
 				},
 				{
-					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					pass_type = "texture",
+					value = "content/ui/materials/patterns/diagonal_lines_pattern_01",
 					style = {
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						color = {
 							105,
 							45,
 							45,
-							45
-						}
+							45,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "required_level_background",
 					pass_type = "rect",
+					style_id = "required_level_background",
 					style = {
 						offset = {
 							0,
 							0,
-							6
+							6,
 						},
 						color = {
 							150,
 							35,
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/gradients/gradient_horizontal",
 					pass_type = "texture_uv",
+					value = "content/ui/materials/gradients/gradient_horizontal",
 					style = {
-						vertical_alignment = "bottom",
 						horizontal_alignment = "left",
+						vertical_alignment = "bottom",
 						size = {
 							nil,
-							45
+							45,
 						},
 						color = Color.black(255, true),
 						offset = {
 							0,
 							0,
-							8
+							8,
 						},
 						uvs = {
 							{
 								1,
-								0
+								0,
 							},
 							{
 								0,
-								1
-							}
-						}
+								1,
+							},
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					value_id = "required_level_text",
-					style_id = "required_level_text",
 					pass_type = "text",
+					style_id = "required_level_text",
 					value = "",
+					value_id = "required_level_text",
 					style = {
-						text_vertical_alignment = "bottom",
+						drop_shadow = true,
 						font_size = 22,
+						font_type = "proxima_nova_bold",
 						horizontal_alignment = "center",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "bottom",
 						vertical_alignment = "center",
-						drop_shadow = true,
-						font_type = "proxima_nova_bold",
 						size_addition = {
 							-40,
-							-20
+							-20,
 						},
 						text_color = {
 							255,
 							159,
 							67,
-							67
+							67,
 						},
 						offset = {
 							0,
 							0,
-							9
-						}
+							9,
+						},
 					},
 					visibility_function = function (content, style)
 						return not content.element.level_requirement_met
-					end
+					end,
 				},
 				{
-					style_id = "overlay",
 					pass_type = "rect",
+					style_id = "overlay",
 					style = {
 						offset = {
 							0,
 							0,
-							5
+							5,
 						},
-						color = Color.black(220, true)
+						color = Color.black(220, true),
 					},
 					visibility_function = function (content, style)
 						return content.use_overlay
-					end
+					end,
 				},
 				{
-					value = "content/ui/materials/dividers/faded_line_01",
 					pass_type = "texture",
+					value = "content/ui/materials/dividers/faded_line_01",
 					style = {
 						vertical_alignment = "center",
 						size = {
 							nil,
-							40
+							40,
 						},
 						color = Color.terminal_grid_background(70, true),
 						offset = {
 							0,
 							0,
-							6
-						}
+							6,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.use_overlay
-					end
+					end,
 				},
 				{
-					style_id = "overlay_text",
-					value_id = "overlay_text",
 					pass_type = "text",
+					style_id = "overlay_text",
 					value = "",
+					value_id = "overlay_text",
 					style = {
-						horizontal_alignment = "center",
 						font_size = 26,
-						text_vertical_alignment = "center",
-						text_horizontal_alignment = "center",
-						vertical_alignment = "center",
 						font_type = "machine_medium",
+						horizontal_alignment = "center",
+						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
+						vertical_alignment = "center",
 						text_color = Color.terminal_text_header(255, true),
 						offset = {
 							0,
 							0,
-							7
+							7,
 						},
 						size_addition = {
 							0,
-							0
-						}
+							0,
+						},
 					},
 					visibility_function = function (content, style)
 						return content.use_overlay
-					end
-				}
+					end,
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -3469,7 +3469,7 @@ local function generate_blueprints_func(grid_size)
 
 					if required_level then
 						content.required_level_text = Localize("loc_group_finder_tag_level_requirement", true, {
-							level = required_level
+							level = required_level,
 						})
 					end
 				end
@@ -3613,38 +3613,38 @@ local function generate_blueprints_func(grid_size)
 				end
 
 				content.use_overlay = use_overlay
-			end
+			end,
 		},
 		texture = {
 			size = {
 				64,
-				64
+				64,
 			},
 			size_function = function (parent, element, ui_renderer)
 				local size = element.size
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					64,
-					64
+					64,
 				}
 			end,
 			pass_template = {
 				{
+					pass_type = "texture",
 					style_id = "texture",
 					value_id = "texture",
-					pass_type = "texture",
 					style = {
 						color = {
 							255,
 							255,
 							255,
-							255
-						}
-					}
-				}
+							255,
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -3683,7 +3683,7 @@ local function generate_blueprints_func(grid_size)
 					color[3] = texture_color[3]
 					color[4] = texture_color[4]
 				end
-			end
+			end,
 		},
 		header = {
 			size_function = function (parent, element, ui_renderer)
@@ -3691,35 +3691,35 @@ local function generate_blueprints_func(grid_size)
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					grid_size[1],
-					100
+					100,
 				}
 			end,
 			size = {
 				grid_size[1],
-				100
+				100,
 			},
 			pass_template = {
 				{
-					style_id = "text",
-					value_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value = "n/a",
+					value_id = "text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 28,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						text_color = Color.terminal_text_header(255, true),
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
-				}
+							3,
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -3748,7 +3748,7 @@ local function generate_blueprints_func(grid_size)
 			update = function (parent, widget, input_service, dt, t, ui_renderer)
 				local content = widget.content
 				local element = content.element
-			end
+			end,
 		},
 		body = {
 			size_function = function (parent, element, ui_renderer)
@@ -3756,35 +3756,35 @@ local function generate_blueprints_func(grid_size)
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					grid_size[1],
-					100
+					100,
 				}
 			end,
 			size = {
 				grid_size[1],
-				100
+				100,
 			},
 			pass_template = {
 				{
-					style_id = "text",
-					value_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value = "n/a",
+					value_id = "text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 20,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "left",
+						text_vertical_alignment = "center",
 						text_color = Color.text_default(255, true),
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
-				}
+							3,
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -3809,7 +3809,7 @@ local function generate_blueprints_func(grid_size)
 			update = function (parent, widget, input_service, dt, t, ui_renderer)
 				local content = widget.content
 				local element = content.element
-			end
+			end,
 		},
 		body_centered = {
 			size_function = function (parent, element, ui_renderer)
@@ -3817,35 +3817,35 @@ local function generate_blueprints_func(grid_size)
 
 				return size and {
 					size[1],
-					size[2]
+					size[2],
 				} or {
 					grid_size[1],
-					100
+					100,
 				}
 			end,
 			size = {
 				grid_size[1],
-				100
+				100,
 			},
 			pass_template = {
 				{
-					style_id = "text",
-					value_id = "text",
 					pass_type = "text",
+					style_id = "text",
 					value = "n/a",
+					value_id = "text",
 					style = {
-						font_type = "proxima_nova_bold",
 						font_size = 20,
-						text_vertical_alignment = "center",
+						font_type = "proxima_nova_bold",
 						text_horizontal_alignment = "center",
+						text_vertical_alignment = "center",
 						text_color = Color.text_default(255, true),
 						offset = {
 							0,
 							0,
-							3
-						}
-					}
-				}
+							3,
+						},
+					},
+				},
 			},
 			init = function (parent, widget, element, callback_name, secondary_callback_name, ui_renderer)
 				local style = widget.style
@@ -3870,8 +3870,8 @@ local function generate_blueprints_func(grid_size)
 			update = function (parent, widget, input_service, dt, t, ui_renderer)
 				local content = widget.content
 				local element = content.element
-			end
-		}
+			end,
+		},
 	}
 end
 

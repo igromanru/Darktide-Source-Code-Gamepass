@@ -12,14 +12,14 @@ local XboxLiveUtils = require("scripts/foundation/utilities/xbox_live_utils")
 local XboxPrivileges = require("scripts/managers/account/xbox_privileges")
 local AccountManagerXboxLive = class("AccountManagerXboxLive", "AccountManagerBase")
 local SIGNIN_STATES = {
-	fetching_sandbox_id = "loc_signin_fetch_sandbox_id",
-	loading_save = "loc_signin_load_save",
-	idle = "",
-	signin_profile = "loc_signin_acquiring_user_profile",
-	fetching_privileges = "loc_signin_fetch_privileges",
-	querying_storage = "loc_signin_query_storage",
 	acquiring_storage = "loc_signin_acquire_storage",
-	deleting_save = "loc_signin_delete_save"
+	deleting_save = "loc_signin_delete_save",
+	fetching_privileges = "loc_signin_fetch_privileges",
+	fetching_sandbox_id = "loc_signin_fetch_sandbox_id",
+	idle = "",
+	loading_save = "loc_signin_load_save",
+	querying_storage = "loc_signin_query_storage",
+	signin_profile = "loc_signin_acquiring_user_profile",
 }
 
 AccountManagerXboxLive.init = function (self)
@@ -536,24 +536,24 @@ AccountManagerXboxLive._show_gamertag_popup = function (self)
 		self:_setup_friends_list()
 	else
 		local context = {
-			title_text = "loc_popup_info",
 			description_text = "loc_popup_desc_signed_in_gamertag",
+			title_text = "loc_popup_info",
 			description_text_params = {
-				gamertag = self._gamertag
+				gamertag = self._gamertag,
 			},
 			options = {
 				{
-					text = "loc_popup_button_confirm",
 					close_on_pressed = true,
-					callback = callback(self, "_setup_friends_list")
+					text = "loc_popup_button_confirm",
+					callback = callback(self, "_setup_friends_list"),
 				},
 				{
-					text = "loc_exit_to_title_display_name",
 					close_on_pressed = true,
 					hotkey = "back",
-					callback = callback(self, "return_to_title_screen")
-				}
-			}
+					text = "loc_exit_to_title_display_name",
+					callback = callback(self, "return_to_title_screen"),
+				},
+			},
 		}
 
 		Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -790,30 +790,30 @@ AccountManagerXboxLive._show_disconnect_error = function (self)
 	end
 
 	local context = {
-		title_text = "loc_popup_header_controller_disconnect_error",
 		description_text = "loc_popup_desc_signed_out_error",
+		title_text = "loc_popup_header_controller_disconnect_error",
 		priority_order = math.huge,
 		description_text_params = {
-			gamertag = self._gamertag
+			gamertag = self._gamertag,
 		},
 		options = {
 			{
+				close_on_pressed = true,
 				text = "loc_retry",
-				close_on_pressed = true,
-				callback = callback(self, "_cb_verify_profile")
+				callback = callback(self, "_cb_verify_profile"),
 			},
 			{
+				close_on_pressed = true,
 				text = "loc_select_profile",
-				close_on_pressed = true,
-				callback = callback(self, "_cb_open_profile_picker")
+				callback = callback(self, "_cb_open_profile_picker"),
 			},
 			{
-				text = "loc_exit_to_title_display_name",
 				close_on_pressed = true,
 				hotkey = "back",
-				callback = callback(self, "return_to_title_screen")
-			}
-		}
+				text = "loc_exit_to_title_display_name",
+				callback = callback(self, "return_to_title_screen"),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -829,30 +829,30 @@ AccountManagerXboxLive._show_signed_out_error = function (self)
 	end
 
 	local context = {
-		title_text = "loc_popup_header_signed_out_error",
 		description_text = "loc_popup_desc_signed_out_error",
+		title_text = "loc_popup_header_signed_out_error",
 		priority_order = math.huge,
 		description_text_params = {
-			gamertag = self._gamertag
+			gamertag = self._gamertag,
 		},
 		options = {
 			{
+				close_on_pressed = true,
 				text = "loc_retry",
-				close_on_pressed = true,
-				callback = callback(self, "_cb_verify_profile")
+				callback = callback(self, "_cb_verify_profile"),
 			},
 			{
+				close_on_pressed = true,
 				text = "loc_select_profile",
-				close_on_pressed = true,
-				callback = callback(self, "_cb_open_profile_picker")
+				callback = callback(self, "_cb_open_profile_picker"),
 			},
 			{
-				text = "loc_exit_to_title_display_name",
 				close_on_pressed = true,
 				hotkey = "back",
-				callback = callback(self, "return_to_title_screen")
-			}
-		}
+				text = "loc_exit_to_title_display_name",
+				callback = callback(self, "return_to_title_screen"),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -867,11 +867,11 @@ AccountManagerXboxLive._show_fatal_error = function (self, title_text, descripti
 		description_text = description_text,
 		options = {
 			{
-				text = "loc_popup_button_close",
 				close_on_pressed = true,
-				callback = callback(self, "return_to_title_screen")
-			}
-		}
+				text = "loc_popup_button_close",
+				callback = callback(self, "return_to_title_screen"),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)

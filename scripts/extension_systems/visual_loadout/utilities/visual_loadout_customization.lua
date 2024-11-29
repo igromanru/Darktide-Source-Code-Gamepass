@@ -4,9 +4,9 @@ local ItemMaterialOverrides = require("scripts/settings/equipment/item_material_
 local VisualLoadoutCustomization = {}
 local _validate_item_name, _generate_attachment_overrides_recursive, _attach_hierarchy, _attach_hierarchy_children, _spawn_attachment
 local _sort_order_enum = {
-	FACE_SCAR = 1,
 	FACE_HAIR = 2,
-	HAIR = 3
+	FACE_SCAR = 1,
+	HAIR = 3,
 }
 local _apply_material_override
 local Unit = Unit

@@ -23,11 +23,11 @@ local function _check_premium()
 
 		if result == true then
 			return {
-				success = true
+				success = true,
 			}
 		else
 			return {
-				success = false
+				success = false,
 			}
 		end
 	end)
@@ -59,11 +59,11 @@ local function _show_premium_dialogue()
 
 		if result == NpCommerceDialog.RESULT_PURCHASED then
 			return {
-				success = true
+				success = true,
 			}
 		else
 			return {
-				success = false
+				success = false,
 			}
 		end
 	end)
@@ -95,11 +95,11 @@ local function _show_signin_dialogue()
 
 		if result then
 			return {
-				success = true
+				success = true,
 			}
 		else
 			return {
-				success = false
+				success = false,
 			}
 		end
 	end)
@@ -115,8 +115,8 @@ PSNRestrictions.psn_signin = function (self)
 			return Promise.resolved()
 		else
 			return Promise.rejected({
+				header = "PSNRestrictions.psn_signin()",
 				message = "loc_psn_not_connected",
-				header = "PSNRestrictions.psn_signin()"
 			})
 		end
 	end)
@@ -132,8 +132,8 @@ PSNRestrictions.verify_premium = function (self)
 					return Promise.resolved()
 				else
 					return Promise.rejected({
+						header = "PSNRestrictions.verify_premium()",
 						message = "loc_psn_premium_fail_desc",
-						header = "PSNRestrictions.verify_premium()"
 					})
 				end
 			end)

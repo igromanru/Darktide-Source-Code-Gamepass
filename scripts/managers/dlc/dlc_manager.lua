@@ -206,19 +206,19 @@ DLCManager.cb_get_entitlements = function (self, data)
 
 		for _, data in pairs(TEMP_STORE_DATA) do
 			local context = {
-				title_text = "loc_popup_header_new_dlc_installed",
 				description_text = "loc_dlc_installed",
+				title_text = "loc_popup_header_new_dlc_installed",
 				description_text_params = {
 					dlc_name = data.title,
-					dlc_description = data.description
+					dlc_description = data.description,
 				},
 				options = {
 					{
-						text = "loc_popup_unavailable_view_button_confirm",
 						close_on_pressed = true,
-						callback = callback(self, "_cb_popup_closed")
-					}
-				}
+						text = "loc_popup_unavailable_view_button_confirm",
+						callback = callback(self, "_cb_popup_closed"),
+					},
+				},
 			}
 
 			Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -272,19 +272,19 @@ end
 
 DLCManager.trigger_new_durable_dlc_popup = function (self, dlc_details)
 	local context = {
-		title_text = "loc_popup_header_new_dlc_installed",
 		description_text = "loc_dlc_installed",
+		title_text = "loc_popup_header_new_dlc_installed",
 		description_text_params = {
 			dlc_name = dlc_details.display_name,
-			dlc_description = dlc_details.description
+			dlc_description = dlc_details.description,
 		},
 		options = {
 			{
-				text = "loc_popup_unavailable_view_button_confirm",
 				close_on_pressed = true,
-				callback = callback(self, "_cb_popup_closed")
-			}
-		}
+				text = "loc_popup_unavailable_view_button_confirm",
+				callback = callback(self, "_cb_popup_closed"),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context, function (id)
@@ -316,8 +316,8 @@ DLCManager._handle_dangling_pending_dlcs = function (self)
 		for i = 1, instances do
 			Managers.event:trigger("event_add_notification_message", "alert", {
 				text = Localize("loc_failed_to_redeem_dlc", true, {
-					dlc_name = self._pending_dlc_lookup[store_id]
-				})
+					dlc_name = self._pending_dlc_lookup[store_id],
+				}),
 			})
 		end
 	end
@@ -425,7 +425,7 @@ DLCStates.present_rewards = function (dlc_manager, dt, t)
 			if reward.rewardType == "currency" then
 				Managers.event:trigger("event_add_notification_message", "currency", {
 					currency = reward.currencyType,
-					amount = reward.amount
+					amount = reward.amount,
 				})
 
 				currency_rewarded = true
@@ -441,7 +441,7 @@ DLCStates.present_rewards = function (dlc_manager, dt, t)
 
 						item_rewards[#item_rewards + 1] = {
 							gear_id = gear_id,
-							item_type = item_type
+							item_type = item_type,
 						}
 					end
 				end

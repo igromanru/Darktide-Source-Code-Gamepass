@@ -45,7 +45,7 @@ upgrade_title_style.text_vertical_alignment = "center"
 upgrade_title_style.offset = {
 	0,
 	-12,
-	0
+	0,
 }
 upgrade_title_style.text_color = Color.white(255, true)
 upgrade_title_style.material = "content/ui/materials/font_gradients/slug_font_gradient_header"
@@ -74,7 +74,7 @@ trait_tooltip_text_style.text_vertical_alignment = "top"
 trait_tooltip_text_style.offset = {
 	0,
 	0,
-	3
+	3,
 }
 trait_tooltip_text_style.text_color = Color.ui_grey_medium(255, true)
 
@@ -87,7 +87,7 @@ trait_action_style.text_vertical_alignment = "top"
 trait_action_style.offset = {
 	0,
 	0,
-	3
+	3,
 }
 
 local fuse_description_font_style = table.clone(UIFontSettings.body_small)
@@ -99,7 +99,7 @@ fuse_description_font_style.text_vertical_alignment = "top"
 fuse_description_font_style.offset = {
 	40,
 	10,
-	0
+	0,
 }
 fuse_description_font_style.text_color = Color.ui_grey_medium(255, true)
 
@@ -112,7 +112,7 @@ count_font_style.text_vertical_alignment = "bottom"
 count_font_style.offset = {
 	-20,
 	0,
-	0
+	0,
 }
 count_font_style.text_color = Color.ui_grey_medium(255, true)
 
@@ -125,11 +125,11 @@ fuse_action_font_style.horizontal_alignment = "left"
 fuse_action_font_style.offset = {
 	20,
 	-10,
-	0
+	0,
 }
 fuse_action_font_style.size = {
 	100,
-	20
+	20,
 }
 
 return {
@@ -148,5 +148,5 @@ return {
 	loading_style = loading_style,
 	fuse_description_font_style = fuse_description_font_style,
 	count_font_style = count_font_style,
-	fuse_action_font_style = fuse_action_font_style
+	fuse_action_font_style = fuse_action_font_style,
 }

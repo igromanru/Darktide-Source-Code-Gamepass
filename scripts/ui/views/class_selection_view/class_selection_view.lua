@@ -18,10 +18,10 @@ local ViewElementGrid = require("scripts/ui/view_elements/view_element_grid/view
 local ViewElementInputLegend = require("scripts/ui/view_elements/view_element_input_legend/view_element_input_legend")
 local ClassSelectionView = class("ClassSelectionView", "BaseView")
 local temp_archetype_to_specialization_lookup = {
-	veteran = "veteran_2",
+	ogryn = "ogryn_2",
 	psyker = "psyker_2",
+	veteran = "veteran_2",
 	zealot = "zealot_2",
-	ogryn = "ogryn_2"
 }
 
 ClassSelectionView.init = function (self, settings, context)
@@ -240,22 +240,22 @@ end
 
 ClassSelectionView._on_quit_pressed = function (self)
 	local context = {
-		title_text = "loc_popup_header_quit_game",
 		description_text = "loc_popup_description_quit_game",
+		title_text = "loc_popup_header_quit_game",
 		options = {
 			{
-				text = "loc_popup_button_continue_game",
 				close_on_pressed = true,
-				hotkey = "back"
+				hotkey = "back",
+				text = "loc_popup_button_continue_game",
 			},
 			{
-				text = "loc_popup_button_quit_game",
 				close_on_pressed = true,
+				text = "loc_popup_button_quit_game",
 				callback = callback(function ()
 					Application.quit()
-				end)
-			}
-		}
+				end),
+			},
+		},
 	}
 
 	Managers.event:trigger("event_show_ui_popup", context)
@@ -372,7 +372,7 @@ ClassSelectionView._create_archetype_option_widgets = function (self)
 
 	self._archetype_options_select_widget = {
 		widget_left,
-		widget_right
+		widget_right,
 	}
 end
 
@@ -441,7 +441,7 @@ ClassSelectionView._update_archetype_info = function (self)
 	local title_style_options = UIFonts.get_font_options_by_style(title_style)
 	local title_width, title_height = self:_text_size(title, title_style.font_type, title_style.font_size, {
 		max_width,
-		2000
+		2000,
 	}, title_style_options)
 	local initial_offset = widget.style.title.offset[2]
 
@@ -597,23 +597,23 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 		local grid_size = grid_scenegraph.size
 		local mask_padding_size = 0
 		local grid_settings = {
-			scrollbar_width = 7,
-			hide_dividers = true,
 			enable_gamepad_scrolling = true,
+			hide_background = true,
+			hide_dividers = true,
+			scrollbar_horizontal_offset = 22,
+			scrollbar_width = 7,
+			title_height = 0,
 			use_parent_ui_renderer = false,
 			widget_icon_load_margin = 5000,
-			title_height = 0,
-			scrollbar_horizontal_offset = 22,
-			hide_background = true,
 			grid_spacing = {
 				0,
-				0
+				0,
 			},
 			grid_size = grid_size,
 			mask_size = {
 				grid_size[1] + 40,
-				grid_size[2] + mask_padding_size
-			}
+				grid_size[2] + mask_padding_size,
+			},
 		}
 		local layer = (self._draw_layer or 0) + 10
 
@@ -630,14 +630,14 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 	if archetype then
 		layout[#layout + 1] = {
 			widget_type = "video",
-			video_path = archetype.archetype_video
+			video_path = archetype.archetype_video,
 		}
 		layout[#layout + 1] = {
 			widget_type = "dynamic_spacing",
 			size = {
 				max_width,
-				25
-			}
+				25,
+			},
 		}
 
 		local nodes_to_present = {}
@@ -646,15 +646,15 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			widget_type = "dynamic_spacing",
 			size = {
 				max_width,
-				25
-			}
+				25,
+			},
 		}
 
 		local base_class_loadout = {
 			ability = {},
 			blitz = {},
 			aura = {},
-			iconics = {}
+			iconics = {},
 		}
 		local profile = self._character_create:profile()
 		local force_base_talents = true
@@ -667,7 +667,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			type = "ability",
 			widget_type = "talent_info",
 			talent = ability_talent,
-			icon = base_class_loadout.ability.icon
+			icon = base_class_loadout.ability.icon,
 		}
 
 		local blitz_talent = base_class_loadout.blitz.talent
@@ -676,7 +676,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			type = "tactical",
 			widget_type = "talent_info",
 			talent = blitz_talent,
-			icon = base_class_loadout.blitz.icon
+			icon = base_class_loadout.blitz.icon,
 		}
 
 		local aura_talent = base_class_loadout.aura.talent
@@ -685,7 +685,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			type = "aura",
 			widget_type = "talent_info",
 			talent = aura_talent,
-			icon = base_class_loadout.aura.icon
+			icon = base_class_loadout.aura.icon,
 		}
 
 		local iconics = base_class_loadout.iconics
@@ -696,7 +696,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			nodes_to_present[#nodes_to_present + 1] = {
 				type = "iconic",
 				widget_type = "stat",
-				talent = iconic
+				talent = iconic,
 			}
 		end
 
@@ -762,14 +762,14 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 				if not presented_node_type_headers[node_type] then
 					layout[#layout + 1] = {
 						widget_type = "header",
-						text = Localize(settings_by_node_type.display_name)
+						text = Localize(settings_by_node_type.display_name),
 					}
 					layout[#layout + 1] = {
 						widget_type = "dynamic_spacing",
 						size = {
 							max_width,
-							10
-						}
+							10,
+						},
 					}
 					presented_node_type_headers[node_type] = true
 				end
@@ -783,7 +783,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 					icon = icon,
 					frame = frame,
 					icon_mask = icon_mask,
-					node_type = node_type
+					node_type = node_type,
 				}
 
 				if node_type ~= "iconic" then
@@ -791,8 +791,8 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 						widget_type = "dynamic_spacing",
 						size = {
 							max_width,
-							25
-						}
+							25,
+						},
 					}
 				end
 			end
@@ -808,7 +808,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 				if item then
 					unique_weapons[#unique_weapons + 1] = {
 						item = table.clone_instance(item),
-						display_name = weapon.display_name
+						display_name = weapon.display_name,
 					}
 				end
 			end
@@ -819,19 +819,19 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 				widget_type = "dynamic_spacing",
 				size = {
 					max_width,
-					20
-				}
+					20,
+				},
 			}
 			layout[#layout + 1] = {
 				widget_type = "header",
-				text = Localize("loc_class_selection_specialization_class_unique_weapons_title")
+				text = Localize("loc_class_selection_specialization_class_unique_weapons_title"),
 			}
 			layout[#layout + 1] = {
 				widget_type = "dynamic_spacing",
 				size = {
 					max_width,
-					25
-				}
+					25,
+				},
 			}
 
 			for i = 1, #unique_weapons do
@@ -840,7 +840,7 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 				layout[#layout + 1] = {
 					widget_type = "weapon",
 					display_name = unique_weapon.display_name,
-					item = unique_weapon.item
+					item = unique_weapon.item,
 				}
 
 				if i < #unique_weapons then
@@ -848,8 +848,8 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 						widget_type = "dynamic_spacing",
 						size = {
 							max_width,
-							15
-						}
+							15,
+						},
 					}
 				end
 			end
@@ -859,8 +859,8 @@ ClassSelectionView._create_archetype_abilities_info = function (self)
 			widget_type = "dynamic_spacing",
 			size = {
 				max_width,
-				25
-			}
+				25,
+			},
 		}
 	end
 

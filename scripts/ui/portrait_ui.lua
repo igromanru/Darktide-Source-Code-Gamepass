@@ -283,7 +283,7 @@ PortraitUI._store_camera_settings_by_breed = function (self, breed, camera_unit)
 				slot_name = slot_name,
 				camera_unit = slot_camera_unit,
 				boxed_camera_start_position = Vector3.to_array(slot_camera_position),
-				boxed_camera_start_rotation = QuaternionBox(slot_camera_rotation)
+				boxed_camera_start_rotation = QuaternionBox(slot_camera_rotation),
 			}
 		end
 	end
@@ -296,7 +296,7 @@ PortraitUI._store_camera_settings_by_breed = function (self, breed, camera_unit)
 		camera_unit = camera_unit,
 		boxed_camera_start_position = Vector3.to_array(camera_position),
 		boxed_camera_start_rotation = QuaternionBox(camera_rotation),
-		camera_settings_by_item_slot = camera_settings_by_item_slot
+		camera_settings_by_item_slot = camera_settings_by_item_slot,
 	}
 end
 

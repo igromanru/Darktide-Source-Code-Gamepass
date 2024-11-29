@@ -24,7 +24,7 @@ local RPCS = {
 	"rpc_play_dialogue_event",
 	"rpc_dialogue_system_joined",
 	"rpc_set_dynamic_smart_tag",
-	"rpc_trigger_subtitle_event"
+	"rpc_trigger_subtitle_event",
 }
 local DialogueSystem = class("DialogueSystem", "ExtensionSystemBase")
 
@@ -142,7 +142,7 @@ DialogueSystem.init = function (self, extension_system_creation_context, system_
 		player = {},
 		enemy = {},
 		npc = {},
-		none = {}
+		none = {},
 	}
 
 	local extension_per_breed_wwise_voice_index = {}
@@ -337,7 +337,7 @@ local _function_by_op = {
 	end,
 	[TagQuery.OP.TIMESET] = function ()
 		return Managers.time:time("gameplay") + 900
-	end
+	end,
 }
 
 DialogueSystem._update_currently_playing_dialogues = function (self, dt, t)
@@ -414,7 +414,7 @@ DialogueSystem._update_currently_playing_dialogues = function (self, dt, t)
 							dialogue_name = result,
 							speaker_class = extension:vo_class_name(),
 							sound_event = extension:get_last_query_sound_event(),
-							voice_profile = extension:get_voice_profile()
+							voice_profile = extension:get_voice_profile(),
 						}
 
 						if success_rule.heard_speak_routing ~= nil then
@@ -1114,7 +1114,7 @@ DialogueSystem._play_dialogue_event_implementation = function (self, go_id, is_l
 				local vo_event = {
 					type = "vorbis_external",
 					sound_event = sound_event,
-					wwise_route = wwise_route
+					wwise_route = wwise_route,
 				}
 
 				dialogue.currently_playing_event_id = extension:play_event(vo_event)
@@ -1170,7 +1170,7 @@ DialogueSystem._create_sequence_events_table = function (self, pre_wwise_event, 
 	if pre_wwise_event then
 		local pre_wwise_event_table = {
 			type = "resource_event",
-			sound_event = pre_wwise_event
+			sound_event = pre_wwise_event,
 		}
 
 		sequence_events[#sequence_events + 1] = pre_wwise_event_table
@@ -1179,7 +1179,7 @@ DialogueSystem._create_sequence_events_table = function (self, pre_wwise_event, 
 	local vo_event = {
 		type = "vorbis_external",
 		sound_event = sound_event,
-		wwise_route = wwise_route
+		wwise_route = wwise_route,
 	}
 
 	sequence_events[#sequence_events + 1] = vo_event
@@ -1187,7 +1187,7 @@ DialogueSystem._create_sequence_events_table = function (self, pre_wwise_event, 
 	if post_wwise_event then
 		local post_wwise_event_table = {
 			type = "resource_event",
-			sound_event = post_wwise_event
+			sound_event = post_wwise_event,
 		}
 
 		sequence_events[#sequence_events + 1] = post_wwise_event_table
@@ -1199,7 +1199,7 @@ end
 DialogueSystem.play_wwise_event = function (self, extension, wwise_event)
 	local wwise_event_table = {
 		type = "resource_event",
-		sound_event = wwise_event
+		sound_event = wwise_event,
 	}
 
 	return extension:play_event(wwise_event_table)

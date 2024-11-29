@@ -185,7 +185,7 @@ local FORMATTING_FUNCTIONS = {
 	end,
 	default = function (value, config)
 		return tostring(value)
-	end
+	end,
 }
 local EMPTY_TABLE = {}
 
@@ -268,7 +268,7 @@ local FIND_VALUE_FUNCTIONS = {
 	end,
 	default = function (config, points_spent)
 		return config.value
-	end
+	end,
 }
 local ARMOR_TYPE_GROUPS = {}
 local MODIFIER_VALUES = {}
@@ -278,7 +278,7 @@ local INTERESTING_ARMOR_TYPES = {
 	armor_types.resistant,
 	armor_types.berserker,
 	armor_types.super_armor,
-	armor_types.disgustingly_resilient
+	armor_types.disgustingly_resilient,
 }
 local DEV_INFO_FUNCTIONS = {
 	damage_profile = function (config)
@@ -361,7 +361,7 @@ local DEV_INFO_FUNCTIONS = {
 		end
 
 		return values_string:sub(1, -1)
-	end
+	end,
 }
 local FORMAT_VALUES_TEMP = {}
 

@@ -180,7 +180,7 @@ MonsterPacing._generate_spawns = function (self, template)
 					position = position,
 					section = section_index,
 					despawn_distance_when_passive = despawn_distance_when_passive,
-					spawn_type = spawn_type
+					spawn_type = spawn_type,
 				}
 
 				monsters[#monsters + 1] = monster
@@ -212,7 +212,7 @@ MonsterPacing._generate_spawns = function (self, template)
 					distance = travel_distance - sound_data.distance,
 					vo_event = sound_data.vo_event,
 					voice_profile = sound_data.voice_profile,
-					breed_name = sound_data.breed_name
+					breed_name = sound_data.breed_name,
 				}
 			end
 		end
@@ -250,7 +250,7 @@ MonsterPacing._generate_spawns = function (self, template)
 				breed_list = breed_list,
 				section = section_index,
 				spawn_point_travel_distance = spawn_point_travel_distance,
-				sound_events = sound_events
+				sound_events = sound_events,
 			}
 
 			boss_patrols[#boss_patrols + 1] = boss_patrol
@@ -340,7 +340,7 @@ MonsterPacing.fill_spawns_by_travel_distance = function (self, breed_name, spawn
 						breed_name = monster_breed_name,
 						position = position,
 						section = i,
-						spawn_type = spawn_type
+						spawn_type = spawn_type,
 					}
 
 					monsters[#monsters + 1] = monster
@@ -409,7 +409,7 @@ MonsterPacing.fill_boss_patrols_by_travel_distance = function (self, per_travel_
 						breed_list = breed_list,
 						section = i,
 						spawn_point_travel_distance = spawn_point_travel_distance,
-						sound_events = sound_events
+						sound_events = sound_events,
 					}
 
 					boss_patrols[#boss_patrols + 1] = boss_patrol
@@ -443,14 +443,14 @@ MonsterPacing.add_spawn_point = function (self, unit, position, path_position, t
 		position = Vector3Box(position_on_navmesh),
 		spawn_travel_distance = wanted_distance,
 		spawn_type = spawn_type,
-		spawn_point_travel_distance = travel_distance
+		spawn_point_travel_distance = travel_distance,
 	}
 
 	if spawn_point_section then
 		spawn_point_section[#spawn_point_section + 1] = spawn_point
 	else
 		spawn_point_sections[section_index] = {
-			spawn_point
+			spawn_point,
 		}
 		self._num_spawn_type_sections[spawn_type] = self._num_spawn_type_sections[spawn_type] + 1
 	end

@@ -254,142 +254,142 @@ end
 
 ParticleEffect.component_data = {
 	particle = {
-		ui_type = "resource",
+		filter = "particles",
 		preview = false,
-		value = "",
 		ui_name = "Particle",
-		filter = "particles"
+		ui_type = "resource",
+		value = "",
 	},
 	particle_node_name = {
+		ui_name = "Node Name",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Node Name"
 	},
 	create_particle_on_spawn = {
+		ui_name = "Create Particle on Spawn",
 		ui_type = "check_box",
 		value = true,
-		ui_name = "Create Particle on Spawn"
 	},
 	scalar_parameters = {
-		ui_type = "struct_array",
 		ui_name = "List of parameters (scalar)",
+		ui_type = "struct_array",
 		definition = {
 			cloud_name = {
+				ui_name = "Particle Cloud Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Particle Cloud Name"
 			},
 			parameter_name = {
+				ui_name = "Parameter Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Parameter Name"
 			},
 			parameter_value = {
-				ui_type = "number",
 				decimals = 2,
-				value = 0,
+				step = 0.01,
 				ui_name = "Value",
-				step = 0.01
-			}
+				ui_type = "number",
+				value = 0,
+			},
 		},
 		control_order = {
 			"cloud_name",
 			"parameter_name",
-			"parameter_value"
-		}
+			"parameter_value",
+		},
 	},
 	vector_two_parameters = {
-		ui_type = "struct_array",
 		ui_name = "List of parameters (vector2)",
+		ui_type = "struct_array",
 		definition = {
 			cloud_name = {
+				ui_name = "Particle Cloud Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Particle Cloud Name"
 			},
 			parameter_name = {
+				ui_name = "Parameter Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Parameter Name"
 			},
 			parameter_value = {
-				ui_type = "vector",
 				ui_name = "Value",
-				value = Vector3Box(0, 0, 0)
-			}
+				ui_type = "vector",
+				value = Vector3Box(0, 0, 0),
+			},
 		},
 		control_order = {
 			"cloud_name",
 			"parameter_name",
-			"parameter_value"
-		}
+			"parameter_value",
+		},
 	},
 	vector_three_parameters = {
-		ui_type = "struct_array",
 		ui_name = "List of parameters (vector3)",
+		ui_type = "struct_array",
 		definition = {
 			cloud_name = {
+				ui_name = "Particle Cloud Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Particle Cloud Name"
 			},
 			parameter_name = {
+				ui_name = "Parameter Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Parameter Name"
 			},
 			parameter_value = {
-				ui_type = "vector",
 				ui_name = "Value",
-				value = Vector3Box(0, 0, 0)
-			}
+				ui_type = "vector",
+				value = Vector3Box(0, 0, 0),
+			},
 		},
 		control_order = {
 			"cloud_name",
 			"parameter_name",
-			"parameter_value"
-		}
+			"parameter_value",
+		},
 	},
 	vector_four_parameters = {
-		ui_type = "struct_array",
 		ui_name = "List of parameters (vector4)",
+		ui_type = "struct_array",
 		definition = {
 			cloud_name = {
+				ui_name = "Particle Cloud Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Particle Cloud Name"
 			},
 			parameter_name = {
+				ui_name = "Parameter Name",
 				ui_type = "text_box",
 				value = "",
-				ui_name = "Parameter Name"
 			},
 			parameter_value = {
-				ui_type = "color",
 				ui_name = "Value",
-				value = QuaternionBox(1, 0, 0, 0)
-			}
+				ui_type = "color",
+				value = QuaternionBox(1, 0, 0, 0),
+			},
 		},
 		control_order = {
 			"cloud_name",
 			"parameter_name",
-			"parameter_value"
-		}
+			"parameter_value",
+		},
 	},
 	inputs = {
 		create_particle = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		destroy_particle = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		stop_particle = {
 			accessibility = "public",
-			type = "event"
-		}
-	}
+			type = "event",
+		},
+	},
 }
 
 return ParticleEffect

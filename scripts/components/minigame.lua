@@ -36,9 +36,9 @@ end
 
 Minigame.component_data = {
 	minigame_type = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Minigame Type",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Default",
@@ -46,7 +46,7 @@ Minigame.component_data = {
 			"Balance",
 			"Decode Symbols",
 			"Defuse",
-			"Drill"
+			"Drill",
 		},
 		options_values = {
 			"none",
@@ -55,12 +55,12 @@ Minigame.component_data = {
 			"balance",
 			"decode_symbols",
 			"defuse",
-			"drill"
-		}
+			"drill",
+		},
 	},
 	extensions = {
-		"MinigameExtension"
-	}
+		"MinigameExtension",
+	},
 }
 
 return Minigame

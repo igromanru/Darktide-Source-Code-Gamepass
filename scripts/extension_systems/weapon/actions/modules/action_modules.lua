@@ -20,7 +20,7 @@ local action_modules = {
 	psyker_smite_targeting = PsykerSmiteTargetingActionModule,
 	raycast_targeting = RaycastTargetingActionModule,
 	smart_target_targeting = SmartTargetingActionModule,
-	warp_charge = WarpChargeActionModule
+	warp_charge = WarpChargeActionModule,
 }
 
 return settings("ActionModules", action_modules)

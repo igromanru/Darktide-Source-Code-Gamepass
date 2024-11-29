@@ -14,7 +14,7 @@ local PlayerVoiceGrunts = require("scripts/utilities/player_voice_grunts")
 local SFX_SOURCE = "head"
 local STINGER_ALIAS = "disabled_enter"
 local STINGER_PROPERTIES = {
-	stinger_type = "mutant_charge"
+	stinger_type = "mutant_charge",
 }
 local VCE = "scream_long_vce"
 local PlayerCharacterStateConsumed = class("PlayerCharacterStateConsumed", "PlayerCharacterStateBase")
@@ -39,7 +39,7 @@ local CONSUMED_UNIT_LINK_NODE = "root_point"
 local DISABLED_UNIT_LINK_NODE = "j_hips"
 local SET_CONSUMED_TIMING = {
 	human = 3.566666666666667,
-	ogryn = 3.8
+	ogryn = 3.8,
 }
 local FOLLOW_CONSUMED_TARGET_CAMERA_TIMING = 0.5
 
@@ -235,7 +235,7 @@ PlayerCharacterStateConsumed._add_buffs = function (self, t)
 
 		self._buff_indexes = {
 			local_index = local_index,
-			component_index = component_index
+			component_index = component_index,
 		}
 	end
 end

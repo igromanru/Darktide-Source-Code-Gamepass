@@ -14,7 +14,7 @@ local enemy_vo_enemy_captain_spiritual_a = {
 			"loc_enemy_captain_spiritual_a__long_death_07",
 			"loc_enemy_captain_spiritual_a__long_death_08",
 			"loc_enemy_captain_spiritual_a__long_death_09",
-			"loc_enemy_captain_spiritual_a__long_death_10"
+			"loc_enemy_captain_spiritual_a__long_death_10",
 		},
 		sound_events_duration = {
 			6.685,
@@ -26,7 +26,7 @@ local enemy_vo_enemy_captain_spiritual_a = {
 			3.546,
 			6.012,
 			6.549,
-			5.375
+			5.375,
 		},
 		sound_event_weights = {
 			0.1,
@@ -38,10 +38,10 @@ local enemy_vo_enemy_captain_spiritual_a = {
 			0.1,
 			0.1,
 			0.1,
-			0.1
+			0.1,
 		},
-		randomize_indexes = {}
-	}
+		randomize_indexes = {},
+	},
 }
 
 return settings("enemy_vo_enemy_captain_spiritual_a", enemy_vo_enemy_captain_spiritual_a)

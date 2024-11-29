@@ -14,7 +14,7 @@ local Interactions = {
 		local event_name = "heal_start"
 
 		dialogue_extension:trigger_dialogue_event(event_name, event_data)
-	end
+	end,
 }
 
 Vo.health_critical_event = function (unit)

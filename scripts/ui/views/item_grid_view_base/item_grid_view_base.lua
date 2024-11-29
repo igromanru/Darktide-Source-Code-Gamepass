@@ -89,7 +89,7 @@ ItemGridViewBase._setup_sort_options = function (self)
 		self._sort_options = {
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -97,12 +97,12 @@ ItemGridViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_name,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -110,12 +110,12 @@ ItemGridViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_name,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -123,12 +123,12 @@ ItemGridViewBase._setup_sort_options = function (self)
 					">",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -136,12 +136,12 @@ ItemGridViewBase._setup_sort_options = function (self)
 					">",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_increasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -149,12 +149,12 @@ ItemGridViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_decreasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -162,9 +162,9 @@ ItemGridViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
-			}
+					ItemUtils.compare_item_rarity,
+				}),
+			},
 		}
 	end
 
@@ -211,7 +211,7 @@ ItemGridViewBase._setup_menu_tabs = function (self, content)
 
 	tab_button_template[1].style = {
 		on_hover_sound = UISoundEvents.tab_secondary_button_hovered,
-		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed
+		on_pressed_sound = UISoundEvents.tab_secondary_button_pressed,
 	}
 
 	local tab_ids = {}
@@ -387,7 +387,7 @@ ItemGridViewBase._preview_item = function (self, item)
 	self:_stop_previewing()
 
 	local item_stats_context = {
-		hide_source = self._hide_item_source_in_tooltip
+		hide_source = self._hide_item_source_in_tooltip,
 	}
 
 	if item and item.display_name and string.match(item.display_name, "unarmed") then
@@ -497,8 +497,8 @@ ItemGridViewBase._setup_weapon_preview = function (self)
 		local reference_name = "weapon_preview"
 		local layer = 10
 		local context = {
+			draw_background = true,
 			ignore_blur = true,
-			draw_background = true
 		}
 
 		self._weapon_preview = self:_add_element(ViewElementInventoryWeaponPreview, reference_name, layer, context)
@@ -510,7 +510,7 @@ ItemGridViewBase._setup_weapon_preview = function (self)
 		self._weapon_preview:center_align(0, {
 			-0.6,
 			-2,
-			-0.2
+			-0.2,
 		})
 		self._weapon_preview:set_force_allow_rotation(true)
 		self:_update_weapon_preview_viewport()
@@ -803,7 +803,7 @@ ItemGridViewBase.present_grid_layout = function (self, layout, on_present_callba
 	local grid_size = grid_settings.grid_size
 	local ContentBlueprints = generate_blueprints_function(grid_size)
 	local spacing_entry = {
-		widget_type = "spacing_vertical"
+		widget_type = "spacing_vertical",
 	}
 
 	table.insert(layout, 1, spacing_entry)
@@ -1147,7 +1147,7 @@ ItemGridViewBase.cb_on_inspect_pressed = function (self)
 					animation_event = animation_event,
 					wield_slot = slot_name,
 					preview_with_gear = is_item_supported_on_played_character,
-					preview_item = visual_item
+					preview_item = visual_item,
 				}
 			else
 				local profile = self._presentation_profile
@@ -1170,7 +1170,7 @@ ItemGridViewBase.cb_on_inspect_pressed = function (self)
 				context = {
 					profile = profile,
 					preview_with_gear = is_item_supported_on_played_character,
-					preview_item = previewed_item
+					preview_item = previewed_item,
 				}
 			end
 

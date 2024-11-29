@@ -6,7 +6,7 @@ local MinionSpawnManagerTestify = {
 		local target_spawn = minion_spawn_manager:spawn_minion(minion_data.breed_name, spawn_position, Quaternion.identity(), minion_data.breed_side)
 
 		return target_spawn
-	end
+	end,
 }
 
 return MinionSpawnManagerTestify

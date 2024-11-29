@@ -8,24 +8,24 @@ chain_speed_templates.chainaxe = {
 	time_until_min_throttle = 2.1,
 	animation = {
 		max = 100,
-		min = 1
+		min = 1,
 	},
 	sound = {
 		max = 1,
-		min = 0
+		min = 0,
 	},
 	max_intensity = {
-		sawing = 1,
 		activated = 1,
+		activated_sawing = 1,
 		idle = 1,
-		activated_sawing = 1
+		sawing = 1,
 	},
 	intensity_variation = {
-		sawing = 0.1,
 		activated = 0.2,
+		activated_sawing = 0.2,
 		idle = 0.05,
-		activated_sawing = 0.2
-	}
+		sawing = 0.1,
+	},
 }
 chain_speed_templates.chainsword = {
 	intensity_epsilon = 0.01,
@@ -33,24 +33,24 @@ chain_speed_templates.chainsword = {
 	time_until_min_throttle = 2.1,
 	animation = {
 		max = 100,
-		min = 1
+		min = 1,
 	},
 	sound = {
 		max = 1,
-		min = 0
+		min = 0,
 	},
 	max_intensity = {
-		sawing = 1,
 		activated = 1,
+		activated_sawing = 1,
 		idle = 1,
-		activated_sawing = 1
+		sawing = 1,
 	},
 	intensity_variation = {
-		sawing = 0.1,
 		activated = 0.2,
+		activated_sawing = 0.2,
 		idle = 0.05,
-		activated_sawing = 0.2
-	}
+		sawing = 0.1,
+	},
 }
 chain_speed_templates.chainsword_2h = {
 	intensity_epsilon = 0.01,
@@ -58,24 +58,24 @@ chain_speed_templates.chainsword_2h = {
 	time_until_min_throttle = 2.1,
 	animation = {
 		max = 100,
-		min = 1
+		min = 1,
 	},
 	sound = {
 		max = 1,
-		min = 0
+		min = 0,
 	},
 	max_intensity = {
-		sawing = 1,
 		activated = 1,
+		activated_sawing = 1,
 		idle = 1,
-		activated_sawing = 1
+		sawing = 1,
 	},
 	intensity_variation = {
-		sawing = 0.1,
 		activated = 0.2,
+		activated_sawing = 0.2,
 		idle = 0.05,
-		activated_sawing = 0.2
-	}
+		sawing = 0.1,
+	},
 }
 
 return settings("ChainSpeedTemplates", chain_speed_templates)

@@ -144,7 +144,7 @@ local DialogueSystemTestify = {
 		else
 			return Testify.RETRY
 		end
-	end
+	end,
 }
 
 return DialogueSystemTestify

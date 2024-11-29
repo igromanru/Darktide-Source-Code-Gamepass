@@ -5,48 +5,48 @@ local mission_objective_templates = {
 		objectives = {
 			objective_prologue_start = {
 				description = "loc_objective_prologue_start_desc",
-				music_wwise_state = "prologue_explore",
+				header = "loc_objective_prologue_start_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_start_header"
+				music_wwise_state = "prologue_explore",
 			},
 			objective_prologue_melee = {
 				description = "loc_objective_prologue_melee_desc",
-				music_wwise_state = "prologue_explore",
+				header = "loc_objective_prologue_melee_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_melee_header"
+				music_wwise_state = "prologue_explore",
 			},
 			objective_prologue_guardhouse_interact = {
 				description = "loc_objective_prologue_guardhouse_interact_desc",
-				music_wwise_state = "prologue_explore",
+				header = "loc_objective_prologue_guardhouse_interact_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_guardhouse_interact_header"
+				music_wwise_state = "prologue_explore",
 			},
 			objective_prologue_goto_bay = {
 				description = "loc_objective_prologue_goto_bay_desc",
-				music_wwise_state = "prologue_explore",
+				header = "loc_objective_prologue_goto_bay_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_goto_bay_header"
+				music_wwise_state = "prologue_explore",
 			},
 			objective_prologue_goto_hangar = {
 				description = "loc_objective_prologue_goto_hangar_desc",
-				music_wwise_state = "prologue_combat",
+				header = "loc_objective_prologue_goto_hangar_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_goto_hangar_header"
+				music_wwise_state = "prologue_combat",
 			},
 			objective_prologue_hangar_reach = {
 				description = "loc_objective_prologue_hangar_reach_desc",
-				music_wwise_state = "prologue_combat",
+				header = "loc_objective_prologue_hangar_reach_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_hangar_reach_header"
+				music_wwise_state = "prologue_combat",
 			},
 			objective_prologue_hangar_survive = {
 				description = "loc_objective_prologue_hangar_survive_desc",
-				music_wwise_state = "prologue_end_event",
+				header = "loc_objective_prologue_hangar_survive_header",
 				mission_objective_type = "goal",
-				header = "loc_objective_prologue_hangar_survive_header"
-			}
-		}
-	}
+				music_wwise_state = "prologue_end_event",
+			},
+		},
+	},
 }
 
 return mission_objective_templates

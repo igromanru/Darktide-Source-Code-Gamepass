@@ -4,10 +4,10 @@ local AchievementClassGroups = {}
 
 AchievementClassGroups.classes = {
 	{
-		name = "veteran_meta_numeric_achievement",
-		local_variable = "loc_class_veteran_name",
 		category = "veteran_progression",
 		icon = "content/ui/textures/icons/achievements/class_achievements/class_veteran_achievement",
+		local_variable = "loc_class_veteran_name",
+		name = "veteran_meta_numeric_achievement",
 		achievements = {
 			"rank_veteran_2_1",
 			"rank_veteran_2_2",
@@ -53,14 +53,14 @@ AchievementClassGroups.classes = {
 			"veteran_2_kills_with_last_round_in_mag",
 			"veteran_2_no_melee_damage_taken",
 			"veteran_2_elite_weakspot_kills_during_volley_fire_alternate_fire",
-			"veteran_2_no_missed_shots_empty_ammo"
-		}
+			"veteran_2_no_missed_shots_empty_ammo",
+		},
 	},
 	{
-		name = "zealot_meta_numeric_achievement",
-		local_variable = "loc_class_zealot_name",
 		category = "zealot_progression",
 		icon = "content/ui/textures/icons/achievements/class_achievements/class_zealot_achievement",
+		local_variable = "loc_class_zealot_name",
+		name = "zealot_meta_numeric_achievement",
 		achievements = {
 			"rank_zealot_2_1",
 			"rank_zealot_2_2",
@@ -106,14 +106,14 @@ AchievementClassGroups.classes = {
 			"zealot_2_kills_of_shocked_enemies_last_15",
 			"zealot_2_not_use_ranged_attacks",
 			"zealot_2_healed_up_after_resisting_death",
-			"zealot_2_health_on_last_segment_enough_during_mission"
-		}
+			"zealot_2_health_on_last_segment_enough_during_mission",
+		},
 	},
 	{
-		name = "psyker_meta_numeric_achievement",
-		local_variable = "loc_class_psyker_title",
 		category = "psyker_progression",
 		icon = "content/ui/textures/icons/achievements/class_achievements/class_psyker_achievement",
+		local_variable = "loc_class_psyker_title",
+		name = "psyker_meta_numeric_achievement",
 		achievements = {
 			"rank_psyker_2_1",
 			"rank_psyker_2_2",
@@ -159,14 +159,14 @@ AchievementClassGroups.classes = {
 			"psyker_team_elite_aura_kills",
 			"psyker_team_cooldown_reduced",
 			"psyker_team_critical_hits",
-			"psyker_threshold_kills_reached_with_grenade_chain"
-		}
+			"psyker_threshold_kills_reached_with_grenade_chain",
+		},
 	},
 	{
-		name = "ogryn_meta_numeric_achievement",
-		local_variable = "loc_class_ogryn_name",
 		category = "ogryn_progression",
 		icon = "content/ui/textures/icons/achievements/class_achievements/class_ogryn_achievement",
+		local_variable = "loc_class_ogryn_name",
+		name = "ogryn_meta_numeric_achievement",
 		achievements = {
 			"rank_ogryn_2_1",
 			"rank_ogryn_2_2",
@@ -213,9 +213,9 @@ AchievementClassGroups.classes = {
 			"ogryn_leadbelcher_free_shot",
 			"ogryn_team_heavy_aura_kills",
 			"ogryn_team_suppressed_aura_kills",
-			"ogryn_team_toughness_restored_aura"
-		}
-	}
+			"ogryn_team_toughness_restored_aura",
+		},
+	},
 }
 
 return AchievementClassGroups

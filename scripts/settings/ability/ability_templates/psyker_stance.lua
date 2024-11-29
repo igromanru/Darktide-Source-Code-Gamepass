@@ -7,30 +7,30 @@ ability_template.action_inputs = {
 		buffer_time = 0.5,
 		input_sequence = {
 			{
+				input = "combat_ability_pressed",
 				value = true,
-				input = "combat_ability_pressed"
-			}
-		}
-	}
+			},
+		},
+	},
 }
 ability_template.action_input_hierarchy = {
 	{
+		input = "stance_pressed",
 		transition = "stay",
-		input = "stance_pressed"
-	}
+	},
 }
 ability_template.actions = {
 	action_stance_change = {
+		ability_type = "combat_ability",
 		allowed_during_sprint = true,
-		use_ability_charge = true,
-		start_input = "stance_pressed",
 		kind = "stance_change",
 		sprint_ready_up_time = 0,
-		vo_tag = "ability_buff_stance",
+		start_input = "stance_pressed",
+		total_time = 0.1,
 		uninterruptible = true,
-		ability_type = "combat_ability",
-		total_time = 0.1
-	}
+		use_ability_charge = true,
+		vo_tag = "ability_buff_stance",
+	},
 }
 ability_template.fx_sources = {}
 

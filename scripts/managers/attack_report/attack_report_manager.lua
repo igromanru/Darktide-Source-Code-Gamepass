@@ -17,12 +17,12 @@ local DAMAGE_INDICATOR_ATTACK_RESULTS = {
 	[attack_results.toughness_absorbed_melee] = true,
 	[attack_results.toughness_broken] = true,
 	[attack_results.friendly_fire] = true,
-	[attack_results.blocked] = true
+	[attack_results.blocked] = true,
 }
 local RING_BUFFER_SIZE = 2048
 local MAX_UPDATES_PER_FRAME = 64
 local CLIENT_RPCS = {
-	"rpc_add_attack_result"
+	"rpc_add_attack_result",
 }
 
 AttackReportManager.init = function (self, is_server, network_event_delegate)
@@ -38,14 +38,14 @@ AttackReportManager.init = function (self, is_server, network_event_delegate)
 
 	for i = 1, RING_BUFFER_SIZE do
 		ring_buffer[i] = {
-			hit_weakspot = false,
-			damage = 0,
 			absorbed_damage = 0,
+			damage = 0,
+			hit_weakspot = false,
 			attack_direction = Vector3Box(),
 			hit_world_position = Vector3Box(),
 			attack_result = attack_results.died,
 			attack_type = attack_types.melee,
-			damage_efficiency = damage_efficiencies.full
+			damage_efficiency = damage_efficiencies.full,
 		}
 	end
 

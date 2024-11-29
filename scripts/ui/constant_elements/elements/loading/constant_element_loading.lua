@@ -4,10 +4,10 @@ local MatchmakingConstants = require("scripts/settings/network/matchmaking_const
 local CinematicSceneTemplates = require("scripts/settings/cinematic_scene/cinematic_scene_templates")
 local HOST_TYPES = MatchmakingConstants.HOST_TYPES
 local NO_TRANSITION_UI = {
-	use_transition_ui = false
+	use_transition_ui = false,
 }
 local LOADING_ICON = {
-	loading_icon = true
+	loading_icon = true,
 }
 local CINEMATIC_VIEWS = {}
 local VIEW_SETTINGS = {
@@ -15,7 +15,7 @@ local VIEW_SETTINGS = {
 		view_name = "mission_intro_view",
 		valid_states = {
 			"StateLoading",
-			"GameplayStateInit"
+			"GameplayStateInit",
 		},
 		validation_func = function ()
 			if Managers.ui:view_active("lobby_view") then
@@ -33,13 +33,13 @@ local VIEW_SETTINGS = {
 			end
 
 			return true
-		end
+		end,
 	},
 	{
 		view_name = "blank_view",
 		valid_states = {
 			"StateLoading",
-			"GameplayStateRun"
+			"GameplayStateRun",
 		},
 		validation_func = function ()
 			if Managers.ui:view_active("lobby_view") then
@@ -75,12 +75,12 @@ local VIEW_SETTINGS = {
 					return true, LOADING_ICON
 				end
 			end
-		end
+		end,
 	},
 	{
 		view_name = "blank_view",
 		valid_states = {
-			"GameplayStateRun"
+			"GameplayStateRun",
 		},
 		validation_func = function ()
 			local cinematic = Managers.state.cinematic:is_loading_cinematic_levels()
@@ -101,7 +101,7 @@ local VIEW_SETTINGS = {
 			if mission_outro_played then
 				return true, nil, NO_TRANSITION_UI
 			end
-		end
+		end,
 	},
 	{
 		view_name = "loading_view",
@@ -110,7 +110,7 @@ local VIEW_SETTINGS = {
 			"StateExitToMainMenu",
 			"StateMissionServerExit",
 			"GameplayStateInit",
-			"StateError"
+			"StateError",
 		},
 		validation_func = function ()
 			if Managers.ui:view_active("lobby_view") then
@@ -118,8 +118,8 @@ local VIEW_SETTINGS = {
 			end
 
 			return true
-		end
-	}
+		end,
+	},
 }
 local ConstantElementLoading = class("ConstantElementLoading")
 

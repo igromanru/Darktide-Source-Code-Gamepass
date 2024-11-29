@@ -19,7 +19,7 @@ SideRelationProximityExtension.init = function (self, extension_init_context, un
 	self._relation_data = relation_data
 	self._logic_context = {
 		unit = unit,
-		side_name = side_name
+		side_name = side_name,
 	}
 	self._job_logic = nil
 
@@ -36,15 +36,15 @@ SideRelationProximityExtension._initialize_relation = function (self, relation_n
 	local proximity_radius = relation_init_data.proximity_radius
 	local logic = {}
 	local data = {
-		num_logic = 0,
 		num_in_proximity = 0,
+		num_logic = 0,
 		units_in_proximity = {},
 		temp = {},
 		stickiness_table = {},
 		proximity_radius = relation_init_data.proximity_radius,
 		stickiness_limit = relation_init_data.stickiness_limit,
 		stickiness_time = relation_init_data.stickiness_time,
-		logic = logic
+		logic = logic,
 	}
 	local logic_context = self._logic_context
 	local logic_configuration = relation_init_data.logic

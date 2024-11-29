@@ -108,7 +108,7 @@ UIProfileSpawner.spawn_profile = function (self, profile, position, rotation, sc
 		force_highest_mip = force_highest_mip,
 		disable_hair_state_machine = disable_hair_state_machine or false,
 		optional_unit_3p = optional_unit_3p,
-		optional_ignore_state_machine = optional_ignore_state_machine
+		optional_ignore_state_machine = optional_ignore_state_machine,
 	}
 end
 
@@ -154,7 +154,7 @@ UIProfileSpawner.assign_animation_variable = function (self, index, value)
 	else
 		self._pending_animation_variable_data = {
 			index = index,
-			value = value
+			value = value,
 		}
 	end
 end
@@ -607,11 +607,11 @@ UIProfileSpawner._spawn_character_profile = function (self, profile, profile_loa
 
 	local slot_options = {
 		slot_primary = {
-			skip_link_children = false
+			skip_link_children = false,
 		},
 		slot_secondary = {
-			skip_link_children = true
-		}
+			skip_link_children = true,
+		},
 	}
 	local slots = equipment_component.initialize_equipment(gear_slots, slot_options)
 	local slot_equip_order = PlayerCharacterConstants.slot_equip_order
@@ -708,7 +708,7 @@ UIProfileSpawner._spawn_character_profile = function (self, profile, profile_loa
 		unit_3p = unit_3p,
 		disable_hair_state_machine = disable_hair_state_machine,
 		has_external_unit_3p = optional_unit_3p ~= nil,
-		force_highest_mip = force_highest_mip
+		force_highest_mip = force_highest_mip,
 	}
 
 	self._character_spawn_data = spawn_data

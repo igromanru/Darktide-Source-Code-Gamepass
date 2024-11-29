@@ -142,7 +142,7 @@ WeaponTweakTemplates.extract_buffs = function (weapon_template)
 	local buffs = {
 		[buff_targets.on_equip] = {},
 		[buff_targets.on_wield] = {},
-		[buff_targets.on_unwield] = {}
+		[buff_targets.on_unwield] = {},
 	}
 	local weapon_buffs = weapon_template.buffs
 
@@ -304,7 +304,7 @@ end
 function _lookup_entry(new_identifier, base_identifier)
 	return {
 		new_identifier = new_identifier,
-		base_identifier = base_identifier
+		base_identifier = base_identifier,
 	}
 end
 
@@ -500,7 +500,7 @@ local BASE_TEMPLATES = {
 	[template_types.weapon_handling] = WeaponHandlingTemplates,
 	[template_types.movement_curve_modifier] = WeaponMovementCurveModifierTemplates,
 	[template_types.charge] = WeaponChargeTemplates,
-	[template_types.warp_charge] = WeaponWarpChargeTemplates
+	[template_types.warp_charge] = WeaponWarpChargeTemplates,
 }
 
 WeaponTweakTemplates.get_base_stats = function (weapon_template, template_type, target)

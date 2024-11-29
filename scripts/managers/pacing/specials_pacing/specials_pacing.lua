@@ -59,7 +59,7 @@ end
 
 local MIN_TIMER_DIFF_RANGE = {
 	3,
-	5
+	5,
 }
 local USED_BREEDS = {}
 
@@ -368,7 +368,7 @@ SpecialsPacing.update = function (self, dt, t, side_id, target_side_id)
 				specials_slot.spawn_timer = spawn_timer
 
 				Managers.server_metrics:add_annotation("special_failed_to_spawn", {
-					travel_distance = furthest_travel_distance
+					travel_distance = furthest_travel_distance,
 				})
 			end
 		else
@@ -840,7 +840,7 @@ end
 
 SpecialsPacing._add_spawner_special = function (self, spawner, breed_name, side_id, target_side_id, optional_health_modifier)
 	local spawner_queue_id = spawner:add_spawns({
-		breed_name
+		breed_name,
 	}, side_id, target_side_id, nil, nil, nil, nil, nil, optional_health_modifier)
 
 	return spawner_queue_id, spawner
@@ -1069,7 +1069,7 @@ end
 local MIN_COORDINATED_TIMER = 20
 local COORDINATED_STRIKE_TIMER_OFFSET_RANGE = {
 	3,
-	6
+	6,
 }
 
 SpecialsPacing._check_and_activate_coordinated_strike = function (self, template, current_special_slot)

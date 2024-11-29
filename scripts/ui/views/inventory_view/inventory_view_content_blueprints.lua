@@ -19,7 +19,7 @@ local group_header_font_style = table.clone(UIFontSettings.header_3)
 group_header_font_style.offset = {
 	0,
 	0,
-	3
+	3,
 }
 group_header_font_style.text_horizontal_alignment = "center"
 group_header_font_style.text_vertical_alignment = "center"
@@ -30,7 +30,7 @@ local sub_header_font_style = table.clone(UIFontSettings.header_3)
 sub_header_font_style.offset = {
 	0,
 	0,
-	3
+	3,
 }
 sub_header_font_style.font_size = 18
 sub_header_font_style.text_horizontal_alignment = "center"
@@ -42,14 +42,14 @@ local item_sub_header_font_style = table.clone(UIFontSettings.header_1)
 item_sub_header_font_style.offset = {
 	0,
 	0,
-	3
+	3,
 }
 item_sub_header_font_style.font_size = 32
 item_sub_header_font_style.text_color = {
 	255,
 	255,
 	255,
-	255
+	255,
 }
 item_sub_header_font_style.text_horizontal_alignment = "center"
 item_sub_header_font_style.text_vertical_alignment = "center"
@@ -64,11 +64,11 @@ cosmetic_item_display_name_text_style.vertical_alignment = "center"
 cosmetic_item_display_name_text_style.offset = {
 	10,
 	0,
-	5
+	5,
 }
 cosmetic_item_display_name_text_style.size = {
 	grid_width - 20,
-	50
+	50,
 }
 
 local function _apply_package_item_icon_cb_func(widget, item)
@@ -157,40 +157,40 @@ local blueprints = {
 	dynamic_spacing = {
 		size = {
 			0,
-			0
+			0,
 		},
 		size_function = function (parent, config)
 			return config.size
-		end
+		end,
 	},
 	spacing_vertical = {
 		size = {
 			grid_width,
-			20
-		}
+			20,
+		},
 	},
 	spacing_vertical_small = {
 		size = {
 			grid_width,
-			10
-		}
+			10,
+		},
 	},
 	button = {
 		size = {
 			grid_width,
-			50
+			50,
 		},
 		pass_template = ButtonPassTemplates.list_button,
 		init = function (parent, widget, element, callback_name)
 			local content = widget.content
 
 			content.text = element.display_name
-		end
+		end,
 	},
 	list_button_with_background = {
 		size = {
 			0,
-			0
+			0,
 		},
 		size_function = function (parent, config)
 			return config.size
@@ -208,40 +208,40 @@ local blueprints = {
 			local element = content.element
 
 			content.hotspot.disabled = element and element.disabled
-		end
+		end,
 	},
 	cosmetic_item = {
 		size = {
 			grid_width,
-			60
+			60,
 		},
 		pass_template = {
 			{
-				style_id = "hotspot",
-				pass_type = "hotspot",
 				content_id = "hotspot",
+				pass_type = "hotspot",
+				style_id = "hotspot",
 				style = {
 					on_hover_sound = UISoundEvents.default_mouse_hover,
-					on_pressed_sound = UISoundEvents.apparel_select
-				}
+					on_pressed_sound = UISoundEvents.apparel_select,
+				},
 			},
 			{
-				value = "content/ui/materials/frames/hover",
 				pass_type = "texture",
+				value = "content/ui/materials/frames/hover",
 				style = {
-					vertical_alignment = "center",
-					horizontal_alignment = "center",
 					hdr = true,
+					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					color = Color.ui_terminal(255, true),
 					size_addition = {
 						20,
-						20
+						20,
 					},
 					offset = {
 						0,
 						0,
-						0
-					}
+						0,
+					},
 				},
 				change_function = function (content, style)
 					local anim_progress = math.max(math.max(content.hotspot.anim_hover_progress, content.hotspot.anim_select_progress), content.hotspot.anim_focus_progress)
@@ -253,48 +253,48 @@ local blueprints = {
 
 					size_addition[1] = size_padding
 					size_addition[2] = size_padding
-				end
+				end,
 			},
 			{
-				value_id = "title_text",
-				style_id = "title_text",
 				pass_type = "text",
+				style_id = "title_text",
 				value = "n/a",
-				style = cosmetic_item_display_name_text_style
+				value_id = "title_text",
+				style = cosmetic_item_display_name_text_style,
 			},
 			{
-				style_id = "background",
 				pass_type = "texture",
+				style_id = "background",
 				value = "content/ui/materials/buttons/background_selected",
 				style = {
-					color = Color.ui_terminal(255, true)
+					color = Color.ui_terminal(255, true),
 				},
 				visibility_function = function (content, style)
 					return content.equipped
-				end
+				end,
 			},
 			{
-				style_id = "equip_icon",
 				pass_type = "texture",
+				style_id = "equip_icon",
 				value = "content/ui/materials/buttons/background_selected",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "right",
+					vertical_alignment = "center",
 					size = {
 						10,
-						10
+						10,
 					},
 					offset = {
 						-10,
 						0,
-						3
+						3,
 					},
-					color = Color.ui_terminal(255, true)
+					color = Color.ui_terminal(255, true),
 				},
 				visibility_function = function (content, style)
 					return content.equipped
-				end
-			}
+				end,
+			},
 		},
 		update = function (parent, widget, input_service, dt, t, ui_renderer)
 			local content = widget.content
@@ -320,12 +320,12 @@ local blueprints = {
 			content.hotspot.pressed_callback = callback(parent, callback_name, widget, element)
 			content.hotspot.right_pressed_callback = callback(parent, secondary_callback_name, widget, element)
 			content.element = element
-		end
+		end,
 	},
 	emote_item_slot = {
 		size = {
 			64,
-			64
+			64,
 		},
 		pass_template = ItemPassTemplates.ui_item_emote_slot,
 		init = function (parent, widget, element, callback_name, secondary_callback_name)
@@ -358,7 +358,7 @@ local blueprints = {
 
 				style.icon.material_values.icon_size = {
 					item_icon_size[1] * 0.5,
-					item_icon_size[2] * 0.5
+					item_icon_size[2] * 0.5,
 				}
 
 				local icon_color = slot.icon_color
@@ -449,12 +449,12 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	animation_item_slot = {
 		size = {
 			grid_width,
-			50
+			50,
 		},
 		pass_template = ItemPassTemplates.animation_item_slot,
 		init = function (parent, widget, element, callback_name)
@@ -529,7 +529,7 @@ local blueprints = {
 			local has_new_items = item_type and content.has_new_items_update_callback and content.has_new_items_update_callback(item_type) or false
 
 			content.has_new_items = has_new_items
-		end
+		end,
 	},
 	ui_item = {
 		size = ItemPassTemplates.ui_item_size,
@@ -581,7 +581,7 @@ local blueprints = {
 				local slot_name = slot.name
 				local cb = callback(_apply_package_item_icon_cb_func, widget, item)
 				local render_context = {
-					camera_focus_slot_name = slot_name
+					camera_focus_slot_name = slot_name,
 				}
 
 				content.icon_load_id = Managers.ui:load_item_icon(item, cb, render_context)
@@ -606,7 +606,7 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	ui_item_slot = {
 		size = ItemPassTemplates.ui_item_size,
@@ -725,7 +725,7 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	gear_item = {
 		size = ItemPassTemplates.gear_icon_size,
@@ -789,7 +789,7 @@ local blueprints = {
 				local render_context = {
 					camera_focus_slot_name = slot_name,
 					state_machine = item_state_machine,
-					animation_event = item_animation_event
+					animation_event = item_animation_event,
 				}
 
 				content.icon_load_id = Managers.ui:load_item_icon(item, cb, render_context)
@@ -814,12 +814,12 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	pose_item_slot = {
 		size = {
 			64,
-			64
+			64,
 		},
 		pass_template = ItemPassTemplates.ui_item_pose_slot,
 		init = function (parent, widget, element, callback_name, secondary_callback_name)
@@ -855,7 +855,7 @@ local blueprints = {
 					local render_context = {
 						camera_focus_slot_name = slot_name,
 						state_machine = item_state_machine,
-						animation_event = item_animation_event
+						animation_event = item_animation_event,
 					}
 
 					content.icon_load_id = Managers.ui:load_item_icon(equipped_item, cb, render_context)
@@ -920,7 +920,7 @@ local blueprints = {
 					if equipped_item then
 						local cb = callback(_apply_live_item_icon_cb_func, widget)
 						local render_context = {
-							camera_focus_slot_name = slot_name
+							camera_focus_slot_name = slot_name,
 						}
 
 						content.icon_load_id = Managers.ui:load_item_icon(equipped_item, cb, render_context)
@@ -942,7 +942,7 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	gear_item_slot = {
 		size = ItemPassTemplates.gear_icon_size,
@@ -978,7 +978,7 @@ local blueprints = {
 				if equipped_item then
 					local cb = callback(_apply_live_item_icon_cb_func, widget)
 					local render_context = {
-						camera_focus_slot_name = slot_name
+						camera_focus_slot_name = slot_name,
 					}
 
 					content.icon_load_id = Managers.ui:load_item_icon(equipped_item, cb, render_context, player_profile)
@@ -1043,7 +1043,7 @@ local blueprints = {
 					if equipped_item then
 						local cb = callback(_apply_live_item_icon_cb_func, widget)
 						local render_context = {
-							camera_focus_slot_name = slot_name
+							camera_focus_slot_name = slot_name,
 						}
 
 						content.icon_load_id = Managers.ui:load_item_icon(equipped_item, cb, render_context)
@@ -1065,7 +1065,7 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	character_title_item_slot = {
 		size = ItemPassTemplates.character_title_button_size,
@@ -1148,7 +1148,7 @@ local blueprints = {
 		end,
 		destroy = function (parent, widget, element, ui_renderer)
 			return
-		end
+		end,
 	},
 	item_slot = {
 		size = ItemPassTemplates.weapon_item_size,
@@ -1296,7 +1296,7 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	gadget_item_slot = {
 		size = ItemPassTemplates.gadget_size,
@@ -1315,7 +1315,7 @@ local blueprints = {
 				local unlocked = required_level <= current_level
 
 				content.unlock_text = Localize("loc_hub_vendor_unlocks_at", true, {
-					level = required_level
+					level = required_level,
 				})
 				content.unlocked = unlocked
 			end
@@ -1409,37 +1409,37 @@ local blueprints = {
 
 				content.icon_load_id = nil
 			end
-		end
+		end,
 	},
 	texture = {
 		size = {
 			64,
-			64
+			64,
 		},
 		size_function = function (parent, element, ui_renderer)
 			local size = element.size
 
 			return {
 				size[1],
-				size[2]
+				size[2],
 			}
 		end,
 		pass_template = {
 			{
+				pass_type = "texture",
 				style_id = "texture",
 				value_id = "texture",
-				pass_type = "texture",
 				style = {
-					vertical_alignment = "center",
 					horizontal_alignment = "center",
+					vertical_alignment = "center",
 					offset = {
 						0,
 						0,
-						0
+						0,
 					},
-					color = Color.white(255, true)
-				}
-			}
+					color = Color.white(255, true),
+				},
+			},
 		},
 		init = function (parent, widget, element, callback_name)
 			local style = widget.style
@@ -1458,20 +1458,20 @@ local blueprints = {
 				texture_color[3] = color[3]
 				texture_color[4] = color[4]
 			end
-		end
+		end,
 	},
 	group_header = {
 		size = {
 			grid_width,
-			70
+			70,
 		},
 		pass_template = {
 			{
-				value = "n/a",
 				pass_type = "text",
+				value = "n/a",
 				value_id = "text",
-				style = group_header_font_style
-			}
+				style = group_header_font_style,
+			},
 		},
 		init = function (parent, widget, element, callback_name)
 			local content = widget.content
@@ -1501,20 +1501,20 @@ local blueprints = {
 			local has_new_items = item_type and content.has_new_items_update_callback and content.has_new_items_update_callback(item_type) or false
 
 			content.has_new_items = has_new_items
-		end
+		end,
 	},
 	sub_header = {
 		size = {
 			grid_width,
-			20
+			20,
 		},
 		pass_template = {
 			{
-				value = "n/a",
 				pass_type = "text",
+				value = "n/a",
 				value_id = "text",
-				style = sub_header_font_style
-			}
+				style = sub_header_font_style,
+			},
 		},
 		init = function (parent, widget, element, callback_name)
 			local content = widget.content
@@ -1538,53 +1538,53 @@ local blueprints = {
 			end
 
 			content.text = text
-		end
+		end,
 	},
 	item_sub_header = {
 		size = {
 			600,
-			20
+			20,
 		},
 		size_function = function (parent, element, ui_renderer)
 			local size = element.size
 
 			return size and {
 				size[1],
-				size[2]
+				size[2],
 			} or {
 				grid_width,
-				20
+				20,
 			}
 		end,
 		pass_template = {
 			{
-				style_id = "new_indicator",
 				pass_type = "texture",
+				style_id = "new_indicator",
 				value = "content/ui/materials/symbols/new_item_indicator",
 				style = {
-					vertical_alignment = "top",
 					horizontal_alignment = "center",
+					vertical_alignment = "top",
 					size = {
 						90,
-						90
+						90,
 					},
 					offset = {
 						180,
 						-0,
-						4
+						4,
 					},
-					color = Color.terminal_corner_selected(255, true)
+					color = Color.terminal_corner_selected(255, true),
 				},
 				visibility_function = function (content, style)
 					return content.has_new_items
-				end
+				end,
 			},
 			{
-				value = "n/a",
 				pass_type = "text",
+				value = "n/a",
 				value_id = "text",
-				style = item_sub_header_font_style
-			}
+				style = item_sub_header_font_style,
+			},
 		},
 		init = function (parent, widget, element, callback_name)
 			local style = widget.style
@@ -1613,13 +1613,13 @@ local blueprints = {
 			local has_new_items = item_type and content.has_new_items_update_callback and content.has_new_items_update_callback(item_type) or false
 
 			content.has_new_items = has_new_items
-		end
+		end,
 	},
 	exclamation_mark = {
 		pass_template = {
 			{
-				style_id = "exclamation_mark",
 				pass_type = "texture",
+				style_id = "exclamation_mark",
 				value = "content/ui/materials/icons/generic/exclamation_mark",
 				value_id = "exclamation_mark",
 				style = {
@@ -1628,33 +1628,33 @@ local blueprints = {
 					offset = {
 						-2,
 						-2,
-						7
+						7,
 					},
 					warning_color = {
 						255,
 						246,
 						69,
-						69
+						69,
 					},
 					modified_color = {
 						255,
 						246,
 						202,
-						69
+						69,
 					},
 					size = {
 						16,
-						28
-					}
+						28,
+					},
 				},
 				change_function = function (content, style)
 					local color = content.modified_content and style.modified_color or style.warning_color
 
 					ColorUtilities.color_copy(color, style.color, true)
-				end
-			}
-		}
-	}
+				end,
+			},
+		},
+	},
 }
 
 return blueprints

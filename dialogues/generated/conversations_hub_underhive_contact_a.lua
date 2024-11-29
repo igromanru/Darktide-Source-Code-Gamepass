@@ -24,7 +24,7 @@ local conversations_hub_underhive_contact_a = {
 			"loc_underhive_contact_a__hub_idle_17",
 			"loc_underhive_contact_a__hub_idle_18",
 			"loc_underhive_contact_a__hub_idle_19",
-			"loc_underhive_contact_a__hub_idle_20"
+			"loc_underhive_contact_a__hub_idle_20",
 		},
 		sound_events_duration = {
 			2.434104,
@@ -46,10 +46,10 @@ local conversations_hub_underhive_contact_a = {
 			5.641042,
 			4.558958,
 			3.755708,
-			4.653417
+			4.653417,
 		},
-		randomize_indexes = {}
-	}
+		randomize_indexes = {},
+	},
 }
 
 return settings("conversations_hub_underhive_contact_a", conversations_hub_underhive_contact_a)

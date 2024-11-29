@@ -423,7 +423,7 @@ VendorViewBase._generate_menu_tabs = function (self, layout, offers)
 						display_name = UISettings.display_name_by_store_category[store_category],
 						icon = UISettings.texture_by_store_category[store_category],
 						slot_types = use_item_categories and store_category_slot_stypes,
-						store_category = store_category
+						store_category = store_category,
 					}
 
 					menu_tab_content_by_store_category[store_category] = tab_content
@@ -508,12 +508,12 @@ VendorViewBase._convert_offers_to_layout_entries = function (self, item_offers)
 							offer = offer,
 							offer_id = offer_id,
 							slot = {
-								name = item.slots[1]
+								name = item.slots[1],
 							},
 							filter_slots = {
-								preview_item.slots[1]
+								preview_item.slots[1],
 							},
-							disable_equipped_status = self._disable_equipped_status
+							disable_equipped_status = self._disable_equipped_status,
 						}
 					else
 						Log.error("VendorViewBase", "Cannot find preview item (%s) for weapon skin (%s)", preview_item, item.name)
@@ -528,9 +528,9 @@ VendorViewBase._convert_offers_to_layout_entries = function (self, item_offers)
 						offer = offer,
 						offer_id = offer_id,
 						slot = {
-							name = item.slots[1]
+							name = item.slots[1],
 						},
-						disable_equipped_status = self._disable_equipped_status
+						disable_equipped_status = self._disable_equipped_status,
 					}
 				end
 			end
@@ -575,7 +575,7 @@ VendorViewBase._convert_offers_to_layout_entries = function (self, item_offers)
 					breeds = first_item.breeds,
 					archetypes = first_item.archetypes,
 					rarity = rarity,
-					description = sku.description
+					description = sku.description,
 				}
 
 				layout[#layout + 1] = {
@@ -585,7 +585,7 @@ VendorViewBase._convert_offers_to_layout_entries = function (self, item_offers)
 					offer_id = offer_id,
 					total_count = total_count,
 					owned_count = owned_count,
-					disable_equipped_status = self._disable_equipped_status
+					disable_equipped_status = self._disable_equipped_status,
 				}
 			end
 		end
@@ -947,7 +947,7 @@ VendorViewBase._setup_sort_options = function (self)
 		self._sort_options = {
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -955,12 +955,12 @@ VendorViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_name,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_power"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -968,12 +968,12 @@ VendorViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_name,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -981,12 +981,12 @@ VendorViewBase._setup_sort_options = function (self)
 					">",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_rarity"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -994,12 +994,12 @@ VendorViewBase._setup_sort_options = function (self)
 					">",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_low_high", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_price")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_price"),
 				}),
 				sort_function = ItemUtils.sort_element_key_comparator({
 					"false",
@@ -1013,12 +1013,12 @@ VendorViewBase._setup_sort_options = function (self)
 					ItemUtils.compare_item_rarity,
 					"<",
 					"item",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_high_low", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_item_price")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_item_price"),
 				}),
 				sort_function = ItemUtils.sort_element_key_comparator({
 					"false",
@@ -1032,12 +1032,12 @@ VendorViewBase._setup_sort_options = function (self)
 					ItemUtils.compare_item_rarity,
 					"<",
 					"item",
-					ItemUtils.compare_item_name
-				})
+					ItemUtils.compare_item_name,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_increasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					"<",
@@ -1045,12 +1045,12 @@ VendorViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
+					ItemUtils.compare_item_rarity,
+				}),
 			},
 			{
 				display_name = Localize("loc_inventory_item_grid_sort_title_format_decreasing_letters", true, {
-					sort_name = Localize("loc_inventory_item_grid_sort_title_name")
+					sort_name = Localize("loc_inventory_item_grid_sort_title_name"),
 				}),
 				sort_function = ItemUtils.sort_comparator({
 					">",
@@ -1058,9 +1058,9 @@ VendorViewBase._setup_sort_options = function (self)
 					"<",
 					ItemUtils.compare_item_level,
 					"<",
-					ItemUtils.compare_item_rarity
-				})
-			}
+					ItemUtils.compare_item_rarity,
+				}),
+			},
 		}
 	end
 

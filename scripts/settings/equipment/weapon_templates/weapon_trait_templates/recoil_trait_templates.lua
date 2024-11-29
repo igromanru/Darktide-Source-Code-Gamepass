@@ -15,8 +15,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -25,8 +25,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -35,8 +35,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.9,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -45,8 +45,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -55,8 +55,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -65,8 +65,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -75,8 +75,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -85,8 +85,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -95,8 +95,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.9,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -105,8 +105,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -115,8 +115,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -125,8 +125,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -135,8 +135,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -145,8 +145,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -155,8 +155,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.9,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"moving",
@@ -165,8 +165,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -175,8 +175,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -185,8 +185,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -195,8 +195,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -205,8 +205,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -215,8 +215,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.9,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"moving",
@@ -225,8 +225,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -235,8 +235,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -245,8 +245,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -254,8 +254,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"shooting",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -263,8 +263,8 @@ recoil_trait_templates.default_recoil_stat = {
 		"idle",
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -272,8 +272,8 @@ recoil_trait_templates.default_recoil_stat = {
 		1,
 		{
 			max = 0.6,
-			min = 0.4
-		}
+			min = 0.4,
+		},
 	},
 	{
 		"still",
@@ -281,8 +281,8 @@ recoil_trait_templates.default_recoil_stat = {
 		2,
 		{
 			max = 0.7,
-			min = 0.3
-		}
+			min = 0.3,
+		},
 	},
 	{
 		"still",
@@ -290,8 +290,8 @@ recoil_trait_templates.default_recoil_stat = {
 		3,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -299,9 +299,9 @@ recoil_trait_templates.default_recoil_stat = {
 		4,
 		{
 			max = 0.8,
-			min = 0.2
-		}
-	}
+			min = 0.2,
+		},
+	},
 }
 recoil_trait_templates.default_recoil_perk = {
 	{
@@ -309,113 +309,113 @@ recoil_trait_templates.default_recoil_perk = {
 		"offset",
 		1,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"yaw",
-		0.05
-	}
+		0.05,
+	},
 }
 recoil_trait_templates.default_mobility_recoil_stat = {
 	{
@@ -425,8 +425,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.475,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -435,8 +435,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.475,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -445,8 +445,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.45,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -455,8 +455,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.375,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -465,8 +465,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.375,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -475,8 +475,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"pitch",
 		{
 			max = 0.375,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -485,8 +485,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.475,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -495,8 +495,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.475,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -505,8 +505,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.45,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -515,8 +515,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.375,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -525,8 +525,8 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.375,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -535,9 +535,9 @@ recoil_trait_templates.default_mobility_recoil_stat = {
 		"yaw",
 		{
 			max = 0.375,
-			min = 0.05
-		}
-	}
+			min = 0.05,
+		},
+	},
 }
 recoil_trait_templates.default_mobility_recoil_perk = {
 	{
@@ -545,57 +545,57 @@ recoil_trait_templates.default_mobility_recoil_perk = {
 		"offset",
 		1,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"pitch",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"yaw",
-		0.05
+		0.05,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"yaw",
-		0.05
-	}
+		0.05,
+	},
 }
 recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 	{
@@ -604,8 +604,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		1,
 		{
 			max = 1,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -613,8 +613,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		2,
 		{
 			max = 0.95,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -622,8 +622,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		3,
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -632,8 +632,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -642,8 +642,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.9,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -652,8 +652,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -662,8 +662,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -672,8 +672,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -682,8 +682,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -692,8 +692,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -702,8 +702,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -712,8 +712,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -722,8 +722,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.9,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -732,8 +732,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -742,8 +742,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -752,8 +752,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -762,8 +762,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.9,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"still",
@@ -772,8 +772,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"still",
@@ -782,8 +782,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -792,8 +792,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -802,8 +802,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -812,8 +812,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -822,8 +822,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -832,8 +832,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -842,8 +842,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -852,8 +852,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -862,8 +862,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -872,8 +872,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.95,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"moving",
@@ -882,8 +882,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.9,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -892,8 +892,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"moving",
@@ -902,8 +902,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -912,8 +912,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.95,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"moving",
@@ -922,8 +922,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.9,
-			min = 0.05
-		}
+			min = 0.05,
+		},
 	},
 	{
 		"moving",
@@ -932,8 +932,8 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.8,
-			min = 0.1
-		}
+			min = 0.1,
+		},
 	},
 	{
 		"moving",
@@ -942,9 +942,9 @@ recoil_trait_templates.lasgun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
-	}
+			min = 0.25,
+		},
+	},
 }
 recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 	{
@@ -953,8 +953,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		1,
 		{
 			max = 1,
-			min = 0
-		}
+			min = 0,
+		},
 	},
 	{
 		"still",
@@ -962,8 +962,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		2,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -971,8 +971,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		3,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -980,8 +980,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		4,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -989,8 +989,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		5,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -998,8 +998,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		6,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1007,8 +1007,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		7,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1016,8 +1016,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		8,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1025,8 +1025,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		9,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1034,8 +1034,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		10,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1043,8 +1043,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		11,
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1053,8 +1053,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1063,8 +1063,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1073,8 +1073,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1083,8 +1083,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1093,8 +1093,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -1103,8 +1103,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1113,8 +1113,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1123,8 +1123,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1133,8 +1133,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1143,8 +1143,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1153,8 +1153,8 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -1163,9 +1163,9 @@ recoil_trait_templates.rippergun_p1_m1_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
-	}
+			min = 0.25,
+		},
+	},
 }
 recoil_trait_templates.recoil_killshot_trait_01_a = {
 	{
@@ -1173,114 +1173,114 @@ recoil_trait_templates.recoil_killshot_trait_01_a = {
 		"offset",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"yaw",
-		0.125
+		0.125,
 	},
-	[DEFAULT_LERP_VALUE] = 0.1
+	[DEFAULT_LERP_VALUE] = 0.1,
 }
 recoil_trait_templates.recoil_killshot_trait_01_b = {
 	{
@@ -1288,114 +1288,114 @@ recoil_trait_templates.recoil_killshot_trait_01_b = {
 		"offset",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"yaw",
-		0.125
+		0.125,
 	},
-	[DEFAULT_LERP_VALUE] = 0.2
+	[DEFAULT_LERP_VALUE] = 0.2,
 }
 recoil_trait_templates.recoil_killshot_trait_01_c = {
 	{
@@ -1403,114 +1403,114 @@ recoil_trait_templates.recoil_killshot_trait_01_c = {
 		"offset",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset",
 		2,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		"moving",
 		"offset",
 		3,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset",
 		4,
 		"yaw",
-		0.125
+		0.125,
 	},
-	[DEFAULT_LERP_VALUE] = 0.3
+	[DEFAULT_LERP_VALUE] = 0.3,
 }
 recoil_trait_templates.recoil_killshot_trait_02_a = {
 	{
@@ -1518,114 +1518,114 @@ recoil_trait_templates.recoil_killshot_trait_02_a = {
 		"offset_random_range",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset_random_range",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.0625
+		0.0625,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.0625
+		0.0625,
 	},
-	[DEFAULT_LERP_VALUE] = 0.1
+	[DEFAULT_LERP_VALUE] = 0.1,
 }
 recoil_trait_templates.recoil_killshot_trait_02_b = {
 	{
@@ -1633,114 +1633,114 @@ recoil_trait_templates.recoil_killshot_trait_02_b = {
 		"offset_random_range",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset_random_range",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.0625
+		0.0625,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.0625
+		0.0625,
 	},
-	[DEFAULT_LERP_VALUE] = 0.2
+	[DEFAULT_LERP_VALUE] = 0.2,
 }
 recoil_trait_templates.recoil_killshot_trait_02_c = {
 	{
@@ -1748,114 +1748,114 @@ recoil_trait_templates.recoil_killshot_trait_02_c = {
 		"offset_random_range",
 		1,
 		"pitch",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.25
+		0.25,
 	},
 	{
 		"still",
 		"offset_random_range",
 		1,
 		"yaw",
-		1
+		1,
 	},
 	{
 		"still",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.25
+		0.25,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"pitch",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"pitch",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"pitch",
-		0.0625
+		0.0625,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		1,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		2,
 		"yaw",
-		0.30000000000000004
+		0.30000000000000004,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		3,
 		"yaw",
-		0.125
+		0.125,
 	},
 	{
 		"moving",
 		"offset_random_range",
 		4,
 		"yaw",
-		0.0625
+		0.0625,
 	},
-	[DEFAULT_LERP_VALUE] = 0.3
+	[DEFAULT_LERP_VALUE] = 0.3,
 }
 recoil_trait_templates.recoil_spraynpray_trait_01_a = {
 	{
@@ -1863,142 +1863,142 @@ recoil_trait_templates.recoil_spraynpray_trait_01_a = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"pitch",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"pitch",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"pitch",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"pitch",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"pitch",
-		0.3
+		0.3,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"yaw",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"yaw",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"yaw",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"yaw",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"yaw",
-		0.35
+		0.35,
 	},
-	[DEFAULT_LERP_VALUE] = 0.1
+	[DEFAULT_LERP_VALUE] = 0.1,
 }
 recoil_trait_templates.recoil_spraynpray_trait_01_b = {
 	{
@@ -2006,142 +2006,142 @@ recoil_trait_templates.recoil_spraynpray_trait_01_b = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"pitch",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"pitch",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"pitch",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"pitch",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"pitch",
-		0.3
+		0.3,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"yaw",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"yaw",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"yaw",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"yaw",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"yaw",
-		0.35
+		0.35,
 	},
-	[DEFAULT_LERP_VALUE] = 0.2
+	[DEFAULT_LERP_VALUE] = 0.2,
 }
 recoil_trait_templates.recoil_spraynpray_trait_01_c = {
 	{
@@ -2149,142 +2149,142 @@ recoil_trait_templates.recoil_spraynpray_trait_01_c = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"pitch",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"pitch",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"pitch",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"pitch",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"pitch",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"pitch",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"pitch",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"pitch",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"pitch",
-		0.3
+		0.3,
 	},
 	{
 		"still",
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		"still",
 		"offset",
 		2,
 		"yaw",
-		0.7
+		0.7,
 	},
 	{
 		"still",
 		"offset",
 		3,
 		"yaw",
-		0.65
+		0.65,
 	},
 	{
 		"still",
 		"offset",
 		4,
 		"yaw",
-		0.6
+		0.6,
 	},
 	{
 		"still",
 		"offset",
 		5,
 		"yaw",
-		0.55
+		0.55,
 	},
 	{
 		"still",
 		"offset",
 		6,
 		"yaw",
-		0.5
+		0.5,
 	},
 	{
 		"still",
 		"offset",
 		7,
 		"yaw",
-		0.45
+		0.45,
 	},
 	{
 		"still",
 		"offset",
 		8,
 		"yaw",
-		0.4
+		0.4,
 	},
 	{
 		"still",
 		"offset",
 		9,
 		"yaw",
-		0.35
+		0.35,
 	},
 	{
 		"still",
 		"offset",
 		10,
 		"yaw",
-		0.35
+		0.35,
 	},
-	[DEFAULT_LERP_VALUE] = 0.3
+	[DEFAULT_LERP_VALUE] = 0.3,
 }
 recoil_trait_templates.recoil_assault_trait_01_a = {
 	{
@@ -2292,58 +2292,58 @@ recoil_trait_templates.recoil_assault_trait_01_a = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"pitch",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"pitch",
-		0.1875
+		0.1875,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"yaw",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"yaw",
-		0.1875
+		0.1875,
 	},
-	[DEFAULT_LERP_VALUE] = 0.1
+	[DEFAULT_LERP_VALUE] = 0.1,
 }
 recoil_trait_templates.recoil_assault_trait_01_b = {
 	{
@@ -2351,58 +2351,58 @@ recoil_trait_templates.recoil_assault_trait_01_b = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"pitch",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"pitch",
-		0.1875
+		0.1875,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"yaw",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"yaw",
-		0.1875
+		0.1875,
 	},
-	[DEFAULT_LERP_VALUE] = 0.2
+	[DEFAULT_LERP_VALUE] = 0.2,
 }
 recoil_trait_templates.recoil_assault_trait_01_c = {
 	{
@@ -2410,58 +2410,58 @@ recoil_trait_templates.recoil_assault_trait_01_c = {
 		"offset",
 		1,
 		"pitch",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"pitch",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"pitch",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"pitch",
-		0.1875
+		0.1875,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		1,
 		"yaw",
-		0.75
+		0.75,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		2,
 		"yaw",
-		0.5625
+		0.5625,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		3,
 		"yaw",
-		0.375
+		0.375,
 	},
 	{
 		ALL_WEAPON_MOVEMENT_STATES,
 		"offset",
 		4,
 		"yaw",
-		0.1875
+		0.1875,
 	},
-	[DEFAULT_LERP_VALUE] = 0.3
+	[DEFAULT_LERP_VALUE] = 0.3,
 }
 recoil_trait_templates.stubrevolver_recoil_stat = {
 	{
@@ -2471,8 +2471,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -2481,8 +2481,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -2491,8 +2491,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"still",
@@ -2501,8 +2501,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -2511,8 +2511,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -2521,8 +2521,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"pitch",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -2531,8 +2531,8 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
+			min = 0.25,
+		},
 	},
 	{
 		"moving",
@@ -2541,9 +2541,9 @@ recoil_trait_templates.stubrevolver_recoil_stat = {
 		"yaw",
 		{
 			max = 0.75,
-			min = 0.25
-		}
-	}
+			min = 0.25,
+		},
+	},
 }
 
 return recoil_trait_templates

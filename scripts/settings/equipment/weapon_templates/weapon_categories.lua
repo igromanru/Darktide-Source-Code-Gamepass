@@ -29,7 +29,7 @@ local weapon_categories = {
 	"bolter",
 	"flamer",
 	"stub_rifle",
-	"ogryn_heavystubbers"
+	"ogryn_heavystubbers",
 }
 
 return settings("weapon_categories", weapon_categories)

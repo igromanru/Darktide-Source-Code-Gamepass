@@ -9,21 +9,21 @@ local UIWidget = require("scripts/managers/ui/ui_widget")
 local Views = require("scripts/ui/views/views")
 local debug_subtitles = {
 	{
+		duration = 2,
 		text = "{#color(255,0,0)}Sgt.Morrow:{#color(255,242,230)} This is a placeholder subtitle line 1 This is a placeholder subtitle line 1",
-		duration = 2
 	},
 	{
+		duration = 2,
 		text = "{#color(255,0,0)}Sgt.Morrow:{#color(255,242,230)} This is a placeholder subtitle line 2 This is a placeholder subtitle line 2",
-		duration = 2
 	},
 	{
+		duration = 2,
 		text = "{#color(255,0,0)}Sgt.Morrow:{#color(255,242,230)} This is a placeholder subtitle line 3 This is a placeholder subtitle line 3",
-		duration = 2
 	},
 	{
+		duration = 2,
 		text = "{#color(255,0,0)}Sgt.Morrow:{#color(255,242,230)} This is a placeholder subtitle line 4 This is a placeholder subtitle line 4",
-		duration = 2
-	}
+	},
 }
 local DUMMY_MEASURE_TEXT_LINE = "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
 local ConstantElementSubtitles = class("ConstantElementSubtitles", "ConstantElementBase")
@@ -224,7 +224,7 @@ end
 
 local subtitle_format_context = {
 	speaker = "n/a",
-	subtitle = "n/a"
+	subtitle = "n/a",
 }
 
 ConstantElementSubtitles._get_active_dialogue_system = function (self)
@@ -422,7 +422,7 @@ ConstantElementSubtitles._debug_trigger_subtitle = function (self, text, duratio
 	if self._line_duration then
 		table.insert(self._line_queue, 1, {
 			text = text,
-			duration = duration
+			duration = duration,
 		})
 	else
 		self:_display_text_line(text, duration)
@@ -432,7 +432,7 @@ end
 
 local dummy_text_size = {
 	2000,
-	20
+	20,
 }
 
 ConstantElementSubtitles._set_font_size = function (self, new_size)

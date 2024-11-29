@@ -100,7 +100,7 @@ HudElementPlayerWeaponHandler._weapon_scan = function (self, extensions, ui_rend
 					slot_component = slot_component,
 					weapon_template = weapon_template,
 					weapon_name = weapon_name,
-					index = order_index
+					index = order_index,
 				}
 
 				player_weapons[slot_id] = data

@@ -92,9 +92,9 @@ end
 
 CutsceneCharacter.component_data = {
 	cinematic_name = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Cinematic Name",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Intro ABC",
@@ -126,7 +126,7 @@ CutsceneCharacter.component_data = {
 			"Hub Location Intro Training Grounds",
 			"Hub Location Intro Contracts",
 			"Hub Location Intro Crafting",
-			"Hub Location Intro Gun Shop"
+			"Hub Location Intro Gun Shop",
 		},
 		options_values = {
 			"none",
@@ -159,101 +159,101 @@ CutsceneCharacter.component_data = {
 			"hub_location_intro_training_grounds",
 			"hub_location_intro_contracts",
 			"hub_location_intro_crafting",
-			"hub_location_intro_gun_shop"
-		}
+			"hub_location_intro_gun_shop",
+		},
 	},
 	character_type = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Character Type",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Player",
-			"NPC"
+			"NPC",
 		},
 		options_values = {
 			"none",
 			"player",
-			"npc"
-		}
+			"npc",
+		},
 	},
 	breed_name = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Breed Name",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"Human",
-			"Ogryn"
+			"Ogryn",
 		},
 		options_values = {
 			"none",
 			"human",
-			"ogryn"
-		}
+			"ogryn",
+		},
 	},
 	prop_items = {
-		validator = "contentpathsallowed",
 		category = "Attachments",
-		ui_type = "text_box_array",
 		ui_name = "Prop Items",
-		values = {}
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
+		values = {},
 	},
 	cinematic_slot = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Slot",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"1",
 			"2",
 			"3",
-			"4"
+			"4",
 		},
 		options_values = {
 			"none",
 			1,
 			2,
 			3,
-			4
-		}
+			4,
+		},
 	},
 	animation_event = {
-		value = "none",
-		ui_type = "combo_box",
 		ui_name = "Animation Inventory Event",
+		ui_type = "combo_box",
+		value = "none",
 		options_keys = {
 			"None",
 			"ready_idle",
 			"unready_idle",
-			"to_ready"
+			"to_ready",
 		},
 		options_values = {
 			"none",
 			"cin_ready",
 			"unready_idle",
-			"ready"
-		}
+			"ready",
+		},
 	},
 	equip_slot_on_loadout_assign = {
+		category = "Attachments",
+		ui_name = "Equip Slot on Loadout Assignment",
 		ui_type = "text_box",
 		value = "",
-		ui_name = "Equip Slot on Loadout Assignment",
-		category = "Attachments"
 	},
 	inputs = {
 		start_weapon_specific_walk_animation = {
 			accessibility = "public",
-			type = "event"
+			type = "event",
 		},
 		start_inventory_specific_walk_animation = {
 			accessibility = "public",
-			type = "event"
-		}
+			type = "event",
+		},
 	},
 	extensions = {
-		"CutsceneCharacterExtension"
-	}
+		"CutsceneCharacterExtension",
+	},
 }
 
 return CutsceneCharacter

@@ -49,7 +49,7 @@ MinionCustomization._construct_attach_settings = function (self, unit, world, in
 		in_editor = in_editor,
 		is_first_person = is_first_person,
 		lod_group = Unit.has_lod_group(unit, "lod") and Unit.lod_group(unit, "lod"),
-		lod_shadow_group = Unit.has_lod_group(unit, "lod_shadow") and Unit.lod_group(unit, "lod_shadow")
+		lod_shadow_group = Unit.has_lod_group(unit, "lod_shadow") and Unit.lod_group(unit, "lod_shadow"),
 	}
 
 	if not in_editor then
@@ -193,62 +193,62 @@ end
 MinionCustomization.component_config = {
 	disable_event_public = false,
 	enable_event_public = false,
-	starts_enabled_default = true
+	starts_enabled_default = true,
 }
 MinionCustomization.component_data = {
 	editor_only = {
+		category = "Settings",
+		ui_name = "Editor Only",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Editor Only",
-		category = "Settings"
 	},
 	is_first_person = {
+		category = "Settings",
+		ui_name = "Is First Person",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Is First Person",
-		category = "Settings"
 	},
 	is_corpse = {
+		category = "Settings",
+		ui_name = "Is Corpse",
 		ui_type = "check_box",
 		value = false,
-		ui_name = "Is Corpse",
-		category = "Settings"
 	},
 	attachment_items = {
 		category = "Attachments",
-		ui_type = "resource_array",
+		filter = "item",
 		size = 3,
 		ui_name = "Item",
-		filter = "item"
+		ui_type = "resource_array",
 	},
 	attachment_material_override_1 = {
-		validator = "contentpathsallowed",
 		category = "Attachments",
-		ui_type = "text_box_array",
 		size = 1,
-		ui_name = "Material Override 1 for Item"
+		ui_name = "Material Override 1 for Item",
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
 	},
 	attachment_material_override_2 = {
-		validator = "contentpathsallowed",
 		category = "Attachments",
-		ui_type = "text_box_array",
 		size = 1,
-		ui_name = "Material Override 2 for Item"
+		ui_name = "Material Override 2 for Item",
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
 	},
 	attachment_material_override_3 = {
-		validator = "contentpathsallowed",
 		category = "Attachments",
-		ui_type = "text_box_array",
 		size = 1,
-		ui_name = "Material Override 3 for Item"
+		ui_name = "Material Override 3 for Item",
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
 	},
 	global_material_override = {
-		validator = "contentpathsallowed",
 		category = "Attachments",
-		ui_type = "text_box_array",
 		size = 1,
-		ui_name = "Global Material Override"
-	}
+		ui_name = "Global Material Override",
+		ui_type = "text_box_array",
+		validator = "contentpathsallowed",
+	},
 }
 
 return MinionCustomization

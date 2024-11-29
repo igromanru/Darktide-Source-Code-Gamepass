@@ -718,16 +718,16 @@ UIViewHandler._open = function (self, view_name, opening_duration, context, sett
 	end
 
 	local view_data = {
-		hide_while_fade_in = true,
-		allow_next_input = true,
 		allow_next_draw = true,
+		allow_next_input = true,
+		hide_while_fade_in = true,
 		name = view_name,
 		opening_time = t,
 		disable_game_world = view_settings.disable_game_world,
 		game_world_blur = view_settings.game_world_blur,
 		fade_in = view_settings.use_transition_ui,
 		use_transition_ui = view_settings.use_transition_ui,
-		parent_transition_view = view_settings.parent_transition_view
+		parent_transition_view = view_settings.parent_transition_view,
 	}
 
 	active_views_data[view_name] = view_data
@@ -771,7 +771,7 @@ UIViewHandler.register_view_world = function (self, view_name, world_name, layer
 
 	registered_view_worlds[view_name][world_name] = {
 		layer_offset = layer,
-		current_layer = layer
+		current_layer = layer,
 	}
 
 	local current_view_layer = self._curent_frame_view_layers[view_name]

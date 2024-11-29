@@ -7,56 +7,56 @@ local scenegraph_definition = {
 		scale = "fit",
 		size = {
 			1920,
-			1080
+			1080,
 		},
 		position = {
 			0,
 			0,
-			800
-		}
-	}
+			800,
+		},
+	},
 }
 local widget_definitions = {
 	top = UIWidget.create_definition({
 		{
-			style_id = "rect",
 			pass_type = "rect",
+			style_id = "rect",
 			style = {
 				size = {
 					nil,
-					100
+					100,
 				},
 				color = {
 					255,
 					0,
 					0,
-					0
-				}
-			}
-		}
+					0,
+				},
+			},
+		},
 	}, "screen"),
 	bottom = UIWidget.create_definition({
 		{
-			style_id = "rect",
 			pass_type = "rect",
+			style_id = "rect",
 			style = {
 				vertical_alignment = "bottom",
 				size = {
 					nil,
-					100
+					100,
 				},
 				color = {
 					255,
 					0,
 					0,
-					0
-				}
-			}
-		}
-	}, "screen")
+					0,
+				},
+			},
+		},
+	}, "screen"),
 }
 
 return {
 	widget_definitions = widget_definitions,
-	scenegraph_definition = scenegraph_definition
+	scenegraph_definition = scenegraph_definition,
 }

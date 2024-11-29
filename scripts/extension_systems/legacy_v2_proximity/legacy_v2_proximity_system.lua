@@ -17,7 +17,7 @@ local MINION_BREED_TYPE = breed_types.minion
 local PLAYER_BREED_TYPE = breed_types.player
 local CHARACTER_BREED_TYPES = {
 	MINION_BREED_TYPE,
-	PLAYER_BREED_TYPE
+	PLAYER_BREED_TYPE,
 }
 local PROXIMITY_FX_DISTANCE = 40
 local PROXIMITY_FX_DISTANCE_SQ = PROXIMITY_FX_DISTANCE^2
@@ -97,7 +97,7 @@ LegacyV2ProximitySystem.on_add_extension = function (self, world, unit, extensio
 				num = 0,
 				side_relation = "allied",
 				breed_types = PLAYER_BREED_TYPE,
-				distance = DialogueSettings.friends_close_distance
+				distance = DialogueSettings.friends_close_distance,
 			},
 			{
 				count_start = -1,
@@ -105,7 +105,7 @@ LegacyV2ProximitySystem.on_add_extension = function (self, world, unit, extensio
 				num = 0,
 				side_relation = "allied",
 				breed_types = PLAYER_BREED_TYPE,
-				distance = DialogueSettings.friends_distant_distance
+				distance = DialogueSettings.friends_distant_distance,
 			},
 			{
 				count_start = 0,
@@ -113,7 +113,7 @@ LegacyV2ProximitySystem.on_add_extension = function (self, world, unit, extensio
 				num = 0,
 				side_relation = "enemy",
 				breed_types = CHARACTER_BREED_TYPES,
-				distance = DialogueSettings.enemies_close_distance
+				distance = DialogueSettings.enemies_close_distance,
 			},
 			{
 				count_start = 0,
@@ -121,8 +121,8 @@ LegacyV2ProximitySystem.on_add_extension = function (self, world, unit, extensio
 				num = 0,
 				side_relation = "enemy",
 				breed_types = CHARACTER_BREED_TYPES,
-				distance = DialogueSettings.enemies_distant_distance
-			}
+				distance = DialogueSettings.enemies_distant_distance,
+			},
 		}
 		self._player_unit_extensions_map[unit] = extension
 		extension.raycast_timer = 0
@@ -198,7 +198,7 @@ LegacyV2ProximitySystem.add_distance_based_vo_query = function (self, source_uni
 	self._distance_based_vo_queries[next_element] = {
 		source = source_unit,
 		concept_name = concept_name,
-		query_data = query_data
+		query_data = query_data,
 	}
 end
 
@@ -279,7 +279,7 @@ LegacyV2ProximitySystem.physics_async_update = function (self, context, dt, t)
 					timer = 0.5,
 					unit = unit,
 					proximity_type = proximity_type,
-					event_data = event_data
+					event_data = event_data,
 				}
 			end
 		end

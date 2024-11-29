@@ -103,7 +103,7 @@ HudElementNameplates._nameplate_extension_scan = function (self)
 
 				if not nameplate_units[unit] then
 					nameplate_units[unit] = {
-						synced = true
+						synced = true,
 					}
 
 					do

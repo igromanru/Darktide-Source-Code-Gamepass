@@ -8,7 +8,7 @@ local Navigation = require("scripts/extension_systems/navigation/utilities/navig
 local NavigationCostSettings = require("scripts/settings/navigation/navigation_cost_settings")
 local NavMeshManager = class("NavMeshManager")
 local CLIENT_RPCS = {
-	"rpc_set_allowed_nav_tag_layer"
+	"rpc_set_allowed_nav_tag_layer",
 }
 local NAV_COST_MAP_MAX_VOLUMES = 1024
 local NAV_COST_MAP_NUM_VOLUMES_GUESS = 16
@@ -29,10 +29,10 @@ NavMeshManager.init = function (self, world, nav_world, is_server, network_event
 	self._nav_tag_layer_lookup = self:_setup_nav_tag_layer_lookup(nav_tag_volume_layers)
 	self._nav_tag_allowed_layers = table.set(self._nav_tag_layer_lookup)
 	self._nav_cost_map_volume_id_data = {
-		size = 0,
 		current_id = 1,
+		size = 0,
 		ids = Script.new_array(NAV_COST_MAP_MAX_VOLUMES),
-		max_size = NAV_COST_MAP_MAX_VOLUMES
+		max_size = NAV_COST_MAP_MAX_VOLUMES,
 	}
 
 	self:_create_nav_cost_maps()
@@ -121,7 +121,7 @@ NavMeshManager.add_nav_tag_volume = function (self, bottom_points, altitude_min,
 		name = layer_name,
 		type = optional_type,
 		bottom_points = Navigation.vector3s_to_arrays(bottom_points),
-		nav_tag_volume = Navigation.create_nav_tag_volume(self._nav_world, bottom_points, altitude_min, altitude_max, layer_id, Color.orange())
+		nav_tag_volume = Navigation.create_nav_tag_volume(self._nav_world, bottom_points, altitude_min, altitude_max, layer_id, Color.orange()),
 	}
 
 	if not self._is_server then
@@ -270,7 +270,7 @@ NavMeshManager._create_nav_cost_maps = function (self)
 		nav_cost_maps_data[i] = {
 			recompute = false,
 			cost_map = GwNavVolumeCostMap.create(nav_world, i),
-			volumes = Script.new_map(NAV_COST_MAP_NUM_VOLUMES_GUESS)
+			volumes = Script.new_map(NAV_COST_MAP_NUM_VOLUMES_GUESS),
 		}
 	end
 

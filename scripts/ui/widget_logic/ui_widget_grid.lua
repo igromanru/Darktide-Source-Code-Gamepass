@@ -3,10 +3,10 @@
 local UIScenegraph = require("scripts/managers/ui/ui_scenegraph")
 local UIAnimation = require("scripts/managers/ui/ui_animation")
 local DIRECTION = {
+	DOWN = "down",
+	LEFT = "left",
 	RIGHT = "right",
 	UP = "up",
-	LEFT = "left",
-	DOWN = "down"
 }
 local UIWidgetGrid = class("UIWidgetGrid")
 
@@ -15,7 +15,7 @@ UIWidgetGrid.init = function (self, widgets, alignment_list, scenegraph, area_sc
 	self._scenegraph = scenegraph
 	self._spacing = spacing or {
 		0,
-		0
+		0,
 	}
 	self._bottom_chin = bottom_chin or 0
 	self._top_padding = top_padding or 0
@@ -59,7 +59,7 @@ UIWidgetGrid._get_area_size = function (self)
 
 		self._area_size = {
 			size[1],
-			size[2] - self._bottom_chin - self._top_padding
+			size[2] - self._bottom_chin - self._top_padding,
 		}
 
 		return size
@@ -509,7 +509,7 @@ UIWidgetGrid._align_grid_widgets = function (self, alignment_list)
 	local scenegraph = self._scenegraph
 	local position = {
 		0,
-		0
+		0,
 	}
 
 	position[axis] = start_offset
@@ -613,7 +613,7 @@ UIWidgetGrid._align_grid_widgets = function (self, alignment_list)
 		local offset = widget.offset
 		local alignment_offset = not alignment_same_as_widget and alignment.offset or {
 			0,
-			0
+			0,
 		}
 		local horizontal_alignment = alignment.horizontal_alignment or "left"
 		local vertical_alignment = alignment.vertical_alignment or "top"
