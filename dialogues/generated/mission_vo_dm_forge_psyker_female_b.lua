@@ -1,0 +1,331 @@
+﻿-- chunkname: @dialogues/generated/mission_vo_dm_forge_psyker_female_b.lua
+
+local mission_vo_dm_forge_psyker_female_b = {
+	event_demolition_first_corruptor_destroyed_a_enginseer = {
+		randomize_indexes_n = 0,
+		sound_events_n = 4,
+		sound_events = {
+			"loc_psyker_female_b__event_demolition_first_corruptor_destroyed_a_01",
+			"loc_psyker_female_b__event_demolition_first_corruptor_destroyed_a_02",
+			"loc_psyker_female_b__event_demolition_first_corruptor_destroyed_a_03",
+			"loc_psyker_female_b__event_demolition_first_corruptor_destroyed_a_04"
+		},
+		sound_events_duration = {
+			2.007688,
+			1.978375,
+			2.148792,
+			2.759542
+		},
+		sound_event_weights = {
+			0.25,
+			0.25,
+			0.25,
+			0.25
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_alive = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_alive_01",
+			[2] = "loc_psyker_female_b__mission_forge_alive_02"
+		},
+		sound_events_duration = {
+			[1] = 2.431813,
+			[2] = 3.167313
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_one_a = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_one_a_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_one_a_02"
+		},
+		sound_events_duration = {
+			[1] = 3.503042,
+			[2] = 3.878542
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_one_c = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_one_c_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_one_c_02"
+		},
+		sound_events_duration = {
+			[1] = 2.852042,
+			[2] = 5.589208
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_three_a = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_three_a_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_three_a_02"
+		},
+		sound_events_duration = {
+			[1] = 5.208813,
+			[2] = 3.307688
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_three_c = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_three_c_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_three_c_02"
+		},
+		sound_events_duration = {
+			[1] = 3.673438,
+			[2] = 2.702396
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_two_a = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_two_a_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_two_a_02"
+		},
+		sound_events_duration = {
+			[1] = 3.128229,
+			[2] = 3.406792
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_elevator_conversation_two_c = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_elevator_conversation_two_c_01",
+			[2] = "loc_psyker_female_b__mission_forge_elevator_conversation_two_c_02"
+		},
+		sound_events_duration = {
+			[1] = 3.019375,
+			[2] = 3.630563
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_find_smelter = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_find_smelter_01",
+			[2] = "loc_psyker_female_b__mission_forge_find_smelter_02"
+		},
+		sound_events_duration = {
+			[1] = 2.428854,
+			[2] = 3.356958
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_first_objective_response = {
+		randomize_indexes_n = 0,
+		sound_events_n = 10,
+		sound_events = {
+			"loc_psyker_female_b__guidance_starting_area_01",
+			"loc_psyker_female_b__guidance_starting_area_02",
+			"loc_psyker_female_b__guidance_starting_area_03",
+			"loc_psyker_female_b__guidance_starting_area_04",
+			"loc_psyker_female_b__guidance_starting_area_05",
+			"loc_psyker_female_b__guidance_starting_area_06",
+			"loc_psyker_female_b__guidance_starting_area_07",
+			"loc_psyker_female_b__guidance_starting_area_08",
+			"loc_psyker_female_b__guidance_starting_area_09",
+			"loc_psyker_female_b__guidance_starting_area_10"
+		},
+		sound_events_duration = {
+			1.542875,
+			1.689292,
+			2.206854,
+			1.794875,
+			1.488542,
+			2.45075,
+			2.846729,
+			2.258458,
+			2.091063,
+			3.238646
+		},
+		sound_event_weights = {
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1,
+			0.1
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_hellhole = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_hellhole_01",
+			[2] = "loc_psyker_female_b__mission_forge_hellhole_02"
+		},
+		sound_events_duration = {
+			[1] = 2.743917,
+			[2] = 2.785083
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_lifeless = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_lifeless_01",
+			[2] = "loc_psyker_female_b__mission_forge_lifeless_02"
+		},
+		sound_events_duration = {
+			[1] = 3.065042,
+			[2] = 6.550333
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_main_entrance = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_main_entrance_01",
+			[2] = "loc_psyker_female_b__mission_forge_main_entrance_02"
+		},
+		sound_events_duration = {
+			[1] = 2.109167,
+			[2] = 3.693333
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_main_entrance_response = {
+		randomize_indexes_n = 0,
+		sound_events_n = 3,
+		sound_events = {
+			"loc_psyker_female_b__region_mechanicus_01",
+			"loc_psyker_female_b__region_mechanicus_02",
+			"loc_psyker_female_b__region_mechanicus_03"
+		},
+		sound_events_duration = {
+			4.504458,
+			4.204896,
+			3.779688
+		},
+		sound_event_weights = {
+			0.3333333,
+			0.3333333,
+			0.3333333
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_propaganda = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_propaganda_01",
+			[2] = "loc_psyker_female_b__mission_forge_propaganda_02"
+		},
+		sound_events_duration = {
+			[1] = 4.4785,
+			[2] = 4.509667
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_stand_ground = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_stand_ground_01",
+			[2] = "loc_psyker_female_b__mission_forge_stand_ground_02"
+		},
+		sound_events_duration = {
+			[1] = 2.738021,
+			[2] = 2.800604
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_start_banter_a = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_start_banter_a_01",
+			[2] = "loc_psyker_female_b__mission_forge_start_banter_a_02"
+		},
+		sound_events_duration = {
+			[1] = 2.686125,
+			[2] = 3.844833
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_start_banter_c = {
+		randomize_indexes_n = 0,
+		sound_events_n = 3,
+		sound_events = {
+			"loc_psyker_female_b__zone_tank_foundry_01",
+			"loc_psyker_female_b__zone_tank_foundry_02",
+			"loc_psyker_female_b__zone_tank_foundry_03"
+		},
+		sound_events_duration = {
+			4.331771,
+			6.430479,
+			6.192729
+		},
+		sound_event_weights = {
+			0.3333333,
+			0.3333333,
+			0.3333333
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_strategic_asset = {
+		randomize_indexes_n = 0,
+		sound_events_n = 2,
+		sound_events = {
+			[1] = "loc_psyker_female_b__mission_forge_strategic_asset_01",
+			[2] = "loc_psyker_female_b__mission_forge_strategic_asset_02"
+		},
+		sound_events_duration = {
+			[1] = 3.795271,
+			[2] = 4.105333
+		},
+		randomize_indexes = {}
+	},
+	mission_forge_tutorial_corruptor = {
+		randomize_indexes_n = 0,
+		sound_events_n = 5,
+		sound_events = {
+			"loc_psyker_female_b__asset_nurgle_growth_01",
+			"loc_psyker_female_b__asset_nurgle_growth_02",
+			"loc_psyker_female_b__asset_nurgle_growth_03",
+			"loc_psyker_female_b__asset_nurgle_growth_04",
+			"loc_psyker_female_b__asset_nurgle_growth_05"
+		},
+		sound_events_duration = {
+			2.494792,
+			3.133521,
+			2.857104,
+			3.85175,
+			5.197333
+		},
+		sound_event_weights = {
+			0.2,
+			0.2,
+			0.2,
+			0.2,
+			0.2
+		},
+		randomize_indexes = {}
+	}
+}
+
+return settings("mission_vo_dm_forge_psyker_female_b", mission_vo_dm_forge_psyker_female_b)

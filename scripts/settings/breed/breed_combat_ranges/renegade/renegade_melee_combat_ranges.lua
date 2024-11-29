@@ -1,0 +1,44 @@
+﻿-- chunkname: @scripts/settings/breed/breed_combat_ranges/renegade/renegade_melee_combat_ranges.lua
+
+local combat_ranges = {
+	name = "renegade_melee",
+	starting_combat_range = "far",
+	config = {
+		far = {
+			{
+				distance = 30,
+				sticky_time = 0,
+				activate_slot_system = true,
+				distance_operator = "lesser",
+				switch_combat_range = "close"
+			}
+		},
+		close = {
+			{
+				distance = 10,
+				sticky_time = 4,
+				activate_slot_system = true,
+				distance_operator = "lesser",
+				switch_combat_range = "melee"
+			},
+			{
+				distance = 32,
+				sticky_time = 0,
+				activate_slot_system = true,
+				distance_operator = "greater",
+				switch_combat_range = "far"
+			}
+		},
+		melee = {
+			{
+				distance = 10,
+				sticky_time = 0,
+				activate_slot_system = true,
+				distance_operator = "greater",
+				switch_combat_range = "close"
+			}
+		}
+	}
+}
+
+return combat_ranges
